@@ -1,0 +1,27 @@
+package Kit.TempView;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
+import javafx.fxml.FXML;
+
+public class TempViewController {
+
+    @FXML private JFXButton JBT_enCode;
+    @FXML private JFXButton JBT_deCode;
+    @FXML private JFXTextArea JTA_src;
+    @FXML private JFXTextArea JTA_dst;
+    @FXML private JFXComboBox JCB_charset;
+    @FXML private JFXComboBox JCB_split;
+
+    @FXML
+    public void ONClick_JBT_enCode(){
+        JTA_dst.setText(JTA_src.getText());
+    }
+
+    @FXML
+    public void ONClick_JBT_deCode(){
+
+    }
+
+}
