@@ -14,7 +14,7 @@
 
 # 程序文件说明
 ```
-BerylEnigma
+CryptoMicroscope
 ├── pom.xml
 ├── src
 │   └── main
@@ -65,6 +65,7 @@ BerylEnigma
 存放所有的视图文件与视图控制器
 
 - 按照主页面树状图的文件结构创建包
+- 视图与视图控制器放置于同一个包内
   - 视图文件命名规则为`[页面名]+[View]`
   - 视图控制器文件命名规则为`[页面名]+"View"+"Controller"`
 - Root 包是主页面框架的View与实现
@@ -83,6 +84,13 @@ BerylEnigma
   - 右边距 = 10
 
 其他的可以自由发挥或者使用模板(推荐)。
+
+## 使用Temp模板注意事项
+1. 注意修改视图控制器"fx:controller="Kit.TempView.TempViewController""为你所设置的视图控制器，可以在文本模式修改也可以在 ScenceBulider 中的 Document > Controller 中修改。
+2. 注意控件的绑定是否正确。
+3. ScenceBulider 有一些bug,部分项目只能在文本模式修改，以下列出常用的一些会导致 ScenceBulider 卡死的修改项。
+- Properties > Style
+  - 可以在FXML视图中手动修改 例:style="-fx-background-color: #ffffff;"
 
 ## 新增功能页面流程
 1. 在Controller包中按照位置放置具体的方法实现类。
