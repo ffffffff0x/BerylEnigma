@@ -17,7 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        primaryStage.setTitle("CryptoMicroscope");
+        primaryStage.setTitle("BerylEnigma");
         initRootLayout();
     }
 
