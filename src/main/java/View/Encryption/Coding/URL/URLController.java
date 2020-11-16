@@ -2,7 +2,6 @@ package View.Encryption.Coding.URL;
 
 import Controller.Encryption.Coding.URL.CodingURL;
 import Init.ViewInit;
-import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;

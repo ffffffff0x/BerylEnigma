@@ -53,4 +53,15 @@ public class ViewUtils {
         fileChooser.setInitialDirectory(fsv.getHomeDirectory());
         return fileChooser.showOpenDialog(primaryStage);
     } //获取文件类
+
+    public static File saveTextFile(){
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+        Stage stage = new Stage();
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        fileChooser.setInitialDirectory(fsv.getHomeDirectory());
+        fileChooser.setInitialFileName("Result");
+        return fileChooser.showSaveDialog(stage);
+    }//保存文件选择器
 }

@@ -11,7 +11,10 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;
 
+import java.awt.*;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 public class Base64ViewController {
@@ -34,7 +37,9 @@ public class Base64ViewController {
         try {
             if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("Text"))){
                 JTA_dst.setText(CodingBase64.enCode(JTA_src.getText(),JCB_charset.getValue().toString()));
-            }else{
+            }else if(file.length > 2048){
+                FlieUtils.outPutFile(CodingBase64.enCode(file,JCB_charset.getValue().toString()),JCB_charset.getValue().toString());
+            }else {
                 JTA_dst.setText(CodingBase64.enCode(file,JCB_charset.getValue().toString()));
             }
         } catch (UnsupportedEncodingException e) {
@@ -47,7 +52,9 @@ public class Base64ViewController {
         try {
             if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("Text"))) {
                 JTA_dst.setText(CodingBase64.deCode(JTA_src.getText(), JCB_charset.getValue().toString()));
-            }else{
+            }else if(file.length > 2048){
+                FlieUtils.outPutFile(CodingBase64.deCode(file,JCB_charset.getValue().toString()),JCB_charset.getValue().toString());
+            } else{
                 JTA_dst.setText(CodingBase64.deCode(file, JCB_charset.getValue().toString()));
             }
         } catch (UnsupportedEncodingException e) {
@@ -71,7 +78,6 @@ public class Base64ViewController {
                 JTA_src.setText("");
                 JTA_src.setEditable(true);
             }
-
         }else {
             JTB_modeCheck.setText(Init.languageResourceBundle.getString("Text"));
             JTA_src.setText("");
