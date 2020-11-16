@@ -60,7 +60,7 @@ public class RootTreeNode {
         // ItemAdd(Classical,"Vigenere");
 
         //Coding
-        // ItemAdd(Coding,"URL");
+        ItemAdd(Coding,"URL","/View/Encryption/Coding/URL/URLView.fxml");
         ItemAdd(Coding,"Base64","/View/Encryption/Coding/Base64/Base64View.fxml");
         ItemAdd(Coding,"ASCII","/View/Encryption/Coding/ASCII/ASCIIView.fxml");
         ItemAdd(Coding,"HEX","/View/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
