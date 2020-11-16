@@ -4,6 +4,8 @@ import Kit.Utils.FlieUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -47,13 +49,8 @@ public class ViewInit {
         JCB_temp.setVisibleRowCount(6);
     }//combobox添加分隔符选项
 
-    public static void comboBoxInputCheck(JFXComboBox JCB_temp){
-        JCB_temp.getItems().addAll(
-                Init.languageResourceBundle.getString("Text"),
-                new JFXButton(Init.languageResourceBundle.getString("File"))
-        );
-        JCB_temp.setValue(Init.languageResourceBundle.getString("Text"));
-        JCB_temp.setVisibleRowCount(6);
-    }//combobox添加输入切换选项
+    public static void textAreaErrorInfo(JFXTextArea JTA_temp){
+        JTA_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
+    }//textarea添加报错信息
 
 }

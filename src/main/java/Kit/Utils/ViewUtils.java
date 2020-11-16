@@ -10,21 +10,6 @@ import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 
 public class ViewUtils {
-    public static byte[] comboBoxInputCheck(JFXComboBox JCB_temp, String modeCheck, JFXTextArea JTA_temp){
-        if(modeCheck.equals(Init.languageResourceBundle.getString("File"))){
-            JTA_temp.setEditable(false);
-            File file = getFile();
-            JTA_temp.setText(file.toString());
-            return FlieUtils.getFile(file);
-        }else if(modeCheck.equals(Init.languageResourceBundle.getString("Text"))){
-            JTA_temp.setText("");
-            JTA_temp.setEditable(true);
-            return null;
-        }else {
-            System.out.println("No Check");
-            return null;
-        }
-    }//combobox输入切换事件
 
     public static String comboxSplitConvert(String splitString){
         switch (splitString){

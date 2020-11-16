@@ -6,6 +6,7 @@ import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
 import java.io.UnsupportedEncodingException;
@@ -16,12 +17,12 @@ public class HEXCoderController {
     @FXML private JFXTextArea JTA_src;
     @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_charset;
-    @FXML private JFXComboBox JCB_split;
+    @FXML private JFXTextField JTF_split;
 
     @FXML
     private void initialize() {
         ViewInit.comboBoxCharset(JCB_charset);
-        ViewInit.comboBoxSplit(JCB_split);
+        ViewInit.textAreaErrorInfo(JTA_dst);
     }
 
     @FXML
@@ -38,19 +39,24 @@ public class HEXCoderController {
         try {
             JTA_dst.setText(HEXCodeDeCode());
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            JTA_dst.validate();
         }
+    }
+
+    @FXML
+    public void ResetValidator(){
+        JTA_dst.resetValidation();
     }
 
     private String HEXCodeEnCode() throws UnsupportedEncodingException {
         return CodingHEXCoder.enCode(JTA_src.getText(),
-                ViewUtils.comboxSplitConvert(JCB_split.getValue().toString()),
+                JTF_split.getText(),
                 JCB_charset.getValue().toString());
     }
 
     private String HEXCodeDeCode() throws UnsupportedEncodingException {
         return CodingHEXCoder.deCode(JTA_src.getText(),
-                ViewUtils.comboxSplitConvert(JCB_split.getValue().toString()),
+                JTF_split.getText(),
                 JCB_charset.getValue().toString());
     }
 }

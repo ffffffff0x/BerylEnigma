@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -46,7 +47,7 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <JFXComboBox fx:id="JCB_modeCheck" layoutX="12.0" layoutY="14.0" onAction="#ONClick_JCB_modeCheck" prefHeight="23.0" prefWidth="70.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="5.0" />
+            <JFXToggleButton fx:id="JTB_modeCheck" layoutX="14.0" layoutY="-15.0" onAction="#ONClick_JCB_modeSelect" prefHeight="30.0" prefWidth="135.0" text="%Text" />
          </children>
       </AnchorPane>
    </children>

@@ -1,5 +1,6 @@
 package Kit.TempView;
 
+import Init.ViewInit;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -13,6 +14,10 @@ public class TempViewController {
     @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXComboBox JCB_split;
+
+    @FXML private void initialize(){
+
+    }
 
     @FXML
     public void ONClick_JBT_enCode(){

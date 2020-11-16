@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,7 +18,7 @@
       </Label>
       <AnchorPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
          <children>
-            <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" style="-fx-background-color: #e8e8e8;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
+            <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" promptText="%DefaultDelimiter" style="-fx-background-color: #e8e8e8;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -35,7 +35,7 @@
                         <Font size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXComboBox prefHeight="30.0" prefWidth="110.0" />
+                  <JFXTextField fx:id="JTF_split" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" promptText="%Delimiter" />
                   <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" style="-fx-background-color: #ffffff;" text="%DeCode">
                      <font>
                         <Font size="15.0" />
