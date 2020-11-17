@@ -3,6 +3,7 @@ package Kit.Utils;
 import javax.swing.text.View;
 import java.awt.*;
 import java.io.*;
+import java.nio.file.FileVisitOption;
 
 public class FlieUtils {
     public static byte[] getFile(File file){
@@ -33,6 +34,31 @@ public class FlieUtils {
                 Desktop.getDesktop().open(file);
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    public static void outPutFile(byte[] out){
+        File file = ViewUtils.saveTextFile();
+        if(file==null) {
+            return;
+        }else{
+            BufferedOutputStream bos = null;
+            FileOutputStream fos = null;
+            try {
+                fos = new FileOutputStream(file);
+                bos = new BufferedOutputStream(fos);
+                bos.write(out);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (bos != null) {
+                    try {
+                        bos.close();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                }
             }
         }
     }
