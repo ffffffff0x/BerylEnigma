@@ -17,6 +17,8 @@
   - ASCII
   - Base64
   - HEX
+  - HTML实体编码
+  - Unicode
 
 ---
 
