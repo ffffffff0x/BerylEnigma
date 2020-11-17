@@ -9,7 +9,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Locale;
 
 public class MockView extends Application {
     private Stage primaryStage;
@@ -20,7 +19,7 @@ public class MockView extends Application {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("CryptionToolFX");
         // initRootLayout("/Kit/TempView/TempView_00.fxml");
-        initRootLayout("/View/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
+        initRootLayout("/View/Encryption/Coding/Unicode/UnicodeView.fxml");
         // initRootLayout("/View/Root/RootView.fxml");
     }
 

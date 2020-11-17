@@ -14,21 +14,21 @@ public class RootTreeNode {
     public Map<TreeItem<String>,String> nodeMap = new HashMap<>();
 
     public RootTreeNode(){
-        final TreeItem<String> Tools = new TreeItem<>(Init.languageResourceBundle.getString("Tools"),folderIcon("open"));
-            final TreeItem<String> TextModify = new TreeItem<>(Init.languageResourceBundle.getString("TextModify"),folderIcon("open"));
-        final TreeItem<String> Encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
-            final TreeItem<String> Modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
-                final TreeItem<String> Authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
-            final TreeItem<String> Classical = new TreeItem<>(Init.languageResourceBundle.getString("Classical"),folderIcon("open"));
-            final TreeItem<String> Coding = new TreeItem<>(Init.languageResourceBundle.getString("Coding"),folderIcon("open"));
+        final TreeItem<String> tools = new TreeItem<>(Init.languageResourceBundle.getString("Tools"),folderIcon("open"));
+            final TreeItem<String> textModify = new TreeItem<>(Init.languageResourceBundle.getString("TextModify"),folderIcon("open"));
+        final TreeItem<String> encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
+            final TreeItem<String> modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
+                final TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
+            final TreeItem<String> classical = new TreeItem<>(Init.languageResourceBundle.getString("Classical"),folderIcon("open"));
+            final TreeItem<String> coding = new TreeItem<>(Init.languageResourceBundle.getString("Coding"),folderIcon("open"));
 
         //rootitem
         rootItem.setExpanded(true);
-        rootItem.getChildren().add(Tools);
-        rootItem.getChildren().add(Encryption);
+        rootItem.getChildren().add(tools);
+        rootItem.getChildren().add(encryption);
 
         //Tools
-        Tools.getChildren().add(TextModify);
+        tools.getChildren().add(textModify);
 
         //TextModify
         // ItemAdd(TextModify,"CaseConvert");
@@ -36,13 +36,13 @@ public class RootTreeNode {
         // ItemAdd(TextModify,"TextSeparate");
 
         //Encryption
-        Encryption.setExpanded(true);
-        Encryption.getChildren().add(Modern);
-        Encryption.getChildren().add(Classical);
-        Encryption.getChildren().add(Coding);
+        encryption.setExpanded(true);
+        encryption.getChildren().add(modern);
+        encryption.getChildren().add(classical);
+        encryption.getChildren().add(coding);
 
         //Modern
-        Modern.getChildren().add(Authentication);
+        modern.getChildren().add(authentication);
         // ItemAdd(Modern,"AES");
         // ItemAdd(Modern,"DES");
         // ItemAdd(Modern,"HASH");
@@ -60,15 +60,14 @@ public class RootTreeNode {
         // ItemAdd(Classical,"Vigenere");
 
         //Coding
-        ItemAdd(Coding,"URL","/View/Encryption/Coding/URL/URLView.fxml");
-        ItemAdd(Coding,"Base64","/View/Encryption/Coding/Base64/Base64View.fxml");
-        ItemAdd(Coding,"ASCII","/View/Encryption/Coding/ASCII/ASCIIView.fxml");
-        ItemAdd(Coding,"HEX","/View/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
-        // ItemAdd(Coding,"Unicode");
+        ItemAdd(coding,"ASCII","/View/Encryption/Coding/ASCII/ASCIIView.fxml");
+        ItemAdd(coding,"URL","/View/Encryption/Coding/URL/URLView.fxml");
+        ItemAdd(coding,"Base64","/View/Encryption/Coding/Base64/Base64View.fxml");
+        ItemAdd(coding,"HEX","/View/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
+        ItemAdd(coding,"Unicode","/View/Encryption/Coding/Unicode/UnicodeView.fxml");
         // ItemAdd(Coding,"Morse_Code");
         // ItemAdd(Coding,"HTML_Character_Entity");
         // ItemAdd(Coding,"Base_Conversion");
-        // ItemAdd(Coding,"Base_Conversion_Split");
     }
 
     private void ItemAdd(TreeItem<String> treeItem,String itemName){

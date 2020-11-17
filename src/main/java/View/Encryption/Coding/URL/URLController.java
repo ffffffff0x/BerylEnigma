@@ -9,6 +9,9 @@ import javafx.fxml.FXML;
 
 import java.io.UnsupportedEncodingException;
 
+/**
+ * @author RyuZU
+ */
 public class URLController {
     @FXML private JFXButton JBT_enCode;
     @FXML private JFXButton JBT_deCode;

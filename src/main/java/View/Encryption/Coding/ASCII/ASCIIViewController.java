@@ -7,6 +7,9 @@ import com.jfoenix.controls.*;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.fxml.FXML;
 
+/**
+ * @author RyuZU
+ */
 public class ASCIIViewController {
     @FXML private JFXButton JBT_enCode;
     @FXML private JFXButton JBT_deCode;

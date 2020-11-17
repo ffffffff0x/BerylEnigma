@@ -13,8 +13,6 @@ public class FlieUtils {
             fileInputStream = new FileInputStream(file);
             result = new byte[fileInputStream.available()];
             fileInputStream.read(result);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,9 +38,7 @@ public class FlieUtils {
 
     public static void outPutFile(byte[] out){
         File file = ViewUtils.saveTextFile();
-        if(file==null) {
-            return;
-        }else{
+        if(file!=null) {
             BufferedOutputStream bos = null;
             FileOutputStream fos = null;
             try {

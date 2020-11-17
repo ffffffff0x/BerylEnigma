@@ -14,6 +14,9 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * @author RyuZU
+ */
 public class Base64ViewController {
     byte[] file = null;
 
