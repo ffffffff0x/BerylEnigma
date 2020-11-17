@@ -2,9 +2,7 @@ package View.Encryption.Coding.ASCII;
 
 import Controller.Encryption.Coding.ASCII.CodingASCII;
 import Init.ViewInit;
-import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.*;
-import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.fxml.FXML;
 
 /**
@@ -41,7 +39,7 @@ public class ASCIIViewController {
     }
 
     private String ASCIIEnCode(){
-        return CodingASCII.enCode(
+        return CodingASCII.encode(
                 JTA_src.getText(),
                 JTF_split.getText(),0);
     }

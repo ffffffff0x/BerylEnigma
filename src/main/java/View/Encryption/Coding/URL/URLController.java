@@ -27,7 +27,7 @@ public class URLController {
     @FXML
     public void ONClick_JBT_enCode(){
         try {
-            JTA_dst.setText(CodingURL.enCode(JTA_src.getText(),JCB_charset.getValue().toString()));
+            JTA_dst.setText(CodingURL.encode(JTA_src.getText(),JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -37,7 +37,7 @@ public class URLController {
     @FXML
     public void ONClick_JBT_deCode(){
         try {
-            JTA_dst.setText(CodingURL.deCode(JTA_src.getText(),JCB_charset.getValue().toString()));
+            JTA_dst.setText(CodingURL.decode(JTA_src.getText(),JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();

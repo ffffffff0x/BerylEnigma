@@ -8,10 +8,7 @@ import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 
-import java.awt.*;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -38,9 +35,9 @@ public class Base64ViewController {
         try {
             if(!JCHB_isBase64URL.isSelected()){
                 if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(CodingBase64.enCodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    JTA_dst.setText(CodingBase64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(CodingBase64.enCode(file));
+                    FlieUtils.outPutFile(CodingBase64.encode(file));
                     FileEncodeend();
                 }
             }else{
@@ -61,9 +58,9 @@ public class Base64ViewController {
         try {
             if(!JCHB_isBase64URL.isSelected()){
                 if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(CodingBase64.deCodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    JTA_dst.setText(CodingBase64.decodetostring(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(CodingBase64.deCode(file));
+                    FlieUtils.outPutFile(CodingBase64.decode(file));
                     FileEncodeend();
                 }
             }else{

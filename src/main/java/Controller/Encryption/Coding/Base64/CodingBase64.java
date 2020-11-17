@@ -7,24 +7,24 @@ import java.io.UnsupportedEncodingException;
  */
 public class CodingBase64 {
 
-    public static String enCodeToString(String in, String charset) throws UnsupportedEncodingException {
+    public static String encodeToString(String in, String charset) throws UnsupportedEncodingException {
         //将用户输入字符转换成byte
         byte[] bytes = in.getBytes(charset);
         return java.util.Base64.getEncoder().encodeToString(bytes);
     }
 
-    public static String deCodeToString(String in, String charset) throws UnsupportedEncodingException {
+    public static String decodetostring(String in, String charset) throws UnsupportedEncodingException {
         //获取用户输入字符通过base64加密，输出byte数组型值
         byte[] bs64 = java.util.Base64.getDecoder().decode(in);
         //将byte数组转换成String输出
         return new String(bs64, charset);
     }
 
-    public static byte[] enCode(byte[] in) {
+    public static byte[] encode(byte[] in) {
         return java.util.Base64.getEncoder().encode(in);
     }
 
-    public static byte[] deCode(byte[] in){
+    public static byte[] decode(byte[] in){
         return java.util.Base64.getDecoder().decode(in);
     }
 

@@ -7,7 +7,7 @@ public class CodingUnicode {
      * @param string
      * @return
      */
-    public static String enCode(String string) {
+    public static String encode(String string) {
         StringBuilder unico = new StringBuilder();
         for (int i = 0; i < string.length(); i++) {
             // 取出每一个字符
@@ -28,7 +28,7 @@ public class CodingUnicode {
      * @param unicode
      * @return
      */
-    public static String deCode(String unicode) {
+    public static String decode(String unicode) {
         StringBuilder str = new StringBuilder();
         String[] hex = unicode.split("\\\\u");
         for (int i = 1; i < hex.length; i++) {

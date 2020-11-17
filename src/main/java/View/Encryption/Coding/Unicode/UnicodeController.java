@@ -21,11 +21,11 @@ public class UnicodeController {
 
     @FXML
     public void ONClick_JBT_enCode(){
-        JTA_dst.setText(CodingUnicode.enCode(JTA_src.getText()));
+        JTA_dst.setText(CodingUnicode.encode(JTA_src.getText()));
     }
 
     @FXML
     public void ONClick_JBT_deCode(){
-        JTA_dst.setText(CodingUnicode.deCode(JTA_src.getText()));
+        JTA_dst.setText(CodingUnicode.decode(JTA_src.getText()));
     }
 }

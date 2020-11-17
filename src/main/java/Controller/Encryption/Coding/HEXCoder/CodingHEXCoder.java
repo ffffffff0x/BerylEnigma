@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Objects;
 
 public class CodingHEXCoder {
-    public static String enCode(String message, String split, String charset) throws UnsupportedEncodingException {
+    public static String encode(String message, String split, String charset) throws UnsupportedEncodingException {
         //接收转换结果
         String hexString;
         //java特殊转义字符
@@ -54,7 +54,7 @@ public class CodingHEXCoder {
         return hexString;
     }
 
-    public static String deCode(String message, String split, String charset) throws UnsupportedEncodingException {
+    public static String decode(String message, String split, String charset) throws UnsupportedEncodingException {
         //接收结果
         String result;
         //转换大写

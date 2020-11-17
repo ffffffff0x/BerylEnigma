@@ -31,9 +31,9 @@ public class RootTreeNode {
         tools.getChildren().add(textModify);
 
         //TextModify
-        // ItemAdd(TextModify,"CaseConvert");
-        // ItemAdd(TextModify,"TextReplace");
-        // ItemAdd(TextModify,"TextSeparate");
+        // ItemAdd(textModify,"CaseConvert");
+        // ItemAdd(textModify,"TextReplace");
+        // ItemAdd(textModify,"TextSeparate");
 
         //Encryption
         encryption.setExpanded(true);
@@ -43,21 +43,21 @@ public class RootTreeNode {
 
         //Modern
         modern.getChildren().add(authentication);
-        // ItemAdd(Modern,"AES");
-        // ItemAdd(Modern,"DES");
-        // ItemAdd(Modern,"HASH");
-        // ItemAdd(Modern,"SM3");
-        // ItemAdd(Modern,"SM4");
+        // ItemAdd(modern,"AES");
+        // ItemAdd(modern,"DES");
+        // ItemAdd(modern,"HASH");
+        // ItemAdd(modern,"SM3");
+        // ItemAdd(modern,"SM4");
 
         //Authentication
-        // ItemAdd(Authentication,"NTLM_Hash");
-        // ItemAdd(Authentication,"JWT");
+        // ItemAdd(authentication,"NTLM_Hash");
+        // ItemAdd(authentication,"JWT");
 
         //Classical
-        // ItemAdd(Classical,"ROT13");
-        // ItemAdd(Classical,"Rail_fence");
-        // ItemAdd(Classical,"Atbash");
-        // ItemAdd(Classical,"Vigenere");
+        // ItemAdd(classical,"ROT13");
+        // ItemAdd(classical,"Rail_fence");
+        // ItemAdd(classical,"Atbash");
+        // ItemAdd(classical,"Vigenere");
 
         //Coding
         ItemAdd(coding,"ASCII","/View/Encryption/Coding/ASCII/ASCIIView.fxml");
@@ -65,9 +65,9 @@ public class RootTreeNode {
         ItemAdd(coding,"Base64","/View/Encryption/Coding/Base64/Base64View.fxml");
         ItemAdd(coding,"HEX","/View/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
         ItemAdd(coding,"Unicode","/View/Encryption/Coding/Unicode/UnicodeView.fxml");
-        // ItemAdd(Coding,"Morse_Code");
-        // ItemAdd(Coding,"HTML_Character_Entity");
-        // ItemAdd(Coding,"Base_Conversion");
+        ItemAdd(coding,"HTMLCharacterEntity","/View/Encryption/Coding/HTMLCharEntity/HTMLCharEntityView.fxml");
+        // ItemAdd(coding,"Morse_Code");
+        // ItemAdd(coding,"Base_Conversion");
     }
 
     private void ItemAdd(TreeItem<String> treeItem,String itemName){

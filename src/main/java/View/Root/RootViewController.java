@@ -31,21 +31,21 @@ public class RootViewController {
         //如果选中节点是叶子节点才进行pane切换
         if ((RootTree.getSelectionModel().getSelectedItem()).isLeaf()) {
             if(!rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()).equals("")){
-                Thread checkView = new Thread(() -> {
-                    ////显示选择的页面
-                    FXMLLoader loader = new FXMLLoader();//FXML布局加载器
-                    loader.setLocation(RootViewController.class.getResource(rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem())));//根据路径加载布局
-                    loader.setResources(Init.languageResourceBundle);//加载语言配置文件
-                    AnchorPane ap = null;
-                    try {
-                        ap = loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    borderPane.setCenter(ap);
-                    RootTree.getSelectionModel().select(0);
-                });//启动一个新线程切换节点对应的pane
-                checkView.run();//线程运行
+                ////显示选择的页面
+                //FXML布局加载器
+                FXMLLoader loader = new FXMLLoader();
+                //根据路径加载布局
+                loader.setLocation(RootViewController.class.getResource(rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem())));
+                //加载语言配置文件
+                loader.setResources(Init.languageResourceBundle);
+                AnchorPane ap = null;
+                try {
+                    ap = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                borderPane.setCenter(ap);
+                RootTree.getSelectionModel().select(0);
             }
         }
     }

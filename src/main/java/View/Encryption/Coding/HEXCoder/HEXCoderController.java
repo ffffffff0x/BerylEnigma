@@ -2,7 +2,6 @@ package View.Encryption.Coding.HEXCoder;
 
 import Controller.Encryption.Coding.HEXCoder.CodingHEXCoder;
 import Init.ViewInit;
-import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -52,13 +51,13 @@ public class HEXCoderController {
     }
 
     private String HEXCodeEnCode() throws UnsupportedEncodingException {
-        return CodingHEXCoder.enCode(JTA_src.getText(),
+        return CodingHEXCoder.encode(JTA_src.getText(),
                 JTF_split.getText(),
                 JCB_charset.getValue().toString());
     }
 
     private String HEXCodeDeCode() throws UnsupportedEncodingException {
-        return CodingHEXCoder.deCode(JTA_src.getText(),
+        return CodingHEXCoder.decode(JTA_src.getText(),
                 JTF_split.getText(),
                 JCB_charset.getValue().toString());
     }

@@ -1,20 +1,22 @@
 package Controller.Encryption.Coding.ASCII;
 
 public class CodingASCII {
-    public static String enCode(String Source, String Split, int PMNumber)
+    public static String encode(String Source, String Split, int PMNumber)
     {
         if(Split.equals(""))
         {
             Split = " ";
         }
-
-        StringBuilder ASCIIL = new StringBuilder();//结果保存
-        StringBuilder ssvb = new StringBuilder();//输入值
+        //结果保存
+        StringBuilder ASCIIL = new StringBuilder();
+        //输入值
+        StringBuilder ssvb = new StringBuilder();
         String[] ss = Source.split("");
         for (String ik : ss) {
             ssvb.append(ik);
         }
-        char[] chars = ssvb.toString().toCharArray();//输入值保存为char数组
+        //输入值保存为char数组
+        char[] chars = ssvb.toString().toCharArray();
         for (int i = 0; i < chars.length; i++) {
             if(i != chars.length - 1)
             {
@@ -29,7 +31,8 @@ public class CodingASCII {
 
     public static String deCode(String a, String s)
     {
-        String out;//输出
+        //输出
+        String out;
         if(s.equals(""))
         {
             out = "解密请输入分隔符";
@@ -37,7 +40,8 @@ public class CodingASCII {
         else
         {
             StringBuilder sbu = new StringBuilder();
-            String[] chars = a.split(s);//输入值切片
+            //输入值切片
+            String[] chars = a.split(s);
             for (String aChar : chars) {
                 sbu.append((char) Integer.parseInt(aChar));
             }//ASCII转换
