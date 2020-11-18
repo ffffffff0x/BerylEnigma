@@ -54,7 +54,7 @@ public class RootTreeNode {
         // ItemAdd(authentication,"JWT");
 
         //Classical
-        // ItemAdd(classical,"ROT13");
+        ItemAdd(classical,"ROT13","/View/Encryption/Classical/ROT/ROTView.fxml");
         // ItemAdd(classical,"Rail_fence");
         // ItemAdd(classical,"Atbash");
         // ItemAdd(classical,"Vigenere");

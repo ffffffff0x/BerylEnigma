@@ -19,7 +19,7 @@ public class MockView extends Application {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("CryptionToolFX");
         // initRootLayout("/Kit/TempView/TempView_00.fxml");
-        initRootLayout("/View/Encryption/Coding/Unicode/UnicodeView.fxml");
+        initRootLayout("/View/Encryption/Modern/AES/AESView.fxml");
         // initRootLayout("/View/Root/RootView.fxml");
     }
 
