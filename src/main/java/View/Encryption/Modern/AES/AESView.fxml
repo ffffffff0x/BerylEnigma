@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -16,20 +17,7 @@
             <Font name="Jokerman" size="45.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="465.0" layoutY="80.0" prefHeight="510.0" prefWidth="165.0" style="-fx-background-color: #8d8d8d;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
-         <children>
-            <AnchorPane prefHeight="65.0" prefWidth="165.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <Label text="TEXT" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-               </children>
-            </AnchorPane>
-         </children></AnchorPane>
-      <AnchorPane layoutX="74.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
+      <AnchorPane layoutX="74.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
          <children>
             <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0" style="-fx-background-color: #e8e8e8;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
                <font>
@@ -41,11 +29,11 @@
                </font></JFXTextArea>
             <HBox alignment="CENTER" layoutX="40.0" layoutY="230.0" spacing="140.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" style="-fx-background-color: #ffffff;" text="%EnCode">
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" style="-fx-background-color: #ffffff;" text="%Encrypt">
                      <font>
                         <Font size="15.0" />
                      </font></JFXButton>
-                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" style="-fx-background-color: #ffffff;" text="%DeCode">
+                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" style="-fx-background-color: #ffffff;" text="%Decrypt">
                      <font>
                         <Font size="15.0" />
                      </font></JFXButton>
@@ -54,10 +42,77 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <JFXButton fx:id="JBT_option" layoutX="564.0" layoutY="4.0" prefHeight="35.0" prefWidth="35.0" ripplerFill="#4f4f4f" rotate="45.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets></JFXButton>
+            <JFXButton fx:id="JBT_option" contentDisplay="CENTER" layoutX="570.0" onAction="#ONClick_JBT_option" prefHeight="24.0" prefWidth="24.0" ripplerFill="#4f4f4f" rotate="45.0" />
          </children></AnchorPane>
+      <AnchorPane fx:id="AP_option" layoutX="455.0" layoutY="80.0" prefHeight="510.0" prefWidth="165.0" style="-fx-background-color: #eeeeee;">
+         <children>
+            <AnchorPane prefHeight="65.0" prefWidth="165.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Label text="加密模式" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="65.0" prefHeight="65.0" prefWidth="165.0">
+               <children>
+                  <Label text="填充方法" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="260.0" prefHeight="65.0" prefWidth="165.0">
+               <children>
+                  <Label text="输出格式" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="130.0" prefHeight="65.0" prefWidth="165.0">
+               <children>
+                  <Label text="密钥" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="195.0" prefHeight="65.0" prefWidth="165.0">
+               <children>
+                  <Label text="IV" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="325.0" prefHeight="65.0" prefWidth="165.0">
+               <children>
+                  <Label text="文本编码" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+            </AnchorPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <DropShadow color="#5c585859" height="15.0" radius="7.0" spread="0.5" width="15.0" />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>
