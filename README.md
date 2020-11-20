@@ -1,7 +1,7 @@
 
 **简介:** 一个CTF+渗透测试工具框架，主要实现功能在加解密和编码这块，在软件使用过程中发现问题或建议欢迎提交 issue.
 
-前身为CryptionTool，为更方便的开发更换框架重构。
+前身为[CryptionTool](https://github.com/ffffffff0x/CryptionTool)，为更方便的开发更换框架重构。
 
 软件基于JDK8U251开发，使用自带JAVAFX 框架以及JFoenixUI组件架构。详见开发文档。
 

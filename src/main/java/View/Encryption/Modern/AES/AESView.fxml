@@ -42,9 +42,9 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <JFXButton fx:id="JBT_option" contentDisplay="CENTER" layoutX="570.0" onAction="#ONClick_JBT_option" prefHeight="24.0" prefWidth="24.0" ripplerFill="#4f4f4f" rotate="45.0" />
+            <JFXButton fx:id="JBT_option" layoutX="570.0" onAction="#ONClick_JBT_option" prefHeight="24.0" prefWidth="24.0" ripplerFill="#4f4f4f" />
          </children></AnchorPane>
-      <AnchorPane fx:id="AP_option" layoutX="455.0" layoutY="80.0" prefHeight="510.0" prefWidth="165.0" style="-fx-background-color: #eeeeee;">
+      <AnchorPane fx:id="AP_option" layoutX="455.0" layoutY="80.0" prefHeight="510.0" prefWidth="165.0" style="-fx-background-color: #eeeeee;" visible="false">
          <children>
             <AnchorPane prefHeight="65.0" prefWidth="165.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
