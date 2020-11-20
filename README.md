@@ -14,6 +14,7 @@
 - 古典
   - ROT13
   - Atbash
+  - Vigenre
 - 编码
   - URL
   - ASCII
