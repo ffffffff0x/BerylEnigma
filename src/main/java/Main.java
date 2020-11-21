@@ -4,11 +4,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Locale;
 
 public class Main extends Application {
     private Stage primaryStage;
@@ -39,7 +37,7 @@ public class Main extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
-            scene.getStylesheets().add(Main.class.getResource("/css/TreeList.css").toExternalForm());
+            scene.getStylesheets().add(Main.class.getResource("/css/MainCSS.css").toExternalForm());
             primaryStage.setScene(scene);
             // primaryStage.setResizable(false);
             primaryStage.show();

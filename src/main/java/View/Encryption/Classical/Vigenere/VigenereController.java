@@ -12,15 +12,15 @@ public class VigenereController {
     @FXML private JFXButton JBT_deCode;
     @FXML private JFXTextArea JTA_src;
     @FXML private JFXTextArea JTA_dst;
-    @FXML private JFXTextArea JTA_dwt;
+    @FXML private JFXTextArea JTA_key;
 
     @FXML
     public void ONClick_JBT_enCode(){
-        JTA_dst.setText(ClassicalVigenere.encrypt(JTA_src.getText(),JTA_dwt.getText()));
+        JTA_dst.setText(ClassicalVigenere.encrypt(JTA_src.getText(),JTA_key.getText()));
     }
 
     @FXML
     public void ONClick_JBT_deCode(){
-        JTA_dst.setText(ClassicalVigenere.decrypt(JTA_src.getText(),JTA_dwt.getText()));
+        JTA_dst.setText(ClassicalVigenere.decrypt(JTA_src.getText(),JTA_key.getText()));
     }
 }

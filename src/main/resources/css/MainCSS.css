@@ -1,3 +1,4 @@
+/* ListTree */
 .tree-cell .tree-disclosure-node .arrow {
     -fx-scale-shape: false;
 
@@ -28,3 +29,31 @@
 .tree-cell:filled:selected:hover .tree-disclosure-node .arrow {
     -fx-border-color: #0096c9;
 }
+
+/* AnchorPane */
+#AP_option {
+    -fx-background-color: #eeeeee;
+}
+
+/* Textarea */
+.text-area {
+    -fx-prompt-text-fill: rgba(109, 109, 109, 0.62);
+}
+
+#JTA_dst,#JTA_src{
+    -fx-font-size: 16;
+    -fx-background-color: #e8e8e8;
+}
+
+/* Button */
+#JBT_deCode,#JBT_enCode {
+    -fx-font-size: 15;
+    -fx-background-color: #ffffff;
+}
+
+/* TextField */
+.text-field {
+    -fx-prompt-text-fill: rgba(109, 109, 109, 0.62);
+}
+
+/* Lable */

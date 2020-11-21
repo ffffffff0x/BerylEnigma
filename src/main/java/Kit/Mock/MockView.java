@@ -41,6 +41,7 @@ public class MockView extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
+            scene.getStylesheets().add(MockView.class.getResource("/css/MainCSS.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.show();

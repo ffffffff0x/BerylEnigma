@@ -19,24 +19,15 @@
       </Label>
       <AnchorPane layoutX="74.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
          <children>
-            <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0" style="-fx-background-color: #e8e8e8;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
-               <font>
-                  <Font size="16.0" />
-               </font></JFXTextArea>
-            <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="308.0" prefHeight="165.0" prefWidth="530.0" style="-fx-background-color: #e8e8e8;" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
-               <font>
-                  <Font size="16.0" />
-               </font></JFXTextArea>
+            <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0"
+                         AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0"/>
+            <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="308.0" prefHeight="165.0"
+                         prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0"
+                         AnchorPane.rightAnchor="40.0"/>
             <HBox alignment="CENTER" layoutX="40.0" layoutY="230.0" spacing="140.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" style="-fx-background-color: #ffffff;" text="%Encrypt">
-                     <font>
-                        <Font size="15.0" />
-                     </font></JFXButton>
-                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" style="-fx-background-color: #ffffff;" text="%Decrypt">
-                     <font>
-                        <Font size="15.0" />
-                     </font></JFXButton>
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" text="%Encrypt"/>
+                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" text="%Decrypt"/>
                </children>
                <opaqueInsets>
                   <Insets />
@@ -44,7 +35,7 @@
             </HBox>
             <JFXButton fx:id="JBT_option" layoutX="570.0" onAction="#ONClick_JBT_option" prefHeight="24.0" prefWidth="24.0" ripplerFill="#4f4f4f" />
          </children></AnchorPane>
-      <AnchorPane fx:id="AP_option" layoutX="455.0" layoutY="80.0" prefHeight="510.0" prefWidth="165.0" style="-fx-background-color: #eeeeee;" visible="false">
+      <AnchorPane fx:id="AP_option" layoutX="455.0" layoutY="80.0" prefHeight="510.0" prefWidth="165.0" visible="false">
          <children>
             <AnchorPane prefHeight="65.0" prefWidth="165.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>

@@ -9,8 +9,7 @@ import javafx.fxml.FXML;
  * @author RyuZU
  */
 public class UnicodeController {
-    @FXML
-    private JFXButton JBT_enCode;
+    @FXML private JFXButton JBT_enCode;
     @FXML private JFXButton JBT_deCode;
     @FXML private JFXTextArea JTA_src;
     @FXML private JFXTextArea JTA_dst;

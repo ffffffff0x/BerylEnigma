@@ -10,8 +10,6 @@ public class AtbashController {
 
     @FXML private JFXTextArea JTA_src;
     @FXML private JFXTextArea JTA_dst;
-    @FXML private JFXTextField JTF_S;
-    @FXML private JFXTextField JTF_A;
 
     @FXML
     public void AtbashTest() {
