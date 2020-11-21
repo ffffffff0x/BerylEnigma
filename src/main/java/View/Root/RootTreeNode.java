@@ -55,7 +55,7 @@ public class RootTreeNode {
 
         //Classical
         ItemAdd(classical,"ROT13","/View/Encryption/Classical/ROT/ROTView.fxml");
-        // ItemAdd(classical,"Rail_fence");
+        ItemAdd(classical,"RailFence","/View/Encryption/Classical/RailFence/RailFenceView.fxml");
         ItemAdd(classical,"Atbash","/View/Encryption/Classical/Atbash/AtbashView.fxml");
         ItemAdd(classical,"Vigenere","/View/Encryption/Classical/Vigenere/VigenereView.fxml");
 

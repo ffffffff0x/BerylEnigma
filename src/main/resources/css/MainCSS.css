@@ -1,7 +1,6 @@
 /* ListTree */
 .tree-cell .tree-disclosure-node .arrow {
     -fx-scale-shape: false;
-
     -fx-background-color: transparent;
     -fx-shape: "M 0 4 L 0 -4 L 5 0 z";
     -fx-border-color: grey;

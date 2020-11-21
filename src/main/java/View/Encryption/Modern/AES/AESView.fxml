@@ -19,15 +19,13 @@
       </Label>
       <AnchorPane layoutX="74.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
          <children>
-            <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0"
-                         AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0"/>
-            <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="308.0" prefHeight="165.0"
-                         prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0"
-                         AnchorPane.rightAnchor="40.0"/>
-            <HBox alignment="CENTER" layoutX="40.0" layoutY="230.0" spacing="140.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+            <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0" />
+            <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="308.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+            <HBox alignment="CENTER" layoutX="40.0" layoutY="230.0" spacing="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" text="%Encrypt"/>
-                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" text="%Decrypt"/>
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" text="%Encrypt" />
+                  <JFXTextArea fx:id="JTA_AESKey" prefHeight="30.0" prefWidth="150.0" promptText="%AES_Key" />
+                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" text="%Decrypt" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -39,62 +37,55 @@
          <children>
             <AnchorPane prefHeight="65.0" prefWidth="165.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Label text="加密模式" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <Label text="%EncryptMode" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                  <JFXComboBox fx:id="JCB_encryptMode" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </AnchorPane>
             <AnchorPane layoutY="65.0" prefHeight="65.0" prefWidth="165.0">
                <children>
-                  <Label text="填充方法" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <Label text="%PaddingMode" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                  <JFXComboBox fx:id="JCB_paddingMode" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="260.0" prefHeight="65.0" prefWidth="165.0">
+            <AnchorPane layoutY="130.0" prefHeight="100.0" prefWidth="165.0">
                <children>
-                  <Label text="输出格式" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <Label text="%IV" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                  <JFXTextArea fx:id="JTA_AESIV" layoutX="40.0" layoutY="37.0" prefHeight="65.0" prefWidth="115.0" promptText="%AES_IV" AnchorPane.bottomAnchor="5.0" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="130.0" prefHeight="65.0" prefWidth="165.0">
+            <AnchorPane layoutY="230.0" prefHeight="65.0" prefWidth="165.0">
                <children>
-                  <Label text="密钥" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <Label text="%OutputFormat" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                  <JFXComboBox fx:id="JCB_outputFormat" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="195.0" prefHeight="65.0" prefWidth="165.0">
+            <AnchorPane layoutY="295.0" prefHeight="65.0" prefWidth="165.0">
                <children>
-                  <Label text="IV" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <Label text="%TextEncoding" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutY="325.0" prefHeight="65.0" prefWidth="165.0">
-               <children>
-                  <Label text="文本编码" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXComboBox layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                  <JFXComboBox fx:id="JCB_textEncoding" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
                </children>
             </AnchorPane>
          </children>

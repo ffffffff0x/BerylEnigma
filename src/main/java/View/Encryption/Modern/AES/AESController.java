@@ -1,5 +1,6 @@
 package View.Encryption.Modern.AES;
 
+import Init.ViewInit;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -23,14 +24,20 @@ public class AESController {
     @FXML private JFXButton JBT_deCode;
     @FXML private JFXTextArea JTA_src;
     @FXML private JFXTextArea JTA_dst;
-    @FXML private JFXComboBox JCB_charset;
-    @FXML private JFXComboBox JCB_split;
-    @FXML private AnchorPane AP_option;
     @FXML private JFXButton JBT_option;
+
+    @FXML private AnchorPane AP_option;
+    @FXML private JFXComboBox JCB_encryptMode;
+    @FXML private JFXComboBox JCB_paddingMode;
+    @FXML private JFXTextArea JTA_AESKey;
+    @FXML private JFXTextArea JTA_AESIV;
+    @FXML private JFXComboBox JCB_outputFormat;
+    @FXML private JFXComboBox JCB_textEncoding;
 
     @FXML private void initialize(){
         AP_option.setVisible(false);
         initButtonOption();
+        initComboBoxes();
     }
 
     @FXML
@@ -45,14 +52,28 @@ public class AESController {
 
     @FXML
     public void ONClick_JBT_option(){
-        OptionPaneAnime(AP_OPTION_STATES);
+        optionPaneAnime(AP_OPTION_STATES);
     }
 
     public void initButtonOption(){
         JBT_option.setGraphic(new ImageView(new Image(this.getClass().getResourceAsStream("/img/settings-5-fill.png"))));
     }
 
-    public void OptionPaneAnime(Integer states){
+    public void initComboBoxes(){
+        JCB_encryptMode.getItems().addAll("ECB","CBC");
+        JCB_encryptMode.setValue("ECB");
+
+        JCB_paddingMode.getItems().addAll("PKCS5","PKCS7","NoPadding");
+        JCB_paddingMode.setValue("PKCS5");
+
+        JCB_outputFormat.getItems().addAll("Base64","HEX");
+        JCB_outputFormat.setValue("HEX");
+
+        ViewInit.comboBoxCharset(JCB_textEncoding);
+
+    }
+
+    public void optionPaneAnime(Integer states) {
         Timeline timeLine = new Timeline();
         KeyFrame kf_AP_Start;
         KeyFrame kf_AP_Stop;
@@ -87,4 +108,6 @@ public class AESController {
         }
         timeLine.play();
     }
+
+
 }
