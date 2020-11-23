@@ -45,7 +45,7 @@
 }
 
 /* Button */
-#JBT_deCode,#JBT_enCode {
+#JBT_deCode,#JBT_enCode,#JBT_confirm{
     -fx-font-size: 15;
     -fx-background-color: #ffffff;
 }

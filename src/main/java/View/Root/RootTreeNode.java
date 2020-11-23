@@ -32,7 +32,7 @@ public class RootTreeNode {
 
         //TextModify
         // ItemAdd(textModify,"CaseConvert");
-        // ItemAdd(textModify,"TextReplace");
+        ItemAdd(textModify,"TextReplace","/View/TextEdit/TextReplace/TextReplaceView.fxml");
         // ItemAdd(textModify,"TextSeparate");
 
         //Encryption
@@ -54,7 +54,7 @@ public class RootTreeNode {
         // ItemAdd(authentication,"JWT");
 
         //Classical
-        ItemAdd(classical,"ROT13","/View/Encryption/Classical/ROT/ROTView.fxml");
+        ItemAdd(classical,"ROT","/View/Encryption/Classical/ROT/ROTView.fxml");
         ItemAdd(classical,"RailFence","/View/Encryption/Classical/RailFence/RailFenceView.fxml");
         ItemAdd(classical,"Atbash","/View/Encryption/Classical/Atbash/AtbashView.fxml");
         ItemAdd(classical,"Vigenere","/View/Encryption/Classical/Vigenere/VigenereView.fxml");
