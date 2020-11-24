@@ -96,4 +96,37 @@ public class CodingHEXCoder {
         return result;
     }
 
+    public static byte[] encode(byte[] message) {
+        //16进制字符
+        char[] hexArray = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F',};
+        StringBuilder sb = new StringBuilder();
+        int bit;
+        for (byte b : message) {
+            bit = (b & 0x0f0) >> 4;
+            sb.append(hexArray[bit]);
+            bit = b & 0x0f;
+            sb.append(hexArray[bit]);
+        }
+        return sb.toString().getBytes();
+    }
+
+    public static byte[] decode(byte[] message) {
+        //16进制字符
+        String hexDigital = "0123456789ABCDEF";
+        String ika;
+
+        ika = new String(message);
+
+        char[] hexs = ika.toCharArray();
+        //能被16整除一定可以被2整除
+        byte[] bytes = new byte[ika.length()/2];
+        int n;
+
+        for (int j = 0; j < bytes.length; j++) {
+            n = hexDigital.indexOf(hexs[2 * j]) * 16 + hexDigital.indexOf(hexs[2 * j + 1]);
+            bytes[j] = (byte)(n & 0xff);
+        }
+
+        return bytes;
+    }
 }
