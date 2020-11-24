@@ -17,7 +17,7 @@
          <children>
             <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" onKeyReleased="#ONInputAndSelect" prefHeight="165.0" prefWidth="530.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0"/>
             <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="308.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0"/>
-            <HBox alignment="CENTER" layoutX="40.0" layoutY="236.0" spacing="140.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+            <HBox alignment="CENTER" layoutX="40.0" layoutY="236.0" prefHeight="70.0" spacing="140.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <JFXComboBox fx:id="JCB_rotNum" onAction="#ONInputAndSelect" prefHeight="30.0" prefWidth="110.0" />
                <opaqueInsets>
                   <Insets />

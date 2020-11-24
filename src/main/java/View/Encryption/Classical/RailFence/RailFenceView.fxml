@@ -26,14 +26,14 @@
                <font>
                   <Font size="16.0" />
                </font></JFXTextArea>
-            <HBox alignment="CENTER" layoutX="40.0" layoutY="230.0" spacing="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+            <HBox alignment="CENTER" layoutX="40.0" layoutY="230.0" prefHeight="70.0" spacing="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="93.0" style="-fx-background-color: #ffffff;" text="%EnCode">
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" text="%EnCode">
                      <font>
                         <Font size="15.0" />
                      </font></JFXButton>
                   <JFXTextField fx:id="JTF_quantity" alignment="CENTER" prefHeight="25.0" prefWidth="110.0" promptText="%NumberOnly" />
-                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="94.0" style="-fx-background-color: #ffffff;" text="%DeCode">
+                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" text="%DeCode">
                      <font>
                         <Font size="15.0" />
                      </font></JFXButton>
