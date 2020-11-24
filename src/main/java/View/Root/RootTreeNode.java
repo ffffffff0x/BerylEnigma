@@ -33,7 +33,7 @@ public class RootTreeNode {
         //TextModify
         // ItemAdd(textModify,"CaseConvert");
         ItemAdd(textModify,"TextReplace","/View/TextEdit/TextReplace/TextReplaceView.fxml");
-        // ItemAdd(textModify,"TextSeparate");
+        ItemAdd(textModify,"TextSeparate","/View/TextEdit/TextSeparate/TextSeparateView.fxml");
 
         //Encryption
         encryption.setExpanded(true);

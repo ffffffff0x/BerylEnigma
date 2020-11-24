@@ -47,7 +47,7 @@ public class HEXCoderController {
             }
         }catch (Exception e)
         {
-            e.printStackTrace();
+            JTA_dst.validate();
         }
 
     }
@@ -66,7 +66,7 @@ public class HEXCoderController {
                 FileEncodeend();
             }
         }catch (Exception e){
-            e.printStackTrace();
+            JTA_dst.validate();
         }
     }
 

@@ -53,4 +53,8 @@ public class ViewInit {
         JTA_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
     }//textarea添加报错信息
 
+    public static void textAreaErrorInfo(JFXTextField JTF_temp){
+        JTF_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage_isNum")));
+    }//textarea添加报错信息
+
 }
