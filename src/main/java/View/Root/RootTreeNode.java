@@ -28,6 +28,7 @@ public class RootTreeNode {
         rootItem.getChildren().add(encryption);
 
         //Tools
+        tools.setExpanded(true);
         tools.getChildren().add(textModify);
 
         //TextModify

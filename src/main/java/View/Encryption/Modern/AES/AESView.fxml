@@ -55,7 +55,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <JFXComboBox fx:id="JCB_paddingMode" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+                  <JFXComboBox fx:id="JCB_paddingMode" layoutX="50.0" layoutY="40.0" onAction="#ONCheck_JCB_Item_NoPadding" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
                </children>
             </AnchorPane>
             <AnchorPane layoutY="130.0" prefHeight="100.0" prefWidth="165.0">
@@ -86,6 +86,16 @@
                      </font>
                   </Label>
                   <JFXComboBox fx:id="JCB_textEncoding" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="360.0" prefHeight="65.0" prefWidth="165.0">
+               <children>
+                  <Label text="%KeyFormat" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox fx:id="JCB_keyFormat" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="115.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
                </children>
             </AnchorPane>
          </children>

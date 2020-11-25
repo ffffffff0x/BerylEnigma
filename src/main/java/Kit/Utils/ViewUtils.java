@@ -1,9 +1,10 @@
 package Kit.Utils;
 
 import Init.Init;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.*;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.filechooser.FileSystemView;
@@ -64,4 +65,23 @@ public class ViewUtils {
         fileChooser.setInitialFileName("Result");
         return fileChooser.showSaveDialog(stage);
     }//保存文件选择器
+
+    public static void AlertPane(Stage stage,String heading,String body){
+        JFXAlert alert = new JFXAlert(stage);
+        alert.initModality(Modality.NONE);
+        alert.setOverlayClose(false);
+        JFXDialogLayout layout = new JFXDialogLayout();
+        javafx.scene.control.Label HeadingLable = new javafx.scene.control.Label(heading);
+        HeadingLable.setStyle("-fx-font-size: 20.0px;");
+        layout.setHeading(HeadingLable);
+        layout.setBody(new Label(body));
+        JFXButton closeButton = new JFXButton(Init.languageResourceBundle.getString("Accept"));
+        closeButton.setPrefSize(120,60);
+        closeButton.setStyle("    -fx-background-color: WHITE;\n" +
+                "    -fx-font-size: 14.0px;");
+        closeButton.setOnAction(event -> alert.hideWithAnimation());
+        layout.setActions(closeButton);
+        alert.setContent(layout);
+        alert.show();
+    }//Alert弹窗
 }

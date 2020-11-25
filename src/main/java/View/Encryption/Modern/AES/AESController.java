@@ -1,6 +1,8 @@
 package View.Encryption.Modern.AES;
 
+import Init.Init;
 import Init.ViewInit;
+import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -11,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -33,6 +36,7 @@ public class AESController {
     @FXML private JFXTextArea JTA_AESIV;
     @FXML private JFXComboBox JCB_outputFormat;
     @FXML private JFXComboBox JCB_textEncoding;
+    @FXML private JFXComboBox JCB_keyFormat;
 
     @FXML private void initialize(){
         AP_option.setVisible(false);
@@ -42,7 +46,7 @@ public class AESController {
 
     @FXML
     public void ONClick_JBT_enCode(){
-        JTA_dst.setText(JTA_src.getText());
+
     }
 
     @FXML
@@ -53,6 +57,13 @@ public class AESController {
     @FXML
     public void ONClick_JBT_option(){
         optionPaneAnime(AP_OPTION_STATES);
+    }
+
+    @FXML
+    public void ONCheck_JCB_Item_NoPadding(){
+        if(JCB_paddingMode.getValue().equals("NoPadding")){
+            ViewUtils.AlertPane((Stage) JCB_paddingMode.getScene().getWindow(),Init.languageResourceBundle.getString("Warning"),Init.languageResourceBundle.getString("AES_NOPadding_Waring"));
+        }
     }
 
     public void initButtonOption(){
@@ -68,6 +79,9 @@ public class AESController {
 
         JCB_outputFormat.getItems().addAll("Base64","HEX");
         JCB_outputFormat.setValue("HEX");
+
+        JCB_keyFormat.getItems().addAll("Text","Base64","HEX");
+        JCB_keyFormat.setValue("Text");
 
         ViewInit.comboBoxCharset(JCB_textEncoding);
 
@@ -109,5 +123,8 @@ public class AESController {
         timeLine.play();
     }
 
+    public void keyCheck(String key,String charset){
+
+    }
 
 }

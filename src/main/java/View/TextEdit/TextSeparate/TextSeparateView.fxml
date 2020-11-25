@@ -20,7 +20,7 @@
          <children>
             <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" onKeyReleased="#ResetValidator" prefHeight="165.0" promptText="%DefaultDelimiter" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0" />
             <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="308.0" prefHeight="165.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
-            <HBox alignment="CENTER" layoutX="40.0" layoutY="235.0" prefHeight="55.0" prefWidth="530.0" spacing="70.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+            <HBox alignment="CENTER" layoutX="40.0" layoutY="230.0" prefHeight="70.0" prefWidth="530.0" spacing="70.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
                   <JFXTextField fx:id="JTF_quantity" alignment="CENTER" onKeyReleased="#isNumber" prefHeight="30.0" prefWidth="100.0" promptText="%SeparateNumber" />
                   <JFXTextField fx:id="JTF_split" alignment="CENTER" onKeyReleased="#ResetValidator" prefHeight="30.0" prefWidth="100.0" promptText="%Delimiter" />
