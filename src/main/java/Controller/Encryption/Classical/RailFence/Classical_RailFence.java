@@ -3,7 +3,7 @@ package Controller.Encryption.Classical.RailFence;
 /**
  * @author RyuZU
  */
-public class ClassicalRailFence {
+public class Classical_RailFence {
     public static String encode(String source, int quantity)
     {
         source = source.replace(" ","");

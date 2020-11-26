@@ -1,6 +1,6 @@
 package View.TextEdit.TextSeparate;
 
-import Controller.TextEdit.TextSeparate.TextEditTextSeparate;
+import Controller.TextEdit.TextSeparate.TextEdit_TextSeparate;
 import Init.ViewInit;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
@@ -38,7 +38,7 @@ public class TextSeparateController {
     @FXML
     public void ONClick_JBT_confirm(){
         try {
-            JTA_dst.setText(TextEditTextSeparate.TextSeparate(JTA_src.getText(),
+            JTA_dst.setText(TextEdit_TextSeparate.TextSeparate(JTA_src.getText(),
                     JTF_split.getText(),
                     Integer.parseInt(JTF_quantity.getText())));
         }catch (Exception e){

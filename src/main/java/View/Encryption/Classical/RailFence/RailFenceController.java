@@ -1,7 +1,7 @@
 package View.Encryption.Classical.RailFence;
 
 
-import Controller.Encryption.Classical.RailFence.ClassicalRailFence;
+import Controller.Encryption.Classical.RailFence.Classical_RailFence;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -17,11 +17,11 @@ public class RailFenceController {
 
     @FXML
     public void ONClick_JBT_enCode(){
-        JTA_dst.setText(ClassicalRailFence.encode(JTA_src.getText(),Integer.valueOf(JTF_quantity.getText())));
+        JTA_dst.setText(Classical_RailFence.encode(JTA_src.getText(),Integer.valueOf(JTF_quantity.getText())));
     }
 
     @FXML
     public void ONClick_JBT_deCode(){
-        JTA_dst.setText(ClassicalRailFence.decode(JTA_src.getText(),Integer.valueOf(JTF_quantity.getText())));
+        JTA_dst.setText(Classical_RailFence.decode(JTA_src.getText(),Integer.valueOf(JTF_quantity.getText())));
     }
 }

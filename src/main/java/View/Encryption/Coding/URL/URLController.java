@@ -1,6 +1,6 @@
 package View.Encryption.Coding.URL;
 
-import Controller.Encryption.Coding.URL.CodingURL;
+import Controller.Encryption.Coding.URL.Coding_URL;
 import Init.ViewInit;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -27,7 +27,7 @@ public class URLController {
     @FXML
     public void ONClick_JBT_enCode(){
         try {
-            JTA_dst.setText(CodingURL.encode(JTA_src.getText(),JCB_charset.getValue().toString()));
+            JTA_dst.setText(Coding_URL.encode(JTA_src.getText(),JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -37,7 +37,7 @@ public class URLController {
     @FXML
     public void ONClick_JBT_deCode(){
         try {
-            JTA_dst.setText(CodingURL.decode(JTA_src.getText(),JCB_charset.getValue().toString()));
+            JTA_dst.setText(Coding_URL.decode(JTA_src.getText(),JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();

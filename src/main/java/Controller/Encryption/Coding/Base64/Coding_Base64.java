@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author RyuZU
  */
-public class CodingBase64 {
+public class Coding_Base64 {
 
     public static String encodeToString(String in, String charset) throws UnsupportedEncodingException {
         //将用户输入字符转换成byte

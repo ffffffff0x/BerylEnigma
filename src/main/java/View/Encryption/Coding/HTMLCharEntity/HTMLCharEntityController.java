@@ -1,12 +1,10 @@
 package View.Encryption.Coding.HTMLCharEntity;
 
-import Controller.Encryption.Coding.HTMLCharEntity.CodingHTMLCharEntity;
+import Controller.Encryption.Coding.HTMLCharEntity.Coding_HTMLCharEntity;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
-
-import java.nio.charset.StandardCharsets;
 
 /**
  * @author RyuZU
@@ -25,12 +23,12 @@ public class HTMLCharEntityController {
 
     @FXML
     public void ONClick_JBT_enCode(){
-        JTA_dst.setText(CodingHTMLCharEntity.encode(JTA_src.getText(),JCB_reference.getValue().toString()));
+        JTA_dst.setText(Coding_HTMLCharEntity.encode(JTA_src.getText(),JCB_reference.getValue().toString()));
     }
 
     @FXML
     public void ONClick_JBT_deCode(){
-        JTA_dst.setText(CodingHTMLCharEntity.decode(JTA_src.getText(),JCB_reference.getValue().toString()));
+        JTA_dst.setText(Coding_HTMLCharEntity.decode(JTA_src.getText(),JCB_reference.getValue().toString()));
     }
 
     public void initComboBoxReference(){

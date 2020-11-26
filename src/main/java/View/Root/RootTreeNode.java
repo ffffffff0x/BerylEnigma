@@ -46,7 +46,7 @@ public class RootTreeNode {
         modern.getChildren().add(authentication);
         // ItemAdd(modern,"AES");
         // ItemAdd(modern,"DES");
-        // ItemAdd(modern,"HASH");
+        ItemAdd(modern,"HASH","/View/Encryption/Modern/Hash/HashView.fxml");
         // ItemAdd(modern,"SM3");
         // ItemAdd(modern,"SM4");
 

@@ -1,6 +1,6 @@
 package View.Encryption.Coding.Unicode;
 
-import Controller.Encryption.Coding.Unicode.CodingUnicode;
+import Controller.Encryption.Coding.Unicode.Coding_Unicode;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
@@ -20,11 +20,11 @@ public class UnicodeController {
 
     @FXML
     public void ONClick_JBT_enCode(){
-        JTA_dst.setText(CodingUnicode.encode(JTA_src.getText()));
+        JTA_dst.setText(Coding_Unicode.encode(JTA_src.getText()));
     }
 
     @FXML
     public void ONClick_JBT_deCode(){
-        JTA_dst.setText(CodingUnicode.decode(JTA_src.getText()));
+        JTA_dst.setText(Coding_Unicode.decode(JTA_src.getText()));
     }
 }

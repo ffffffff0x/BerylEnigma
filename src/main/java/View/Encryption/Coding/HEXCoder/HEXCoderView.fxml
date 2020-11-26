@@ -33,7 +33,7 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <JFXToggleButton fx:id="JTB_modeCheck" layoutX="14.0" layoutY="-15.0" onAction="#ONClick_JCB_modeSelect" prefHeight="30.0" prefWidth="135.0" text="%TextMode" />
+            <JFXToggleButton fx:id="JTB_modeSelect" layoutX="14.0" layoutY="-15.0" onAction="#ONClick_JCB_modeSelect" prefHeight="30.0" prefWidth="135.0" text="%TextMode" />
          </children>
       </AnchorPane>
    </children>

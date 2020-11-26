@@ -8,7 +8,7 @@ import java.security.Key;
 
 import org.apache.commons.codec.binary.Base64;
 
-public class ModernAES {
+public class Modern_AES {
     // 密钥算法
     private static final String KEY_ALGORITHM = "AES";
 

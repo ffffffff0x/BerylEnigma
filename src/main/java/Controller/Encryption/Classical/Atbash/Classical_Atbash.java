@@ -3,7 +3,7 @@ package Controller.Encryption.Classical.Atbash;
 /**
  * @author RyuZU
  */
-public class ClassicalAtbash {
+public class Classical_Atbash {
     public static String encode(String source)
     {
         StringBuilder sb = new StringBuilder();

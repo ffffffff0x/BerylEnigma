@@ -1,6 +1,6 @@
 package View.Encryption.Coding.Base64;
 
-import Controller.Encryption.Coding.Base64.CodingBase64;
+import Controller.Encryption.Coding.Base64.Coding_Base64;
 import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FlieUtils;
@@ -22,7 +22,7 @@ public class Base64ViewController {
     @FXML private JFXTextArea JTA_src;
     @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_charset;
-    @FXML private JFXToggleButton JTB_modeCheck;
+    @FXML private JFXToggleButton JTB_modeSelect;
     @FXML private JFXCheckBox JCHB_isBase64URL;
 
     @FXML
@@ -34,17 +34,17 @@ public class Base64ViewController {
     public void ONClick_JBT_enCode(){
         try {
             if(!JCHB_isBase64URL.isSelected()){
-                if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(CodingBase64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                    JTA_dst.setText(Coding_Base64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(CodingBase64.encode(file));
+                    FlieUtils.outPutFile(Coding_Base64.encode(file));
                     FileEncodeend();
                 }
             }else{
-                if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(CodingBase64.urlEncodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                    JTA_dst.setText(Coding_Base64.urlEncodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(CodingBase64.urlEncode(file));
+                    FlieUtils.outPutFile(Coding_Base64.urlEncode(file));
                     FileEncodeend();
                 }
             }
@@ -57,17 +57,17 @@ public class Base64ViewController {
     public void ONClick_JBT_deCode(){
         try {
             if(!JCHB_isBase64URL.isSelected()){
-                if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(CodingBase64.decodetostring(JTA_src.getText(),JCB_charset.getValue().toString()));
+                if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                    JTA_dst.setText(Coding_Base64.decodetostring(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(CodingBase64.decode(file));
+                    FlieUtils.outPutFile(Coding_Base64.decode(file));
                     FileEncodeend();
                 }
             }else{
-                if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(CodingBase64.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                    JTA_dst.setText(Coding_Base64.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(CodingBase64.urlDecode(file));
+                    FlieUtils.outPutFile(Coding_Base64.urlDecode(file));
                     FileEncodeend();
                 }
             }
@@ -77,9 +77,9 @@ public class Base64ViewController {
     }
 
     @FXML
-    public void ONClick_JCB_modeSelect(){
-        if (JTB_modeCheck.isSelected()){
-            JTB_modeCheck.setText(Init.languageResourceBundle.getString("FileMode"));
+    public void ONClick_JTB_modeSelect(){
+        if (JTB_modeSelect.isSelected()){
+            JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
             JTA_src.setEditable(false);
             try {
                 File file_temp = ViewUtils.getFile();
@@ -87,21 +87,21 @@ public class Base64ViewController {
                 file = FlieUtils.getFile(file_temp);
             }catch (Exception e){
                 e.printStackTrace();
-                JTB_modeCheck.selectedProperty().setValue(false);
-                JTB_modeCheck.setText(Init.languageResourceBundle.getString("TextMode"));
+                JTB_modeSelect.selectedProperty().setValue(false);
+                JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
                 JTA_src.setText("");
                 JTA_src.setEditable(true);
             }
         }else {
-            JTB_modeCheck.setText(Init.languageResourceBundle.getString("TextMode"));
+            JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
             JTA_src.setText("");
             JTA_src.setEditable(true);
         }
     }
 
     public void FileEncodeend(){
-        JTB_modeCheck.selectedProperty().set(false);
-        JTB_modeCheck.setText(Init.languageResourceBundle.getString("TextMode"));
+        JTB_modeSelect.selectedProperty().set(false);
+        JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
         JTA_src.setText("");
         JTA_src.setEditable(true);
         JTA_dst.setText(Init.languageResourceBundle.getString("Complete"));

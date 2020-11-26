@@ -1,6 +1,6 @@
 package Controller.Encryption.Classical.Vigenere;
 
-public  class ClassicalVigenere {
+public  class Classical_Vigenere {
     public static String encrypt(String OriginalText, String Key)
     {
         char[] oall = OriginalText.toCharArray();

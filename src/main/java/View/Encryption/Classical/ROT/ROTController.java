@@ -1,6 +1,6 @@
 package View.Encryption.Classical.ROT;
 
-import Controller.Encryption.Classical.ROT.ClassicalROT;
+import Controller.Encryption.Classical.ROT.Classical_ROT;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
@@ -16,7 +16,7 @@ public class ROTController {
     };
     @FXML
     public void ONInputAndSelect(){
-        JTA_dst.setText(ClassicalROT.encode(JTA_src.getText(), JCB_rotNum.getValue().toString()));
+        JTA_dst.setText(Classical_ROT.encode(JTA_src.getText(), JCB_rotNum.getValue().toString()));
     }
 
     public void initComboxSelect(){

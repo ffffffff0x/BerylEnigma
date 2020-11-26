@@ -1,6 +1,6 @@
 package Controller.TextEdit.TextSeparate;
 
-public class TextEditTextSeparate {
+public class TextEdit_TextSeparate {
     public static String TextSeparate(String sourceStr,String separateStr,int separateNum){
 
         StringBuilder sb = new StringBuilder(sourceStr);

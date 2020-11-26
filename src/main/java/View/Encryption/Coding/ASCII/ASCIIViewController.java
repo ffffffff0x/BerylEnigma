@@ -1,6 +1,6 @@
 package View.Encryption.Coding.ASCII;
 
-import Controller.Encryption.Coding.ASCII.CodingASCII;
+import Controller.Encryption.Coding.ASCII.Coding_ASCII;
 import Init.ViewInit;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
@@ -39,13 +39,13 @@ public class ASCIIViewController {
     }
 
     private String ASCIIEnCode(){
-        return CodingASCII.encode(
+        return Coding_ASCII.encode(
                 JTA_src.getText(),
                 JTF_split.getText(),0);
     }
 
     private String ASCIIDeCode(){
-        return CodingASCII.deCode(
+        return Coding_ASCII.deCode(
                 JTA_src.getText(),
                 JTF_split.getText());
     }

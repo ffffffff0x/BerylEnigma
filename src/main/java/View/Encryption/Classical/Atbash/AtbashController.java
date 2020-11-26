@@ -1,9 +1,8 @@
 package View.Encryption.Classical.Atbash;
 
 
-import Controller.Encryption.Classical.Atbash.ClassicalAtbash;
+import Controller.Encryption.Classical.Atbash.Classical_Atbash;
 import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
 public class AtbashController {
@@ -13,6 +12,6 @@ public class AtbashController {
 
     @FXML
     public void AtbashTest() {
-        JTA_dst.setText(ClassicalAtbash.encode(JTA_src.getText()));
+        JTA_dst.setText(Classical_Atbash.encode(JTA_src.getText()));
     }
 }

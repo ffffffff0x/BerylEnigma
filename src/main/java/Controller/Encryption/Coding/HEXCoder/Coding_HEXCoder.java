@@ -3,7 +3,7 @@ package Controller.Encryption.Coding.HEXCoder;
 import java.io.UnsupportedEncodingException;
 import java.util.Objects;
 
-public class CodingHEXCoder {
+public class Coding_HEXCoder {
     public static String encode(String message, String split, String charset) throws UnsupportedEncodingException {
         //接收转换结果
         String hexString;

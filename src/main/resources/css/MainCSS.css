@@ -39,13 +39,13 @@
     -fx-prompt-text-fill: rgba(109, 109, 109, 0.62);
 }
 
-#JTA_dst,#JTA_src{
+#JTA_dst,#JTA_src,#JTA_dsthex,#JTA_dstbase64{
     -fx-font-size: 16;
     -fx-background-color: #e8e8e8;
 }
 
 /* Button */
-#JBT_deCode,#JBT_enCode,#JBT_confirm{
+#JBT_deCode,#JBT_enCode,#JBT_confirm,#JBT_enCrypt,#JBT_deCrypt{
     -fx-font-size: 15;
     -fx-background-color: #ffffff;
 }

@@ -1,6 +1,6 @@
 package Controller.Encryption.Coding.ASCII;
 
-public class CodingASCII {
+public class Coding_ASCII {
     public static String encode(String Source, String Split, int PMNumber)
     {
         if(Split.equals(""))

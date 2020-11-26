@@ -1,7 +1,6 @@
 package View.Encryption.Coding.HEXCoder;
 
-import Controller.Encryption.Coding.Base64.CodingBase64;
-import Controller.Encryption.Coding.HEXCoder.CodingHEXCoder;
+import Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FlieUtils;
@@ -24,7 +23,7 @@ public class HEXCoderController {
     @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXTextField JTF_split;
-    @FXML private JFXToggleButton JTB_modeCheck;
+    @FXML private JFXToggleButton JTB_modeSelect;
 
     @FXML
     private void initialize() {
@@ -35,34 +34,33 @@ public class HEXCoderController {
     @FXML
     public void ONClick_JBT_enCode(){
         try {
-            if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                 try {
                     JTA_dst.setText(HEXCodeEnCode());
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
             }else{
-                FlieUtils.outPutFile(CodingHEXCoder.encode(file));
+                FlieUtils.outPutFile(Coding_HEXCoder.encode(file));
                 FileEncodeend();
             }
         }catch (Exception e)
         {
             JTA_dst.validate();
         }
-
     }
 
     @FXML
     public void ONClick_JBT_deCode(){
         try{
-            if(JTB_modeCheck.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                 try {
                     JTA_dst.setText(HEXCodeDeCode());
                 } catch (UnsupportedEncodingException e) {
                     JTA_dst.validate();
                 }
             }else{
-                FlieUtils.outPutFile(CodingHEXCoder.decode(file));
+                FlieUtils.outPutFile(Coding_HEXCoder.decode(file));
                 FileEncodeend();
             }
         }catch (Exception e){
@@ -77,8 +75,8 @@ public class HEXCoderController {
 
     @FXML
     public void ONClick_JCB_modeSelect(){
-        if (JTB_modeCheck.isSelected()){
-            JTB_modeCheck.setText(Init.languageResourceBundle.getString("FileMode"));
+        if (JTB_modeSelect.isSelected()){
+            JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
             JTA_src.setEditable(false);
             try {
                 File file_temp = ViewUtils.getFile();
@@ -86,33 +84,33 @@ public class HEXCoderController {
                 file = FlieUtils.getFile(file_temp);
             }catch (Exception e){
                 e.printStackTrace();
-                JTB_modeCheck.selectedProperty().setValue(false);
-                JTB_modeCheck.setText(Init.languageResourceBundle.getString("TextMode"));
+                JTB_modeSelect.selectedProperty().setValue(false);
+                JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
                 JTA_src.setText("");
                 JTA_src.setEditable(true);
             }
         }else {
-            JTB_modeCheck.setText(Init.languageResourceBundle.getString("TextMode"));
+            JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
             JTA_src.setText("");
             JTA_src.setEditable(true);
         }
     }
 
     private String HEXCodeEnCode() throws UnsupportedEncodingException {
-        return CodingHEXCoder.encode(JTA_src.getText(),
+        return Coding_HEXCoder.encode(JTA_src.getText(),
                 JTF_split.getText(),
                 JCB_charset.getValue().toString());
     }
 
     private String HEXCodeDeCode() throws UnsupportedEncodingException {
-        return CodingHEXCoder.decode(JTA_src.getText(),
+        return Coding_HEXCoder.decode(JTA_src.getText(),
                 JTF_split.getText(),
                 JCB_charset.getValue().toString());
     }
 
     public void FileEncodeend(){
-        JTB_modeCheck.selectedProperty().set(false);
-        JTB_modeCheck.setText(Init.languageResourceBundle.getString("TextMode"));
+        JTB_modeSelect.selectedProperty().set(false);
+        JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
         JTA_src.setText("");
         JTA_src.setEditable(true);
         JTA_dst.setText(Init.languageResourceBundle.getString("Complete"));

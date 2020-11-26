@@ -1,6 +1,6 @@
 package Controller.Encryption.Coding.Unicode;
 
-public class CodingUnicode {
+public class Coding_Unicode {
     /**
      *
      * 字符串转换unicode

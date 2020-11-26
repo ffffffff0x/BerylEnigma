@@ -3,7 +3,7 @@ package Controller.Encryption.Classical.ROT;
 /**
  * @author RyuZU
  */
-public class ClassicalROT {
+public class Classical_ROT {
     public static String encode(String in, String rotnum)
     {
         rotnum = rotnum.replace("ROT","");

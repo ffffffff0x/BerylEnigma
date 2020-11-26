@@ -1,6 +1,6 @@
 package Controller.Encryption.Coding.HTMLCharEntity;
 
-import Controller.Encryption.Coding.Unicode.CodingUnicode;
+import Controller.Encryption.Coding.Unicode.Coding_Unicode;
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.math.BigInteger;
@@ -8,7 +8,7 @@ import java.math.BigInteger;
 /**
  * @author RyuZU
  */
-public class CodingHTMLCharEntity {
+public class Coding_HTMLCharEntity {
     //拼接字符串
     public static String encode(String source,String reference){
         String[] sourceSplit = source.split("");
@@ -33,7 +33,7 @@ public class CodingHTMLCharEntity {
     }
     //HTML实体编码
     private static String HTMLCharEntityEncode(String source, String reference){
-        String out = CodingUnicode.encode(source).substring(2);
+        String out = Coding_Unicode.encode(source).substring(2);
 
         if(reference.equals("NCR: &#[dec];")) {
             return "&#"+(new BigInteger(out,16).toString(10))+";";
@@ -47,9 +47,9 @@ public class CodingHTMLCharEntity {
     private static String HTMLCharEntityDecode(String source, String reference){
 
         if(reference.equals("NCR: &#[dec];")) {
-            return CodingUnicode.decode("\\u"+new BigInteger(source.substring(2),10).toString(16));
+            return Coding_Unicode.decode("\\u"+new BigInteger(source.substring(2),10).toString(16));
         }else if (reference.equals("NCR: &#x[hex];")){
-            return CodingUnicode.decode("\\u"+source.substring(3));
+            return Coding_Unicode.decode("\\u"+source.substring(3));
         }else {
             return StringEscapeUtils.unescapeHtml4(source);
         }
