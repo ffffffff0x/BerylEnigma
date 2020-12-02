@@ -68,7 +68,7 @@ public class RootTreeNode {
         ItemAdd(coding,"Unicode","/View/Encryption/Coding/Unicode/UnicodeView.fxml");
         ItemAdd(coding,"HTMLCharacterEntity","/View/Encryption/Coding/HTMLCharEntity/HTMLCharEntityView.fxml");
         // ItemAdd(coding,"Morse_Code");
-        // ItemAdd(coding,"Base_Conversion");
+        ItemAdd(coding,"BaseConversion","/View/Encryption/Coding/BaseConversion/BaseConversionView.fxml");
     }
 
     private void ItemAdd(TreeItem<String> treeItem,String itemName){

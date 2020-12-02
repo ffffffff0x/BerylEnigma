@@ -15,6 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
 
 /**
  * @author RyuZU
@@ -22,6 +24,7 @@ import javafx.util.Duration;
 public class AESController {
 
     private Integer AP_OPTION_STATES = 0;
+    private AESControlList aesControlList = new AESControlList();
 
     @FXML private JFXButton JBT_enCode;
     @FXML private JFXButton JBT_deCode;
@@ -46,12 +49,12 @@ public class AESController {
 
     @FXML
     public void ONClick_JBT_enCode(){
-
+        setOptions();
     }
 
     @FXML
     public void ONClick_JBT_deCode(){
-
+        setOptions();
     }
 
     @FXML
@@ -124,7 +127,26 @@ public class AESController {
     }
 
     public void keyCheck(String key,String charset){
+        //// TODO: 2020/11/27  
+        if(aesControlList.getKEY_FORMAT().equals("HEX")){
+            try {
+                Hex.decodeHex(key.toCharArray());
+            } catch (DecoderException e) {
+                e.printStackTrace();
+            }
+        } else if(aesControlList.getKEY_FORMAT().equals("Base64")){
 
+        } else{
+
+        }
+    }
+
+    public void setOptions(){
+        aesControlList.setKEY_FORMAT(JCB_keyFormat.getValue().toString());
+        aesControlList.setENCRYPT_MODE(JCB_encryptMode.getValue().toString());
+        aesControlList.setPADDING_MODE(JCB_paddingMode.getValue().toString());
+        aesControlList.setOUTPUT_FORMAT(JCB_outputFormat.getValue().toString());
+        aesControlList.setTEXT_ENCODING(JCB_textEncoding.getValue().toString());
     }
 
 }

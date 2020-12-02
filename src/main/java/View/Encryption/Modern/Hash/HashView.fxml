@@ -3,13 +3,13 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<?import com.jfoenix.controls.JFXToggleButton?>
 <AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Encryption.Modern.Hash.HashController">
    <children>
       <Label alignment="CENTER" layoutX="24.0" layoutY="38.0" prefHeight="70.0" prefWidth="610.0" text="HASH" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
@@ -20,7 +20,7 @@
       <AnchorPane layoutX="84.0" layoutY="157.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
          <children>
             <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0" />
-            <JFXTextArea fx:id="JTA_dstbase64" editable="false" layoutX="40.0" layoutY="308.0" prefHeight="75.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+            <JFXTextArea fx:id="JTA_dstbase64" editable="false" layoutX="40.0" layoutY="308.0" prefHeight="75.0" prefWidth="530.0" promptText="%Base64Result" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
             <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="230.0" prefHeight="70.0" spacing="60.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
                   <JFXComboBox fx:id="JCB_charset" prefHeight="30.0" prefWidth="100.0" />
@@ -31,7 +31,7 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <JFXTextArea fx:id="JTA_dsthex" editable="false" layoutX="40.0" layoutY="309.0" prefHeight="75.0" prefWidth="530.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+            <JFXTextArea fx:id="JTA_dsthex" editable="false" layoutX="40.0" layoutY="315.0" prefHeight="75.0" prefWidth="530.0" promptText="%HexResult" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
             <JFXToggleButton fx:id="JTB_modeSelect" layoutX="14.0" layoutY="-15.0" onAction="#ONClick_JCB_modeSelect" prefHeight="30.0" prefWidth="135.0" text="%TextMode" />
          </children>
       </AnchorPane>
