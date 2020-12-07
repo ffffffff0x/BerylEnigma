@@ -6,6 +6,8 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
+import javax.swing.*;
+
 public class TempViewController {
 
     @FXML private JFXButton JBT_enCode;
@@ -13,7 +15,7 @@ public class TempViewController {
     @FXML private JFXTextArea JTA_src;
     @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_charset;
-    @FXML private JFXComboBox JCB_split;
+    @FXML private JTextField JTF_split;
 
     @FXML private void initialize(){
 

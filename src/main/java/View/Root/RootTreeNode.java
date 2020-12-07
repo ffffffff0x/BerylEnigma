@@ -67,7 +67,7 @@ public class RootTreeNode {
         ItemAdd(coding,"HEX","/View/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
         ItemAdd(coding,"Unicode","/View/Encryption/Coding/Unicode/UnicodeView.fxml");
         ItemAdd(coding,"HTMLCharacterEntity","/View/Encryption/Coding/HTMLCharEntity/HTMLCharEntityView.fxml");
-        // ItemAdd(coding,"Morse_Code");
+        ItemAdd(coding,"MorseCoder","/View/Encryption/Coding/MorseCoder/MorseCoderView.fxml");
         ItemAdd(coding,"BaseConversion","/View/Encryption/Coding/BaseConversion/BaseConversionView.fxml");
     }
 

@@ -21,7 +21,7 @@ public class MockView extends Application {
         // initRootLayout("/Kit/TempView/TempView_00.fxml");
         // initRootLayout("/View/Encryption/Modern/AES/AESView.fxml");
         // initRootLayout("/View/Encryption/Modern/Hash/HashView.fxml");
-        initRootLayout("/View/Encryption/Coding/BaseConversion/BaseConversionView.fxml");
+        initRootLayout("/View/Encryption/Coding/MorseCoder/MorseCoderView.fxml");
         // initRootLayout("/View/Root/RootView.fxml");
     }
 
