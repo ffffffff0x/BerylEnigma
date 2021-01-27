@@ -1,5 +1,5 @@
 # 简述
-软件基于JDK8U251开发，使用自带JAVAFX 框架以及JFoenixUI组件架构。
+软件基于JDK15开发，使用自带JAVAFX框架以及JFoenixUI组件架构。
 
 ## 开发工具与资源
 - IDEA:https://www.jetbrains.com/idea/
@@ -14,20 +14,22 @@
 
 # 程序文件说明
 ```
-CryptoMicroscope
+BerylEnigma
 ├── pom.xml
 ├── src
 │   └── main
 │       ├── java
-│       │   ├── Controller
-│       │   ├── Init
-│       │   ├── Kit
-│       │   ├── Languages
-│       │   ├── View
-│       │   └─ Main.java
+│       │   ├── Controller //具体实现包
+│       │   ├── Init //全局与视图初始化方法包
+│       │   ├── Kit //工具与视图模板包
+│       │   ├── Languages //语言配置
+│       │   ├── View //视图类包
+│       │   └── Main //启动类包
+│       │       ├─ Main.java //启动类
+│       │       └─ Launcher.java //Java15 FX启动类
 │       └── resources
-│           ├── css
-│           └── img
+│           ├── css //CSS样式文件
+│           └── img //图片文件
 └── target
 ```
 ## Controller
@@ -72,8 +74,8 @@ CryptoMicroscope
   - RootTreeNode.java 是主页面框架左边的选择树的实现
   - 在每次添加页面的时候要注意往 RootTreeNode.java 中添加选择项
 
-# 新增功能流程与规则
-## 页面绘制规则
+# 新增功能流程
+## 页面绘制
 功能页面具体参数
 - 主页面AnchorPane
   - width = 510
@@ -97,7 +99,7 @@ CryptoMicroscope
 2. 绘制页面 fxml，页面由 Kit/TempView/TempView_00.fxml 衍生时，绘制页面时直接复制并改名即可，做好视图控制器与视图与主控制器(Controller包中的具体方法实现)的连接，中途可以使用 Mock 包中的单独页面测试类测试。
 3. 编辑 View/Root/RootTreeNode.java 使用类内的 IteamAdd 方法在分类下添加iteam  
  示例 ： 
-```java
+```js
 //Coding
 ItemAdd(Coding,"Base64","/View/Encryption/Coding/Base64Base64View.fxml");
 
