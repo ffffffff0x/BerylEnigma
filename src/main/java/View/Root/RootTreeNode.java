@@ -43,7 +43,7 @@ public class RootTreeNode {
         encryption.getChildren().add(coding);
 
         //Modern
-        modern.getChildren().add(authentication);
+      // modern.getChildren().add(authentication);
         // ItemAdd(modern,"AES");
         // ItemAdd(modern,"DES");
         ItemAdd(modern,"HASH","/View/Encryption/Modern/Hash/HashView.fxml");
@@ -82,11 +82,11 @@ public class RootTreeNode {
     }
 
     private Node folderIcon(String check){
-        switch(check){
-            case "open" : return new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_folder-open-fill.png")));
-            case "close" : return new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_folder-3-fill.png")));
-            case "settings" : return new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_settings-3-line.png")));
-            default:return null;
-        }
+        return switch (check) {
+            case "open" -> new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_folder-open-fill.png")));
+            case "close" -> new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_folder-3-fill.png")));
+            case "settings" -> new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_settings-3-line.png")));
+            default -> null;
+        };
     }
 }

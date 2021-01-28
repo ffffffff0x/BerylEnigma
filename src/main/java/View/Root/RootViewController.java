@@ -30,7 +30,7 @@ public class RootViewController {
     private void checkView() {
         //如果选中节点是叶子节点才进行pane切换
         if ((RootTree.getSelectionModel().getSelectedItem()).isLeaf()) {
-            if(!rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()).equals("")){
+            if(!"".equals(rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()))){
                 ////显示选择的页面
                 //FXML布局加载器
                 FXMLLoader loader = new FXMLLoader();
@@ -45,7 +45,11 @@ public class RootViewController {
                     e.printStackTrace();
                 }
                 borderPane.setCenter(ap);
-                RootTree.getSelectionModel().select(0);
+                try {
+                    RootTree.getSelectionModel().select(RootTree.getSelectionModel().getSelectedItem().getParent());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         }
     }
