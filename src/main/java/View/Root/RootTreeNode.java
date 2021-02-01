@@ -43,7 +43,7 @@ public class RootTreeNode {
         encryption.getChildren().add(coding);
 
         //Modern
-      // modern.getChildren().add(authentication);
+        modern.getChildren().add(authentication);
         // ItemAdd(modern,"AES");
         // ItemAdd(modern,"DES");
         ItemAdd(modern,"HASH","/View/Encryption/Modern/Hash/HashView.fxml");
@@ -51,7 +51,7 @@ public class RootTreeNode {
         // ItemAdd(modern,"SM4");
 
         //Authentication
-        // ItemAdd(authentication,"NTLM_Hash");
+        ItemAdd(authentication,"NTLM_Hash","/View/Encryption/Modern/Authentication/NTLM/NTLMView.fxml");
         // ItemAdd(authentication,"JWT");
 
         //Classical

@@ -11,7 +11,7 @@ public class AtbashController {
     @FXML private JFXTextArea JTA_dst;
 
     @FXML
-    public void AtbashTest() {
+    public void AtbashEncode() {
         JTA_dst.setText(Classical_Atbash.encode(JTA_src.getText()));
     }
 }
