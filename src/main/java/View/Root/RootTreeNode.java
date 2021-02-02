@@ -52,7 +52,7 @@ public class RootTreeNode {
 
         //Authentication
         ItemAdd(authentication,"NTLM_Hash","/View/Encryption/Modern/Authentication/NTLM/NTLMView.fxml");
-        // ItemAdd(authentication,"JWT");
+        ItemAdd(authentication,"JWT","/View/Encryption/Modern/Authentication/JWT/JWTView.fxml");
 
         //Classical
         ItemAdd(classical,"ROT","/View/Encryption/Classical/ROT/ROTView.fxml");

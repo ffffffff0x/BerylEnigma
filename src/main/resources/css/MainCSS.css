@@ -39,7 +39,7 @@
     -fx-prompt-text-fill: rgba(109, 109, 109, 0.62);
 }
 
-#JTA_dst,#JTA_src,#JTA_dsthex,#JTA_dstbase64{
+#JTA_dst,#JTA_src,#JTA_dsthex,#JTA_dstbase64,#JTA_header,#JTA_payload,#JTA_vs,#JTA_token{
     -fx-font-size: 16;
     -fx-background-color: #e8e8e8;
 }
