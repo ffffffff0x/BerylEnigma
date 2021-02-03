@@ -1,16 +1,9 @@
 package Init;
 
-import Kit.Utils.FlieUtils;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-
-import javax.swing.filechooser.FileSystemView;
-import java.io.File;
 import java.nio.charset.StandardCharsets;
 
 public class ViewInit {

@@ -32,7 +32,7 @@ public class RootTreeNode {
         tools.getChildren().add(textModify);
 
         //TextModify
-        // ItemAdd(textModify,"CaseConvert");
+        ItemAdd(textModify,"CaseConvert","/View/TextEdit/CaseConvert/CaseConvertView.fxml");
         ItemAdd(textModify,"TextReplace","/View/TextEdit/TextReplace/TextReplaceView.fxml");
         ItemAdd(textModify,"TextSeparate","/View/TextEdit/TextSeparate/TextSeparateView.fxml");
 
@@ -47,7 +47,7 @@ public class RootTreeNode {
         // ItemAdd(modern,"AES");
         // ItemAdd(modern,"DES");
         ItemAdd(modern,"HASH","/View/Encryption/Modern/Hash/HashView.fxml");
-        // ItemAdd(modern,"SM3");
+        ItemAdd(modern,"SM3","/View/Encryption/Modern/SM3/SM3View.fxml");
         // ItemAdd(modern,"SM4");
 
         //Authentication
