@@ -6,19 +6,17 @@ import Kit.Utils.Util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SM4Utils {
+public class Modern_SM4 {
 	public String secretKey = "";
 	
 	public String iv = "";
 	
 	public boolean hexString = false;
 	
-	public SM4Utils()
-	{
+	public Modern_SM4() {
 	}
 	
-	public String encryptData_ECB(String plainText)
-	{
+	public String encryptData_ECB(String plainText) {
 		try 
 		{
 			SM4_Context ctx = new SM4_Context();
@@ -54,8 +52,7 @@ public class SM4Utils {
 		}
 	}
 	
-	public String decryptData_ECB(String cipherText)
-	{
+	public String decryptData_ECB(String cipherText) {
 		try 
 		{
 			SM4_Context ctx = new SM4_Context();
@@ -84,8 +81,7 @@ public class SM4Utils {
 		}
 	}
 	
-	public String encryptData_CBC(String plainText)
-	{
+	public String encryptData_CBC(String plainText) {
 		try 
 		{
 			SM4_Context ctx = new SM4_Context();
@@ -124,8 +120,7 @@ public class SM4Utils {
 		}
 	}
 	
-	public String decryptData_CBC(String cipherText)
-	{
+	public String decryptData_CBC(String cipherText) {
 		try 
 		{
 			SM4_Context ctx = new SM4_Context();
@@ -156,6 +151,7 @@ public class SM4Utils {
 			return null;
 		}
 	}
+
 	/*
 	public static void main(String[] args) throws IOException 
 	{

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.commons.codec.DecoderException;
@@ -31,6 +32,7 @@ public class AESController {
     @FXML private JFXTextArea JTA_src;
     @FXML private JFXTextArea JTA_dst;
     @FXML private JFXButton JBT_option;
+    @FXML private GridPane GP_option;
 
     @FXML private AnchorPane AP_option;
     @FXML private JFXComboBox JCB_encryptMode;
@@ -59,7 +61,8 @@ public class AESController {
 
     @FXML
     public void ONClick_JBT_option(){
-        optionPaneAnime(AP_OPTION_STATES);
+        //optionPaneAnime(AP_OPTION_STATES);
+        
     }
 
     @FXML
@@ -98,7 +101,7 @@ public class AESController {
         KeyFrame kf_BT_Stop;
         if(states == 0){
             kf_AP_Start = new KeyFrame(Duration.seconds(0), "Start", event -> AP_option.setVisible(true),
-                    new KeyValue(AP_option.layoutXProperty(), 610));
+                    new KeyValue(AP_option.scaleYProperty(), 610));
             kf_AP_Stop = new KeyFrame(Duration.seconds(0.4), "Stop", event -> { },
                     new KeyValue(AP_option.layoutXProperty(), 455));
 

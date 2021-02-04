@@ -17,11 +17,11 @@ public class MockView extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        primaryStage.setTitle("CryptionToolFX");
+        primaryStage.setTitle("BEMock");
         // initRootLayout("/Kit/TempView/TempView_00.fxml");
-        // initRootLayout("/View/Encryption/Modern/AES/AESView.fxml");
+         initRootLayout("/View/Encryption/Modern/AES/AESView.fxml");
         // initRootLayout("/View/Encryption/Modern/Hash/HashView.fxml");
-        initRootLayout("/View/Encryption/Coding/MorseCoder/MorseCoderView.fxml");
+//        initRootLayout("/View/Encryption/Coding/MorseCoder/MorseCoderView.fxml");
         // initRootLayout("/View/Root/RootView.fxml");
     }
 
@@ -45,10 +45,13 @@ public class MockView extends Application {
             Scene scene = new Scene(rootLayout);
             scene.getStylesheets().add(MockView.class.getResource("/css/MainCSS.css").toExternalForm());
             primaryStage.setScene(scene);
-            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
