@@ -1,12 +1,11 @@
 package Kit.Utils;
 
-import javax.swing.text.View;
 import java.awt.*;
 import java.io.*;
-import java.nio.file.FileVisitOption;
+import java.util.ArrayList;
 
-public class FlieUtils {
-    public static byte[] getFile(File file){
+public class FileUtils {
+    public static byte[] getFilebyte(File file){
         FileInputStream fileInputStream;
         byte[] result = null;
         try {
@@ -18,6 +17,27 @@ public class FlieUtils {
         }
         return result;
     }//返回文件的byte[]格式
+
+    public static ArrayList<String> getFileLines(File file){
+        ArrayList<String> result = new ArrayList<>();
+        try {
+            FileInputStream inputStream = new FileInputStream(file);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+            String str;
+            while((str = bufferedReader.readLine()) != null)
+            {
+               result.add(str);
+            }
+            inputStream.close();
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }//读取每行文本，返回Arraylist<String>
 
     public static void outPutFile(String out,String charset){
         File file = ViewUtils.saveTextFile();

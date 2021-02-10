@@ -3,7 +3,7 @@ package View.Encryption.Coding.Base64;
 import Controller.Encryption.Coding.Base64.Coding_Base64;
 import Init.Init;
 import Init.ViewInit;
-import Kit.Utils.FlieUtils;
+import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
@@ -37,14 +37,14 @@ public class Base64ViewController {
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                     JTA_dst.setText(Coding_Base64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(Coding_Base64.encode(file));
+                    FileUtils.outPutFile(Coding_Base64.encode(file));
                     FileEncodeend();
                 }
             }else{
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                     JTA_dst.setText(Coding_Base64.urlEncodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(Coding_Base64.urlEncode(file));
+                    FileUtils.outPutFile(Coding_Base64.urlEncode(file));
                     FileEncodeend();
                 }
             }
@@ -60,14 +60,14 @@ public class Base64ViewController {
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                     JTA_dst.setText(Coding_Base64.decodetostring(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(Coding_Base64.decode(file));
+                    FileUtils.outPutFile(Coding_Base64.decode(file));
                     FileEncodeend();
                 }
             }else{
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                     JTA_dst.setText(Coding_Base64.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                 }else{
-                    FlieUtils.outPutFile(Coding_Base64.urlDecode(file));
+                    FileUtils.outPutFile(Coding_Base64.urlDecode(file));
                     FileEncodeend();
                 }
             }
@@ -84,7 +84,7 @@ public class Base64ViewController {
             try {
                 File file_temp = ViewUtils.getFile();
                 JTA_src.setText(file_temp.toString());
-                file = FlieUtils.getFile(file_temp);
+                file = FileUtils.getFilebyte(file_temp);
             }catch (Exception e){
                 e.printStackTrace();
                 JTB_modeSelect.selectedProperty().setValue(false);

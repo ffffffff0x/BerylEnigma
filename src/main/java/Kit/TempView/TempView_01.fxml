@@ -23,7 +23,7 @@
             <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
                   <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" text="%EnCode" />
-                  <JFXTextField fx:id="JTF_split" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" promptText="%Delimiter" />
+                  <JFXTextField alignment="CENTER" prefHeight="30.0" prefWidth="110.0" promptText="%Delimiter" />
                   <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" text="%DeCode" />
                </children>
                <opaqueInsets>

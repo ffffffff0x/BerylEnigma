@@ -55,6 +55,18 @@ public class ViewUtils {
         return fileChooser.showOpenDialog(primaryStage);
     } //获取文件类
 
+    public static File getFile(FileChooser.ExtensionFilter[] extFilter){
+        Stage primaryStage = null;
+        FileChooser fileChooser = new FileChooser();
+        for (FileChooser.ExtensionFilter filter:extFilter) {
+            fileChooser.getExtensionFilters().add(filter);
+        }
+        fileChooser.setTitle(Init.languageResourceBundle.getString("File"));
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        fileChooser.setInitialDirectory(fsv.getHomeDirectory());
+        return fileChooser.showOpenDialog(primaryStage);
+    } //获取文件类,携带文件后缀过滤器
+
     public static File saveTextFile(){
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");

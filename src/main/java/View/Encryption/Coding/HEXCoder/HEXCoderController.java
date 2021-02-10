@@ -3,7 +3,7 @@ package View.Encryption.Coding.HEXCoder;
 import Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import Init.Init;
 import Init.ViewInit;
-import Kit.Utils.FlieUtils;
+import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
@@ -41,7 +41,7 @@ public class HEXCoderController {
                     e.printStackTrace();
                 }
             }else{
-                FlieUtils.outPutFile(Coding_HEXCoder.encode(file));
+                FileUtils.outPutFile(Coding_HEXCoder.encode(file));
                 FileEncodeend();
             }
         }catch (Exception e)
@@ -60,7 +60,7 @@ public class HEXCoderController {
                     JTA_dst.validate();
                 }
             }else{
-                FlieUtils.outPutFile(Coding_HEXCoder.decode(file));
+                FileUtils.outPutFile(Coding_HEXCoder.decode(file));
                 FileEncodeend();
             }
         }catch (Exception e){
@@ -81,7 +81,7 @@ public class HEXCoderController {
             try {
                 File file_temp = ViewUtils.getFile();
                 JTA_src.setText(file_temp.toString());
-                file = FlieUtils.getFile(file_temp);
+                file = FileUtils.getFilebyte(file_temp);
             }catch (Exception e){
                 e.printStackTrace();
                 JTB_modeSelect.selectedProperty().setValue(false);

@@ -35,6 +35,7 @@ public class RootTreeNode {
         ItemAdd(textModify,"CaseConvert","/View/TextEdit/CaseConvert/CaseConvertView.fxml");
         ItemAdd(textModify,"TextReplace","/View/TextEdit/TextReplace/TextReplaceView.fxml");
         ItemAdd(textModify,"TextSeparate","/View/TextEdit/TextSeparate/TextSeparateView.fxml");
+        ItemAdd(textModify,"LineSplicing","/View/TextEdit/LineSplicing/LineSplicingView.fxml");
 
         //Encryption
         encryption.setExpanded(true);

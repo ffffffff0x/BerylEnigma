@@ -3,7 +3,7 @@ package View.Encryption.Modern.SM3;
 import Controller.Encryption.Modern.SM3.Modern_SM3;
 import Init.Init;
 import Init.ViewInit;
-import Kit.Utils.FlieUtils;
+import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -62,7 +62,7 @@ public class SM3Controller {
             try {
                 File file_temp = ViewUtils.getFile();
                 JTA_src.setText(file_temp.toString());
-                file = FlieUtils.getFile(file_temp);
+                file = FileUtils.getFilebyte(file_temp);
             }catch (Exception e){
                 e.printStackTrace();
                 JTB_modeSelect.selectedProperty().setValue(false);

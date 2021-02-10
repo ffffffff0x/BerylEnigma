@@ -39,13 +39,13 @@
     -fx-prompt-text-fill: rgba(109, 109, 109, 0.62);
 }
 
-#JTA_dst,#JTA_src,#JTA_dsthex,#JTA_dstbase64,#JTA_header,#JTA_payload,#JTA_vs,#JTA_token{
+#JTA_dst,#JTA_src,#JTA_src1,#JTA_src2,#JTA_src3,#JTA_dsthex,#JTA_dstbase64,#JTA_header,#JTA_payload,#JTA_vs,#JTA_token{
     -fx-font-size: 16;
     -fx-background-color: #e8e8e8;
 }
 
 /* Button */
-#JBT_deCode,#JBT_enCode,#JBT_confirm,#JBT_enCrypt,#JBT_deCrypt{
+#JBT_deCode,#JBT_enCode,#JBT_confirm,#JBT_enCrypt,#JBT_deCrypt,#JBT_loadFile,#JBT_loadFile1,#JBT_loadFile2{
     -fx-font-size: 15;
     -fx-background-color: #ffffff;
 }
