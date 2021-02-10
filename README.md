@@ -4,13 +4,20 @@
 
 ## 简介
 
-一个CTF+渗透测试工具包，主要实现功能在加解密和编码这块，在软件使用过程中发现问题或建议欢迎提交 issue.
+一个CTF+渗透测试工具包，主要实现功能在加解密和编码这块，在软件使用过程中发现问题或建议欢迎提交 issue,也欢迎提交新功能需求。
 
-前身为[CryptionTool](https://github.com/ffffffff0x/CryptionTool)，为更方便的开发更换框架重构，以前的功能都会逐步的添加回来，并且会增加更多的功能。
+前身为[CryptionTool](https://github.com/ffffffff0x/CryptionTool)，为更方便的开发更换框架重构。
 
 软件基于JDK15开发，使用JAVAFX UI框架以及JFoenixUI组件架构。详见开发文档。
 
 使用 jpackage 打包，java16 更新后会同步更进并使用更加完善的打包机制。
+
+---
+
+# 界面展示
+
+![](./assets/img/01.png)
+
 
 ## 下载
 访问 [releases](https://github.com/ffffffff0x/BerylEnigma/releases) 下载
@@ -45,12 +52,6 @@
 - 文本替换
 - 文本分隔
 - 英文大小写转换
----
-
-# 界面展示
-
-![](./assets/img/01.png)
-
 ---
 
 # 免责声明

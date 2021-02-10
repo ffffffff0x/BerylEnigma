@@ -8,7 +8,7 @@ public class TextEdit_LineSplicing {
         int lineNum = 0;
         if(file1.size()>file2.size()){
             for (String line:file1) {
-                if(file2.get(lineNum) != null){
+                if(lineNum < file2.size()){
                     result.append(line + delimiter + file2.get(lineNum) + "\n");
                     lineNum++;
                 }else {
@@ -18,7 +18,7 @@ public class TextEdit_LineSplicing {
             }
         }else{
             for (String line:file2) {
-                if(file1.get(lineNum) != null){
+                if(lineNum < file1.size()){
                     result.append(file1.get(lineNum) + delimiter + line + "\n");
                     lineNum++;
                 }else {
