@@ -22,33 +22,32 @@ public class Coding_HEXCoder {
         //String ---> byte[]
         byte[] bs = message.getBytes(charset);
         int bit;
-        if(split.equals("0x"))
-        {
-            sb.append(split);
-        }
+        int count = bs.length;
         for (byte b : bs) {
-            if (split.equals("\\x")) {
+            count--;
+            if ("\\x".equals(split)|| "0x".equals(split)) {
                 sb.append(split);
                 bit = (b & 0x0f0) >> 4;
                 sb.append(hexArray[bit]);
                 bit = b & 0x0f;
                 sb.append(hexArray[bit]);
-            } else if (Objects.equals(split, "0x")) {
+            } else if (Objects.equals(split, "\\n")) {
                 bit = (b & 0x0f0) >> 4;
                 sb.append(hexArray[bit]);
                 bit = b & 0x0f;
                 sb.append(hexArray[bit]);
+                if(count>0){
+                    sb.append("\n");
+                }
             } else {
                 bit = (b & 0x0f0) >> 4;
                 sb.append(hexArray[bit]);
                 bit = b & 0x0f;
                 sb.append(hexArray[bit]);
-                sb.append(split);
+                if(count>0){
+                    sb.append(split);
+                }
             }
-        }
-        if(split.equals(",")||split.equals(";")||split.equals(":")||split.equals("\n")||split.equals(" "))
-        {
-            sb.deleteCharAt(sb.length() - 1);
         }
         hexString = sb.toString();
         return hexString;
