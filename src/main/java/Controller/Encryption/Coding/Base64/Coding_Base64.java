@@ -13,7 +13,7 @@ public class Coding_Base64 {
         return java.util.Base64.getEncoder().encodeToString(bytes);
     }
 
-    public static String decodetostring(String in, String charset) throws UnsupportedEncodingException {
+    public static String decodeToString(String in, String charset) throws UnsupportedEncodingException {
         //获取用户输入字符通过base64加密，输出byte数组型值
         byte[] bs64 = java.util.Base64.getDecoder().decode(in);
         //将byte数组转换成String输出
@@ -47,5 +47,35 @@ public class Coding_Base64 {
 
     public static byte[] urlDecode(byte[] in){
         return java.util.Base64.getUrlDecoder().decode(in);
+    }
+
+    public static String encodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
+        if("\\n".equals(split)){
+            split = "\n";
+        }
+
+        String[] allMessage = in.split(split);
+        StringBuilder result = new StringBuilder();
+
+        for (String message:allMessage) {
+            result.append(encodeToString(message, charset)).append(split);
+        }
+
+        return result.toString();
+    }
+
+    public static String decodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
+        if("\\n".equals(split)){
+            split = "\n";
+        }
+
+        String[] allMessage = in.split(split);
+        StringBuilder result = new StringBuilder();
+
+        for (String message:allMessage) {
+            result.append(decodeToString(message, charset)).append(split);
+        }
+
+        return result.toString();
     }
 }

@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.util.Objects;
 
 /**
  * @author RyuZU
@@ -23,6 +24,7 @@ public class Base64ViewController {
     @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXToggleButton JTB_modeSelect;
+    @FXML private JFXTextField JTF_split;
     @FXML private JFXCheckBox JCHB_isBase64URL;
 
     @FXML
@@ -35,7 +37,11 @@ public class Base64ViewController {
         try {
             if(!JCHB_isBase64URL.isSelected()){
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(Coding_Base64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    if(!Objects.equals(JTF_split.getText(), "")){
+                        JTA_dst.setText(Coding_Base64.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
+                    }else{
+                        JTA_dst.setText(Coding_Base64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    }
                 }else{
                     FileUtils.outPutFile(Coding_Base64.encode(file));
                     FileEncodeend();
@@ -58,7 +64,11 @@ public class Base64ViewController {
         try {
             if(!JCHB_isBase64URL.isSelected()){
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(Coding_Base64.decodetostring(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    if(!Objects.equals(JTF_split.getText(), "")){
+                        JTA_dst.setText(Coding_Base64.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
+                    }else{
+                        JTA_dst.setText(Coding_Base64.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    }
                 }else{
                     FileUtils.outPutFile(Coding_Base64.decode(file));
                     FileEncodeend();
