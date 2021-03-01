@@ -30,7 +30,7 @@ public class Main extends Application {
 
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("/View/Root/RootView.fxml"));
+            loader.setLocation(Main.class.getResource("/Main/View/Root/RootView.fxml"));
             loader.setResources(Init.languageResourceBundle);
             rootLayout = loader.load();
 

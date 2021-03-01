@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.View.Tools.TextEdit.LineSplicing.LineSplicingController">
+   <children>
+      <Label fx:id="JLB_title" alignment="CENTER" text="LineSplicing" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="Jokerman" size="45.0" />
+         </font>
+      </Label>
+      <AnchorPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <GridPane prefHeight="165.0" vgap="5.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="405.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="125.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextArea fx:id="JTA_src1" editable="false" layoutX="-76.0" layoutY="-42.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <JFXButton fx:id="JBT_loadFile1" buttonType="RAISED" layoutX="23.0" layoutY="20.0" onAction="#ONClick_JBT_loadFile1" prefHeight="40.0" prefWidth="85.0" text="%LoadFile" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <JFXButton fx:id="JBT_loadFile2" buttonType="RAISED" layoutX="23.0" layoutY="20.0" onAction="#ONClick_JBT_loadFile2" prefHeight="40.0" prefWidth="85.0" text="%LoadFile" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <JFXTextArea fx:id="JTA_src2" editable="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="315.0" prefHeight="165.0" promptText="%Preview" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0" />
+            <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="100.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+               <children>
+                  <JFXTextField fx:id="JTF_split" alignment="CENTER" onKeyReleased="#ONKeyPressed_JTF_split" prefHeight="30.0" prefWidth="110.0" promptText="%Delimiter" />
+                  <JFXButton fx:id="JBT_confirm" buttonType="RAISED" onAction="#ONClick_JBT_confirm" prefHeight="50.0" prefWidth="101.0" text="%Confirm">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin></JFXButton>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
