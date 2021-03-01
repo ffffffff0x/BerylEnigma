@@ -1,6 +1,6 @@
-package View.TextEdit.TextReplace;
+package View.Tools.TextEdit.TextReplace;
 
-import Controller.TextEdit.TextReplace.TextEdit_TextReplace;
+import Controller.Tools.TextEdit.TextReplace.TextEdit_TextReplace;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;

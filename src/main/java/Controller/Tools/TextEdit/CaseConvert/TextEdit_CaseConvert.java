@@ -1,4 +1,4 @@
-package Controller.TextEdit.CaseConvert;
+package Controller.Tools.TextEdit.CaseConvert;
 
 public class TextEdit_CaseConvert {
     public static String Uppercase(String message)

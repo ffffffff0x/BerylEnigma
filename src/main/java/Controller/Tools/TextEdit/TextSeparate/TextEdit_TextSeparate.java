@@ -1,4 +1,4 @@
-package Controller.TextEdit.TextSeparate;
+package Controller.Tools.TextEdit.TextSeparate;
 
 public class TextEdit_TextSeparate {
     public static String TextSeparate(String sourceStr,String separateStr,int separateNum){

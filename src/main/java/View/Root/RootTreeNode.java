@@ -16,6 +16,7 @@ public class RootTreeNode {
     public RootTreeNode(){
         final TreeItem<String> tools = new TreeItem<>(Init.languageResourceBundle.getString("Tools"),folderIcon("open"));
             final TreeItem<String> textModify = new TreeItem<>(Init.languageResourceBundle.getString("TextModify"),folderIcon("open"));
+            final TreeItem<String> practical = new TreeItem<>(Init.languageResourceBundle.getString("Practical"),folderIcon("open"));
         final TreeItem<String> encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
             final TreeItem<String> modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
                 final TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
@@ -30,12 +31,16 @@ public class RootTreeNode {
         //Tools
         tools.setExpanded(true);
         tools.getChildren().add(textModify);
+        tools.getChildren().add(practical);
+
+        //Practical
+        ItemAdd(practical,"MoneyConvert","/View/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");
 
         //TextModify
-        ItemAdd(textModify,"CaseConvert","/View/TextEdit/CaseConvert/CaseConvertView.fxml");
-        ItemAdd(textModify,"TextReplace","/View/TextEdit/TextReplace/TextReplaceView.fxml");
-        ItemAdd(textModify,"TextSeparate","/View/TextEdit/TextSeparate/TextSeparateView.fxml");
-        ItemAdd(textModify,"LineSplicing","/View/TextEdit/LineSplicing/LineSplicingView.fxml");
+        ItemAdd(textModify,"CaseConvert", "/View/Tools/TextEdit/CaseConvert/CaseConvertView.fxml");
+        ItemAdd(textModify,"TextReplace", "/View/Tools/TextEdit/TextReplace/TextReplaceView.fxml");
+        ItemAdd(textModify,"TextSeparate", "/View/Tools/TextEdit/TextSeparate/TextSeparateView.fxml");
+        ItemAdd(textModify,"LineSplicing", "/View/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
 
         //Encryption
         encryption.setExpanded(true);

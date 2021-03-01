@@ -1,6 +1,6 @@
-package View.TextEdit.LineSplicing;
+package View.Tools.TextEdit.LineSplicing;
 
-import Controller.TextEdit.LineSplicing.TextEdit_LineSplicing;
+import Controller.Tools.TextEdit.LineSplicing.TextEdit_LineSplicing;
 import Init.Init;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;

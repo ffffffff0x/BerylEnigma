@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TextEdit.TextReplace.TextReplaceController">
+<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Tools.TextEdit.TextReplace.TextReplaceController">
    <children>
       <Label fx:id="JLB_title" alignment="CENTER" text="TextReplace" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
          <font>

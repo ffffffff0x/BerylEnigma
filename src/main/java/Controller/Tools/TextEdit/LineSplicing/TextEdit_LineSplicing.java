@@ -1,4 +1,4 @@
-package Controller.TextEdit.LineSplicing;
+package Controller.Tools.TextEdit.LineSplicing;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
-package View.TextEdit.TextSeparate;
+package View.Tools.TextEdit.TextSeparate;
 
-import Controller.TextEdit.TextSeparate.TextEdit_TextSeparate;
+import Controller.Tools.TextEdit.TextSeparate.TextEdit_TextSeparate;
 import Init.ViewInit;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;

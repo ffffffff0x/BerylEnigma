@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TextEdit.LineSplicing.LineSplicingController">
+<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Tools.TextEdit.LineSplicing.LineSplicingController">
    <children>
       <Label fx:id="JLB_title" alignment="CENTER" text="LineSplicing" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
          <font>

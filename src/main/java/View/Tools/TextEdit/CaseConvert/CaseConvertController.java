@@ -1,12 +1,9 @@
-package View.TextEdit.CaseConvert;
+package View.Tools.TextEdit.CaseConvert;
 
-import Controller.TextEdit.CaseConvert.TextEdit_CaseConvert;
+import Controller.Tools.TextEdit.CaseConvert.TextEdit_CaseConvert;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
-
-import javax.swing.*;
 
 public class CaseConvertController {
     @FXML
