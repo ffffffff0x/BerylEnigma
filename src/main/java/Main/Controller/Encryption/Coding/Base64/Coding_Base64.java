@@ -78,4 +78,34 @@ public class Coding_Base64 {
 
         return result.toString();
     }
+
+    public static String urlEncodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
+        if("\\n".equals(split)){
+            split = "\n";
+        }
+
+        String[] allMessage = in.split(split);
+        StringBuilder result = new StringBuilder();
+
+        for (String message:allMessage) {
+            result.append(urlEncodeToString(message, charset)).append(split);
+        }
+
+        return result.toString();
+    }
+
+    public static String urlDecodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
+        if("\\n".equals(split)){
+            split = "\n";
+        }
+
+        String[] allMessage = in.split(split);
+        StringBuilder result = new StringBuilder();
+
+        for (String message:allMessage) {
+            result.append(urlDecodeToString(message, charset)).append(split);
+        }
+
+        return result.toString();
+    }
 }

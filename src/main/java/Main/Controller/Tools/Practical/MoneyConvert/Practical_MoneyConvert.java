@@ -98,8 +98,4 @@ public class Practical_MoneyConvert {
 
         return Result.toString();
     }
-
-    public static void main(String[] args) {
-        System.out.println(convert(new BigDecimal("9999999999999999.99")));
-    }
 }

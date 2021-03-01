@@ -6,7 +6,7 @@
 
     <groupId>org.ffffffff0x</groupId>
     <artifactId>BerylEnigma</artifactId>
-    <version>1.0.0_RD</version>
+    <version>1.0</version>
     <properties>
         <argLine>-Dfile.encoding=UTF-8</argLine>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

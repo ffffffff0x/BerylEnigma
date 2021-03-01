@@ -35,27 +35,40 @@ public class Base64ViewController {
     @FXML
     public void ONClick_JBT_enCode(){
         try {
+            //判断是否是Base64URL
             if(!JCHB_isBase64URL.isSelected()){
+                //判断是否为文本模式
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                    //判断是否使用分隔符
                     if(!Objects.equals(JTF_split.getText(), "")){
                         JTA_dst.setText(Coding_Base64.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
                     }else{
                         JTA_dst.setText(Coding_Base64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                     }
+                    //文件模式
                 }else{
                     FileUtils.outPutFile(Coding_Base64.encode(file));
                     FileEncodeend();
                 }
+                //URLBase64
             }else{
+                //判断是否为文本模式
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(Coding_Base64.urlEncodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    //判断是否使用分隔符
+                    if(!Objects.equals(JTF_split.getText(), "")){
+                        JTA_dst.setText(Coding_Base64.urlEncodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
+                    }else{
+                        JTA_dst.setText(Coding_Base64.urlEncodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    }
+                    //文件模式
                 }else{
                     FileUtils.outPutFile(Coding_Base64.urlEncode(file));
                     FileEncodeend();
                 }
             }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+//            e.printStackTrace();
+            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage"));
         }
     }
 
@@ -75,14 +88,19 @@ public class Base64ViewController {
                 }
             }else{
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-                    JTA_dst.setText(Coding_Base64.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    if(!Objects.equals(JTF_split.getText(), "")){
+                        JTA_dst.setText(Coding_Base64.urlDecodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
+                    }else{
+                        JTA_dst.setText(Coding_Base64.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
+                    }
                 }else{
                     FileUtils.outPutFile(Coding_Base64.urlDecode(file));
                     FileEncodeend();
                 }
             }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+//            e.printStackTrace();
+            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage"));
         }
     }
 
