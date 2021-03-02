@@ -1,11 +1,14 @@
 package Main.View.Encryption.Classical.RailFence;
 
 
+import Init.Init;
 import Main.Controller.Encryption.Classical.RailFence.Classical_RailFence;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+
+import java.util.SimpleTimeZone;
 
 public class RailFenceController {
 
@@ -17,11 +20,20 @@ public class RailFenceController {
 
     @FXML
     public void ONClick_JBT_enCode(){
-        JTA_dst.setText(Classical_RailFence.encode(JTA_src.getText(),Integer.valueOf(JTF_quantity.getText())));
+        try{
+            JTA_dst.setText(Classical_RailFence.encode(JTA_src.getText(),Integer.valueOf(JTF_quantity.getText())));
+        }catch (Exception e){
+            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage"));
+        }
+
     }
 
     @FXML
     public void ONClick_JBT_deCode(){
-        JTA_dst.setText(Classical_RailFence.decode(JTA_src.getText(),Integer.valueOf(JTF_quantity.getText())));
+        try{
+            JTA_dst.setText(Classical_RailFence.decode(JTA_src.getText(),Integer.valueOf(JTF_quantity.getText())));
+        }catch (Exception e){
+            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage"));
+        }
     }
 }

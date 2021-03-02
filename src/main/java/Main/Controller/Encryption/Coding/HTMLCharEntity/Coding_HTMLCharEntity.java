@@ -9,12 +9,25 @@ import java.math.BigInteger;
  * @author RyuZU
  */
 public class Coding_HTMLCharEntity {
+    private static final String REFERENCE_DEC = "NCR: &#[dec];";
+    private static final String REFERENCE_HEX = "NCR: &#x[hex];";
+
     //拼接字符串
     public static String encode(String source,String reference){
         String[] sourceSplit = source.split("");
         StringBuilder out = new StringBuilder();
-        for (String a:sourceSplit) {
-            out.append(HTMLCharEntityEncode(a,reference));
+        if(REFERENCE_DEC.equals(reference)) {
+            for (String a:sourceSplit) {
+                out.append("&#").append(new BigInteger(Coding_Unicode.encode(a).substring(2), 16).toString(10)).append(";");
+            }
+        }else if (REFERENCE_HEX.equals(reference)){
+            for (String a:sourceSplit) {
+                out.append("&#x").append(Coding_Unicode.encode(a).substring(2)).append(";");
+            }
+        }else {
+            for (String a:sourceSplit) {
+                out.append(StringEscapeUtils.escapeHtml4(a));
+            }
         }
         return out.toString();
     }
@@ -22,36 +35,20 @@ public class Coding_HTMLCharEntity {
     public static String decode(String source, String reference){
         String[] sourceSplit = source.split(";");
         StringBuilder out = new StringBuilder();
-        for (String a:sourceSplit) {
-            if(reference.equals("CER: &[char];")){
-                out.append(HTMLCharEntityDecode(a+";",reference));
-            }else {
-                out.append(HTMLCharEntityDecode(a,reference));
+
+        if(REFERENCE_DEC.equals(reference)) {
+            for (String a:sourceSplit) {
+                out.append(Coding_Unicode.decode("\\u"+new BigInteger(a.substring(2),10).toString(16)));
+            }
+        }else if (REFERENCE_HEX.equals(reference)){
+            for (String a:sourceSplit) {
+                out.append(Coding_Unicode.decode("\\u"+a.substring(3)));
+            }
+        }else {
+            for (String a:sourceSplit) {
+                out.append(StringEscapeUtils.unescapeHtml4(a+";"));
             }
         }
         return out.toString();
-    }
-    //HTML实体编码
-    private static String HTMLCharEntityEncode(String source, String reference){
-        String out = Coding_Unicode.encode(source).substring(2);
-
-        if(reference.equals("NCR: &#[dec];")) {
-            return "&#"+(new BigInteger(out,16).toString(10))+";";
-        }else if (reference.equals("NCR: &#x[hex];")){
-            return "&#x"+out+";";
-        }else {
-            return StringEscapeUtils.escapeHtml4(source);
-        }
-    }
-    //HTML实体编码
-    private static String HTMLCharEntityDecode(String source, String reference){
-
-        if(reference.equals("NCR: &#[dec];")) {
-            return Coding_Unicode.decode("\\u"+new BigInteger(source.substring(2),10).toString(16));
-        }else if (reference.equals("NCR: &#x[hex];")){
-            return Coding_Unicode.decode("\\u"+source.substring(3));
-        }else {
-            return StringEscapeUtils.unescapeHtml4(source);
-        }
     }
 }

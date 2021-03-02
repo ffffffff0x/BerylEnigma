@@ -1,5 +1,6 @@
 package Main.View.Encryption.Coding.BaseConversion;
 
+import Init.Init;
 import Main.Controller.Encryption.Coding.BaseConversion.Coding_BaseConversion;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -22,10 +23,14 @@ public class BaseConversionController {
 
     @FXML
     public void ONClick_JBT_confirm(){
-        JTA_dst.setText(Coding_BaseConversion.conversion(JTA_src.getText(),
-                Integer.parseInt(JCB_srcBase.getValue().toString()),
-                Integer.parseInt(JCB_dstBase.getValue().toString()),
-                JTF_split.getText()));
+        try {
+            JTA_dst.setText(Coding_BaseConversion.conversion(JTA_src.getText(),
+                    Integer.parseInt(JCB_srcBase.getValue().toString()),
+                    Integer.parseInt(JCB_dstBase.getValue().toString()),
+                    JTF_split.getText()));
+        }catch (NumberFormatException e){
+            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage_isNum"));
+        }
     }
 
     @FXML
