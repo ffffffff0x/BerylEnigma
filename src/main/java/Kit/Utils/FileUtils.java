@@ -31,8 +31,6 @@ public class FileUtils {
             }
             inputStream.close();
             bufferedReader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,7 +38,7 @@ public class FileUtils {
     }//读取每行文本，返回Arraylist<String>
 
     public static void outPutFile(String out,String charset){
-        File file = ViewUtils.saveTextFile();
+        File file = ViewUtils.saveFileFilter();
         if(file==null) {
             return;
         }else{
@@ -57,10 +55,10 @@ public class FileUtils {
     }
 
     public static void outPutFile(byte[] out){
-        File file = ViewUtils.saveTextFile();
+        File file = ViewUtils.saveFileFilter();
         if(file!=null) {
             BufferedOutputStream bos = null;
-            FileOutputStream fos = null;
+            FileOutputStream fos;
             try {
                 fos = new FileOutputStream(file);
                 bos = new BufferedOutputStream(fos);

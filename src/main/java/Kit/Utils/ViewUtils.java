@@ -67,10 +67,13 @@ public class ViewUtils {
         return fileChooser.showOpenDialog(primaryStage);
     } //获取文件类,携带文件后缀过滤器
 
-    public static File saveTextFile(){
+    public static File saveFileFilter(){
         FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
-        fileChooser.getExtensionFilters().add(extFilter);
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.jpg"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("GIF files (*.gif)", "*.gif"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
         Stage stage = new Stage();
         FileSystemView fsv = FileSystemView.getFileSystemView();
         fileChooser.setInitialDirectory(fsv.getHomeDirectory());
