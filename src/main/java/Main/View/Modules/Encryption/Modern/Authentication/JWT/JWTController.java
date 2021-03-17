@@ -1,6 +1,8 @@
 package Main.View.Modules.Encryption.Modern.Authentication.JWT;
 
+import Kit.Utils.ViewUtils;
 import Main.Controller.Encryption.Modern.Authentication.JWT.Authentication_JWT;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
@@ -9,30 +11,39 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-public class JWTController {
+public class JWTController extends ViewControllerObject {
+    /**
+     *  JTA_src1 :Header
+     *  JTA_src2 :Payload
+     *  JTA_src3 :VS
+     *  JTA_dst :Token
+     */
 
-    @FXML private JFXButton JBT_enCode;
-    @FXML private JFXButton JBT_deCode;
-    @FXML private JFXTextArea JTA_header;
-    @FXML private JFXTextArea JTA_payload;
-    @FXML private JFXTextArea JTA_vs;
-    @FXML private JFXTextArea JTA_token;
-
-    @FXML private void initialize(){
-
+    @Override
+    protected void initialize(){
+        super.initialize();
     }
 
-    @FXML
-    public void ONClick_JBT_enCode() throws NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
-        JTA_token.setText(Authentication_JWT.encode(JTA_header.getText(),JTA_payload.getText(),JTA_vs.getText()));
+    @Override
+    public void ONClickEncode() {
+        super.ONClickEncode();
+        try {
+            JTA_dst.setText(Authentication_JWT.encode(JTA_src1.getText(), JTA_src2.getText(), JTA_src3.getText()));
+        } catch (Exception e) {
+            ViewUtils.textAreaValidate(JTA_dst);
+        }
     }
 
-    @FXML
-    public void ONClick_JBT_deCode(){
-        String[] result = Authentication_JWT.decode(JTA_token.getText());
-        JTA_header.setText(result[0]);
-        JTA_payload.setText(result[1]);
-        JTA_vs.setText(result[2]);
+    @Override
+    public void ONClickDecode() {
+        super.ONClickDecode();
+        try {
+            String[] result = Authentication_JWT.decode(JTA_dst.getText());
+            JTA_src1.setText(result[0]);
+            JTA_src2.setText(result[1]);
+            JTA_src3.setText(result[2]);
+        } catch (Exception e) {
+            ViewUtils.textAreaValidate(JTA_dst);
+        }
     }
-
 }

@@ -5,6 +5,7 @@ import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -16,35 +17,43 @@ import org.apache.commons.codec.binary.Hex;
 import java.io.File;
 import java.io.IOException;
 
-public class SM3Controller {
+public class SM3Controller extends ViewControllerObject {
+    /**
+     * JTA_dst1 :HEX result
+     * JTA_dst :base64 result
+     */
+    
     byte[] file = null;
 
-    @FXML private JFXButton JBT_enCrypt;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dsthex;
-    @FXML private JFXTextArea JTA_dstbase64;
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXToggleButton JTB_modeSelect;
 
-    @FXML private void initialize(){
+    @Override
+    protected void initialize() {
+        super.initialize();
         ViewInit.comboBoxCharset(JCB_charset);
     }
 
-    @FXML
-    public void ONClick_JBT_enCrypt() throws IOException {
-        String[] dst = new String[0];
-        if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-            try {
-                dst = hash(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
-            } catch (IOException e) {
-                e.printStackTrace();
+    @Override
+    public void ONClickConfirm() {
+        super.ONClickConfirm();
+        try {
+            String[] dst = new String[0];
+            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                try {
+                    dst = hash(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                dst = hash(file);
+                FileEncodeend();
             }
-        }else{
-            dst = hash(file);
-            FileEncodeend();
+            JTA_dst1.setText(dst[0]);
+            JTA_dst.setText(dst[1]);
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
         }
-        JTA_dsthex.setText(dst[0]);
-        JTA_dstbase64.setText(dst[1]);
     }
 
     private String[] hash(byte[] message) throws IOException {

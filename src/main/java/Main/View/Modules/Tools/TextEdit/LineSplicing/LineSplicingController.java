@@ -4,6 +4,7 @@ import Main.Controller.Tools.TextEdit.LineSplicing.TextEdit_LineSplicing;
 import Init.Init;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -13,12 +14,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.util.ArrayList;
 
-public class LineSplicingController {
-    @FXML private JFXTextArea JTA_src1;
-    @FXML private JFXTextArea JTA_src2;
-    @FXML private JFXTextArea JTA_dst;
+public class LineSplicingController extends ViewControllerObject {
     @FXML private JFXTextField JTF_split;
-    @FXML private JFXButton JBT_confirm;
     @FXML private JFXButton JBT_loadFile1;
     @FXML private JFXButton JBT_loadFile2;
 
@@ -27,16 +24,23 @@ public class LineSplicingController {
     private ArrayList<String> fileLines1;
     private ArrayList<String> fileLines2;
 
-    @FXML private void initialize(){
+    @Override
+    protected void initialize(){
+        super.initialize();
         file1 = null;
         file2 = null;
         fileLines1 = null;
         fileLines2 = null;
     }
 
-    @FXML
-    public void ONClick_JBT_confirm(){
-        FileUtils.outPutFile(TextEdit_LineSplicing.LineSplicing(fileLines1,fileLines2,JTF_split.getText()),"UTF-8");
+    @Override
+    public void ONClickConfirm() {
+        super.ONClickConfirm();
+        try {
+            FileUtils.outPutFile(TextEdit_LineSplicing.LineSplicing(fileLines1,fileLines2,JTF_split.getText()),"UTF-8");
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
+        }
     }
 
     @FXML

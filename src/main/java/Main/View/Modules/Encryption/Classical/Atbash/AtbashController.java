@@ -1,17 +1,26 @@
 package Main.View.Modules.Encryption.Classical.Atbash;
 
 
+import Kit.Utils.ViewUtils;
 import Main.Controller.Encryption.Classical.Atbash.Classical_Atbash;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
-public class AtbashController {
+public class AtbashController extends ViewControllerObject {
 
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
+    @Override
+    protected void initialize() {
+        super.initialize();
+    }
 
-    @FXML
-    public void AtbashEncode() {
-        JTA_dst.setText(Classical_Atbash.encode(JTA_src.getText()));
+    @Override
+    public void ONReleasedOrSelected() {
+        super.ONReleasedOrSelected();
+        try {
+            JTA_dst.setText(Classical_Atbash.encode(JTA_src.getText()));
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
+        }
     }
 }

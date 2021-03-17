@@ -1,39 +1,47 @@
 package Main.View.Modules.Encryption.Coding.MorseCoder;
 
+import Kit.Utils.ViewUtils;
 import Main.Controller.Encryption.Coding.MorseCoder.Coding_MorseCoder;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
-public class MorseCoderController {
+public class MorseCoderController extends ViewControllerObject {
 
-    @FXML private JFXButton JBT_enCode;
-    @FXML private JFXButton JBT_deCode;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
     @FXML private JFXTextField JTF_split;
 
-    @FXML private void initialize(){
-
+    @Override
+    protected void initialize() {
+        super.initialize();
     }
 
-    @FXML
-    public void ONClick_JBT_enCode(){
-        if(JTF_split.getText().equals("")){
-            JTA_dst.setText(Coding_MorseCoder.encode(JTA_src.getText()," "));
-        }else{
-            JTA_dst.setText(Coding_MorseCoder.encode(JTA_src.getText(),JTF_split.getText()));
+    @Override
+    public void ONClickEncode() {
+        super.ONClickEncode();
+        try {
+            if(JTF_split.getText().equals("")){
+                JTA_dst.setText(Coding_MorseCoder.encode(JTA_src.getText()," "));
+            }else{
+                JTA_dst.setText(Coding_MorseCoder.encode(JTA_src.getText(),JTF_split.getText()));
+            }
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
         }
     }
 
-    @FXML
-    public void ONClick_JBT_deCode(){
-        if(JTF_split.getText().equals("")){
-            JTA_dst.setText(Coding_MorseCoder.decode(JTA_src.getText()," "));
-        }else{
-            JTA_dst.setText(Coding_MorseCoder.decode(JTA_src.getText(),JTF_split.getText()));
+    @Override
+    public void ONClickDecode() {
+        super.ONClickDecode();
+        try {
+            if(JTF_split.getText().equals("")){
+                JTA_dst.setText(Coding_MorseCoder.decode(JTA_src.getText()," "));
+            }else{
+                JTA_dst.setText(Coding_MorseCoder.decode(JTA_src.getText(),JTF_split.getText()));
+            }
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
         }
     }
-
 }

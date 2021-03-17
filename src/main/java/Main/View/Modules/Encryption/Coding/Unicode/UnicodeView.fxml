@@ -21,8 +21,8 @@
             <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="315.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0"/>
             <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="140.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" text="%EnCode"/>
-                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" text="%DeCode"/>
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClickEncode" prefHeight="50.0" prefWidth="101.0" text="%EnCode"/>
+                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClickDecode" prefHeight="50.0" prefWidth="101.0" text="%DeCode"/>
                </children>
                <opaqueInsets>
                   <Insets />

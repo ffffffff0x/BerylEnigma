@@ -1,7 +1,9 @@
 package Main.View.Modules.Tools.Practical.MoneyConvert;
 
+import Kit.Utils.ViewUtils;
 import Main.Controller.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
 import Init.Init;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -14,21 +16,21 @@ import java.math.BigDecimal;
  * @create: 2021-03-01 14:33
  **/
 
-public class MoneyConvertController {
+public class MoneyConvertController extends ViewControllerObject {
     private final BigDecimal MAX_VALUE = new BigDecimal("9999999999999999.99");
 
-    @FXML private JFXButton JBT_confirm;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_language;
 
-    @FXML private void initialize(){
+    @Override
+    protected void initialize(){
+        super.initialize();
         initComboBox();
         JTA_src.setPromptText("MAX:9999999999999999.99");
     }
 
-    @FXML
-    public void ONClick_JBT_confirm(){
+    @Override
+    public void ONClickConfirm() {
+        super.ONClickConfirm();
         try {
             if(MAX_VALUE.compareTo(new BigDecimal(JTA_src.getText())) ==-1 ){
                 JTA_src.setText("");
@@ -36,8 +38,8 @@ public class MoneyConvertController {
             }else{
                 JTA_dst.setText(Practical_MoneyConvert.convert(new BigDecimal(JTA_src.getText())));
             }
-        }catch (NumberFormatException e){
-            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage_isNum"));
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
         }
     }
 

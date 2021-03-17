@@ -5,6 +5,7 @@ import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 
@@ -14,25 +15,23 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author RyuZU
  */
-public class HEXCoderController {
+public class HEXCoderController extends ViewControllerObject {
     byte[] file = null;
 
-    @FXML private JFXButton JBT_enCode;
-    @FXML private JFXButton JBT_deCode;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXTextField JTF_split;
     @FXML private JFXToggleButton JTB_modeSelect;
 
-    @FXML
-    private void initialize() {
+    @Override
+    protected void initialize() {
+        super.initialize();
         ViewInit.comboBoxCharset(JCB_charset);
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
     }
 
-    @FXML
-    public void ONClick_JBT_enCode(){
+    @Override
+    public void ONClickEncode() {
+        super.ONClickEncode();
         try {
             if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                 try {
@@ -44,14 +43,14 @@ public class HEXCoderController {
                 FileUtils.outPutFile(Coding_HEXCoder.encode(file));
                 FileEncodeend();
             }
-        }catch (Exception e)
-        {
-            JTA_dst.validate();
+        }catch (Exception e) {
+            ViewUtils.textAreaValidate(JTA_dst);
         }
     }
 
-    @FXML
-    public void ONClick_JBT_deCode(){
+    @Override
+    public void ONClickDecode() {
+        super.ONClickDecode();
         try{
             if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                 try {
@@ -64,13 +63,8 @@ public class HEXCoderController {
                 FileEncodeend();
             }
         }catch (Exception e){
-            JTA_dst.validate();
+            ViewUtils.textAreaValidate(JTA_dst);
         }
-    }
-
-    @FXML
-    public void ResetValidator(){
-        JTA_dst.resetValidation();
     }
 
     @FXML

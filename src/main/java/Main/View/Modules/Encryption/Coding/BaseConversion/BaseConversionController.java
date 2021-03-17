@@ -1,35 +1,38 @@
 package Main.View.Modules.Encryption.Coding.BaseConversion;
 
 import Init.Init;
+import Kit.Utils.ViewUtils;
 import Main.Controller.Encryption.Coding.BaseConversion.Coding_BaseConversion;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
-public class BaseConversionController {
+public class BaseConversionController extends ViewControllerObject {
 
-    @FXML private JFXButton JBT_confirm;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
     @FXML private JFXTextField JTF_split;
     @FXML private JFXComboBox<Integer> JCB_srcBase;
     @FXML private JFXComboBox<Integer> JCB_dstBase;
 
-    @FXML private void initialize(){
+
+    @Override
+    protected void initialize(){
+        super.initialize();
         initComboBox();
     }
 
-    @FXML
-    public void ONClick_JBT_confirm(){
+    @Override
+    public void ONClickConfirm() {
+        super.ONClickConfirm();
         try {
             JTA_dst.setText(Coding_BaseConversion.conversion(JTA_src.getText(),
                     Integer.parseInt(JCB_srcBase.getValue().toString()),
                     Integer.parseInt(JCB_dstBase.getValue().toString()),
                     JTF_split.getText()));
         }catch (NumberFormatException e){
-            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage_isNum"));
+            ViewUtils.textAreaValidate(JTA_dst);
         }
     }
 

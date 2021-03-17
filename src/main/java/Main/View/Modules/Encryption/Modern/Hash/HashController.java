@@ -5,9 +5,8 @@ import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
-import com.jfoenix.controls.JFXButton;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;
 import org.apache.commons.codec.binary.Base64;
@@ -17,36 +16,44 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
-public class HashController {
+public class HashController extends ViewControllerObject {
+    /**
+     * JTA_dst1 :HEX result
+     * JTA_dst :base64 result
+     */
+
     byte[] file = null;
 
-    @FXML private JFXButton JBT_enCrypt;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dsthex;
-    @FXML private JFXTextArea JTA_dstbase64;
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXComboBox JCB_hashMode;
     @FXML private JFXToggleButton JTB_modeSelect;
 
-    @FXML private void initialize(){
+    @Override
+    protected void initialize() {
+        super.initialize();
         initComboBox();
     }
 
-    @FXML
-    public void ONClick_JBT_enCrypt(){
-        String[] dst = new String[0];
-        if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
-            try {
-                dst = hash(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+    @Override
+    public void ONClickConfirm() {
+        super.ONClickConfirm();
+        try{
+            String[] dst = new String[0];
+            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                try {
+                    dst = hash(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                dst = hash(file);
+                FileEncodeend();
             }
-        }else{
-            dst = hash(file);
-            FileEncodeend();
+            JTA_dst1.setText(dst[0]);
+            JTA_dst.setText(dst[1]);
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
         }
-        JTA_dsthex.setText(dst[0]);
-        JTA_dstbase64.setText(dst[1]);
     }
 
     private void initComboBox(){
@@ -78,6 +85,7 @@ public class HashController {
         }
         return out;
     }
+
     @FXML
     public void ONClick_JCB_modeSelect(){
         if (JTB_modeSelect.isSelected()){

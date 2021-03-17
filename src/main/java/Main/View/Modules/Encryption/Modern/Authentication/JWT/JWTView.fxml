@@ -59,24 +59,24 @@
             </children>
          </AnchorPane>
          <AnchorPane prefHeight="200.0" prefWidth="170.0" GridPane.rowIndex="1">
-            <JFXTextArea fx:id="JTA_header" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0" />
+            <JFXTextArea fx:id="JTA_src1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0" />
          </AnchorPane>
          <AnchorPane prefHeight="200.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <JFXTextArea fx:id="JTA_payload" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0" />
+            <JFXTextArea fx:id="JTA_src2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0" />
             <padding>
                <Insets left="10.0" right="10.0" />
             </padding>
          </AnchorPane>
          <AnchorPane prefHeight="200.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-            <JFXTextArea fx:id="JTA_vs" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0" />
+            <JFXTextArea fx:id="JTA_src3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0" />
          </AnchorPane>
       </GridPane>
       <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="140.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-         <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" text="↓" />
-         <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" text="↑" />
+         <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClickEncode" prefHeight="50.0" prefWidth="101.0" text="↓" />
+         <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClickDecode" prefHeight="50.0" prefWidth="101.0" text="↑" />
       </HBox>
       <GridPane layoutX="40.0" layoutY="305.0" prefHeight="175.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="305.0">
         <columnConstraints>
@@ -96,7 +96,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <JFXTextArea fx:id="JTA_token" prefHeight="165.0" prefWidth="530.0" GridPane.rowIndex="1" />
+            <JFXTextArea fx:id="JTA_dst" prefHeight="165.0" prefWidth="530.0" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </AnchorPane>

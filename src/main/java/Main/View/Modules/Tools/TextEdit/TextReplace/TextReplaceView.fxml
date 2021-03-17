@@ -30,7 +30,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></JFXTextArea>
-                  <JFXButton fx:id="JBT_confirm" buttonType="RAISED" onAction="#ONClick_JBT_confirm" prefHeight="50.0" prefWidth="101.0" text="%Confirm" />
+                  <JFXButton fx:id="JBT_confirm" buttonType="RAISED" onAction="#ONClickConfirm" prefHeight="50.0" prefWidth="101.0" text="%Confirm" />
                </children>
                <opaqueInsets>
                   <Insets />

@@ -5,6 +5,7 @@ import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 
@@ -14,25 +15,23 @@ import java.util.Objects;
 /**
  * @author RyuZU
  */
-public class Base64ViewController {
+public class Base64ViewController extends ViewControllerObject {
     byte[] file = null;
 
-    @FXML private JFXButton JBT_enCode;
-    @FXML private JFXButton JBT_deCode;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXToggleButton JTB_modeSelect;
     @FXML private JFXTextField JTF_split;
     @FXML private JFXCheckBox JCHB_isBase64URL;
 
-    @FXML
-    private void initialize() {
+    @Override
+    protected void initialize() {
+        super.initialize();
         ViewInit.comboBoxCharset(JCB_charset);
     }
 
-    @FXML
-    public void ONClick_JBT_enCode(){
+    @Override
+    public void ONClickEncode() {
+        super.ONClickEncode();
         try {
             //判断是否是Base64URL
             if(!JCHB_isBase64URL.isSelected()){
@@ -67,12 +66,13 @@ public class Base64ViewController {
             }
         } catch (Exception e) {
 //            e.printStackTrace();
-            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage"));
+            ViewUtils.textAreaValidate(JTA_dst);
         }
     }
 
-    @FXML
-    public void ONClick_JBT_deCode(){
+    @Override
+    public void ONClickDecode() {
+        super.ONClickDecode();
         try {
             if(!JCHB_isBase64URL.isSelected()){
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
@@ -99,7 +99,7 @@ public class Base64ViewController {
             }
         } catch (Exception e) {
 //            e.printStackTrace();
-            JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage"));
+            ViewUtils.textAreaValidate(JTA_dst);
         }
     }
 

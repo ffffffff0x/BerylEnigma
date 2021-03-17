@@ -1,26 +1,39 @@
 package Main.View.Modules.Encryption.Classical.Vigenere;
 
 
+import Kit.Utils.ViewUtils;
 import Main.Controller.Encryption.Classical.Vigenere.Classical_Vigenere;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
-public class VigenereController {
+public class VigenereController extends ViewControllerObject {
 
-    @FXML private JFXButton JBT_enCode;
-    @FXML private JFXButton JBT_deCode;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
     @FXML private JFXTextArea JTA_key;
 
-    @FXML
-    public void ONClick_JBT_enCode(){
-        JTA_dst.setText(Classical_Vigenere.encrypt(JTA_src.getText(),JTA_key.getText()));
+    @Override
+    protected void initialize() {
+        super.initialize();
     }
 
-    @FXML
-    public void ONClick_JBT_deCode(){
-        JTA_dst.setText(Classical_Vigenere.decrypt(JTA_src.getText(),JTA_key.getText()));
+    @Override
+    public void ONClickEncode() {
+        super.ONClickEncode();
+        try {
+            JTA_dst.setText(Classical_Vigenere.encrypt(JTA_src.getText(),JTA_key.getText()));
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
+        }
+    }
+
+    @Override
+    public void ONClickDecode() {
+        super.ONClickDecode();
+        try {
+            JTA_dst.setText(Classical_Vigenere.decrypt(JTA_src.getText(),JTA_key.getText()));
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
+        }
     }
 }

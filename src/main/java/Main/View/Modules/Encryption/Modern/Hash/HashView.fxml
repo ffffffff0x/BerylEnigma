@@ -28,7 +28,7 @@
                <children>
                   <JFXComboBox fx:id="JCB_charset" prefHeight="30.0" prefWidth="100.0" />
                   <JFXComboBox fx:id="JCB_hashMode" prefHeight="30.0" prefWidth="100.0" />
-                  <JFXButton fx:id="JBT_enCrypt" buttonType="RAISED" onAction="#ONClick_JBT_enCrypt" prefHeight="50.0" prefWidth="101.0" text="%Encrypt" />
+                  <JFXButton fx:id="JBT_confirm" buttonType="RAISED" onAction="#ONClickConfirm" prefHeight="50.0" prefWidth="101.0" text="%Encrypt" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -43,12 +43,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="260.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXTextArea fx:id="JTA_dsthex" editable="false" prefHeight="75.0" prefWidth="530.0" promptText="%HexResult">
+                  <JFXTextArea fx:id="JTA_dst1" editable="false" prefHeight="75.0" prefWidth="530.0" promptText="%HexResult">
                      <GridPane.margin>
                         <Insets bottom="10.0" />
                      </GridPane.margin>
                   </JFXTextArea>
-                  <JFXTextArea fx:id="JTA_dstbase64" editable="false" prefHeight="75.0" prefWidth="530.0" promptText="%Base64Result" GridPane.rowIndex="1" />
+                  <JFXTextArea fx:id="JTA_dst" editable="false" prefHeight="75.0" prefWidth="530.0" promptText="%Base64Result" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>

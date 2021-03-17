@@ -23,7 +23,7 @@
             <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="60.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
                   <JFXComboBox fx:id="JCB_language" prefHeight="30.0" prefWidth="100.0" />
-                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_confirm" prefHeight="50.0" prefWidth="101.0" text="%Confirm">
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClickConfirm" prefHeight="50.0" prefWidth="101.0" text="%Confirm">
                      <HBox.margin>
                         <Insets right="40.0" />
                      </HBox.margin></JFXButton>

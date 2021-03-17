@@ -1,7 +1,9 @@
 package Main.View.Modules.Encryption.Coding.URL;
 
+import Kit.Utils.ViewUtils;
 import Main.Controller.Encryption.Coding.URL.Coding_URL;
 import Init.ViewInit;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -12,40 +14,36 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author RyuZU
  */
-public class URLController {
-    @FXML private JFXButton JBT_enCode;
-    @FXML private JFXButton JBT_deCode;
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
-    @FXML private JFXComboBox JCB_charset;
+public class URLController extends ViewControllerObject {
+    @FXML
+    private JFXComboBox JCB_charset;
 
-    @FXML private void initialize(){
+    @Override
+    protected void initialize(){
+        super.initialize();
         ViewInit.comboBoxCharset(JCB_charset);
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
     }
 
-    @FXML
-    public void ONClick_JBT_enCode(){
+    @Override
+    public void ONClickEncode() {
+        super.ONClickEncode();
         try {
             JTA_dst.setText(Coding_URL.encode(JTA_src.getText(),JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            JTA_dst.validate();
+//            e.printStackTrace();
+            ViewUtils.textAreaValidate(JTA_dst);
         }
     }
 
-    @FXML
-    public void ONClick_JBT_deCode(){
+    @Override
+    public void ONClickDecode() {
+        super.ONClickDecode();
         try {
             JTA_dst.setText(Coding_URL.decode(JTA_src.getText(),JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            JTA_dst.validate();
+//            e.printStackTrace();
+            ViewUtils.textAreaValidate(JTA_dst);
         }
-    }
-
-    @FXML
-    public void ResetValidator(){
-        JTA_dst.resetValidation();
     }
 }

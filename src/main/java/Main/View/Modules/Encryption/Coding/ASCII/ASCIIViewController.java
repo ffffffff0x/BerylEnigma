@@ -2,7 +2,6 @@ package Main.View.Modules.Encryption.Coding.ASCII;
 
 import Kit.Utils.ViewUtils;
 import Main.Controller.Encryption.Coding.ASCII.Coding_ASCII;
-import Init.ViewInit;
 import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
@@ -11,7 +10,8 @@ import javafx.fxml.FXML;
  * @author RyuZU
  */
 public class ASCIIViewController extends ViewControllerObject {
-    @FXML private JFXTextField JTF_split;
+    @FXML
+    private JFXTextField JTF_split;
 
     @Override
     protected void initialize() {

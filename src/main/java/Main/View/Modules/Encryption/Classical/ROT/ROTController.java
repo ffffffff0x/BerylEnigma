@@ -1,22 +1,30 @@
 package Main.View.Modules.Encryption.Classical.ROT;
 
+import Kit.Utils.ViewUtils;
 import Main.Controller.Encryption.Classical.ROT.Classical_ROT;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
-public class ROTController {
+public class ROTController extends ViewControllerObject {
 
-    @FXML private JFXTextArea JTA_src;
-    @FXML private JFXTextArea JTA_dst;
     @FXML private JFXComboBox JCB_rotNum;
 
-    @FXML private void initialize(){
+    @Override
+    protected void initialize() {
+        super.initialize();
         initComboxSelect();
-    };
-    @FXML
-    public void ONInputAndSelect(){
-        JTA_dst.setText(Classical_ROT.encode(JTA_src.getText(), JCB_rotNum.getValue().toString()));
+    }
+
+    @Override
+    public void ONReleasedOrSelected() {
+        super.ONReleasedOrSelected();
+        try {
+            JTA_dst.setText(Classical_ROT.encode(JTA_src.getText(), JCB_rotNum.getValue().toString()));
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
+        }
     }
 
     public void initComboxSelect(){
