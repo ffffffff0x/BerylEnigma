@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
+
 import java.nio.charset.StandardCharsets;
 
 public class ViewInit {
@@ -42,11 +43,11 @@ public class ViewInit {
         JCB_temp.setVisibleRowCount(6);
     }//combobox添加分隔符选项
 
-    public static void textAreaErrorInfo(JFXTextArea JTA_temp){
+    public static void textAreaErrorInfoGeneral(JFXTextArea JTA_temp){
         JTA_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
     }//textarea添加报错信息
 
-    public static void textAreaErrorInfo(JFXTextField JTF_temp){
+    public static void textAreaErrorInfoNumCheck(JFXTextField JTF_temp){
         JTF_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage_isNum")));
     }//textarea添加报错信息
 

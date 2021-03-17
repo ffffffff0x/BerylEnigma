@@ -34,13 +34,13 @@ public class RootTreeNode {
         tools.getChildren().add(practical);
 
         //Practical
-        ItemAdd(practical,"MoneyConvert", "/Main/View/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");
+        ItemAdd(practical,"MoneyConvert", "/Main/View/Modules/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");
 
         //TextModify
-        ItemAdd(textModify,"CaseConvert", "/Main/View/Tools/TextEdit/CaseConvert/CaseConvertView.fxml");
-        ItemAdd(textModify,"TextReplace", "/Main/View/Tools/TextEdit/TextReplace/TextReplaceView.fxml");
-        ItemAdd(textModify,"TextSeparate", "/Main/View/Tools/TextEdit/TextSeparate/TextSeparateView.fxml");
-        ItemAdd(textModify,"LineSplicing", "/Main/View/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
+        ItemAdd(textModify,"CaseConvert", "/Main/View/Modules/Tools/TextEdit/CaseConvert/CaseConvertView.fxml");
+        ItemAdd(textModify,"TextReplace", "/Main/View/Modules/Tools/TextEdit/TextReplace/TextReplaceView.fxml");
+        ItemAdd(textModify,"TextSeparate", "/Main/View/Modules/Tools/TextEdit/TextSeparate/TextSeparateView.fxml");
+        ItemAdd(textModify,"LineSplicing", "/Main/View/Modules/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
 
         //Encryption
         encryption.setExpanded(true);
@@ -52,29 +52,29 @@ public class RootTreeNode {
         modern.getChildren().add(authentication);
         // ItemAdd(modern,"AES");
         // ItemAdd(modern,"DES");
-        ItemAdd(modern,"HASH", "/Main/View/Encryption/Modern/Hash/HashView.fxml");
-        ItemAdd(modern,"SM3", "/Main/View/Encryption/Modern/SM3/SM3View.fxml");
+        ItemAdd(modern,"HASH", "/Main/View/Modules/Encryption/Modern/Hash/HashView.fxml");
+        ItemAdd(modern,"SM3", "/Main/View/Modules/Encryption/Modern/SM3/SM3View.fxml");
         // ItemAdd(modern,"SM4");
 
         //Authentication
-        ItemAdd(authentication,"NTLM_Hash", "/Main/View/Encryption/Modern/Authentication/NTLM/NTLMView.fxml");
-        ItemAdd(authentication,"JWT", "/Main/View/Encryption/Modern/Authentication/JWT/JWTView.fxml");
+        ItemAdd(authentication,"NTLM_Hash", "/Main/View/Modules/Encryption/Modern/Authentication/NTLM/NTLMView.fxml");
+        ItemAdd(authentication,"JWT", "/Main/View/Modules/Encryption/Modern/Authentication/JWT/JWTView.fxml");
 
         //Classical
-        ItemAdd(classical,"ROT", "/Main/View/Encryption/Classical/ROT/ROTView.fxml");
-        ItemAdd(classical,"RailFence", "/Main/View/Encryption/Classical/RailFence/RailFenceView.fxml");
-        ItemAdd(classical,"Atbash", "/Main/View/Encryption/Classical/Atbash/AtbashView.fxml");
-        ItemAdd(classical,"Vigenere", "/Main/View/Encryption/Classical/Vigenere/VigenereView.fxml");
+        ItemAdd(classical,"ROT", "/Main/View/Modules/Encryption/Classical/ROT/ROTView.fxml");
+        ItemAdd(classical,"RailFence", "/Main/View/Modules/Encryption/Classical/RailFence/RailFenceView.fxml");
+        ItemAdd(classical,"Atbash", "/Main/View/Modules/Encryption/Classical/Atbash/AtbashView.fxml");
+        ItemAdd(classical,"Vigenere", "/Main/View/Modules/Encryption/Classical/Vigenere/VigenereView.fxml");
 
         //Coding
-        ItemAdd(coding,"ASCII", "/Main/View/Encryption/Coding/ASCII/ASCIIView.fxml");
-        ItemAdd(coding,"URL", "/Main/View/Encryption/Coding/URL/URLView.fxml");
-        ItemAdd(coding,"Base64", "/Main/View/Encryption/Coding/Base64/Base64View.fxml");
-        ItemAdd(coding,"HEX", "/Main/View/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
-        ItemAdd(coding,"Unicode", "/Main/View/Encryption/Coding/Unicode/UnicodeView.fxml");
-        ItemAdd(coding,"HTMLCharacterEntity", "/Main/View/Encryption/Coding/HTMLCharEntity/HTMLCharEntityView.fxml");
-        ItemAdd(coding,"MorseCoder", "/Main/View/Encryption/Coding/MorseCoder/MorseCoderView.fxml");
-        ItemAdd(coding,"BaseConversion", "/Main/View/Encryption/Coding/BaseConversion/BaseConversionView.fxml");
+        ItemAdd(coding,"ASCII", "/Main/View/Modules/Encryption/Coding/ASCII/ASCIIView.fxml");
+        ItemAdd(coding,"URL", "/Main/View/Modules/Encryption/Coding/URL/URLView.fxml");
+        ItemAdd(coding,"Base64", "/Main/View/Modules/Encryption/Coding/Base64/Base64View.fxml");
+        ItemAdd(coding,"HEX", "/Main/View/Modules/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
+        ItemAdd(coding,"Unicode", "/Main/View/Modules/Encryption/Coding/Unicode/UnicodeView.fxml");
+        ItemAdd(coding,"HTMLCharacterEntity", "/Main/View/Modules/Encryption/Coding/HTMLCharEntity/HTMLCharEntityView.fxml");
+        ItemAdd(coding,"MorseCoder", "/Main/View/Modules/Encryption/Coding/MorseCoder/MorseCoderView.fxml");
+        ItemAdd(coding,"BaseConversion", "/Main/View/Modules/Encryption/Coding/BaseConversion/BaseConversionView.fxml");
     }
 
     private void ItemAdd(TreeItem<String> treeItem,String itemName){

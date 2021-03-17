@@ -20,7 +20,7 @@ public class MockView extends Application {
         primaryStage.setTitle("BEMock");
         // initRootLayout("/Kit/TempView/TempView_00.fxml");
 //         initRootLayout("/View/Encryption/Modern/AES/AESView.fxml");
-         initRootLayout("/Main/View/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
+         initRootLayout("/Main/View/Modules/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
         // initRootLayout("/View/Encryption/Modern/Hash/HashView.fxml");
 //        initRootLayout("/View/Encryption/Coding/MorseCoder/MorseCoderView.fxml");
         // initRootLayout("/View/Root/RootView.fxml");

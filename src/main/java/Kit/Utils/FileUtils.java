@@ -5,6 +5,11 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class FileUtils {
+    /**
+     * 获取文件的byte数组格式
+     * @param file
+     * @return
+     */
     public static byte[] getFilebyte(File file){
         FileInputStream fileInputStream;
         byte[] result = null;
@@ -16,8 +21,13 @@ public class FileUtils {
             e.printStackTrace();
         }
         return result;
-    }//返回文件的byte[]格式
+    }
 
+    /**
+     * 按行获取文本
+     * @param file
+     * @return
+     */
     public static ArrayList<String> getFileLines(File file){
         ArrayList<String> result = new ArrayList<>();
         try {
@@ -35,8 +45,13 @@ public class FileUtils {
             e.printStackTrace();
         }
         return result;
-    }//读取每行文本，返回Arraylist<String>
+    }
 
+    /**
+     * 保存文本格式文件至存储
+     * @param out
+     * @param charset
+     */
     public static void outPutFile(String out,String charset){
         File file = ViewUtils.saveFileFilter();
         if(file==null) {
@@ -54,6 +69,10 @@ public class FileUtils {
         }
     }
 
+    /**
+     * 保存byte数组格式文件至存储
+     * @param out
+     */
     public static void outPutFile(byte[] out){
         File file = ViewUtils.saveFileFilter();
         if(file!=null) {
