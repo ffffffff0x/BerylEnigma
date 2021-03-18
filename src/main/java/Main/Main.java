@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class Main extends Application {
     private Stage primaryStage;
@@ -39,6 +41,7 @@ public class Main extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
+            Font.loadFont(Main.class.getResource("/fonts/JOKERMAN.TTF").toExternalForm(), 10);
             scene.getStylesheets().add(Main.class.getResource("/css/MainCSS.css").toExternalForm());
             primaryStage.setScene(scene);
             // primaryStage.setResizable(false);

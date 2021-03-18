@@ -91,32 +91,5 @@ public class RootViewController {
         ImageView view = new ImageView(img);
         bt_option.setGraphic(view);
 
-        selectedAnchorPane.getChildren().forEach(ndoe ->ergodicNode(selectedAnchorPane));
-    }
-
-    private void ergodicNode(Node node){
-        if (node instanceof AnchorPane){
-            ((AnchorPane)node).getChildren().forEach(node1 -> {
-//                System.out.println(node1);
-                ergodicNode(node1);
-            });
-        }else if(node instanceof HBox){
-            ((HBox)node).getChildren().forEach(node2 -> {
-//                System.out.println(node2);
-                ergodicNode(node2);
-            });
-        }else if(node instanceof VBox){
-            ((VBox)node).getChildren().forEach(node3 -> {
-//                System.out.println(node3);
-                ergodicNode(node3);
-            });
-        }else if(node instanceof GridPane){
-            ((GridPane)node).getChildren().forEach(node4 -> {
-//                System.out.println(node4);
-                ergodicNode(node4);
-            });
-        }else if(node instanceof JFXTextArea && "JTA_src".equals(node.getId())){
-            System.out.println(node);
-        }
     }
 }
