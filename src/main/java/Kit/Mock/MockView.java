@@ -18,12 +18,8 @@ public class MockView extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BEMock");
-        // initRootLayout("/Kit/TempView/TempView_00.fxml");
-//         initRootLayout("/View/Encryption/Modern/AES/AESView.fxml");
-         initRootLayout("/Main/View/Modules/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
-        // initRootLayout("/View/Encryption/Modern/Hash/HashView.fxml");
-//        initRootLayout("/View/Encryption/Coding/MorseCoder/MorseCoderView.fxml");
-        // initRootLayout("/View/Root/RootView.fxml");
+        initRootLayout("/Main/View/Modules/Encryption/Coding/XOR/XORView.fxml");
+//        initRootLayout("/Main/View/Modules/Encryption/Modern/AES/AESView.fxml");
     }
 
     public void initRootLayout(String FXMLPath) {
@@ -39,7 +35,7 @@ public class MockView extends Application {
             loader.setResources(Init.languageResourceBundle);
             rootLayout = loader.load();
 
-            primaryStage.getIcons().add(new Image(MockView.class.getResourceAsStream("../../img/ffffffff0x_ico.png")));
+            //primaryStage.getIcons().add(new Image(MockView.class.getResourceAsStream("../../img/ffffffff0x_ico.png")));
             primaryStage.setOnCloseRequest(event -> System.exit(0));
 
             // Show the scene containing the root layout.

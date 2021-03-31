@@ -61,7 +61,7 @@ public class AESController {
 
     @FXML
     public void ONClick_JBT_option(){
-        //optionPaneAnime(AP_OPTION_STATES);
+        optionPaneAnime(AP_OPTION_STATES);
         
     }
 
