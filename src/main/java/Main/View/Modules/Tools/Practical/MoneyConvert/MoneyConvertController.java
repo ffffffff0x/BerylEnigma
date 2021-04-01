@@ -1,12 +1,10 @@
 package Main.View.Modules.Tools.Practical.MoneyConvert;
 
 import Kit.Utils.ViewUtils;
-import Main.Controller.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
+import App.Controller.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
 import Init.Init;
-import Main.View.Viewobj.ViewControllerObject;
-import com.jfoenix.controls.JFXButton;
+import App.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
 import java.math.BigDecimal;

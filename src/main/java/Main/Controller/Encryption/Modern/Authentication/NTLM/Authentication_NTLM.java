@@ -1,7 +1,7 @@
 package Main.Controller.Encryption.Modern.Authentication.NTLM;
 
-import Main.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
-import Main.Controller.Encryption.Modern.Hash.Modern_Hash;
+import App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
+import App.Controller.Encryption.Modern.Hash.Modern_Hash;
 
 import java.io.UnsupportedEncodingException;
 

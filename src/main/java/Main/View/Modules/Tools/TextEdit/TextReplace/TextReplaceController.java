@@ -1,9 +1,8 @@
 package Main.View.Modules.Tools.TextEdit.TextReplace;
 
 import Kit.Utils.ViewUtils;
-import Main.Controller.Tools.TextEdit.TextReplace.TextEdit_TextReplace;
-import Main.View.Viewobj.ViewControllerObject;
-import com.jfoenix.controls.JFXButton;
+import App.Controller.Tools.TextEdit.TextReplace.TextEdit_TextReplace;
+import App.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 

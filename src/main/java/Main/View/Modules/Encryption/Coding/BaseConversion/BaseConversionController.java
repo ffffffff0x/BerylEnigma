@@ -1,12 +1,9 @@
 package Main.View.Modules.Encryption.Coding.BaseConversion;
 
-import Init.Init;
 import Kit.Utils.ViewUtils;
-import Main.Controller.Encryption.Coding.BaseConversion.Coding_BaseConversion;
-import Main.View.Viewobj.ViewControllerObject;
-import com.jfoenix.controls.JFXButton;
+import App.Controller.Encryption.Coding.BaseConversion.Coding_BaseConversion;
+import App.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 

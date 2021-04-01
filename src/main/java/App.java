@@ -1,5 +1,3 @@
-package Main;
-
 import Init.Init;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,15 +8,13 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Locale;
 
-public class Main extends Application {
+public class App extends Application {
     private Stage primaryStage;
     private AnchorPane rootLayout;
 
     @Override
     public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
         primaryStage.setTitle("BerylEnigma");
         initRootLayout();
     }
@@ -32,17 +28,17 @@ public class Main extends Application {
 
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("/Main/View/Root/RootView.fxml"));
+            loader.setLocation(App.class.getResource("/Main/View/Root/RootView.fxml"));
             loader.setResources(Init.languageResourceBundle);
             rootLayout = loader.load();
 
-            primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/img/ffffffff0x_ico.png")));
+            primaryStage.getIcons().add(new Image(App.class.getResourceAsStream("/img/ffffffff0x_ico.png")));
             primaryStage.setOnCloseRequest(event -> System.exit(0));
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
-            Font.loadFont(Main.class.getResource("/fonts/JOKERMAN.TTF").toExternalForm(), 10);
-            scene.getStylesheets().add(Main.class.getResource("/css/MainCSS.css").toExternalForm());
+            Font.loadFont(App.class.getResource("/fonts/JOKERMAN.TTF").toExternalForm(), 10);
+            scene.getStylesheets().add(App.class.getResource("/css/MainCSS.css").toExternalForm());
             primaryStage.setScene(scene);
             // primaryStage.setResizable(false);
             primaryStage.show();

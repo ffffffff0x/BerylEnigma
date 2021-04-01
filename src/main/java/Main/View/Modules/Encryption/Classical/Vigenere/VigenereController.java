@@ -2,9 +2,8 @@ package Main.View.Modules.Encryption.Classical.Vigenere;
 
 
 import Kit.Utils.ViewUtils;
-import Main.Controller.Encryption.Classical.Vigenere.Classical_Vigenere;
-import Main.View.Viewobj.ViewControllerObject;
-import com.jfoenix.controls.JFXButton;
+import App.Controller.Encryption.Classical.Vigenere.Classical_Vigenere;
+import App.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 

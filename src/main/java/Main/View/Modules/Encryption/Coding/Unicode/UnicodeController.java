@@ -1,12 +1,8 @@
 package Main.View.Modules.Encryption.Coding.Unicode;
 
 import Kit.Utils.ViewUtils;
-import Main.Controller.Encryption.Coding.MorseCoder.Coding_MorseCoder;
-import Main.Controller.Encryption.Coding.Unicode.Coding_Unicode;
-import Main.View.Viewobj.ViewControllerObject;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextArea;
-import javafx.fxml.FXML;
+import App.Controller.Encryption.Coding.Unicode.Coding_Unicode;
+import App.View.Viewobj.ViewControllerObject;
 
 /**
  * @author RyuZU

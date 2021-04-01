@@ -1,15 +1,8 @@
 package Main.View.Modules.Encryption.Modern.Authentication.JWT;
 
 import Kit.Utils.ViewUtils;
-import Main.Controller.Encryption.Modern.Authentication.JWT.Authentication_JWT;
-import Main.View.Viewobj.ViewControllerObject;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextArea;
-import javafx.fxml.FXML;
-
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
+import App.Controller.Encryption.Modern.Authentication.JWT.Authentication_JWT;
+import App.View.Viewobj.ViewControllerObject;
 
 public class JWTController extends ViewControllerObject {
     /**

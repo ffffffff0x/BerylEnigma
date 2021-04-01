@@ -2,10 +2,8 @@ package Main.View.Modules.Encryption.Classical.Atbash;
 
 
 import Kit.Utils.ViewUtils;
-import Main.Controller.Encryption.Classical.Atbash.Classical_Atbash;
-import Main.View.Viewobj.ViewControllerObject;
-import com.jfoenix.controls.JFXTextArea;
-import javafx.fxml.FXML;
+import App.Controller.Encryption.Classical.Atbash.Classical_Atbash;
+import App.View.Viewobj.ViewControllerObject;
 
 public class AtbashController extends ViewControllerObject {
 

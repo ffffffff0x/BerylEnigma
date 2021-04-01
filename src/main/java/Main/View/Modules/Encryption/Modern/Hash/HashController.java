@@ -1,11 +1,11 @@
 package Main.View.Modules.Encryption.Modern.Hash;
 
-import Main.Controller.Encryption.Modern.Hash.Modern_Hash;
+import App.Controller.Encryption.Modern.Hash.Modern_Hash;
 import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
-import Main.View.Viewobj.ViewControllerObject;
+import App.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;

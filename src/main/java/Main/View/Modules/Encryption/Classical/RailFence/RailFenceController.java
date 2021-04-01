@@ -1,8 +1,8 @@
 package Main.View.Modules.Encryption.Classical.RailFence;
 
 import Kit.Utils.ViewUtils;
-import Main.Controller.Encryption.Classical.RailFence.Classical_RailFence;
-import Main.View.Viewobj.ViewControllerObject;
+import App.Controller.Encryption.Classical.RailFence.Classical_RailFence;
+import App.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 

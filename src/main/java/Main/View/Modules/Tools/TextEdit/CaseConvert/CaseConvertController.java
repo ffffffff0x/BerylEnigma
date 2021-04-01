@@ -1,11 +1,8 @@
 package Main.View.Modules.Tools.TextEdit.CaseConvert;
 
 import Kit.Utils.ViewUtils;
-import Main.Controller.Tools.TextEdit.CaseConvert.TextEdit_CaseConvert;
-import Main.View.Viewobj.ViewControllerObject;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextArea;
-import javafx.fxml.FXML;
+import App.Controller.Tools.TextEdit.CaseConvert.TextEdit_CaseConvert;
+import App.View.Viewobj.ViewControllerObject;
 
 public class CaseConvertController extends ViewControllerObject {
     @Override

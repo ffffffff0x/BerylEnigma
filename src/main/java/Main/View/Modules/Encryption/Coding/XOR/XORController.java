@@ -1,7 +1,7 @@
 package Main.View.Modules.Encryption.Coding.XOR;
 
-import Main.View.Viewobj.ViewControllerObject;
-import Main.View.Viewobj.ViewSettingItemObject;
+import App.View.Viewobj.ViewControllerObject;
+import App.View.Viewobj.ViewSettingItemObject;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
