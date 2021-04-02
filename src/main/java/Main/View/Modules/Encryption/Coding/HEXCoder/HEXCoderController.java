@@ -1,11 +1,11 @@
 package Main.View.Modules.Encryption.Coding.HEXCoder;
 
-import App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
+import Main.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
-import App.View.Viewobj.ViewControllerObject;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 

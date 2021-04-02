@@ -1,8 +1,8 @@
 package Main.View.Modules.Encryption.Coding.HTMLCharEntity;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Coding.HTMLCharEntity.Coding_HTMLCharEntity;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Encryption.Coding.HTMLCharEntity.Coding_HTMLCharEntity;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
 

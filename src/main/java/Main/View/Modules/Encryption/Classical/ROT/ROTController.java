@@ -1,8 +1,8 @@
 package Main.View.Modules.Encryption.Classical.ROT;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Classical.ROT.Classical_ROT;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Encryption.Classical.ROT.Classical_ROT;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
 

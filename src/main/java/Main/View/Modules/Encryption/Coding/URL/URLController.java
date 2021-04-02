@@ -1,9 +1,9 @@
 package Main.View.Modules.Encryption.Coding.URL;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Coding.URL.Coding_URL;
+import Main.Controller.Encryption.Coding.URL.Coding_URL;
 import Init.ViewInit;
-import App.View.Viewobj.ViewControllerObject;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
 

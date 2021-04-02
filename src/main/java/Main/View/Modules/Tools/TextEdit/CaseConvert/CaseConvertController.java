@@ -1,8 +1,8 @@
 package Main.View.Modules.Tools.TextEdit.CaseConvert;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Tools.TextEdit.CaseConvert.TextEdit_CaseConvert;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Tools.TextEdit.CaseConvert.TextEdit_CaseConvert;
+import Main.View.Viewobj.ViewControllerObject;
 
 public class CaseConvertController extends ViewControllerObject {
     @Override

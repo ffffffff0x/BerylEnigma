@@ -1,8 +1,8 @@
 package Main.View.Modules.Tools.TextEdit.TextSeparate;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Tools.TextEdit.TextSeparate.TextEdit_TextSeparate;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Tools.TextEdit.TextSeparate.TextEdit_TextSeparate;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 

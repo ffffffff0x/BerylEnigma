@@ -1,10 +1,10 @@
 package Main.View.Modules.Tools.TextEdit.LineSplicing;
 
-import App.Controller.Tools.TextEdit.LineSplicing.TextEdit_LineSplicing;
+import Main.Controller.Tools.TextEdit.LineSplicing.TextEdit_LineSplicing;
 import Init.Init;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
-import App.View.Viewobj.ViewControllerObject;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;

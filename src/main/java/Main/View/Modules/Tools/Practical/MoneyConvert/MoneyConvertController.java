@@ -1,9 +1,9 @@
 package Main.View.Modules.Tools.Practical.MoneyConvert;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
+import Main.Controller.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
 import Init.Init;
-import App.View.Viewobj.ViewControllerObject;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
 

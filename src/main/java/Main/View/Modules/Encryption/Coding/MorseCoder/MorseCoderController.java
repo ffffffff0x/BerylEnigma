@@ -1,8 +1,8 @@
 package Main.View.Modules.Encryption.Coding.MorseCoder;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Coding.MorseCoder.Coding_MorseCoder;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Encryption.Coding.MorseCoder.Coding_MorseCoder;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 

@@ -1,8 +1,8 @@
 package Main.View.Modules.Encryption.Coding.Unicode;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Coding.Unicode.Coding_Unicode;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Encryption.Coding.Unicode.Coding_Unicode;
+import Main.View.Viewobj.ViewControllerObject;
 
 /**
  * @author RyuZU

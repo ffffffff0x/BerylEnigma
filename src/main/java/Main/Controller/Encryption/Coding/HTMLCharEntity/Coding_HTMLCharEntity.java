@@ -1,6 +1,6 @@
 package Main.Controller.Encryption.Coding.HTMLCharEntity;
 
-import App.Controller.Encryption.Coding.Unicode.Coding_Unicode;
+import Main.Controller.Encryption.Coding.Unicode.Coding_Unicode;
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.math.BigInteger;

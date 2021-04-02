@@ -1,8 +1,8 @@
 package Main.View.Modules.Encryption.Coding.ASCII;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Coding.ASCII.Coding_ASCII;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Encryption.Coding.ASCII.Coding_ASCII;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 

@@ -1,11 +1,11 @@
 package Main.View.Modules.Encryption.Coding.Base64;
 
-import App.Controller.Encryption.Coding.Base64.Coding_Base64;
+import Main.Controller.Encryption.Coding.Base64.Coding_Base64;
 import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
-import App.View.Viewobj.ViewControllerObject;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 

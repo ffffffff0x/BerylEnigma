@@ -1,8 +1,8 @@
 package Main.View.Modules.Encryption.Modern.Authentication.NTLM;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Modern.Authentication.NTLM.Authentication_NTLM;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Encryption.Modern.Authentication.NTLM.Authentication_NTLM;
+import Main.View.Viewobj.ViewControllerObject;
 import org.apache.commons.codec.binary.Hex;
 
 public class NTLMController extends ViewControllerObject {

@@ -1,11 +1,11 @@
 package Main.View.Modules.Encryption.Modern.SM3;
 
-import App.Controller.Encryption.Modern.SM3.Modern_SM3;
+import Main.Controller.Encryption.Modern.SM3.Modern_SM3;
 import Init.Init;
 import Init.ViewInit;
 import Kit.Utils.FileUtils;
 import Kit.Utils.ViewUtils;
-import App.View.Viewobj.ViewControllerObject;
+import Main.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;

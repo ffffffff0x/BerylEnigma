@@ -1,8 +1,8 @@
 package Main.View.Modules.Encryption.Modern.Authentication.JWT;
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Modern.Authentication.JWT.Authentication_JWT;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Encryption.Modern.Authentication.JWT.Authentication_JWT;
+import Main.View.Viewobj.ViewControllerObject;
 
 public class JWTController extends ViewControllerObject {
     /**

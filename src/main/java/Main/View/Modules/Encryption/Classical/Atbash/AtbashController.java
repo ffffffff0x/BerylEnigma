@@ -2,8 +2,8 @@ package Main.View.Modules.Encryption.Classical.Atbash;
 
 
 import Kit.Utils.ViewUtils;
-import App.Controller.Encryption.Classical.Atbash.Classical_Atbash;
-import App.View.Viewobj.ViewControllerObject;
+import Main.Controller.Encryption.Classical.Atbash.Classical_Atbash;
+import Main.View.Viewobj.ViewControllerObject;
 
 public class AtbashController extends ViewControllerObject {
 
