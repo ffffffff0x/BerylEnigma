@@ -1,25 +1,20 @@
 package Main.Controller.Encryption.Coding.Unicode;
 
+import org.apache.commons.text.translate.UnicodeEscaper;
+import org.apache.commons.text.translate.UnicodeUnescaper;
+
+
 public class Coding_Unicode {
     /**
      *
      * 字符串转换unicode
+     * 0x20~0x7E 为 ASCII 可见字符，忽略对其编码
      * @param string
      * @return
      */
     public static String encode(String string) {
-        StringBuilder unico = new StringBuilder();
-        for (int i = 0; i < string.length(); i++) {
-            // 取出每一个字符
-            char c = string.charAt(i);
-            unico.append("\\u");
-            for (int j = 0; j < 4-Integer.toHexString(c).length(); j++) {
-                unico.append("0");
-            }
-            // 转换为unicode
-            unico.append(Integer.toHexString(c));
-        }
-        return unico.toString();
+        UnicodeEscaper ue = UnicodeEscaper.outsideOf(0x20, 0x7E);
+        return ue.translate(string);
     }
 
     /**
@@ -29,14 +24,7 @@ public class Coding_Unicode {
      * @return
      */
     public static String decode(String unicode) {
-        StringBuilder str = new StringBuilder();
-        String[] hex = unicode.split("\\\\u");
-        for (int i = 1; i < hex.length; i++) {
-            // 转换出每一个代码点
-            int data = Integer.parseInt(hex[i], 16);
-            // 追加成string
-            str.append((char) data);
-        }
-        return str.toString();
+        UnicodeUnescaper uu = new UnicodeUnescaper();
+        return uu.translate(unicode);
     }
 }
