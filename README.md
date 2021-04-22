@@ -8,9 +8,7 @@
 
 前身为[CryptionTool](https://github.com/ffffffff0x/CryptionTool)，为更方便的开发更换框架重构。
 
-软件基于JDK15开发，使用JAVAFX UI框架以及JFoenixUI组件架构。详见开发文档。
-
-使用 jpackage 打包，java16 更新后会同步更进并使用更加完善的打包机制。
+软件基于JDK16开发，使用JAVAFX UI框架以及JFoenixUI组件架构。详见开发文档。
 
 ---
 
@@ -22,9 +20,6 @@
 ## 下载
 访问 [releases](https://github.com/ffffffff0x/BerylEnigma/releases) 下载
 
->如果机器使用 java15 只需下载 .jar 文件，双击即可使用。
->
->不使用 java 或 java 版本不是 15 的情况下，请下载 7z 文件，其中打包好了 java15 的运行时环境，双击 exe 使用。
 ---
 
 # 目前支持的功能
@@ -38,6 +33,7 @@
   - SM3
 - 古典
   - ROT13
+  - 栅栏密码
   - Atbash
   - Vigenre
 - 编码
@@ -47,11 +43,17 @@
   - HEX
   - HTML实体编码
   - Unicode
+  - 摩斯电码
+  - 数学进制转换
 
 **文本操作工具**
 - 文本替换
 - 文本分隔
 - 英文大小写转换
+- 文本行拼接
+
+**日常实用工具**
+- 货币金额大小写
 ---
 
 # 免责声明
