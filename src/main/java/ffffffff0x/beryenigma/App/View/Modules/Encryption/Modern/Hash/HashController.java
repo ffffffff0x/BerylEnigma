@@ -47,7 +47,7 @@ public class HashController extends ViewControllerObject {
                 }
             }else{
                 dst = hash(file);
-                FileEncodeend();
+                FileEncodeEnd();
             }
             JTA_dst1.setText(dst[0]);
             JTA_dst.setText(dst[1]);
@@ -66,7 +66,13 @@ public class HashController extends ViewControllerObject {
                 "SHA-224",
                 "SHA-256",
                 "SHA-384",
-                "SHA-512");
+                "SHA-512",
+                "SHA-512/224",
+                "SHA-512/256",
+                "SHA3-224",
+                "SHA3-256",
+                "SHA3-384",
+                "SHA3-512");
         JCB_hashMode.setValue("MD5");
         JCB_hashMode.setVisibleRowCount(6);
         ViewInit.comboBoxCharset(JCB_charset);
@@ -109,7 +115,7 @@ public class HashController extends ViewControllerObject {
         }
     }
 
-    public void FileEncodeend(){
+    public void FileEncodeEnd(){
         JTB_modeSelect.selectedProperty().set(false);
         JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
         JTA_src.setText("");

@@ -24,6 +24,7 @@ public class HTMLCharEntityController extends ViewControllerObject {
         try {
             JTA_dst.setText(Coding_HTMLCharEntity.encode(JTA_src.getText(),JCB_reference.getValue().toString()));
         }catch (Exception e){
+            e.printStackTrace();
             ViewUtils.textAreaValidate(JTA_dst);
         }
     }
@@ -40,11 +41,11 @@ public class HTMLCharEntityController extends ViewControllerObject {
 
     public void initComboBoxReference(){
         JCB_reference.getItems().addAll(
+                "CER: &[char];",
                 "NCR: &#[dec];",
-        "NCR: &#x[hex];",
-        "CER: &[char];"
+        "NCR: &#x[hex];"
         );
-        JCB_reference.setValue("NCR: &#[dec];");
+        JCB_reference.setValue("CER: &[char];");
         JCB_reference.setVisibleRowCount(3);
     }
 

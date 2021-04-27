@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HTMLCharEntity;
 
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Unicode.Coding_Unicode;
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.math.BigInteger;
@@ -18,11 +17,11 @@ public class Coding_HTMLCharEntity {
         StringBuilder out = new StringBuilder();
         if(REFERENCE_DEC.equals(reference)) {
             for (String a:sourceSplit) {
-                out.append("&#").append(new BigInteger(Coding_Unicode.encode(a).substring(2), 16).toString(10)).append(";");
+                out.append("&#").append(new BigInteger(unicodeEncode(a).substring(2), 16).toString(10)).append(";");
             }
         }else if (REFERENCE_HEX.equals(reference)){
             for (String a:sourceSplit) {
-                out.append("&#x").append(Coding_Unicode.encode(a).substring(2)).append(";");
+                out.append("&#x").append(unicodeEncode(a).substring(2)).append(";");
             }
         }else {
             for (String a:sourceSplit) {
@@ -38,11 +37,11 @@ public class Coding_HTMLCharEntity {
 
         if(REFERENCE_DEC.equals(reference)) {
             for (String a:sourceSplit) {
-                out.append(Coding_Unicode.decode("\\u"+new BigInteger(a.substring(2),10).toString(16)));
+                out.append(unicodeDecode("\\u"+new BigInteger(a.substring(2),10).toString(16)));
             }
         }else if (REFERENCE_HEX.equals(reference)){
             for (String a:sourceSplit) {
-                out.append(Coding_Unicode.decode("\\u"+a.substring(3)));
+                out.append(unicodeDecode("\\u"+a.substring(3)));
             }
         }else {
             for (String a:sourceSplit) {
@@ -50,5 +49,32 @@ public class Coding_HTMLCharEntity {
             }
         }
         return out.toString();
+    }
+
+   private static String unicodeEncode(String string) {
+        StringBuilder unico = new StringBuilder();
+        for (int i = 0; i < string.length(); i++) {
+            // 取出每一个字符
+            char c = string.charAt(i);
+            unico.append("\\u");
+            for (int j = 0; j < 4-Integer.toHexString(c).length(); j++) {
+                unico.append("0");
+            }
+            // 转换为unicode
+            unico.append(Integer.toHexString(c));
+        }
+        return unico.toString();
+    }
+
+    private static String unicodeDecode(String unicode) {
+        StringBuilder str = new StringBuilder();
+        String[] hex = unicode.split("\\\\u");
+        for (int i = 1; i < hex.length; i++) {
+            // 转换出每一个代码点
+            int data = Integer.parseInt(hex[i], 16);
+            // 追加成string
+            str.append((char) data);
+        }
+        return str.toString();
     }
 }
