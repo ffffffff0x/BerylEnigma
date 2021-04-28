@@ -18,15 +18,15 @@
 
 .tree-cell:filled:hover .tree-disclosure-node .arrow {
     -fx-background-color: transparent;
-    -fx-border-color: #0096c9;
+    -fx-border-color: #9eecff;
 }
 
 .tree-cell:filled:selected .tree-disclosure-node .arrow {
-    -fx-border-color: #0096c9;
+    -fx-border-color: #9eecff;
 }
 
 .tree-cell:filled:selected:hover .tree-disclosure-node .arrow {
-    -fx-border-color: #0096c9;
+    -fx-border-color: #9eecff;
 }
 
 /* AnchorPane */

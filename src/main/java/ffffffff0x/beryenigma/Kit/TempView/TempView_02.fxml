@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HEXCoder.HEXCoderController">
+<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.Kit.TempView.TempViewController">
    <children>
       <Label alignment="CENTER" layoutX="24.0" layoutY="38.0" prefHeight="70.0" prefWidth="610.0" text="Temp" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
          <font>
@@ -23,10 +23,10 @@
             <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="315.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0"/>
             <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClick_JBT_enCode" prefHeight="50.0" prefWidth="101.0" text="%EnCode"/>
-                  <JFXTextField fx:id="JTF_split" alignment="CENTER" onKeyReleased="#ResetValidator" prefHeight="30.0" prefWidth="110.0" promptText="%Delimiter" />
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClickEncode" prefHeight="50.0" prefWidth="101.0" text="%EnCode"/>
+                  <JFXTextField fx:id="JTF_split" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" promptText="%Delimiter" />
                   <JFXComboBox fx:id="JCB_charset" prefHeight="30.0" prefWidth="100.0" />
-                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClick_JBT_deCode" prefHeight="50.0" prefWidth="101.0" text="%DeCode"/>
+                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClickDecode" prefHeight="50.0" prefWidth="101.0" text="%DeCode"/>
                </children>
                <opaqueInsets>
                   <Insets />
