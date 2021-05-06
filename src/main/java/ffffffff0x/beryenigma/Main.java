@@ -1,4 +1,4 @@
-package ffffffff0x.beryenigma.App;
+package ffffffff0x.beryenigma;
 
 import ffffffff0x.beryenigma.Init.Init;
 import javafx.application.Application;
@@ -10,7 +10,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Locale;
 
 public class Main extends Application {
     private Stage primaryStage;

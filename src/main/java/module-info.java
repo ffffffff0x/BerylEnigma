@@ -1,4 +1,4 @@
-open module BE {
+open module beryenigma {
     requires java.base;
     requires javafx.controls;
     requires javafx.fxml;

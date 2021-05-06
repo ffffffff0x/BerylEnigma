@@ -10,8 +10,8 @@
     <properties>
         <argLine>-Dfile.encoding=UTF-8</argLine>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>15</maven.compiler.release>
-        <javafx.version>15.0.1</javafx.version>
+        <maven.compiler.release>16</maven.compiler.release>
+        <javafx.version>16</javafx.version>
         <classifier>win</classifier>
     </properties>
     <build>
@@ -71,9 +71,9 @@
                 <version>0.0.5</version>
                 <configuration>
                     <release>${maven.compiler.release}</release>
-                    <jlinkImageName>BE</jlinkImageName>
+                    <jlinkImageName>beryenigma</jlinkImageName>
                     <launcher>launcher</launcher>
-                    <mainClass>BE/ffffffff0x.beryenigma.App.Main</mainClass>
+                    <mainClass>beryenigma/ffffffff0x.beryenigma.Main</mainClass>
                     <options>
                         <option>--add-opens</option>
                         <option>java.base/java.lang.reflect=com.jfoenix</option>
