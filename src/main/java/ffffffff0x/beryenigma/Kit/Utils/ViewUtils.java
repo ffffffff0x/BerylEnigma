@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.scene.control.Label;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -28,6 +29,22 @@ public class ViewUtils {
     }
 
     /**
+     * 带有单个文件名后缀过滤器的文件获取窗口
+     * @param extFilter
+     * @return
+     */
+    public static File getFile(FileChooser.ExtensionFilter extFilter){
+        Stage primaryStage = null;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(extFilter);
+        fileChooser.setTitle(Init.languageResourceBundle.getString("File"));
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        fileChooser.setInitialDirectory(fsv.getHomeDirectory());
+        return fileChooser.showOpenDialog(primaryStage);
+    }
+
+
+    /**
      * 带有文件名后缀过滤器的文件获取窗口
      * @param extFilter
      * @return
@@ -48,18 +65,24 @@ public class ViewUtils {
      * 保存文件时的文件选择器
      * @return
      */
-    public static File saveFileFilter(){
+    public static File fileChooser(){
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.jpg"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("GIF files (*.gif)", "*.gif"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
-        Stage stage = new Stage();
         FileSystemView fsv = FileSystemView.getFileSystemView();
         fileChooser.setInitialDirectory(fsv.getHomeDirectory());
         fileChooser.setInitialFileName("Result");
-        return fileChooser.showSaveDialog(stage);
+        return fileChooser.showSaveDialog(new Stage());
+    }
+
+    public static File directoryChooser(){
+        DirectoryChooser directorychooser = new DirectoryChooser();
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        directorychooser.setInitialDirectory(fsv.getHomeDirectory());
+        return directorychooser.showDialog(new Stage());
     }
 
     /**

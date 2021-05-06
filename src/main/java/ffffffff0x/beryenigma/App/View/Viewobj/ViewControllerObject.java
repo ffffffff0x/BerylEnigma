@@ -49,7 +49,7 @@ public class ViewControllerObject {
     @FXML
     protected void initialize(){
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
-        System.out.println("Father init");
+//        System.out.println("Father init");
     }
 
     /**
@@ -58,7 +58,7 @@ public class ViewControllerObject {
     @FXML
     public void ONClickEncode(){
         ViewUtils.textAreaValidateResrt(JTA_dst);
-        System.out.println("Father JBT_enCode");
+//        System.out.println("Father JBT_enCode");
     }
 
     /**
@@ -67,7 +67,7 @@ public class ViewControllerObject {
     @FXML
     public void ONClickDecode(){
         ViewUtils.textAreaValidateResrt(JTA_dst);
-        System.out.println("Father JBT_deCode");
+//        System.out.println("Father JBT_deCode");
     }
 
 
@@ -77,7 +77,7 @@ public class ViewControllerObject {
     @FXML
     public void ONClickConfirm(){
         ViewUtils.textAreaValidateResrt(JTA_dst);
-        System.out.println("Father JBT_confirm");
+//        System.out.println("Father JBT_confirm");
     }
 
 
@@ -87,7 +87,7 @@ public class ViewControllerObject {
     @FXML
     public void ONReleasedOrSelected(){
         ViewUtils.textAreaValidateResrt(JTA_dst);
-        System.out.println("Father InputSelect");
+//        System.out.println("Father InputSelect");
     }
 
 }

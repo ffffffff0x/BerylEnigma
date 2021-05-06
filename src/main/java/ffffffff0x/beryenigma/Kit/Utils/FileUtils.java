@@ -3,6 +3,7 @@ package ffffffff0x.beryenigma.Kit.Utils;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class FileUtils {
     /**
@@ -53,10 +54,8 @@ public class FileUtils {
      * @param charset
      */
     public static void outPutFile(String out,String charset){
-        File file = ViewUtils.saveFileFilter();
-        if(file==null) {
-            return;
-        }else{
+        File file = ViewUtils.fileChooser();
+        if(file!=null) {
             try {
                 OutputStreamWriter OSW = new OutputStreamWriter(new FileOutputStream(file), charset);
                 OSW.write(out);
@@ -69,12 +68,31 @@ public class FileUtils {
         }
     }
 
+    public static void outPutFile(Map<String,String> map,String charset){
+        File dir = ViewUtils.directoryChooser();
+        OutputStreamWriter OSW;
+        if(dir!=null){
+            for (Map.Entry<String,String> enrty : map.entrySet()) {
+                File file = new File(dir.getPath()+"/"+enrty.getKey());
+                try {
+                    OSW = new OutputStreamWriter(new FileOutputStream(file), charset);
+                    OSW.write(enrty.getValue());
+                    OSW.flush();
+                    OSW.close();
+                    Desktop.getDesktop().open(file);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     /**
      * 保存byte数组格式文件至存储
      * @param out
      */
     public static void outPutFile(byte[] out){
-        File file = ViewUtils.saveFileFilter();
+        File file = ViewUtils.fileChooser();
         if(file!=null) {
             BufferedOutputStream bos = null;
             FileOutputStream fos;

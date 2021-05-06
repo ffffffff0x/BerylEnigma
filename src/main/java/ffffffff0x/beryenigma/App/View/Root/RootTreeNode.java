@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class RootTreeNode {
     public final TreeItem<String> rootItem = new TreeItem<>(Init.languageResourceBundle.getString("Root"),folderIcon("open"));
@@ -41,6 +42,7 @@ public class RootTreeNode {
         ItemAdd(textModify,"TextReplace", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/TextReplace/TextReplaceView.fxml");
         ItemAdd(textModify,"TextSeparate", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/TextSeparate/TextSeparateView.fxml");
         ItemAdd(textModify,"LineSplicing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
+        ItemAdd(textModify,"TargetFinishing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/TargetClassification/TargetFinishingView.fxml");
 
         //Encryption
         encryption.setExpanded(true);
@@ -89,9 +91,9 @@ public class RootTreeNode {
 
     private Node folderIcon(String check){
         return switch (check) {
-            case "open" -> new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_folder-open-fill.png")));
-            case "close" -> new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_folder-3-fill.png")));
-            case "settings" -> new ImageView(new Image(this.getClass().getResourceAsStream("/img/icon_settings-3-line.png")));
+            case "open" -> new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/icon_folder-open-fill.png"))));
+            case "close" -> new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/icon_folder-3-fill.png"))));
+            case "settings" -> new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/icon_settings-3-line.png"))));
             default -> null;
         };
     }

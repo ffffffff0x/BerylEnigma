@@ -104,20 +104,23 @@ public class Base64ViewController extends ViewControllerObject {
     }
 
     @FXML
-    public void ONClick_JTB_modeSelect(){
+    public void ONClickModeSelect(){
         if (JTB_modeSelect.isSelected()){
             JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
             JTA_src.setEditable(false);
             try {
-                File file_temp = ViewUtils.getFile();
-                JTA_src.setText(file_temp.toString());
-                file = FileUtils.getFilebyte(file_temp);
+                if(Objects.nonNull(ViewUtils.getFile())){
+                    File file_temp = ViewUtils.getFile();
+                    JTA_src.setText(file_temp.toString());
+                    file = FileUtils.getFilebyte(file_temp);
+                }else {
+                    JTB_modeSelect.selectedProperty().setValue(false);
+                    JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
+                    JTA_src.setText("");
+                    JTA_src.setEditable(true);
+                }
             }catch (Exception e){
                 e.printStackTrace();
-                JTB_modeSelect.selectedProperty().setValue(false);
-                JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-                JTA_src.setText("");
-                JTA_src.setEditable(true);
             }
         }else {
             JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
@@ -133,5 +136,4 @@ public class Base64ViewController extends ViewControllerObject {
         JTA_src.setEditable(true);
         JTA_dst.setText(Init.languageResourceBundle.getString("Complete"));
     }
-
 }

@@ -10,6 +10,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class Main extends Application {
     private Stage primaryStage;
@@ -24,10 +25,10 @@ public class Main extends Application {
 
     public void initRootLayout() {
         try {
-            // Locale local = Locale.getDefault();
-            // System.out.println(local.getCountry());
-            // System.out.println(local.getLanguage());
-            // Locale.setDefault(new Locale("en","US"));//英文版本测试
+//             Locale local = Locale.getDefault();
+//             System.out.println(local.getCountry());
+//             System.out.println(local.getLanguage());
+//             Locale.setDefault(new Locale("en","US"));//英文版本测试
 
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();

@@ -27,6 +27,6 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <JFXToggleButton fx:id="JTB_modeSelect" layoutX="15.0" layoutY="-15.0" onAction="#ONClick_JTB_modeSelect" prefHeight="30.0" prefWidth="160.0" size="9.0" text="%TextMode" />
+      <JFXToggleButton fx:id="JTB_modeSelect" layoutX="15.0" layoutY="-15.0" onAction="#ONClickModeSelect" prefHeight="30.0" prefWidth="160.0" size="9.0" text="%TextMode" />
    </AnchorPane>
 </AnchorPane>

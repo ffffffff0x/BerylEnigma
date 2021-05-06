@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Objects;
 
 public class MockView extends Application {
     private Stage primaryStage;
@@ -19,7 +20,7 @@ public class MockView extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BEMock");
-        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/BaseConversion/BaseConversionView.fxml");
+        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/TargetClassification/TargetFinishingView.fxml");
     }
 
     public void initRootLayout(String FXMLPath) {
@@ -34,7 +35,7 @@ public class MockView extends Application {
             loader.setResources(Init.languageResourceBundle);
             rootLayout = loader.load();
 
-            primaryStage.getIcons().add(new Image(MockView.class.getResourceAsStream("/img/ffffffff0x_ico.png")));
+            primaryStage.getIcons().add(new Image(Objects.requireNonNull(MockView.class.getResourceAsStream("/img/ffffffff0x_ico.png"))));
             primaryStage.setOnCloseRequest(event -> System.exit(0));
 
             // Show the scene containing the root layout.
