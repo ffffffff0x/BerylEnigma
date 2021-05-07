@@ -3,10 +3,7 @@ package ffffffff0x.beryenigma.App.Controller.Tools.TextEdit.TargetClassification
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,6 +19,7 @@ public class TextEdit_TargetFinishing {
     public static TargetFinishingBean TargetClassification(Object source){
         File target = null;
         String targetStr;
+        HashSet<String> hashset = new HashSet();
 
         StringBuilder IP = new StringBuilder();
         StringBuilder url = new StringBuilder();
@@ -33,7 +31,8 @@ public class TextEdit_TargetFinishing {
 
         if(source instanceof File){
             target = (File) source;
-            for (String line: FileUtils.getFileLines(target)) {
+            hashset.addAll(FileUtils.getFileLines(target));
+            for (String line:hashset) {
                 if(ipJudging(line)){
                     IP.append(line).append(" ");
                     numIP++;
@@ -45,9 +44,11 @@ public class TextEdit_TargetFinishing {
                     numurl++;
                 }
             }
+
         }else {
             targetStr = (String) source;
-            for (String line: targetStr.split("\n")) {
+            hashset.addAll(Arrays.asList(targetStr.split("\n")));
+            for (String line:hashset) {
                 if(ipJudging(line)){
                     IP.append(line).append(" ");
                     numIP++;
@@ -67,6 +68,7 @@ public class TextEdit_TargetFinishing {
         resultBean.setNumIP(numIP);
         resultBean.setNumUrl(numurl);
         resultBean.setNumIPPort(numIPPort);
+        resultBean.setNumduplication(hashset.size());
 
         return resultBean;
     }

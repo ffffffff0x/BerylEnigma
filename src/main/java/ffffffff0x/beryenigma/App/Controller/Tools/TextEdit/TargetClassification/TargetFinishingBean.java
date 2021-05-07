@@ -15,6 +15,8 @@ public class TargetFinishingBean {
     int numUrl;
     int numIP;
     int numIPPort;
+    int numduplication;
+    int numoriginal;
     String all;
     Map<String,String> allmap = new HashMap<>();
 
@@ -23,6 +25,22 @@ public class TargetFinishingBean {
         allmap.put("URL.txt",allUrl);
         allmap.put("IPPort.txt",allIPPort);
         return allmap;
+    }
+
+    public int getNumduplication() {
+        return numduplication;
+    }
+
+    public void setNumduplication(int numduplication) {
+        this.numduplication = numduplication;
+    }
+
+    public int getNumoriginal() {
+        return numoriginal;
+    }
+
+    public void setNumoriginal(int numoriginal) {
+        this.numoriginal = numoriginal;
     }
 
     public void setAllmap(Map<String, String> allmap) {
