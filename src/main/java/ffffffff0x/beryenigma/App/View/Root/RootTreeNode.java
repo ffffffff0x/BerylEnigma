@@ -18,6 +18,7 @@ public class RootTreeNode {
         final TreeItem<String> tools = new TreeItem<>(Init.languageResourceBundle.getString("Tools"),folderIcon("open"));
             final TreeItem<String> textModify = new TreeItem<>(Init.languageResourceBundle.getString("TextModify"),folderIcon("open"));
             final TreeItem<String> practical = new TreeItem<>(Init.languageResourceBundle.getString("Practical"),folderIcon("open"));
+            final TreeItem<String> redTeam = new TreeItem<>(Init.languageResourceBundle.getString("RedTeam"),folderIcon("open"));
         final TreeItem<String> encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
             final TreeItem<String> modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
                 final TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
@@ -33,6 +34,7 @@ public class RootTreeNode {
         tools.setExpanded(true);
         tools.getChildren().add(textModify);
         tools.getChildren().add(practical);
+        tools.getChildren().add(redTeam);
 
         //Practical
         ItemAdd(practical,"MoneyConvert", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");
@@ -42,7 +44,10 @@ public class RootTreeNode {
         ItemAdd(textModify,"TextReplace", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/TextReplace/TextReplaceView.fxml");
         ItemAdd(textModify,"TextSeparate", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/TextSeparate/TextSeparateView.fxml");
         ItemAdd(textModify,"LineSplicing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
-        ItemAdd(textModify,"TargetFinishing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/TargetClassification/TargetFinishingView.fxml");
+
+        //RedTeam
+        ItemAdd(redTeam,"TargetFinishing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/TargetClassification/TargetFinishingView.fxml");
+        ItemAdd(redTeam,"DomainSplit", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/DomainSplit/DomainSplitView.fxml");
 
         //Encryption
         encryption.setExpanded(true);

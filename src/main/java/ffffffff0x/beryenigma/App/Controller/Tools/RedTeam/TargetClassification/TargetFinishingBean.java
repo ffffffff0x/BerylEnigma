@@ -1,4 +1,4 @@
-package ffffffff0x.beryenigma.App.Controller.Tools.TextEdit.TargetClassification;
+package ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification;
 
 import java.util.HashMap;
 import java.util.Map;

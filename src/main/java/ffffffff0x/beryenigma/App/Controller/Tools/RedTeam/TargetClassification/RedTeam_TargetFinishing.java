@@ -1,4 +1,4 @@
-package ffffffff0x.beryenigma.App.Controller.Tools.TextEdit.TargetClassification;
+package ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification;
 
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * @create: 2021-05-06 10:01
  **/
 
-public class TextEdit_TargetFinishing {
+public class RedTeam_TargetFinishing {
 
     private static TargetFinishingBean resultBean = new TargetFinishingBean();
 
@@ -33,10 +33,10 @@ public class TextEdit_TargetFinishing {
             target = (File) source;
             hashset.addAll(FileUtils.getFileLines(target));
             for (String line:hashset) {
-                if(ipJudging(line)){
+                if(isIP(line)){
                     IP.append(line).append(" ");
                     numIP++;
-                }else if(ipportJudging(line)){
+                }else if(isIPPort(line)){
                     IPPort.append(line).append(" ");
                     numIPPort++;
                 }else {
@@ -44,15 +44,14 @@ public class TextEdit_TargetFinishing {
                     numurl++;
                 }
             }
-
         }else {
             targetStr = (String) source;
             hashset.addAll(Arrays.asList(targetStr.split("\n")));
             for (String line:hashset) {
-                if(ipJudging(line)){
+                if(isIP(line)){
                     IP.append(line).append(" ");
                     numIP++;
-                }else if(ipportJudging(line)){
+                }else if(isIPPort(line)){
                     IPPort.append(line).append(" ");
                     numIPPort++;
                 }else {
@@ -78,7 +77,7 @@ public class TextEdit_TargetFinishing {
      * @param ip
      * @return
      */
-    private static boolean ipJudging(String ip){
+    private static boolean isIP(String ip){
         //ip地址范围：(1~255).(0~255).(0~255).(0~255)
         final String ipRegEx = "^([1-9]|([1-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))(\\.([0-9]|([1-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))){3}$";
         Pattern pattern = Pattern.compile(ipRegEx);
@@ -95,7 +94,7 @@ public class TextEdit_TargetFinishing {
      * @param ipport
      * @return
      */
-    private static boolean ipportJudging(String ipport){
+    private static boolean isIPPort(String ipport){
         //ipport范围：(1~255).(0~255).(0~255).(0~255):(0-65535)
         final String domainRegEx = "^([1-9]|([1-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))(\\.([0-9]|([1-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))){3}\\:\\d*$";
         Pattern pattern = Pattern.compile(domainRegEx);
