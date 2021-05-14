@@ -17,9 +17,6 @@ public class RedTeam_TargetFinishing {
     private static TargetFinishingBean resultBean = new TargetFinishingBean();
 
     public static TargetFinishingBean TargetClassification(Object source){
-        File target = null;
-        String targetStr;
-        HashSet<String> hashset = new HashSet();
 
         StringBuilder IP = new StringBuilder();
         StringBuilder url = new StringBuilder();
@@ -29,35 +26,17 @@ public class RedTeam_TargetFinishing {
         int numurl = 0;
         int numIPPort = 0;
 
-        if(source instanceof File){
-            target = (File) source;
-            hashset.addAll(FileUtils.getFileLines(target));
-            for (String line:hashset) {
-                if(isIP(line)){
-                    IP.append(line).append(" ");
-                    numIP++;
-                }else if(isIPPort(line)){
-                    IPPort.append(line).append(" ");
-                    numIPPort++;
-                }else {
-                    url.append(line).append(" ");
-                    numurl++;
-                }
-            }
-        }else {
-            targetStr = (String) source;
-            hashset.addAll(Arrays.asList(targetStr.split("\n")));
-            for (String line:hashset) {
-                if(isIP(line)){
-                    IP.append(line).append(" ");
-                    numIP++;
-                }else if(isIPPort(line)){
-                    IPPort.append(line).append(" ");
-                    numIPPort++;
-                }else {
-                    url.append(line).append(" ");
-                    numurl++;
-                }
+        HashSet<String> hashset = new HashSet(FileUtils.readLine(source));
+        for (String line:hashset) {
+            if(isIP(line)){
+                IP.append(line).append(" ");
+                numIP++;
+            }else if(isIPPort(line)){
+                IPPort.append(line).append(" ");
+                numIPPort++;
+            }else {
+                url.append(line).append(" ");
+                numurl++;
             }
         }
 

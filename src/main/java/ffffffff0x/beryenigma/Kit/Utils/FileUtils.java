@@ -3,6 +3,7 @@ package ffffffff0x.beryenigma.Kit.Utils;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 public class FileUtils {
@@ -111,6 +112,23 @@ public class FileUtils {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * 返回载入文件/字符串的按行分割后的ArrayList<String>
+     * @param object
+     * @return
+     */
+    public static ArrayList<String> readLine(Object object){
+        if(object instanceof File){
+            return FileUtils.getFileLines((File)object);
+        }else {
+            String text = (String)object;
+            ArrayList<String> list = new ArrayList<>();
+            //把数组转成集合，也就是把数组里面的数据存进集合；
+            Collections.addAll(list, text.split("\n"));
+            return list;
         }
     }
 }

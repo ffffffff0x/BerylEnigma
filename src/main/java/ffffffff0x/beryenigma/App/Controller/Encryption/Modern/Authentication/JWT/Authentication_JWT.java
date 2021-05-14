@@ -1,5 +1,8 @@
 package ffffffff0x.beryenigma.App.Controller.Encryption.Modern.Authentication.JWT;
 
+import org.apache.commons.codec.binary.Base16;
+import org.apache.commons.codec.binary.Base64;
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
@@ -10,8 +13,8 @@ import java.security.NoSuchAlgorithmException;
 public class Authentication_JWT {
     public static String[] decode(String source){
         String[] sp = source.split("\\.");
-        sp[0] = AddCRLF(new String(java.util.Base64.getDecoder().decode(sp[0]), StandardCharsets.UTF_8));
-        sp[1] = AddCRLF(new String(java.util.Base64.getDecoder().decode(sp[1]), StandardCharsets.UTF_8));
+        sp[0] = AddCRLF(new String(Base64.decodeBase64 (sp[0]), StandardCharsets.UTF_8));
+        sp[1] = AddCRLF(new String(Base64.decodeBase64 (sp[1]), StandardCharsets.UTF_8));
         sp[2] = sp[2];
         return sp;
     }
@@ -37,8 +40,7 @@ public class Authentication_JWT {
         return source.replace("\n","").replace(" ","");
     }
 
-    private static byte[] StringLength(String source)
-    {
+    private static byte[] StringLength(String source) {
         byte[] key = new byte[32];
         if(source.equals(""))
         {
@@ -57,8 +59,7 @@ public class Authentication_JWT {
             return null;}
     }
 
-    private static String AddCRLF(String source)
-    {
+    private static String AddCRLF(String source) {
         String[] sp = source.split(",");
         StringBuilder sb = new StringBuilder();
         for (String a:sp

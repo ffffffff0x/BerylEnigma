@@ -1,8 +1,9 @@
 package ffffffff0x.beryenigma.App.Controller.Encryption.Coding.ASCII;
 
+import javax.sound.midi.Soundbank;
+
 public class Coding_ASCII {
-    public static String encode(String Source, String Split, int PMNumber)
-    {
+    public static String encode(String Source, String Split, int PMNumber) {
         if(Split.equals(""))
         {
             Split = " ";
@@ -29,24 +30,19 @@ public class Coding_ASCII {
         return ASCIIL.toString();
     }
 
-    public static String deCode(String a, String s)
-    {
+    public static String deCode(String a, String s) {
         //输出
         String out;
-        if(s.equals(""))
-        {
-            out = "解密请输入分隔符";
+        if(s.equals("")){
+            s = " ";
         }
-        else
-        {
-            StringBuilder sbu = new StringBuilder();
-            //输入值切片
-            String[] chars = a.split(s);
-            for (String aChar : chars) {
-                sbu.append((char) Integer.parseInt(aChar));
-            }//ASCII转换
-            out = sbu.toString();
-        }
+        StringBuilder sbu = new StringBuilder();
+        //输入值切片
+        String[] chars = a.split(s);
+        for (String aChar : chars) {
+            sbu.append((char) Integer.parseInt(aChar));
+        }//ASCII转换
+        out = sbu.toString();
         return out;
     }
 }

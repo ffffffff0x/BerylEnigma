@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Main extends Application {
     private Stage primaryStage;
@@ -36,13 +37,13 @@ public class Main extends Application {
             loader.setResources(Init.languageResourceBundle);
             rootLayout = loader.load();
 
-            primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/img/ffffffff0x_ico.png")));
+            primaryStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("/img/ffffffff0x_ico.png"))));
             primaryStage.setOnCloseRequest(event -> System.exit(0));
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
-            Font.loadFont(Main.class.getResource("/fonts/JOKERMAN.TTF").toExternalForm(), 10);
-            scene.getStylesheets().add(Main.class.getResource("/css/MainCSS.css").toExternalForm());
+            Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/JOKERMAN.TTF")).toExternalForm(), 10);
+            scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS.css")).toExternalForm());
             primaryStage.setScene(scene);
             // primaryStage.setResizable(false);
             primaryStage.show();

@@ -20,7 +20,7 @@ public class MockView extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BEMock");
-        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/TargetClassification/TargetFinishingView.fxml");
+        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/DomainSplit/DomainSplitView.fxml");
     }
 
     public void initRootLayout(String FXMLPath) {

@@ -2,8 +2,11 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.DomainSplit;
 
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXToggleButton;
+import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.DomainSplit.RedTeam_DomainSplit;
+import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification.RedTeam_TargetFinishing;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
@@ -36,6 +39,18 @@ public class DomainSplitController extends ViewControllerObject {
     @Override
     public void ONClickConfirm() {
         super.ONClickConfirm();
+        try{
+            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                RedTeam_DomainSplit.domainSplit(JTA_src.getText());
+            }else{
+                RedTeam_DomainSplit.domainSplit(file);
+            }
+
+            FileEncodeEnd();
+        }catch (Exception e){
+            e.printStackTrace();
+            JTA_dst.validate();
+        }
     }
 
     @FXML
@@ -59,10 +74,6 @@ public class DomainSplitController extends ViewControllerObject {
             JTA_src.setText("");
             JTA_src.setEditable(true);
         }
-    }
-
-    private void count(){
-
     }
 
     public void FileEncodeEnd(){
