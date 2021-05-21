@@ -69,6 +69,11 @@ public class FileUtils {
         }
     }
 
+    /**
+     * 保存多个文件至一个文件夹
+     * @param map
+     * @param charset
+     */
     public static void outPutFile(Map<String,String> map,String charset){
         File dir = ViewUtils.directoryChooser();
         OutputStreamWriter OSW;

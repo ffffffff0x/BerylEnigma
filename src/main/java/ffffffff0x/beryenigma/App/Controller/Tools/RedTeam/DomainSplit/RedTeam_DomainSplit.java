@@ -1,7 +1,6 @@
 package ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.DomainSplit;
 
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,12 +29,6 @@ public class RedTeam_DomainSplit {
 
         Map<Integer, HashSet<String>> result = sortingDomain(allURL);
         result.put(-1,notDirURL);
-        for (int i = -1; i < result.size()-1; i++) {
-            System.out.println("level" + i);
-            for (String a:result.get(i)) {
-                System.out.println(a);
-            }
-        }
         return result;
     }
 
@@ -113,7 +106,7 @@ public class RedTeam_DomainSplit {
 
         Map<Integer,HashSet<String>> result = new HashMap<>();
         //按级别分类重组,使用Hashset去重
-        for (int i = 0; i < arrayList.get(1).length; i++) {
+        for (int i = 0; i < arrayList.get(0).length; i++) {
             HashSet<String> hashSet = new HashSet();
             for (String[] list:arrayList) {
                 if(list.length > i){

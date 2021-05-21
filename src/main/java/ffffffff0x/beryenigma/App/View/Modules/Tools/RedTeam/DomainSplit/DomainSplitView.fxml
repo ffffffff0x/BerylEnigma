@@ -20,7 +20,7 @@
             <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="315.0" prefHeight="165.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0" />
             <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXCheckBox fx:id="JCB_MultipleFile" mnemonicParsing="false" prefHeight="18.0" prefWidth="160.0" selected="true" text="%MultipleFileOutput" />
+                  <JFXCheckBox fx:id="JCB_MultipleFile" mnemonicParsing="false" prefHeight="18.0" prefWidth="160.0" text="%MultipleFileOutput" />
                   <JFXButton fx:id="JBT_confirm" buttonType="RAISED" onAction="#ONClickConfirm" prefHeight="50.0" prefWidth="101.0" text="%Confirm">
                      <HBox.margin>
                         <Insets right="30.0" />

@@ -44,11 +44,10 @@ public class TargetFinishingController extends ViewControllerObject {
 
             if(!JCB_MultipleFile.isSelected()){
                 FileUtils.outPutFile(TargetClassificationBean.getAll(),"UTF-8");
-                count();
             }else{
                 FileUtils.outPutFile(TargetClassificationBean.getAllmap(),"UTF-8");
-                count();
             }
+            count();
             FileEncodeEnd();
         }catch (Exception e){
             e.printStackTrace();
