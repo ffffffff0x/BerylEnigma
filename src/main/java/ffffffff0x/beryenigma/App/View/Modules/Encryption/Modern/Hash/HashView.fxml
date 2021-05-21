@@ -15,7 +15,7 @@
       </Label>
       <AnchorPane layoutX="84.0" layoutY="157.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
          <children>
-            <JFXToggleButton fx:id="JTB_modeSelect" layoutX="15.0" layoutY="-15.0" onAction="#ONClick_JCB_modeSelect" prefHeight="50.0" prefWidth="160.0" size="9.0" text="%TextMode" />
+            <JFXToggleButton fx:id="JTB_modeSelect" layoutX="15.0" layoutY="-15.0" onAction="#ONClickModeSelect" prefHeight="50.0" prefWidth="160.0" size="9.0" text="%TextMode" />
             <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0" />
             <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="60.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>

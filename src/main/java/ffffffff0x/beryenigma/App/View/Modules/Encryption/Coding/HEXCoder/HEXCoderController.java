@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HEXCoder;
 
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileModeObject;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -8,6 +9,7 @@ import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
+import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -16,12 +18,11 @@ import java.util.Objects;
 /**
  * @author RyuZU
  */
-public class HEXCoderController extends ViewControllerObject {
+public class HEXCoderController extends ViewControllerFileModeObject {
     byte[] file = null;
 
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXTextField JTF_split;
-    @FXML private JFXToggleButton JTB_modeSelect;
 
     @Override
     protected void initialize() {
@@ -42,7 +43,7 @@ public class HEXCoderController extends ViewControllerObject {
                 }
             }else{
                 FileUtils.outPutFile(Coding_HEXCoder.encode(file));
-                FileEncodeend();
+                fileEncodeEnd();
             }
         }catch (Exception e) {
             ViewUtils.textAreaValidate(JTA_dst);
@@ -61,36 +62,10 @@ public class HEXCoderController extends ViewControllerObject {
                 }
             }else{
                 FileUtils.outPutFile(Coding_HEXCoder.decode(file));
-                FileEncodeend();
+                fileEncodeEnd();
             }
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
-        }
-    }
-
-    @FXML
-    public void ONClickModeSelect(){
-        if (JTB_modeSelect.isSelected()){
-            JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
-            JTA_src.setEditable(false);
-            try {
-                if(Objects.nonNull(ViewUtils.getFile())){
-                    File file_temp = ViewUtils.getFile();
-                    JTA_src.setText(file_temp.toString());
-                    file = FileUtils.getFilebyte(file_temp);
-                }else {
-                    JTB_modeSelect.selectedProperty().setValue(false);
-                    JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-                    JTA_src.setText("");
-                    JTA_src.setEditable(true);
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }else {
-            JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-            JTA_src.setText("");
-            JTA_src.setEditable(true);
         }
     }
 
@@ -106,11 +81,11 @@ public class HEXCoderController extends ViewControllerObject {
                 JCB_charset.getValue().toString());
     }
 
-    public void FileEncodeend(){
-        JTB_modeSelect.selectedProperty().set(false);
-        JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-        JTA_src.setText("");
-        JTA_src.setEditable(true);
-        JTA_dst.setText(Init.languageResourceBundle.getString("Complete"));
+
+    @Override
+    public void getFile(){
+        File file_temp = ViewUtils.getFile();
+        JTA_src.setText(file_temp.toString());
+        file = FileUtils.getFilebyte(file_temp);
     }
 }

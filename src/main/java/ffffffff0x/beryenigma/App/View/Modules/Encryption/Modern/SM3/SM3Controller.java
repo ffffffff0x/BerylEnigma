@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SM3;
 
 import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.SM3.Modern_SM3;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileModeObject;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -15,7 +16,7 @@ import org.apache.commons.codec.binary.Hex;
 import java.io.File;
 import java.io.IOException;
 
-public class SM3Controller extends ViewControllerObject {
+public class SM3Controller extends ViewControllerFileModeObject {
     /**
      * JTA_dst1 :HEX result
      * JTA_dst :base64 result
@@ -24,7 +25,6 @@ public class SM3Controller extends ViewControllerObject {
     byte[] file = null;
 
     @FXML private JFXComboBox JCB_charset;
-    @FXML private JFXToggleButton JTB_modeSelect;
 
     @Override
     protected void initialize() {
@@ -45,7 +45,7 @@ public class SM3Controller extends ViewControllerObject {
                 }
             }else{
                 dst = hash(file);
-                FileEncodeend();
+                fileEncodeEnd();
             }
             JTA_dst1.setText(dst[0]);
             JTA_dst.setText(dst[1]);
@@ -61,33 +61,10 @@ public class SM3Controller extends ViewControllerObject {
         return out;
     }
 
-    @FXML
-    public void ONClick_JCB_modeSelect(){
-        if (JTB_modeSelect.isSelected()){
-            JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
-            JTA_src.setEditable(false);
-            try {
-                File file_temp = ViewUtils.getFile();
-                JTA_src.setText(file_temp.toString());
-                file = FileUtils.getFilebyte(file_temp);
-            }catch (Exception e){
-                e.printStackTrace();
-                JTB_modeSelect.selectedProperty().setValue(false);
-                JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-                JTA_src.setText("");
-                JTA_src.setEditable(true);
-            }
-        }else {
-            JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-            JTA_src.setText("");
-            JTA_src.setEditable(true);
-        }
-    }
-
-    public void FileEncodeend(){
-        JTB_modeSelect.selectedProperty().set(false);
-        JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-        JTA_src.setText("");
-        JTA_src.setEditable(true);
+    @Override
+    public void getFile(){
+        File file_temp = ViewUtils.getFile();
+        JTA_src.setText(file_temp.toString());
+        file = FileUtils.getFilebyte(file_temp);
     }
 }
