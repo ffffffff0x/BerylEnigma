@@ -27,11 +27,15 @@ public class Classical_CaesarCipher {
         return eStr.toString();
     }
 
-    public static String decode(){
-        return null;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(encode("",3));
+    public static String decode(String message,int keys){
+        if(keys > 0){
+            return encode(message,-keys);
+        }else {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 1; i < 26; i++) {
+                stringBuilder.append(encode(message,i)).append("\n");
+            }
+            return stringBuilder.toString();
+        }
     }
 }

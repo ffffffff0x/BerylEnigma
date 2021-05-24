@@ -72,6 +72,7 @@ public class RootTreeNode {
         ItemAdd(classical,"RailFence", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/RailFence/RailFenceView.fxml");
         ItemAdd(classical,"Atbash", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/Atbash/AtbashView.fxml");
         ItemAdd(classical,"Vigenere", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/Vigenere/VigenereView.fxml");
+        ItemAdd(classical,"CaesarCipher", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/CaesarCipher/CaesarCipherView.fxml");
 
         //Coding
         ItemAdd(coding,"ASCII", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/ASCII/ASCIIView.fxml");

@@ -123,7 +123,7 @@ public class ViewUtils {
      * 重置文本域控件的过滤器报错
      * @param jta
      */
-    public static void textAreaValidateResrt(JFXTextArea jta){
+    public static void textAreaValidateReset(JFXTextArea jta){
         jta.resetValidation();
     }
 }

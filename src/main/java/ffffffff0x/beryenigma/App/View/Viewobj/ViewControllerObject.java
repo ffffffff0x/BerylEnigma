@@ -57,7 +57,7 @@ public class ViewControllerObject {
      */
     @FXML
     public void ONClickEncode(){
-        ViewUtils.textAreaValidateResrt(JTA_dst);
+        ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father JBT_enCode");
     }
 
@@ -66,7 +66,7 @@ public class ViewControllerObject {
      */
     @FXML
     public void ONClickDecode(){
-        ViewUtils.textAreaValidateResrt(JTA_dst);
+        ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father JBT_deCode");
     }
 
@@ -76,7 +76,7 @@ public class ViewControllerObject {
      */
     @FXML
     public void ONClickConfirm(){
-        ViewUtils.textAreaValidateResrt(JTA_dst);
+        ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father JBT_confirm");
     }
 
@@ -86,7 +86,7 @@ public class ViewControllerObject {
      */
     @FXML
     public void ONReleasedOrSelected(){
-        ViewUtils.textAreaValidateResrt(JTA_dst);
+        ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father InputSelect");
     }
 
