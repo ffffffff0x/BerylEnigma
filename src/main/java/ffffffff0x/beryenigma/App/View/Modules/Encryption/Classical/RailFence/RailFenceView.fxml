@@ -28,12 +28,12 @@
                </font></JFXTextArea>
             <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClickEncode" prefHeight="50.0" prefWidth="101.0" text="%EnCode">
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClickEncode" prefHeight="50.0" prefWidth="101.0" text="%Encrypt">
                      <font>
                         <Font size="15.0" />
                      </font></JFXButton>
                   <JFXTextField fx:id="JTF_quantity" alignment="CENTER" prefHeight="25.0" prefWidth="110.0" promptText="%NumberOnly" />
-                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClickDecode" prefHeight="50.0" prefWidth="101.0" text="%DeCode">
+                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClickDecode" prefHeight="50.0" prefWidth="101.0" text="%Decrypt">
                      <font>
                         <Font size="15.0" />
                      </font></JFXButton>
