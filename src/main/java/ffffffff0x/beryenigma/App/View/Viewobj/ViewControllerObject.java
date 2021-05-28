@@ -47,7 +47,7 @@ public class ViewControllerObject {
      * 全局界面初始化
      */
     @FXML
-    protected void initialize(){
+    protected void initialize() {
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
 //        System.out.println("Father init");
     }
@@ -56,7 +56,7 @@ public class ViewControllerObject {
      * 全局加密按钮事件
      */
     @FXML
-    public void ONClickEncode(){
+    public void ONClickEncode() {
         ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father JBT_enCode");
     }
@@ -65,29 +65,26 @@ public class ViewControllerObject {
      * 全局解密按钮事件
      */
     @FXML
-    public void ONClickDecode(){
+    public void ONClickDecode() {
         ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father JBT_deCode");
     }
-
 
     /**
      * 全局确定按钮事件
      */
     @FXML
-    public void ONClickConfirm(){
+    public void ONClickConfirm() {
         ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father JBT_confirm");
     }
-
 
     /**
      * 全局输入与控件选取事件
      */
     @FXML
-    public void ONReleasedOrSelected(){
+    public void ONReleasedOrSelected() {
         ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father InputSelect");
     }
-
 }

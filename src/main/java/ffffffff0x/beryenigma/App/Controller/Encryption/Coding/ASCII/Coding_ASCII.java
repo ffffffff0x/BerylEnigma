@@ -7,6 +7,8 @@ public class Coding_ASCII {
         if(Split.equals(""))
         {
             Split = " ";
+        }else if(Split.equals("\\n")){
+            Split = "\n";
         }
         //结果保存
         StringBuilder ASCIIL = new StringBuilder();
@@ -22,8 +24,7 @@ public class Coding_ASCII {
             if(i != chars.length - 1)
             {
                 ASCIIL.append(Integer.valueOf(chars[i])+PMNumber).append(Split);
-            }
-            else {
+            } else {
                 ASCIIL.append(Integer.valueOf(chars[i])+PMNumber);
             }
         }//ASCII转换

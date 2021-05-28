@@ -5,7 +5,10 @@ import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextArea;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -13,11 +16,12 @@ import javafx.stage.Stage;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
+import java.util.Objects;
 
 public class ViewUtils {
     /**
      * 返回文件获取窗口
-     * @return
+     * @return 返回文件获取窗口
      */
     public static File getFile(){
         Stage primaryStage = null;
@@ -30,8 +34,8 @@ public class ViewUtils {
 
     /**
      * 带有单个文件名后缀过滤器的文件获取窗口
-     * @param extFilter
-     * @return
+     * @param extFilter 后缀过滤器
+     * @return 带有单个文件名后缀过滤器的文件获取窗口
      */
     public static File getFile(FileChooser.ExtensionFilter extFilter){
         Stage primaryStage = null;
@@ -46,8 +50,8 @@ public class ViewUtils {
 
     /**
      * 带有文件名后缀过滤器的文件获取窗口
-     * @param extFilter
-     * @return
+     * @param extFilter 后缀过滤器
+     * @return 带有文件名后缀过滤器的文件获取窗口
      */
     public static File getFile(FileChooser.ExtensionFilter[] extFilter){
         Stage primaryStage = null;
@@ -63,7 +67,7 @@ public class ViewUtils {
 
     /**
      * 保存文件时的文件选择器
-     * @return
+     * @return 保存文件时的文件选择器
      */
     public static File fileChooser(){
         FileChooser fileChooser = new FileChooser();
@@ -87,9 +91,9 @@ public class ViewUtils {
 
     /**
      * alert弹窗，用于报错，提示等功能
-     * @param stage
-     * @param heading
-     * @param body
+     * @param stage 目标stage
+     * @param heading 标题
+     * @param body 正文
      */
     public static void alertPane(Stage stage, String heading, String body){
         JFXAlert alert = new JFXAlert(stage);
@@ -112,7 +116,7 @@ public class ViewUtils {
 
     /**
      * 清空文本域控件的文字并显示过滤器报错
-     * @param jta
+     * @param jta 目标文本域node
      */
     public static void textAreaValidate(JFXTextArea jta){
         jta.setText("");
@@ -121,9 +125,24 @@ public class ViewUtils {
 
     /**
      * 重置文本域控件的过滤器报错
-     * @param jta
+     * @param jta 目标文本域node
      */
     public static void textAreaValidateReset(JFXTextArea jta){
         jta.resetValidation();
+    }
+
+    /**
+     * 用于设置在Anchor中node对象的Anchor
+     * @param node 要设置Anchor的目标node
+     * @param TopAnchor 上
+     * @param LeftAnchor 左
+     * @param RightAnchor 右
+     * @param BottomAnchor 下
+     */
+    public static void setAnchor(Node node, Double TopAnchor, Double LeftAnchor, Double RightAnchor, Double BottomAnchor){
+        AnchorPane.setTopAnchor(node,TopAnchor);
+        AnchorPane.setRightAnchor(node,LeftAnchor);
+        AnchorPane.setLeftAnchor(node,RightAnchor);
+        AnchorPane.setBottomAnchor(node,BottomAnchor);
     }
 }
