@@ -21,6 +21,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BerylEnigma");
+        primaryStage.setMinHeight(664.0);
+        primaryStage.setMinWidth(916.0);
         initRootLayout();
     }
 

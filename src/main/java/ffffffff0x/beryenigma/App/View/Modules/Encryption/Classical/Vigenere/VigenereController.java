@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 
 public class VigenereController extends ViewControllerObject {
 
-    @FXML private JFXTextArea JTA_key;
+    @FXML private JFXTextArea JTA_vigenereKey;
 
     @Override
     protected void initialize() {
@@ -20,7 +20,7 @@ public class VigenereController extends ViewControllerObject {
     public void ONClickEncode() {
         super.ONClickEncode();
         try {
-            JTA_dst.setText(Classical_Vigenere.encrypt(JTA_src.getText(),JTA_key.getText()));
+            JTA_dst.setText(Classical_Vigenere.encrypt(JTA_src.getText(),JTA_vigenereKey.getText()));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }
@@ -30,7 +30,7 @@ public class VigenereController extends ViewControllerObject {
     public void ONClickDecode() {
         super.ONClickDecode();
         try {
-            JTA_dst.setText(Classical_Vigenere.decrypt(JTA_src.getText(),JTA_key.getText()));
+            JTA_dst.setText(Classical_Vigenere.decrypt(JTA_src.getText(),JTA_vigenereKey.getText()));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }

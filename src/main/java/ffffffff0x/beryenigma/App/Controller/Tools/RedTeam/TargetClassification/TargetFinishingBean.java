@@ -22,7 +22,7 @@ public class TargetFinishingBean {
 
     public Map<String, String> getAllmap() {
         allmap.put("IP.txt",allIP);
-        allmap.put("URL.txt",allUrl);
+        allmap.put("URL&Other.txt",allUrl);
         allmap.put("IPPort.txt",allIPPort);
         return allmap;
     }

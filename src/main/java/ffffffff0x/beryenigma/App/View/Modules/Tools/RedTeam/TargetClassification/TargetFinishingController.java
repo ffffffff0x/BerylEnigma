@@ -79,7 +79,7 @@ public class TargetFinishingController extends ViewControllerObject {
     }
 
     private void count(){
-        String outCount = Init.languageResourceBundle.getString("AfterDe-duplication") + " : " + TargetClassificationBean.getNumduplication() + "\nIP : " + TargetClassificationBean.getNumIP() + "\nURL : " + TargetClassificationBean.getNumUrl() + "\nIP:PORT : " + TargetClassificationBean.getNumIPPort();
+        String outCount = Init.languageResourceBundle.getString("AfterDe-duplication") + " : " + TargetClassificationBean.getNumduplication() + "\nIP : " + TargetClassificationBean.getNumIP() + "\nURL&Other : " + TargetClassificationBean.getNumUrl() + "\nIP:PORT : " + TargetClassificationBean.getNumIPPort();
         JTA_dst.setText(outCount);
     }
 

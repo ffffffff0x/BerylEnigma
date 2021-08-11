@@ -21,12 +21,12 @@
             <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="315.0" prefHeight="165.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0" />
             <HBox alignment="CENTER" layoutX="40.0" layoutY="225.0" prefHeight="55.0" prefWidth="530.0" spacing="25.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <JFXTextArea fx:id="JTA_oldString" prefHeight="55.0" prefWidth="120.0" promptText="%OldString">
+                  <JFXTextArea id="NoBackgroundColorJFXArea" fx:id="JTA_oldString" prefHeight="55.0" prefWidth="120.0" promptText="%OldString">
                      <font>
                         <Font size="14.0" />
                      </font></JFXTextArea>
                   <Label prefHeight="30.0" prefWidth="65.0" text="----------&gt;" />
-                  <JFXTextArea fx:id="JTA_newString" prefHeight="55.0" prefWidth="120.0" promptText="%NewString">
+                  <JFXTextArea id="NoBackgroundColorJFXArea" fx:id="JTA_newString" prefHeight="55.0" prefWidth="120.0" promptText="%NewString">
                      <font>
                         <Font size="14.0" />
                      </font></JFXTextArea>

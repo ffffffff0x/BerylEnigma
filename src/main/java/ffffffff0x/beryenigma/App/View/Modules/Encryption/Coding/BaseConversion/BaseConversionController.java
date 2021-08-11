@@ -44,11 +44,7 @@ public class BaseConversionController extends ViewControllerObject {
     // 判断是否是二进制输入，展示符号位选择框
     @FXML
     public void ONCheckComboBox(){
-        if(JCB_srcBase.getValue().toString().equals("2")){
-            JCB_SignBit.setVisible(true);
-        }else {
-            JCB_SignBit.setVisible(false);
-        }
+        JCB_SignBit.setVisible(JCB_srcBase.getValue().toString().equals("2"));
     }
 
     @FXML
@@ -60,7 +56,7 @@ public class BaseConversionController extends ViewControllerObject {
         for (int i = 3; i < 8; i++) { JCB_srcBase.getItems().add(i); }
         for (int i = 9; i < 10; i++) { JCB_srcBase.getItems().add(i); }
         for (int i = 11; i < 16; i++) { JCB_srcBase.getItems().add(i); }
-        for (int i = 17; i < 31; i++) { JCB_srcBase.getItems().add(i); }
+        for (int i = 17; i < 37; i++) { JCB_srcBase.getItems().add(i); }
         JCB_srcBase.setValue(10);
         JCB_srcBase.setVisibleRowCount(6);
 
@@ -71,7 +67,7 @@ public class BaseConversionController extends ViewControllerObject {
         for (int i = 3; i < 8; i++) { JCB_dstBase.getItems().add(i); }
         for (int i = 9; i < 10; i++) { JCB_dstBase.getItems().add(i); }
         for (int i = 11; i < 16; i++) { JCB_dstBase.getItems().add(i); }
-        for (int i = 17; i < 31; i++) { JCB_dstBase.getItems().add(i); }
+        for (int i = 17; i < 37; i++) { JCB_dstBase.getItems().add(i); }
         JCB_dstBase.setValue(16);
         JCB_dstBase.setVisibleRowCount(6);
     }
