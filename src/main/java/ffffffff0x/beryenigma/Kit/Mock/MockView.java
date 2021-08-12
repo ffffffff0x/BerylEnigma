@@ -21,7 +21,8 @@ public class MockView extends Application {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BEMock");
 //        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/CaesarCipher/CaesarCipherView.fxml");
-        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/Timestamp.fxml");
+//        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/Timestamp.fxml");
+        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Image/PixelReplacement/PixelReplacementView.fxml");
     }
 
     public void initRootLayout(String FXMLPath) {

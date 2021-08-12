@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Image.PixelReplacement.PixelReplacementController">
+   <children>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="28.0" prefHeight="70.0" prefWidth="610.0" text="PixelReplacement" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="Jokerman" size="45.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="74.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <AnchorPane layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
+               <children>
+                  <JFXButton fx:id="JBT_loadImg" layoutX="238.0" layoutY="71.0" mnemonicParsing="false" onAction="#ONClickLoadImg" ripplerFill="BLACK" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
+            <AnchorPane layoutX="40.0" layoutY="315.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0">
+               <children>
+                  <JFXButton fx:id="JBT_outImg" layoutX="107.0" layoutY="47.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
+            <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+               <children>
+                  <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClickEncode" prefHeight="50.0" prefWidth="101.0" text="%EnCode" />
+                  <JFXTextField fx:id="JTF_key" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" promptText="%Delimiter" />
+                  <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClickDecode" prefHeight="50.0" prefWidth="101.0" text="%DeCode" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
