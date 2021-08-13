@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import ffffffff0x.beryenigma.App.Controller.Image.PixelReplacement.Image_PixelReplacement;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -21,7 +22,9 @@ import java.util.Objects;
 public class PixelReplacementController extends ViewControllerObject {
     private ImageView IMG_loadImg;
     private ImageView IMG_outImg;
-    private File Img = null;
+    private File ImgFile = null;
+    private final double margins = 10.0;
+    private Image outImage;
 
     @FXML
     private JFXTextField JTF_key;
@@ -35,38 +38,45 @@ public class PixelReplacementController extends ViewControllerObject {
     @Override
     protected void initialize() {
         IMG_loadImg = new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/JBT_loadImg.png"))));
-        IMG_loadImg.setFitHeight(166.0);
+        IMG_loadImg.setFitHeight(165 - margins);
         IMG_loadImg.setPreserveRatio(true);
         JBT_loadImg.setGraphic(IMG_loadImg);
 
         IMG_outImg = new ImageView();
-        IMG_outImg.setFitWidth(158.0);
         IMG_outImg.setPreserveRatio(true);
     }
 
     @Override
     public void ONClickEncode() {
-        Image image = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()),Img,true,"r");
-        IMG_outImg.setImage(image);
+        outImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,true,"rc");
+        IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
+        IMG_outImg.setImage(outImage);
         JBT_outImg.setGraphic(IMG_outImg);
     }
 
     @Override
     public void ONClickDecode() {
-        IMG_loadImg.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo.png"))));
-        JBT_loadImg.setGraphic(IMG_loadImg);
+        outImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,false,"rc");
+        IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
+        IMG_outImg.setImage(outImage);
+        JBT_outImg.setGraphic(IMG_outImg);
     }
 
     @FXML
     public void ONClickLoadImg() {
-        Img = ViewUtils.getFile();
+        ImgFile = ViewUtils.getFile();
         try {
-            if (Img != null) {
-                IMG_loadImg.setImage(new Image(new FileInputStream(Img)));
+            if (ImgFile != null) {
+                IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
                 JBT_loadImg.setGraphic(IMG_loadImg);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void ONClickOutImg() {
+        FileUtils.outPutImgFile(IMG_outImg.getImage());
     }
 }

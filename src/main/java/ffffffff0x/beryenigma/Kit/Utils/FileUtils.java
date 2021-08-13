@@ -1,7 +1,15 @@
 package ffffffff0x.beryenigma.Kit.Utils;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.PixelFormat;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.WritablePixelFormat;
+
+import javax.swing.*;
+import javax.swing.text.View;
 import java.awt.*;
 import java.io.*;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -134,6 +142,28 @@ public class FileUtils {
             //把数组转成集合，也就是把数组里面的数据存进集合；
             Collections.addAll(list, text.split("\n"));
             return list;
+        }
+    }
+
+    public static void outPutImgFile(Image image) {
+        int width = (int) image.getWidth();
+        int height = (int) image.getHeight();
+        PixelReader reader = image.getPixelReader();
+        byte[] buffer = new byte[width * height * 4];
+        WritablePixelFormat<ByteBuffer> format = PixelFormat.getByteBgraInstance();
+        reader.getPixels(0, 0, width, height, format, buffer, 0, width * 4);
+        try {
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(ViewUtils.fileChooser()));
+            for (int count = 0; count < buffer.length; count += 4) {
+                out.write(buffer[count + 2]);
+                out.write(buffer[count + 1]);
+                out.write(buffer[count]);
+                out.write(buffer[count + 3]);
+            }
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

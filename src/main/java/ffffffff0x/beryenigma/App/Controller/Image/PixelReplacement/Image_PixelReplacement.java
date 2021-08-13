@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * from https://github.com/yuchenxi2000/PicEncrypt
  * @author: RyuZUSUNC
  * @create: 2021/8/12 22:17
  **/

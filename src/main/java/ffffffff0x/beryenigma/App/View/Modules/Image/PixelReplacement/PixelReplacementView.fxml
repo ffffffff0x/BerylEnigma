@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Image.PixelReplacement.PixelReplacementController">
+<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Image.PixelReplacement.PixelReplacementController">
    <children>
       <Label alignment="CENTER" layoutX="14.0" layoutY="28.0" prefHeight="70.0" prefWidth="610.0" text="PixelReplacement" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
          <font>
@@ -21,7 +21,7 @@
                </children></AnchorPane>
             <AnchorPane layoutX="40.0" layoutY="315.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0">
                <children>
-                  <JFXButton fx:id="JBT_outImg" layoutX="107.0" layoutY="47.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <JFXButton fx:id="JBT_outImg" layoutX="107.0" layoutY="47.0" mnemonicParsing="false" onAction="#ONClickOutImg" prefHeight="158.0" prefWidth="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children></AnchorPane>
             <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="50.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
