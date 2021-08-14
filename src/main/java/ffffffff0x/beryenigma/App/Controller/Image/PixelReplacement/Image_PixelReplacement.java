@@ -1,11 +1,6 @@
 package ffffffff0x.beryenigma.App.Controller.Image.PixelReplacement;
 
-import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelWriter;
-import javafx.scene.image.WritableImage;
-
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +11,7 @@ import java.io.IOException;
  * @create: 2021/8/12 22:17
  **/
 public class Image_PixelReplacement {
-    public static javafx.scene.image.Image image_transform(double key, File fi, Boolean encrypt, String mode) {
+    public static BufferedImage image_transform(double key, File fi, Boolean encrypt, String mode) {
         try {
             BufferedImage bi = ImageIO.read(fi);
             int h = bi.getHeight();
@@ -57,26 +52,11 @@ public class Image_PixelReplacement {
 
             bi.setRGB(0, 0, w, h, buffer, 0, w);
 
-            return convertToFxImage(bi);
+            return  bi;
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return null;
-    }
-
-    private static javafx.scene.image.Image convertToFxImage(BufferedImage image) {
-        WritableImage wr = null;
-        if (image != null) {
-            wr = new WritableImage(image.getWidth(), image.getHeight());
-            PixelWriter pw = wr.getPixelWriter();
-            for (int x = 0; x < image.getWidth(); x++) {
-                for (int y = 0; y < image.getHeight(); y++) {
-                    pw.setArgb(x, y, image.getRGB(x, y));
-                }
-            }
-        }
-
-        return new ImageView(wr).getImage();
     }
 }

@@ -8,6 +8,9 @@ import com.jfoenix.controls.JFXTextArea;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -15,6 +18,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.filechooser.FileSystemView;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Objects;
 
@@ -82,11 +86,28 @@ public class ViewUtils {
         return fileChooser.showSaveDialog(new Stage());
     }
 
+    /**
+     * 保存文件时的文件目录选择器
+     * @return 保存文件时的文件目录选择器
+     */
     public static File directoryChooser(){
         DirectoryChooser directorychooser = new DirectoryChooser();
         FileSystemView fsv = FileSystemView.getFileSystemView();
         directorychooser.setInitialDirectory(fsv.getHomeDirectory());
         return directorychooser.showDialog(new Stage());
+    }
+
+    /**
+     * 保存文件时的文件选择器
+     * @return 保存文件时的文件选择器
+     */
+    public static File fileChooser(String filename){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        fileChooser.setInitialDirectory(fsv.getHomeDirectory());
+        fileChooser.setInitialFileName(filename);
+        return fileChooser.showSaveDialog(new Stage());
     }
 
     /**
@@ -144,5 +165,25 @@ public class ViewUtils {
         AnchorPane.setRightAnchor(node,LeftAnchor);
         AnchorPane.setLeftAnchor(node,RightAnchor);
         AnchorPane.setBottomAnchor(node,BottomAnchor);
+    }
+
+    /**
+     * 将swing的BufferedImage对象转换为JAVAFX的Image对象
+     * @param image BufferedImage对象
+     * @return JAVAFX的Image对象
+     */
+    public static javafx.scene.image.Image convertToFxImage(BufferedImage image) {
+        WritableImage wr = null;
+        if (image != null) {
+            wr = new WritableImage(image.getWidth(), image.getHeight());
+            PixelWriter pw = wr.getPixelWriter();
+            for (int x = 0; x < image.getWidth(); x++) {
+                for (int y = 0; y < image.getHeight(); y++) {
+                    pw.setArgb(x, y, image.getRGB(x, y));
+                }
+            }
+        }
+
+        return new ImageView(wr).getImage();
     }
 }
