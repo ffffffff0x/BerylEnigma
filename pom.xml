@@ -13,6 +13,7 @@
         <maven.compiler.release>16</maven.compiler.release>
         <javafx.version>16</javafx.version>
         <classifier>win</classifier>
+        <com.twelvemonkeys.version>3.7.0</com.twelvemonkeys.version>
     </properties>
     <build>
         <resources>
@@ -123,6 +124,42 @@
             <artifactId>annotations</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twelvemonkeys.imageio</groupId>
+            <artifactId>imageio-jpeg</artifactId>
+            <version>${com.twelvemonkeys.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.twelvemonkeys.imageio</groupId>
+            <artifactId>imageio-tiff</artifactId>
+            <version>${com.twelvemonkeys.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.twelvemonkeys.common</groupId>
+            <artifactId>common-lang</artifactId>
+            <version>${com.twelvemonkeys.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.twelvemonkeys.common</groupId>
+            <artifactId>common-io</artifactId>
+            <version>${com.twelvemonkeys.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.twelvemonkeys.common</groupId>
+            <artifactId>common-image</artifactId>
+            <version>${com.twelvemonkeys.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.twelvemonkeys.imageio</groupId>
+            <artifactId>imageio-core</artifactId>
+            <version>${com.twelvemonkeys.version}</version>
+        </dependency>
+        <dependency>
+        <groupId>com.twelvemonkeys.imageio</groupId>
+        <artifactId>imageio-metadata</artifactId>
+        <version>${com.twelvemonkeys.version}</version>
         </dependency>
 
         <!--        <dependency>-->

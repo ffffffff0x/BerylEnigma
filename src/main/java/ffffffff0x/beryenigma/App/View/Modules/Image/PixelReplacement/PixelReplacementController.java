@@ -6,6 +6,7 @@ import com.jfoenix.validation.RequiredFieldValidator;
 import ffffffff0x.beryenigma.App.Controller.Image.PixelReplacement.Image_PixelReplacement;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -99,9 +100,16 @@ public class PixelReplacementController extends ViewControllerObject {
     public void ONClickOutImg() {
         try {
             if (ImgFile != null) {
+                String formatName = FileUtils.getFileFormatName(ImgFile);
                 StringBuilder imgFileName = new StringBuilder(ImgFile.getName());
                 imgFileName.insert(ImgFile.getName().lastIndexOf("."),"_PixelReplacement");
                 File outFile = ViewUtils.fileChooser(imgFileName.toString());
+
+//                if (FileUtils.getFileFormatName(ImgFile).equals("jpg") || FileUtils.getFileFormatName(ImgFile).equals("jpeg")) {
+//                    ColorSpace cpace = new ICC_ColorSpace(ICC_Profile.getInstance(Image_PixelReplacement.class.getClassLoader().getResourceAsStream("icc/cmyk.icc")));
+//                    ColorConvertOp op = new ColorConvertOp(outBufferedImage.getColorModel().getColorSpace(), cpace, null);
+//                    outBufferedImage = op.filter(outBufferedImage, null);
+//                }
                 if (outFile != null) {
                     ImageIO.write(outBufferedImage,"png",outFile);
                 }

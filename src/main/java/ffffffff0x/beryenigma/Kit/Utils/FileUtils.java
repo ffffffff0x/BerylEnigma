@@ -145,6 +145,10 @@ public class FileUtils {
         }
     }
 
+    /**
+     * 将FX的Image对象转换为文件
+     * @param image JAVAFX 的Image对象
+     */
     public static void outPutImgFile(Image image) {
         int width = (int) image.getWidth();
         int height = (int) image.getHeight();
@@ -165,5 +169,17 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 获取文件扩展名/后缀名
+     * @param file 传入文件对象
+     * @return 文件后缀名
+     */
+    public static String getFileFormatName(File file) {
+        if (file != null) {
+            return file.getName().substring(file.getName().lastIndexOf(".") + 1);
+        }
+        return null;
     }
 }
