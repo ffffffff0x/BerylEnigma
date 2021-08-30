@@ -111,7 +111,7 @@ public class PixelReplacementController extends ViewControllerObject {
 //                    outBufferedImage = op.filter(outBufferedImage, null);
 //                }
                 if (outFile != null) {
-                    ImageIO.write(outBufferedImage,"png",outFile);
+                    ImageIO.write(outBufferedImage,formatName,outFile);
                 }
             }
         } catch (IOException e) {

@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Hash.HashController">
+<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Hash.HashController">
    <children>
       <Label alignment="CENTER" layoutX="24.0" layoutY="38.0" prefHeight="70.0" prefWidth="610.0" text="HASH" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font name="Jokerman" size="45.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="84.0" layoutY="157.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
+      <AnchorPane fx:id="ACP_controllerAnchorPane" layoutX="84.0" layoutY="157.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
          <children>
             <JFXToggleButton fx:id="JTB_modeSelect" layoutX="15.0" layoutY="-15.0" onAction="#ONClickModeSelect" prefHeight="50.0" prefWidth="160.0" size="9.0" text="%TextMode" />
             <JFXTextArea fx:id="JTA_src" layoutX="40.0" layoutY="39.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0" />

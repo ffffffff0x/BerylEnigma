@@ -5,6 +5,7 @@ import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * @author: RyuZUSUNC
@@ -12,6 +13,10 @@ import javafx.fxml.FXML;
  **/
 
 public class ViewControllerObject {
+    @FXML
+    public AnchorPane ACP_backgroundAnchorPane;
+    @FXML
+    public AnchorPane ACP_controllerAnchorPane;
     @FXML
     public JFXButton JBT_enCode;
     @FXML
