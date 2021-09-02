@@ -8,9 +8,11 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ZmFyZXdlbGw;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -62,6 +64,10 @@ public class PixelReplacementController extends ViewControllerObject {
                 IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
                 IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
                 JBT_outImg.setGraphic(IMG_outImg);
+            }else {
+                if (Objects.equals(JTF_key.getText(), "20210902")) {
+                    ViewUtils.alertPane((Stage)ACP_backgroundAnchorPane.getScene().getWindow() , "",ZmFyZXdlbGw.ZmFyZXdlbGw_DYY());
+                }
             }
         }catch (Exception e) {
             JTF_key.validate();
@@ -119,3 +125,4 @@ public class PixelReplacementController extends ViewControllerObject {
         }
     }
 }
+//

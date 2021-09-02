@@ -88,6 +88,5 @@ public class RootViewController {
         Image img = new Image("/img/icon_book-2-line.png");
         ImageView view = new ImageView(img);
         bt_option.setGraphic(view);
-
     }
 }

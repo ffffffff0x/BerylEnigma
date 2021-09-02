@@ -78,6 +78,8 @@
                     <options>
                         <option>--add-opens</option>
                         <option>java.base/java.lang.reflect=com.jfoenix</option>
+                        <option>--add-exports</option>
+                        <option>javafx.base/com.sun.javafx.event=com.jfoenix</option>
 <!--                        <option>&#45;&#45;illegal-access=permit</option>-->
                     </options>
                 </configuration>

@@ -19,6 +19,7 @@ public class RootTreeNode {
             final TreeItem<String> textModify = new TreeItem<>(Init.languageResourceBundle.getString("TextModify"),folderIcon("open"));
             final TreeItem<String> practical = new TreeItem<>(Init.languageResourceBundle.getString("Practical"),folderIcon("open"));
             final TreeItem<String> redTeam = new TreeItem<>(Init.languageResourceBundle.getString("RedTeam"),folderIcon("open"));
+            final TreeItem<String> imageTools = new TreeItem<>(Init.languageResourceBundle.getString("ImageTools"),folderIcon("open"));
         final TreeItem<String> encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
             final TreeItem<String> modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
                 final TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
@@ -35,6 +36,10 @@ public class RootTreeNode {
         tools.getChildren().add(textModify);
         tools.getChildren().add(practical);
         tools.getChildren().add(redTeam);
+        tools.getChildren().add(imageTools);
+
+        //ImageTools
+        ItemAdd(imageTools,"PixelReplacement","/ffffffff0x/beryenigma/App/View/Modules/Image/PixelReplacement/PixelReplacementView.fxml");
 
         //Practical
         ItemAdd(practical,"MoneyConvert", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");
