@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Image.PixelReplacement;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 import ffffffff0x.beryenigma.App.Controller.Image.PixelReplacement.Image_PixelReplacement;
@@ -9,6 +10,7 @@ import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ZmFyZXdlbGw;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,6 +35,9 @@ public class PixelReplacementController extends ViewControllerObject {
     private File ImgFile = null;
     private final double margins = 10.0;
     private BufferedImage outBufferedImage;
+
+    @FXML
+    private JFXSpinner JSP_running;
 
     @FXML
     private JFXTextField JTF_key;
@@ -60,10 +65,16 @@ public class PixelReplacementController extends ViewControllerObject {
         try {
             JTF_key.resetValidation();
             if (ImgFile != null) {
-                outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,true,"rc");
-                IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
-                IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
-                JBT_outImg.setGraphic(IMG_outImg);
+                JSP_running.setVisible(true);
+                new Thread(() -> {
+                    outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,true,"rc");
+                    Platform.runLater(() -> {
+                        IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
+                        IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
+                        JBT_outImg.setGraphic(IMG_outImg);
+                        JSP_running.setVisible(false);
+                    });
+                }).start();
             }else {
                 if (Objects.equals(JTF_key.getText(), "20210902")) {
                     ViewUtils.alertPane((Stage)ACP_backgroundAnchorPane.getScene().getWindow() , "",ZmFyZXdlbGw.ZmFyZXdlbGw_DYY());
@@ -79,10 +90,16 @@ public class PixelReplacementController extends ViewControllerObject {
         try {
             JTF_key.resetValidation();
             if (ImgFile != null) {
-                outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,false,"rc");
-                IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
-                IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
-                JBT_outImg.setGraphic(IMG_outImg);
+                JSP_running.setVisible(true);
+                new Thread(() -> {
+                    outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,false,"rc");
+                    Platform.runLater(() -> {
+                        IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
+                        IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
+                        JBT_outImg.setGraphic(IMG_outImg);
+                        JSP_running.setVisible(false);
+                    });
+                }).start();
             }
         }catch (Exception e) {
             JTF_key.validate();
