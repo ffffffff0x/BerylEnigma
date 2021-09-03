@@ -80,6 +80,8 @@
                         <option>java.base/java.lang.reflect=com.jfoenix</option>
                         <option>--add-exports</option>
                         <option>javafx.base/com.sun.javafx.event=com.jfoenix</option>
+                        <option>--add-exports</option>
+                        <option>javafx.graphics/com.sun.javafx.scene=com.jfoenix</option>
 <!--                        <option>&#45;&#45;illegal-access=permit</option>-->
                     </options>
                 </configuration>
@@ -128,41 +130,41 @@
             <scope>compile</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.twelvemonkeys.imageio</groupId>
-            <artifactId>imageio-jpeg</artifactId>
-            <version>${com.twelvemonkeys.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.twelvemonkeys.imageio</groupId>
-            <artifactId>imageio-tiff</artifactId>
-            <version>${com.twelvemonkeys.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.twelvemonkeys.common</groupId>
-            <artifactId>common-lang</artifactId>
-            <version>${com.twelvemonkeys.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.twelvemonkeys.common</groupId>
-            <artifactId>common-io</artifactId>
-            <version>${com.twelvemonkeys.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.twelvemonkeys.common</groupId>
-            <artifactId>common-image</artifactId>
-            <version>${com.twelvemonkeys.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.twelvemonkeys.imageio</groupId>
-            <artifactId>imageio-core</artifactId>
-            <version>${com.twelvemonkeys.version}</version>
-        </dependency>
-        <dependency>
-        <groupId>com.twelvemonkeys.imageio</groupId>
-        <artifactId>imageio-metadata</artifactId>
-        <version>${com.twelvemonkeys.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.twelvemonkeys.imageio</groupId>-->
+<!--            <artifactId>imageio-jpeg</artifactId>-->
+<!--            <version>${com.twelvemonkeys.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.twelvemonkeys.imageio</groupId>-->
+<!--            <artifactId>imageio-tiff</artifactId>-->
+<!--            <version>${com.twelvemonkeys.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.twelvemonkeys.common</groupId>-->
+<!--            <artifactId>common-lang</artifactId>-->
+<!--            <version>${com.twelvemonkeys.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.twelvemonkeys.common</groupId>-->
+<!--            <artifactId>common-io</artifactId>-->
+<!--            <version>${com.twelvemonkeys.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.twelvemonkeys.common</groupId>-->
+<!--            <artifactId>common-image</artifactId>-->
+<!--            <version>${com.twelvemonkeys.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.twelvemonkeys.imageio</groupId>-->
+<!--            <artifactId>imageio-core</artifactId>-->
+<!--            <version>${com.twelvemonkeys.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--        <groupId>com.twelvemonkeys.imageio</groupId>-->
+<!--        <artifactId>imageio-metadata</artifactId>-->
+<!--        <version>${com.twelvemonkeys.version}</version>-->
+<!--        </dependency>-->
 
         <!--        <dependency>-->
 <!--            <groupId>org.apache.commons</groupId>-->
