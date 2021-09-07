@@ -3,7 +3,6 @@ package ffffffff0x.beryenigma.App.View.Viewobj;
 import com.jfoenix.controls.JFXToggleButton;
 import ffffffff0x.beryenigma.Init.Init;
 import javafx.fxml.FXML;
-
 import java.io.File;
 
 /**
@@ -11,7 +10,7 @@ import java.io.File;
  * @create: 2021-05-20 11:29
  **/
 
-public class ViewControllerFileModeObject extends ViewControllerObject{
+public abstract class ViewControllerFileModeObject extends ViewControllerObject{
     public File file;
     @FXML public JFXToggleButton JTB_modeSelect;
 
@@ -46,9 +45,10 @@ public class ViewControllerFileModeObject extends ViewControllerObject{
         JTA_src.setEditable(true);
     }
 
-    public void getFile(){
+    public abstract void getFile();
+//  {
 //        File file_temp = ViewUtils.getFile(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
 //        JTA_src.setText(file_temp.toString());
 //        file = file_temp;
-    }
+//  }
 }

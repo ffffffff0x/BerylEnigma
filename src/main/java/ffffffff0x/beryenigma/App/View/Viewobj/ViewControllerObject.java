@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
  * @create: 2021-03-12 13:48
  **/
 
-public class ViewControllerObject {
+public abstract class ViewControllerObject {
     @FXML
     public AnchorPane ACP_backgroundAnchorPane;
     @FXML
