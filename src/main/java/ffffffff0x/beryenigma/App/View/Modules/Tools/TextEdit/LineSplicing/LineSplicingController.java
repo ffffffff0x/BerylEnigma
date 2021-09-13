@@ -4,7 +4,7 @@ import ffffffff0x.beryenigma.App.Controller.Tools.TextEdit.LineSplicing.TextEdit
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.util.ArrayList;
 
-public class LineSplicingController extends ViewControllerObject {
+public class LineSplicingController extends ViewController {
     @FXML private JFXTextField JTF_split;
     @FXML private JFXButton JBT_loadFile1;
     @FXML private JFXButton JBT_loadFile2;

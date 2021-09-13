@@ -2,10 +2,10 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Authentication.
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.Authentication.NTLM.Authentication_NTLM;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import org.apache.commons.codec.binary.Hex;
 
-public class NTLMController extends ViewControllerObject {
+public class NTLMController extends ViewController {
     @Override
     protected void initialize() {
         super.initialize();

@@ -1,7 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Base64;
 
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Base64.Coding_Base64;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileModeObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -15,7 +15,7 @@ import java.util.Objects;
 /**
  * @author RyuZU
  */
-public class Base64ViewController extends ViewControllerFileModeObject {
+public class Base64ViewController extends ViewControllerFileMode {
     byte[] file = null;
 
     @FXML private JFXComboBox JCB_charset;

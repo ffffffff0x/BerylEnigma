@@ -2,12 +2,12 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Unicode;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Unicode.Coding_Unicode;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
 /**
  * @author RyuZU
  */
-public class UnicodeController extends ViewControllerObject {
+public class UnicodeController extends ViewController {
     @Override
     protected void initialize() {
         super.initialize();

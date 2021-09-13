@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXToggleButton;
 import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification.TargetFinishingBean;
 import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification.RedTeam_TargetFinishing;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
@@ -13,7 +13,7 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 
-public class TargetFinishingController extends ViewControllerObject {
+public class TargetFinishingController extends ViewController {
 
     @FXML private JFXCheckBox JCB_MultipleFile;
     @FXML private JFXToggleButton JTB_modeSelect;

@@ -2,7 +2,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.DomainSplit;
 
 import com.jfoenix.controls.JFXCheckBox;
 import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.DomainSplit.RedTeam_DomainSplit;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileModeObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @create: 2021-05-09 14:13
  **/
 
-public class DomainSplitController extends ViewControllerFileModeObject {
+public class DomainSplitController extends ViewControllerFileMode {
     private String allResult;
     private Map<String,String> multipleResult = new HashMap<>();
     private Map<Integer,HashSet<String>> originalResult;

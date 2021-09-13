@@ -2,11 +2,11 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.RailFence;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.RailFence.Classical_RailFence;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
-public class RailFenceController extends ViewControllerObject {
+public class RailFenceController extends ViewController {
 
     @FXML private JFXTextField JTF_quantity;
 

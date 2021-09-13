@@ -3,9 +3,9 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.Atbash;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.Atbash.Classical_Atbash;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
-public class AtbashController extends ViewControllerObject {
+public class AtbashController extends ViewController {
 
     @Override
     protected void initialize() {

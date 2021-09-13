@@ -1,34 +1,44 @@
 package ffffffff0x.beryenigma.App.View.Viewobj;
 
 import com.jfoenix.controls.*;
-import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-
-import java.security.cert.PKIXParameters;
+import java.util.ArrayList;
 
 /**
  * @author: RyuZUSUNC
  * @create: 2021-03-18 15:06
  **/
 
-public abstract class PopupSettingViewObject extends StackPane {
+public class PopupSettingView extends StackPane {
     public JFXHamburger hamburger;
     public JFXRippler rippler;
     public AnchorPane anchorPane;
     public JFXPopup popup;
     public VBox list;
 
-    public PopupSettingViewObject(Pane pane) {
+    public PopupSettingView(Pane pane) {
+        PopupSettingView(pane);
+        AnchorPane.setRightAnchor(this,45.0);
+        AnchorPane.setTopAnchor(this,5.0);
+    }
+
+    public PopupSettingView(Pane pane, Double anchorTop, Double anchorRight, Double anchorLeft, Double anchorBottom) {
+        PopupSettingView(pane);
+        AnchorPane.setTopAnchor(this,anchorTop);
+        AnchorPane.setRightAnchor(this,anchorRight);
+        AnchorPane.setLeftAnchor(this,anchorLeft);
+        AnchorPane.setBottomAnchor(this, anchorBottom);
+    }
+
+    private void PopupSettingView(Pane pane) {
         //图标
         this.hamburger = new JFXHamburger();
         //设置padding
-        hamburger.setPadding(new Insets(10,10,10,10));
+//        hamburger.setPadding(new Insets(10,10,10,10));
         //弹出器
         rippler = new JFXRippler(hamburger, JFXRippler.RipplerMask.CIRCLE, JFXRippler.RipplerPos.BACK);
 
@@ -41,18 +51,17 @@ public abstract class PopupSettingViewObject extends StackPane {
 
         //AnchorPane中存放控件的纵列布局器
         list = new VBox();
-        //添加操作
-        setSetting();
 
         popup = new JFXPopup(list);
         rippler.setOnMouseClicked(e -> popup.show(rippler, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT));
-
-        AnchorPane.setRightAnchor(this,20.0);
-        AnchorPane.setTopAnchor(this,10.0);
         pane.getChildren().add(this);
     }
 
-    public abstract void setSetting();
+    public void setSetting(PopupSettingNode... popupSetting) {
+        for (PopupSettingNode popupSettingNode:popupSetting) {
+            list.getChildren().add(popupSettingNode);
+        }
+    }
 //        list.getChildren().add(new PopupSettingNodeObject("测试参数1",new Button("测试参数1")));
 //        list.getChildren().add(new PopupSettingNodeObject("测试参数2",new JFXComboBox<>()));
 //        list.getChildren().add(new PopupSettingNodeObject("测试参数3",new Button()));

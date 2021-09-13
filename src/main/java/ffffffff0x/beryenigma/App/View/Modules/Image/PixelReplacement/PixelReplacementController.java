@@ -1,20 +1,24 @@
 package ffffffff0x.beryenigma.App.View.Modules.Image.PixelReplacement;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 import ffffffff0x.beryenigma.App.Controller.Image.PixelReplacement.Image_PixelReplacement;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
+import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.Kit.Utils.ZmFyZXdlbGw;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+import javafx.scene.layout.AnchorPane;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -29,7 +33,7 @@ import java.util.Objects;
  * @create: 2021-05-20 11:29
  **/
 
-public class PixelReplacementController extends ViewControllerObject {
+public class PixelReplacementController extends ViewController {
     private ImageView IMG_loadImg;
     private ImageView IMG_outImg;
     private File ImgFile = null;
@@ -48,8 +52,14 @@ public class PixelReplacementController extends ViewControllerObject {
     @FXML
     private JFXButton JBT_outImg;
 
+    @FXML
+    private AnchorPane ACP_controllerAnchorPane;
+
+    private JFXComboBox JCB_modeSelect;
+
     @Override
     protected void initialize() {
+        LoadPopupSettingNode();
         JTF_key.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
         IMG_loadImg = new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/JBT_loadImg.png"))));
         IMG_loadImg.setFitHeight(165 - margins);
@@ -67,7 +77,7 @@ public class PixelReplacementController extends ViewControllerObject {
             if (ImgFile != null) {
                 JSP_running.setVisible(true);
                 new Thread(() -> {
-                    outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,true,"rc");
+                    outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,true,ModeSelect());
                     Platform.runLater(() -> {
                         IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
                         IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
@@ -75,10 +85,6 @@ public class PixelReplacementController extends ViewControllerObject {
                         JSP_running.setVisible(false);
                     });
                 }).start();
-            }else {
-                if (Objects.equals(JTF_key.getText(), "20210902")) {
-                    ViewUtils.alertPane((Stage)ACP_backgroundAnchorPane.getScene().getWindow() , "",ZmFyZXdlbGw.ZmFyZXdlbGw_DYY());
-                }
             }
         }catch (Exception e) {
             JTF_key.validate();
@@ -92,7 +98,7 @@ public class PixelReplacementController extends ViewControllerObject {
             if (ImgFile != null) {
                 JSP_running.setVisible(true);
                 new Thread(() -> {
-                    outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,false,"rc");
+                    outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,false,ModeSelect());
                     Platform.runLater(() -> {
                         IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
                         IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
@@ -141,5 +147,25 @@ public class PixelReplacementController extends ViewControllerObject {
             e.printStackTrace();
         }
     }
+
+    private String ModeSelect() {
+        if (JCB_modeSelect.getValue().toString().equals(Init.languageResourceBundle.getString("Row&Colum"))) {
+            return "rc";
+        }else if(JCB_modeSelect.getValue().toString().equals(Init.languageResourceBundle.getString("Row"))) {
+            return "r";
+        }
+        return null;
+    }
+
+    private void LoadPopupSettingNode() {
+        ObservableList<String> options =
+                FXCollections.observableArrayList(
+                        Init.languageResourceBundle.getString("Row"),
+                        Init.languageResourceBundle.getString("Row&Colum")
+                );
+        JCB_modeSelect = new JFXComboBox(options);
+        JCB_modeSelect.setPromptText(Init.languageResourceBundle.getString("Row&Colum"));
+        PopupSettingView popupSettingView = new PopupSettingView(ACP_controllerAnchorPane);
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("OperateMode"), JCB_modeSelect,true));
+    }
 }
-//

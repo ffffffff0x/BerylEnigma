@@ -3,7 +3,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.Practical.MoneyConvert;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
 import ffffffff0x.beryenigma.Init.Init;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
 
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  * @create: 2021-03-01 14:33
  **/
 
-public class MoneyConvertController extends ViewControllerObject {
+public class MoneyConvertController extends ViewController {
     private final BigDecimal MAX_VALUE = new BigDecimal("9999999999999999.99");
 
     @FXML private JFXComboBox JCB_language;

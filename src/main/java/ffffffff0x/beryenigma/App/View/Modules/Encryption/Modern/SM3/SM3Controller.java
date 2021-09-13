@@ -1,14 +1,12 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SM3;
 
 import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.SM3.Modern_SM3;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileModeObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
@@ -16,7 +14,7 @@ import org.apache.commons.codec.binary.Hex;
 import java.io.File;
 import java.io.IOException;
 
-public class SM3Controller extends ViewControllerFileModeObject {
+public class SM3Controller extends ViewControllerFileMode {
     /**
      * JTA_dst1 :HEX result
      * JTA_dst :base64 result

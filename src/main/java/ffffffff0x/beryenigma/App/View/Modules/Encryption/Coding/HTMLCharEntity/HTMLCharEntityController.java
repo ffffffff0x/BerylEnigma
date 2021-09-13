@@ -2,14 +2,14 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HTMLCharEntity;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HTMLCharEntity.Coding_HTMLCharEntity;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
 
 /**
  * @author RyuZU
  */
-public class HTMLCharEntityController extends ViewControllerObject {
+public class HTMLCharEntityController extends ViewController {
     @FXML private JFXComboBox JCB_reference;
 
     @Override

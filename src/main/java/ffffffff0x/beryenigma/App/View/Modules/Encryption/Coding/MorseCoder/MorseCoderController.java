@@ -2,11 +2,11 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.MorseCoder;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.MorseCoder.Coding_MorseCoder;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
-public class MorseCoderController extends ViewControllerObject {
+public class MorseCoderController extends ViewController {
 
     @FXML private JFXTextField JTF_split;
 

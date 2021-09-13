@@ -3,7 +3,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.URL;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.URL.Coding_URL;
 import ffffffff0x.beryenigma.Init.ViewInit;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
 
@@ -12,7 +12,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author RyuZU
  */
-public class URLController extends ViewControllerObject {
+public class URLController extends ViewController {
     @FXML
     private JFXComboBox JCB_charset;
 

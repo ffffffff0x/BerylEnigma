@@ -2,14 +2,14 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.ASCII;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.ASCII.Coding_ASCII;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 
 /**
  * @author RyuZU
  */
-public class ASCIIViewController extends ViewControllerObject {
+public class ASCIIViewController extends ViewController {
     @FXML
     private JFXTextField JTF_split;
 

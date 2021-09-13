@@ -2,8 +2,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.CaesarCipher
 
 import com.jfoenix.controls.JFXTextField;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.CaesarCipher.Classical_CaesarCipher;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.RailFence.Classical_RailFence;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 
@@ -12,7 +11,7 @@ import javafx.fxml.FXML;
  * @create: 2021-05-24 14:47
  **/
 
-public class CaesarCipherController extends ViewControllerObject {
+public class CaesarCipherController extends ViewController {
     @FXML private JFXTextField JTA_key;
 
     /**

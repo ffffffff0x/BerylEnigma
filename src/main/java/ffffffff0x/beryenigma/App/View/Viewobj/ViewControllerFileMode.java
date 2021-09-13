@@ -10,7 +10,7 @@ import java.io.File;
  * @create: 2021-05-20 11:29
  **/
 
-public abstract class ViewControllerFileModeObject extends ViewControllerObject{
+public abstract class ViewControllerFileMode extends ViewController {
     public File file;
     @FXML public JFXToggleButton JTB_modeSelect;
 
@@ -46,9 +46,7 @@ public abstract class ViewControllerFileModeObject extends ViewControllerObject{
     }
 
     public abstract void getFile();
-//  {
-//        File file_temp = ViewUtils.getFile(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
-//        JTA_src.setText(file_temp.toString());
-//        file = file_temp;
-//  }
+//      File file_temp = ViewUtils.getFile(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
+//      JTA_src.setText(file_temp.toString());
+//      file = file_temp;
 }

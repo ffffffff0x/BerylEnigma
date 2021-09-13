@@ -2,11 +2,11 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.TextEdit.TextSeparate;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Tools.TextEdit.TextSeparate.TextEdit_TextSeparate;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
-public class TextSeparateController extends ViewControllerObject {
+public class TextSeparateController extends ViewController {
     @FXML private JFXTextField JTF_split;
     @FXML private JFXTextField JTF_quantity;
 

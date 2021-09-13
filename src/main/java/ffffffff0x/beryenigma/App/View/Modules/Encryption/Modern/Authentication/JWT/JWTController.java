@@ -3,9 +3,9 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Authentication.
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.Authentication.JWT.Authentication_JWT;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
-public class JWTController extends ViewControllerObject {
+public class JWTController extends ViewController {
     /**
      *  JTA_dst1 :Header
      *  JTA_dst2 :Payload

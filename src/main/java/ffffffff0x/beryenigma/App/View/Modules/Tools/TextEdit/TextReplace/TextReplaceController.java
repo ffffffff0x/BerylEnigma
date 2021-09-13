@@ -2,11 +2,11 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.TextEdit.TextReplace;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Tools.TextEdit.TextReplace.TextEdit_TextReplace;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
-public class TextReplaceController extends ViewControllerObject {
+public class TextReplaceController extends ViewController {
     @FXML private JFXTextArea JTA_oldString;
     @FXML private JFXTextArea JTA_newString;
 

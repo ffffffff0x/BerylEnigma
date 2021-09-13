@@ -3,11 +3,11 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.Vigenere;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.Vigenere.Classical_Vigenere;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerObject;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
-public class VigenereController extends ViewControllerObject {
+public class VigenereController extends ViewController {
 
     @FXML private JFXTextArea JTA_vigenereKey;
 
