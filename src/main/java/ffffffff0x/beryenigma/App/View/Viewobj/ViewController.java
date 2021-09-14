@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.View.Viewobj;
 
-import com.jfoenix.controls.JFXComboBox;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
