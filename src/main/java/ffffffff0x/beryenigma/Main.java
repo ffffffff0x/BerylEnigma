@@ -10,7 +10,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Objects;
 
 public class Main extends Application {
@@ -45,6 +44,7 @@ public class Main extends Application {
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/JOKERMAN.TTF")).toExternalForm(), 10);
+            Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/HyliaSerif.otf")).toExternalForm(), 10);
             scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS.css")).toExternalForm());
             primaryStage.setScene(scene);
             // primaryStage.setResizable(false);

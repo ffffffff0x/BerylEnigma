@@ -57,3 +57,21 @@
 }
 
 /* Lable */
+#JLB_title {
+    -fx-font-family: Jokerman;
+    /*-fx-font-family: 'Hylia Serif Beta';*/
+    -fx-font-size: 45px;
+
+
+}
+
+@font-face {
+    font-family: 'Hylia Serif Beta';
+    src: url("/fonts/HyliaSerif.otf");
+
+}
+
+@font-face {
+    font-family: Jokerman;
+    src: url("/fonts/JOKERMAN.TTF");
+}

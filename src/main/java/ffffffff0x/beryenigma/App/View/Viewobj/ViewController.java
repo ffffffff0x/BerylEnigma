@@ -1,10 +1,12 @@
 package ffffffff0x.beryenigma.App.View.Viewobj;
 
+import com.jfoenix.controls.JFXComboBox;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -13,6 +15,8 @@ import javafx.scene.layout.AnchorPane;
  **/
 
 public abstract class ViewController {
+    @FXML
+    public Label JLB_title;
     @FXML
     public AnchorPane ACP_backgroundAnchorPane;
     @FXML
@@ -53,6 +57,8 @@ public abstract class ViewController {
      */
     @FXML
     protected void initialize() {
+        JLB_title.setStyle("-fx-font-size: 45px");
+        JLB_title.setStyle("-fx-font: Jokerman");
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
 //        System.out.println("Father init");
     }

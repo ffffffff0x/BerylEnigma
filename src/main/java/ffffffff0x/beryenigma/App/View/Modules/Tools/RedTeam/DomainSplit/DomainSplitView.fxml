@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.DomainSplit.DomainSplitController">
    <children>
-      <Label fx:id="JLB_title" alignment="CENTER" text="DomainSplit" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+      <Label fx:id="JLB_title" alignment="CENTER" layoutX="24.0" layoutY="38.0" prefHeight="70.0" prefWidth="610.0" text="DomainSplit" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font name="Jokerman" size="45.0" />
          </font>
