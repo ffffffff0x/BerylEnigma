@@ -1,11 +1,11 @@
-package ffffffff0x.beryenigma.App.View.Modules.Image.PixelReplacement;
+package ffffffff0x.beryenigma.App.View.Modules.Tools.Image.PixelReplacement;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
-import ffffffff0x.beryenigma.App.Controller.Image.PixelReplacement.Image_PixelReplacement;
+import ffffffff0x.beryenigma.App.Controller.Tools.Image.PixelReplacement.Image_PixelReplacement;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;

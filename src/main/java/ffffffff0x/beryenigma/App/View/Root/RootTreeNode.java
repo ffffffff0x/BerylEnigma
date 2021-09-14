@@ -39,7 +39,7 @@ public class RootTreeNode {
         tools.getChildren().add(imageTools);
 
         //ImageTools
-        ItemAdd(imageTools,"PixelReplacement","/ffffffff0x/beryenigma/App/View/Modules/Image/PixelReplacement/PixelReplacementView.fxml");
+        ItemAdd(imageTools,"PixelReplacement","/ffffffff0x/beryenigma/App/View/Modules/Tools/Image/PixelReplacement/PixelReplacementView.fxml");
 
         //Practical
         ItemAdd(practical,"MoneyConvert", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");

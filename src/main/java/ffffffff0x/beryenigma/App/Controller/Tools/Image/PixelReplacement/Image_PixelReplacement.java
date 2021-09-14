@@ -1,6 +1,5 @@
-package ffffffff0x.beryenigma.App.Controller.Image.PixelReplacement;
+package ffffffff0x.beryenigma.App.Controller.Tools.Image.PixelReplacement;
 
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 
 import javax.imageio.IIOImage;

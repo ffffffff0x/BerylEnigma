@@ -1,4 +1,4 @@
-package ffffffff0x.beryenigma.App.Controller.Image.PixelReplacement;
+package ffffffff0x.beryenigma.App.Controller.Tools.Image.PixelReplacement;
 
 /**
  * from https://github.com/yuchenxi2000/PicEncrypt
