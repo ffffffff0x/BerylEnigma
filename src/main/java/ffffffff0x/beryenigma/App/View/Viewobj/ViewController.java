@@ -57,8 +57,6 @@ public abstract class ViewController {
      */
     @FXML
     protected void initialize() {
-        JLB_title.setStyle("-fx-font-size: 45px");
-        JLB_title.setStyle("-fx-font: Jokerman");
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
 //        System.out.println("Father init");
     }
