@@ -10,7 +10,7 @@
     <properties>
         <argLine>-Dfile.encoding=UTF-8</argLine>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>16</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
         <javafx.version>16</javafx.version>
         <classifier>win</classifier>
         <com.twelvemonkeys.version>3.7.0</com.twelvemonkeys.version>
@@ -99,6 +99,13 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>${classifier}</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
             <version>${javafx.version}</version>
             <classifier>${classifier}</classifier>
         </dependency>
