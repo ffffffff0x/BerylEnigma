@@ -42,6 +42,15 @@
                      </font></JFXTextField>
                </children>
             </GridPane>
+            <AnchorPane layoutX="13.0" layoutY="114.0" prefHeight="388.0" prefWidth="584.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="114.0">
+               <children>
+                  <JFXTreeTableView prefHeight="365.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TreeTableColumn maxWidth="199.0" minWidth="100.0" prefWidth="199.0" text="测试数据" />
+                    </columns>
+                  </JFXTreeTableView>
+               </children>
+            </AnchorPane>
          </children></AnchorPane>
    </children>
 </AnchorPane>

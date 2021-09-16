@@ -8,9 +8,11 @@
     <artifactId>BerylEnigma</artifactId>
     <version>1.6.2</version>
     <properties>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
         <argLine>-Dfile.encoding=UTF-8</argLine>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>16</maven.compiler.release>
         <javafx.version>16</javafx.version>
         <classifier>win</classifier>
         <com.twelvemonkeys.version>3.7.0</com.twelvemonkeys.version>
@@ -43,7 +45,22 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                     <release>${maven.compiler.release}</release>
+                    <compilerArgs>
+                        <arg>--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.base/com.sun.javafx.binding=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.base/com.sun.javafx.event=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.graphics/com.sun.javafx.stage=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.graphics/com.sun.javafx.geom=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.graphics/com.sun.javafx.scene.text=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.controls/com.sun.javafx.scene.control.inputmap=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.graphics/com.sun.javafx.scene.traversal=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.controls/com.sun.javafx.scene.control=com.jfoenix</arg>
+                        <arg>--add-exports=javafx.graphics/com.sun.javafx.util=com.jfoenix</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
@@ -69,19 +86,22 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.5</version>
+                <version>0.0.7</version>
                 <configuration>
-                    <release>${maven.compiler.release}</release>
+<!--                    <release>${maven.compiler.release}</release>-->
                     <jlinkImageName>beryenigma</jlinkImageName>
                     <launcher>launcher</launcher>
                     <mainClass>beryenigma/ffffffff0x.beryenigma.Main</mainClass>
                     <options>
-                        <option>--add-opens</option>
-                        <option>java.base/java.lang.reflect=com.jfoenix</option>
-                        <option>--add-exports</option>
-                        <option>javafx.base/com.sun.javafx.event=com.jfoenix</option>
-                        <option>--add-exports</option>
-                        <option>javafx.graphics/com.sun.javafx.scene=com.jfoenix</option>
+                        <option>--add-opens=java.base/java.lang.reflect=com.jfoenix</option>
+                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED</option>
+                        <option>--add-exports=javafx.base/com.sun.javafx.binding=ALL-UNNAMED</option>
+                        <option>--add-exports=javafx.base/com.sun.javafx.event=ALL-UNNAMED</option>
+                        <option>--add-exports=javafx.graphics/com.sun.javafx.stage=ALL-UNNAMED</option>
+                        <option>--add-exports=javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED</option>
+                        <option>--add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix</option>
+                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED</option>
+                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED</option>
 <!--                        <option>&#45;&#45;illegal-access=permit</option>-->
                     </options>
                 </configuration>
@@ -130,12 +150,13 @@
             <scope>system</scope>
             <systemPath>${pom.basedir}/lib/ApacheCommons-1.0.jar</systemPath>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.jetbrains</groupId>-->
+<!--            <artifactId>annotations</artifactId>-->
+<!--            <version>RELEASE</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
 
 <!--        <dependency>-->
 <!--            <groupId>com.twelvemonkeys.imageio</groupId>-->

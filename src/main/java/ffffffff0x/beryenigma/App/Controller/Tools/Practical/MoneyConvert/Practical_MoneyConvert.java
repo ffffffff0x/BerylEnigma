@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.App.Controller.Tools.Practical.MoneyConvert;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * @author: RyuZUSUNC
@@ -31,7 +32,7 @@ public class Practical_MoneyConvert {
         }
 
         //对金额进行四舍五入转化为long类型的整数；先将数的小数点向右移两位，然后在四舍五入，取绝对值，最后将它转换为长整型；
-        long number = moneyValue.movePointRight(PERCISION).setScale(0, BigDecimal.ROUND_HALF_UP).abs().longValue();
+        long number = moneyValue.movePointRight(PERCISION).setScale(0, RoundingMode.HALF_UP).abs().longValue();
         //记录数字的个数；
         int numIndex = 0;
         boolean getZero = false;
