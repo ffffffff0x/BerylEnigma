@@ -55,7 +55,7 @@ public class PixelReplacementController extends ViewController {
     @FXML
     private AnchorPane ACP_controllerAnchorPane;
 
-    private JFXComboBox JCB_modeSelect;
+    private JFXComboBox<String> JCB_modeSelect;
 
     @Override
     protected void initialize() {
@@ -149,9 +149,9 @@ public class PixelReplacementController extends ViewController {
     }
 
     private String ModeSelect() {
-        if (JCB_modeSelect.getValue().toString().equals(Init.languageResourceBundle.getString("Row&Colum"))) {
+        if (JCB_modeSelect.getValue().equals(Init.languageResourceBundle.getString("Row&Colum"))) {
             return "rc";
-        }else if(JCB_modeSelect.getValue().toString().equals(Init.languageResourceBundle.getString("Row"))) {
+        }else if(JCB_modeSelect.getValue().equals(Init.languageResourceBundle.getString("Row"))) {
             return "r";
         }
         return null;
@@ -163,8 +163,8 @@ public class PixelReplacementController extends ViewController {
                         Init.languageResourceBundle.getString("Row"),
                         Init.languageResourceBundle.getString("Row&Colum")
                 );
-        JCB_modeSelect = new JFXComboBox(options);
-        JCB_modeSelect.setPromptText(Init.languageResourceBundle.getString("Row&Colum"));
+        JCB_modeSelect = new JFXComboBox<>(options);
+        JCB_modeSelect.setValue(Init.languageResourceBundle.getString("Row&Colum"));
         PopupSettingView popupSettingView = new PopupSettingView(ACP_controllerAnchorPane);
         popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("OperateMode"), JCB_modeSelect,true));
     }

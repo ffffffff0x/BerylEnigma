@@ -84,6 +84,7 @@ public class RootTreeNode {
         ItemAdd(coding,"ASCII", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/ASCII/ASCIIView.fxml");
         ItemAdd(coding,"URL", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/URL/URLView.fxml");
         ItemAdd(coding,"Base64", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/Base64/Base64View.fxml");
+        ItemAdd(coding,"Brainfuck", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/Brainfuck/BrainfuckView.fxml");
         ItemAdd(coding,"HEX", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
         ItemAdd(coding,"Unicode", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/Unicode/UnicodeView.fxml");
         ItemAdd(coding,"HTMLCharacterEntity", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/HTMLCharEntity/HTMLCharEntityView.fxml");

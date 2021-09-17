@@ -1,7 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Brainfuck;
 
 import com.jfoenix.controls.JFXComboBox;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Brainfuck.BrainfuckEngine;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Brainfuck.Coding_Brainfuck;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ViewInit;
