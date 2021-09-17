@@ -94,14 +94,13 @@
                     <mainClass>beryenigma/ffffffff0x.beryenigma.Main</mainClass>
                     <options>
                         <option>--add-opens=java.base/java.lang.reflect=com.jfoenix</option>
-                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED</option>
-                        <option>--add-exports=javafx.base/com.sun.javafx.binding=ALL-UNNAMED</option>
-                        <option>--add-exports=javafx.base/com.sun.javafx.event=ALL-UNNAMED</option>
-                        <option>--add-exports=javafx.graphics/com.sun.javafx.stage=ALL-UNNAMED</option>
-                        <option>--add-exports=javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED</option>
+                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix</option>
+                        <option>--add-exports=javafx.base/com.sun.javafx.binding=com.jfoenix</option>
+                        <option>--add-exports=javafx.base/com.sun.javafx.event=com.jfoenix</option>
+                        <option>--add-exports=javafx.graphics/com.sun.javafx.stage=com.jfoenix</option>
                         <option>--add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix</option>
-                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED</option>
-                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED</option>
+                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix</option>
+                        <option>--add-exports=javafx.controls/com.sun.javafx.scene.control=com.jfoenix</option>
 <!--                        <option>&#45;&#45;illegal-access=permit</option>-->
                     </options>
                 </configuration>
