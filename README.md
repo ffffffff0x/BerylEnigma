@@ -8,7 +8,7 @@
 
 前身为[CryptionTool](https://github.com/ffffffff0x/CryptionTool)，为更方便的开发更换框架重构。
 
-软件基于JDK16开发，使用JAVAFX UI框架以及JFoenixUI组件架构。详见开发文档。
+软件基于JDK17开发，使用JAVAFX UI框架以及JFoenixUI组件架构。详见开发文档。
 
 名称中的 **Beryl**`(['berəl])` 是一种宝石/矿物的名字，**Enigma** `([ɪ'nɪɡmə])`有谜团的意思，也泛指二战中的一种密码机。
 
@@ -43,6 +43,7 @@
   - URL
   - ASCII
   - Base64
+  - BrainFuck
   - HEX
   - HTML实体编码
   - Unicode
