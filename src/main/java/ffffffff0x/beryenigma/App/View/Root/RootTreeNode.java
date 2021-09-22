@@ -51,7 +51,7 @@ public class RootTreeNode {
         ItemAdd(textModify,"LineSplicing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/LineSplicing/LineSplicingView.fxml");
 
         //RedTeam
-        ItemAdd(redTeam,"PayloadGeneration","/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/PayloadGeneration/PayloadGenerationView.fxml");
+//        ItemAdd(redTeam,"PayloadGeneration","/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/PayloadGeneration/PayloadGenerationView.fxml");
         ItemAdd(redTeam,"TargetFinishing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/TargetClassification/TargetFinishingView.fxml");
         ItemAdd(redTeam,"DomainSplit", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/DomainSplit/DomainSplitView.fxml");
 
