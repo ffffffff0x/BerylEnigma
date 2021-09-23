@@ -23,7 +23,7 @@ public class ViewInit {
         JCB_temp.setVisibleRowCount(6);
     }//combobox添加字符集选项
 
-    public static void comboBoxSplit(JFXComboBox JCB_temp){
+    public static void comboBoxSplit(JFXComboBox<String> JCB_temp){
         JCB_temp.getItems().addAll(
                 Init.languageResourceBundle.getString("Space_separation"),
                 Init.languageResourceBundle.getString("Line_break"),

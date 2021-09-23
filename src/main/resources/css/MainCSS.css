@@ -29,6 +29,58 @@
     -fx-border-color: #9eecff;
 }
 
+/* 滚动条部分 */
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color :transparent;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    /*-fx-border-radius :2.0em;*/
+}
+
+
+.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 0.0 10.0 0.0;
+
+}
+
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.15em 0.0;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color :derive(#646464,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    /*-fx-background-radius : 2.0em;*/
+}
+
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color :derive(#8a8a8a,10.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    /*-fx-background-radius : 2.0em;*/
+}
+
 /* AnchorPane */
 #AP_option {
     -fx-background-color: #eeeeee;
@@ -61,10 +113,9 @@
     -fx-font-family: Jokerman;
     /*-fx-font-family: 'Hylia Serif Beta';*/
     -fx-font-size: 45px;
-
-
 }
 
+/* font-family */
 @font-face {
     font-family: 'Hylia Serif Beta';
     src: url("/fonts/HyliaSerif.otf");

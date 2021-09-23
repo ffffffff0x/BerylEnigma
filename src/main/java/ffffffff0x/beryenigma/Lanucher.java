@@ -1,4 +1,4 @@
-package ffffffff0x.beryenigma.App;
+package ffffffff0x.beryenigma;
 
 import ffffffff0x.beryenigma.Main;
 
