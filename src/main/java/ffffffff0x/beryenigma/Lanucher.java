@@ -1,7 +1,5 @@
 package ffffffff0x.beryenigma;
 
-import ffffffff0x.beryenigma.Main;
-
 /**
  * @author: RyuZUSUNC
  * @create: 2021-04-02 08:53

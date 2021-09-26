@@ -58,6 +58,30 @@ public class FileUtils {
     }
 
     /**
+     * 获取文本内容
+     * @param file
+     * @return
+     */
+    public static String getFileString(File file){
+        StringBuilder result = new StringBuilder();
+        try {
+            FileInputStream inputStream = new FileInputStream(file);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+            String str;
+            while((str = bufferedReader.readLine()) != null)
+            {
+                result.append(str);
+            }
+            inputStream.close();
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result.toString();
+    }
+
+    /**
      * 保存文本格式文件至存储
      * @param out
      * @param charset

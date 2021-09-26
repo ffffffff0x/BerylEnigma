@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="625.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Root.RootViewController">
+<AnchorPane prefHeight="625.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Root.RootViewController">
    <children>
       <BorderPane fx:id="borderPane" layoutY="7.0" onMousePressed="#checkView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -49,25 +49,25 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fitHeight="36.0" fitWidth="36.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="/img/github-fill.png" />
-                            </image>
+                        <ImageView fx:id="IV_Github" fitHeight="36.0" fitWidth="36.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+<!--                            <image>-->
+<!--                                <Image url="/img/github-fill.png" />-->
+<!--                            </image>-->
                             <viewport>
                               <Rectangle2D />
                            </viewport>
                         </ImageView>
-                        <JFXButton onAction="#openURL" prefHeight="40.0" prefWidth="165.0" text="By ffffffff0x/RyuZU" textFill="#2695ff" GridPane.columnIndex="1" style="-fx-background-color: rgba(255,0,0,0)" ripplerFill="cadetblue">
+                        <JFXButton onAction="#openURL" prefHeight="40.0" prefWidth="165.0" ripplerFill="cadetblue" style="-fx-background-color: rgba(255,0,0,0)" text="By ffffffff0x/RyuZU" textFill="#2695ff" GridPane.columnIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </JFXButton>
                      </children>
                   </GridPane>
-                   <ImageView fitHeight="600.0" fitWidth="630.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                       <image>
-                           <Image url="/img/ffffffff0x_Logo.png" />
-                       </image>
+                   <ImageView fx:id="IV_Logo" fitHeight="600.0" fitWidth="630.0" nodeOrientation="INHERIT" onMouseClicked="#test" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<!--                       <image>-->
+<!--                           <Image url="/img/ffffffff0x_Logo.png" />-->
+<!--                       </image>-->
                        <viewport>
                            <Rectangle2D />
                        </viewport>

@@ -7,4 +7,5 @@ open module beryenigma {
     requires javafx.graphics;
     requires java.scripting;
     requires ApacheCommons;
+    requires com.google.gson;
 }
