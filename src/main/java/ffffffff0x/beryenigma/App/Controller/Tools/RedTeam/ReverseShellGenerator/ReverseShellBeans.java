@@ -27,7 +27,7 @@ public class ReverseShellBeans {
                 '}';
     }
 
-    static class ReverseShellBean {
+    public static class ReverseShellBean {
         private String name;
         private String command;
         private String[] meta;

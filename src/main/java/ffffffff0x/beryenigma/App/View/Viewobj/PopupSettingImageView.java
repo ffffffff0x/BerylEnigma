@@ -1,46 +1,51 @@
 package ffffffff0x.beryenigma.App.View.Viewobj;
 
-import com.jfoenix.controls.*;
-import javafx.geometry.Insets;
+import com.jfoenix.controls.JFXPopup;
+import com.jfoenix.controls.JFXRippler;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import java.util.ArrayList;
 
 /**
  * @author: RyuZUSUNC
- * @create: 2021-03-18 15:06
+ * @create: 2021/9/27 21:51
  **/
-
-public class PopupSettingView extends StackPane {
-    protected JFXHamburger hamburger;
+public class PopupSettingImageView extends StackPane {
     protected JFXRippler rippler;
     protected AnchorPane anchorPane;
     protected JFXPopup popup;
     protected VBox list;
+    protected VBox vBoximageView;
+    protected ImageView imageView;
 
-    public PopupSettingView(Pane pane) {
-        PopupSettingView(pane);
+    public PopupSettingImageView(Pane pane,Image image) {
+        PopupSettingView(pane,image);
         AnchorPane.setRightAnchor(this,45.0);
         AnchorPane.setTopAnchor(this,5.0);
     }
 
-    public PopupSettingView(Pane pane, Double anchorTop, Double anchorRight, Double anchorLeft, Double anchorBottom) {
-        PopupSettingView(pane);
+    public PopupSettingImageView(Pane pane,Image image, Double anchorTop, Double anchorRight, Double anchorLeft, Double anchorBottom) {
+        PopupSettingView(pane,image);
         AnchorPane.setTopAnchor(this,anchorTop);
         AnchorPane.setRightAnchor(this,anchorRight);
         AnchorPane.setLeftAnchor(this,anchorLeft);
         AnchorPane.setBottomAnchor(this, anchorBottom);
     }
 
-    protected void PopupSettingView(Pane pane) {
+    protected void PopupSettingView(Pane pane,Image image) {
         //图标
-        this.hamburger = new JFXHamburger();
+        this.imageView = new ImageView(image);
+        imageView.setFitWidth(24.0);
+        imageView.setFitHeight(24.0);
+        this.vBoximageView = new VBox(this.imageView);
+
         //设置padding
 //        hamburger.setPadding(new Insets(10,10,10,10));
         //弹出器
-        rippler = new JFXRippler(hamburger, JFXRippler.RipplerMask.CIRCLE, JFXRippler.RipplerPos.BACK);
+        rippler = new JFXRippler(vBoximageView, JFXRippler.RipplerMask.CIRCLE, JFXRippler.RipplerPos.BACK);
 
         //给要弹出的Pane设置弹出器
         this.anchorPane = new AnchorPane();
@@ -62,7 +67,4 @@ public class PopupSettingView extends StackPane {
             list.getChildren().add(popupSettingNode);
         }
     }
-//        list.getChildren().add(new PopupSettingNodeObject("测试参数1",new Button("测试参数1")));
-//        list.getChildren().add(new PopupSettingNodeObject("测试参数2",new JFXComboBox<>()));
-//        list.getChildren().add(new PopupSettingNodeObject("测试参数3",new Button()));
 }

@@ -6,7 +6,7 @@
 
     <groupId>org.ffffffff0x</groupId>
     <artifactId>BerylEnigma</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0</version>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>

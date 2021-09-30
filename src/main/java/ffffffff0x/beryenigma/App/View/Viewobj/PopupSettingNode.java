@@ -31,6 +31,21 @@ public class PopupSettingNode extends AnchorPane {
         controlAnchor.getChildren().add(controlNode);
     }
 
+    public PopupSettingNode(String titleName, Node controlNode,Double prefWidth, boolean isFirst) {
+        super();
+        this.setPrefSize(prefWidth,80);
+        initAnchor();
+        ViewUtils.setAnchor(controlNode,5.0,5.0,5.0,15.0);
+        title.setText(titleName);
+        this.getChildren().add(title);
+        this.getChildren().add(controlAnchor);
+        if (!isFirst) {
+            this.getChildren().add(separator);
+        }
+        controlAnchor.getChildren().add(controlNode);
+    }
+
+
     private void initAnchor() {
         ViewUtils.setAnchor(title,10.0,10.0,  10.0,60.0);
         ViewUtils.setAnchor(controlAnchor,35.0,10.0,10.0,5.0);
