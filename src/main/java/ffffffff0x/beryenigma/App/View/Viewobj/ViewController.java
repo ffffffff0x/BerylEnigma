@@ -57,6 +57,7 @@ public abstract class ViewController {
     @FXML
     protected void initialize() {
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
+        LoadPopupSettingNode();
 //        System.out.println("Father init");
     }
 
@@ -94,5 +95,12 @@ public abstract class ViewController {
     public void ONReleasedOrSelected() {
         ViewUtils.textAreaValidateReset(JTA_dst);
 //        System.out.println("Father InputSelect");
+    }
+
+    /**
+     * 加载时的弹出式设置框初始化
+     */
+    protected void LoadPopupSettingNode() {
+
     }
 }

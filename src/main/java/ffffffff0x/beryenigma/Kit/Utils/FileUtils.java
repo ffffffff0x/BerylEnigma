@@ -5,8 +5,6 @@ import javafx.scene.image.PixelFormat;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritablePixelFormat;
 
-import javax.swing.*;
-import javax.swing.text.View;
 import java.awt.*;
 import java.io.*;
 import java.nio.ByteBuffer;

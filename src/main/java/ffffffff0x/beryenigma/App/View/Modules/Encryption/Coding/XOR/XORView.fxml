@@ -20,8 +20,8 @@
             <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="30.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <children>
                   <JFXComboBox fx:id="JCB_charset" prefHeight="30.0" prefWidth="100.0" />
-                  <JFXTextField prefHeight="30.0" prefWidth="200.0" />
-                  <JFXButton fx:id="JBT_confirm" buttonType="RAISED" onAction="#ONClickConfirm" prefHeight="50.0" prefWidth="101.0" text="%Confirm" />
+                  <JFXTextField fx:id="JTF_key" prefHeight="30.0" prefWidth="200.0" promptText="%Key" />
+                  <JFXButton fx:id="JBT_confirm" buttonType="RAISED" onAction="#ONClickConfirm" prefHeight="50.0" prefWidth="101.0" text="%EnCode" />
                </children>
                <opaqueInsets>
                   <Insets />

@@ -20,6 +20,17 @@ public class Coding_Base64 {
         return new String(bs64, charset);
     }
 
+    public static String encodeToString(byte[] in) {
+        return java.util.Base64.getEncoder().encodeToString(in);
+    }
+
+    public static String decodeToString(byte[] in, String charset) throws UnsupportedEncodingException {
+        //获取用户输入字符通过base64加密，输出byte数组型值
+        byte[] bs64 = java.util.Base64.getDecoder().decode(in);
+        //将byte数组转换成String输出
+        return new String(bs64, charset);
+    }
+
     public static byte[] encode(byte[] in) {
         return java.util.Base64.getEncoder().encode(in);
     }

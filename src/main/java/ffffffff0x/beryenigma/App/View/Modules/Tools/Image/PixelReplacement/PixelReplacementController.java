@@ -157,7 +157,8 @@ public class PixelReplacementController extends ViewController {
         return null;
     }
 
-    private void LoadPopupSettingNode() {
+    @Override
+    protected void LoadPopupSettingNode() {
         ObservableList<String> options =
                 FXCollections.observableArrayList(
                         Init.languageResourceBundle.getString("Row"),
