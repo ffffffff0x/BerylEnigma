@@ -15,9 +15,10 @@ public class Classical_CaesarCipher {
             for (int i = 0; i < message.length(); i++) {
                 if (messageChar[i] >= 'a' && messageChar[i] <= 'z') {
                     temp = (char) ((messageChar[i] - 'a' + keys) % 26 + 'a');
-                }
-                if(messageChar[i] >= 'A' && messageChar[i] <= 'Z'){
+                }else if(messageChar[i] >= 'A' && messageChar[i] <= 'Z'){
                     temp = (char) ((messageChar[i] - 'A' + keys) % 26 + 'A');
+                }else {
+                    temp = messageChar[i];
                 }
                 eStr.append(temp);
             }

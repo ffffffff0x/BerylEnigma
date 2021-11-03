@@ -25,6 +25,7 @@ public class RootTreeNode {
                 final TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
             final TreeItem<String> classical = new TreeItem<>(Init.languageResourceBundle.getString("Classical"),folderIcon("open"));
             final TreeItem<String> coding = new TreeItem<>(Init.languageResourceBundle.getString("Coding"),folderIcon("open"));
+                final TreeItem<String> baseEncoding = new TreeItem<>(Init.languageResourceBundle.getString("BaseEncoding"),folderIcon("open"));
 
         //rootitem
         rootItem.setExpanded(true);
@@ -81,11 +82,14 @@ public class RootTreeNode {
         ItemAdd(classical,"CaesarCipher", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/CaesarCipher/CaesarCipherView.fxml");
 
         //Coding
+        coding.getChildren().add(baseEncoding);
+        ItemAdd(baseEncoding,"Base64", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/BaseEncoding/Base64/Base64View.fxml");
+        ItemAdd(baseEncoding,"Base58", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/BaseEncoding/Base58/Base58View.fxml");
         ItemAdd(coding,"ASCII", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/ASCII/ASCIIView.fxml");
         ItemAdd(coding,"URL", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/URL/URLView.fxml");
-        ItemAdd(coding,"Base64", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/Base64/Base64View.fxml");
         ItemAdd(coding,"Brainfuck", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/Brainfuck/BrainfuckView.fxml");
         ItemAdd(coding,"HEX", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/HEXCoder/HEXCoderView.fxml");
+        ItemAdd(coding,"XOR","/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/XOR/XORView.fxml");
         ItemAdd(coding,"Unicode", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/Unicode/UnicodeView.fxml");
         ItemAdd(coding,"HTMLCharacterEntity", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/HTMLCharEntity/HTMLCharEntityView.fxml");
         ItemAdd(coding,"MorseCoder", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/MorseCoder/MorseCoderView.fxml");

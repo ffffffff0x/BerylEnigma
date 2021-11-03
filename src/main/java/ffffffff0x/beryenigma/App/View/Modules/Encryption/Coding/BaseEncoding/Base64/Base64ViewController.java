@@ -1,6 +1,6 @@
-package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Base64;
+package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base64;
 
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Base64.Coding_Base64;
+import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base64;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;

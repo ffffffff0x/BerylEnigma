@@ -59,7 +59,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXComboBox fx:id="JCB_dstBase" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <JFXComboBox fx:id="JCB_dstBase" />
+                     </children>
+                  </HBox>
                   <JFXTextArea fx:id="JTA_dst" editable="false" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets top="3.0" />

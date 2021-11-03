@@ -3,7 +3,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.XOR;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Base64.Coding_Base64;
+import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base64;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.XOR.Coding_XOR;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
@@ -53,8 +53,8 @@ public class XORController extends ViewControllerFileMode {
                     e.printStackTrace();
                 }
             }else{
-                JTA_dst.setText(OutputEncode(FileModeEnCode(),JCB_outPutMode.getValue()));
-//                fileEncodeEnd();
+                FileUtils.outPutFile(FileModeEnCode());
+                fileEncodeEnd();
             }
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
