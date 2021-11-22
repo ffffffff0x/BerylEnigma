@@ -83,7 +83,10 @@ public class RootTreeNode {
 
         //Coding
         coding.getChildren().add(baseEncoding);
+        baseEncoding.setExpanded(true);
         ItemAdd(baseEncoding,"Base64", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/BaseEncoding/Base64/Base64View.fxml");
+        ItemAdd(baseEncoding,"Base16", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/BaseEncoding/Base16/Base16View.fxml");
+        ItemAdd(baseEncoding,"Base32", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/BaseEncoding/Base32/Base32View.fxml");
         ItemAdd(baseEncoding,"Base58", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/BaseEncoding/Base58/Base58View.fxml");
         ItemAdd(coding,"ASCII", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/ASCII/ASCIIView.fxml");
         ItemAdd(coding,"URL", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/URL/URLView.fxml");

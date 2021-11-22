@@ -186,7 +186,7 @@ public class ReverseShellGeneratorController extends ViewController {
                 FXCollections.observableArrayList(
                         "nc" ,"ncat" ,"ncat (TLS)" ,"rlwrap + nc" ,"rc" ,
                         "rc + Command History" ,"pwncat" ,"windows ConPty" ,"socat" ,
-                        "socat (TTY)" ,"powercat" ,"msfconsole"
+                        "socat (TTY)" ,"powercat" ,"msfconsole","Openssl"
                 );
         JCB_ListenerType = new JFXComboBox<>(listenerTypeOptions);
         JCB_ListenerType.setValue("nc");
