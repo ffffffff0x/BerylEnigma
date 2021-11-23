@@ -15,7 +15,13 @@ public class Coding_BaseConversion {
         }
 
         for (String a:SourceNumb) {
-            sb.append(new BigInteger(a,srcConv).toString(dstConv));
+            String bi = new BigInteger(a,srcConv).toString(dstConv);
+            if (dstConv == 2 && bi.length() < 8) {
+                String zero = "0";
+                sb.append(zero.repeat(8-bi.length())).append(bi);
+            }else {
+                sb.append(bi);
+            }
             sb.append(split);
         }
         return sb.toString();
