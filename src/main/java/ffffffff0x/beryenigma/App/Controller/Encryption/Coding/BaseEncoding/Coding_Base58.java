@@ -186,8 +186,8 @@ public class Coding_Base58 {
         return digest.digest(digest.digest());
     }
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        System.out.println(Coding_Base58.encodeChecked(21,"1234sdrqerqwerqwr".getBytes(StandardCharsets.UTF_8)));
-    }
+//    public static void main(String[] args) throws UnsupportedEncodingException {
+//        System.out.println(Coding_Base58.encodeChecked(21,"1234sdrqerqwerqwr".getBytes(StandardCharsets.UTF_8)));
+//    }
 
 }
