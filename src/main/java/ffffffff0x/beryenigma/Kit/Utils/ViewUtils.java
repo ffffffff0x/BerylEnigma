@@ -1,10 +1,7 @@
 package ffffffff0x.beryenigma.Kit.Utils;
 
+import com.jfoenix.controls.*;
 import ffffffff0x.beryenigma.Init.Init;
-import com.jfoenix.controls.JFXAlert;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialogLayout;
-import com.jfoenix.controls.JFXTextArea;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -185,5 +182,9 @@ public class ViewUtils {
         }
 
         return new ImageView(wr).getImage();
+    }
+
+    public static String getSplit(JFXTextField jtaSplit) {
+        return Util.splitStringReplace(jtaSplit.getText());
     }
 }

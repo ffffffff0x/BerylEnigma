@@ -29,12 +29,12 @@ public class BaseConversionController extends ViewController {
                 JTA_dst.setText("-"+Coding_BaseConversion.conversion((JTA_src.getText().subSequence(1,JTA_src.getText().length())).toString(),
                         Integer.parseInt(JCB_srcBase.getValue().toString()),
                         Integer.parseInt(JCB_dstBase.getValue().toString()),
-                        JTF_split.getText()));
+                        ViewUtils.getSplit(JTF_split)));
             }else{
                 JTA_dst.setText(Coding_BaseConversion.conversion(JTA_src.getText(),
                         Integer.parseInt(JCB_srcBase.getValue().toString()),
                         Integer.parseInt(JCB_dstBase.getValue().toString()),
-                        JTF_split.getText()));
+                        ViewUtils.getSplit(JTF_split)));
             }
         }catch (NumberFormatException e){
             ViewUtils.textAreaValidate(JTA_dst);

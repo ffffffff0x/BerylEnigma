@@ -4,6 +4,7 @@ import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Codin
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base32;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 
 import java.io.UnsupportedEncodingException;
 
@@ -15,7 +16,7 @@ public class Base32ViewController extends BaseEncodingViewController {
     @Override
     protected String encodeSplitToString() {
         try {
-            return Coding_Base32.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText());
+            return Coding_Base32.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(), ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -26,7 +27,7 @@ public class Base32ViewController extends BaseEncodingViewController {
     @Override
     protected String decodeSplitToString() {
         try {
-            return Coding_Base32.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText());
+            return Coding_Base32.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();

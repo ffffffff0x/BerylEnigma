@@ -38,7 +38,7 @@ public class Base64ViewController extends ViewControllerFileMode {
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                     //判断是否使用分隔符
                     if(!Objects.equals(JTF_split.getText(), "")){
-                        JTA_dst.setText(Coding_Base64.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
+                        JTA_dst.setText(Coding_Base64.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split)));
                     }else{
                         JTA_dst.setText(Coding_Base64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                     }
@@ -53,7 +53,7 @@ public class Base64ViewController extends ViewControllerFileMode {
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                     //判断是否使用分隔符
                     if(!Objects.equals(JTF_split.getText(), "")){
-                        JTA_dst.setText(Coding_Base64.urlEncodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
+                        JTA_dst.setText(Coding_Base64.urlEncodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split)));
                     }else{
                         JTA_dst.setText(Coding_Base64.urlEncodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                     }
@@ -76,7 +76,7 @@ public class Base64ViewController extends ViewControllerFileMode {
             if(!JCHB_isBase64URL.isSelected()){
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                     if(!Objects.equals(JTF_split.getText(), "")){
-                        JTA_dst.setText(Coding_Base64.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
+                        JTA_dst.setText(Coding_Base64.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split)));
                     }else{
                         JTA_dst.setText(Coding_Base64.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                     }
@@ -87,7 +87,7 @@ public class Base64ViewController extends ViewControllerFileMode {
             }else{
                 if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
                     if(!Objects.equals(JTF_split.getText(), "")){
-                        JTA_dst.setText(Coding_Base64.urlDecodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText()));
+                        JTA_dst.setText(Coding_Base64.urlDecodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split)));
                     }else{
                         JTA_dst.setText(Coding_Base64.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                     }

@@ -7,6 +7,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -42,7 +43,7 @@ public class Base58ViewController extends BaseEncodingViewController {
     @Override
     protected String encodeSplitToString() {
         try {
-            return Coding_Base58.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText());
+            return Coding_Base58.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -53,7 +54,7 @@ public class Base58ViewController extends BaseEncodingViewController {
     @Override
     protected String decodeSplitToString() {
         try {
-            return Coding_Base58.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),JTF_split.getText());
+            return Coding_Base58.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();

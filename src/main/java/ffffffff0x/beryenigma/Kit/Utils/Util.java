@@ -3,6 +3,14 @@ package ffffffff0x.beryenigma.Kit.Utils;
 import java.math.BigInteger;
 
 public class Util {
+    public static String splitStringReplace(String split) {
+        if (split.equals("\\n")) {
+            return "\n";
+        }else {
+            return split;
+        }
+    }
+
     public static byte[] intToBytes(int num)
     {
         byte[] bytes = new byte[4];

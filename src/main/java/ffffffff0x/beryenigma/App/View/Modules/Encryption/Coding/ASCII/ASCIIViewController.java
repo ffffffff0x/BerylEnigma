@@ -43,12 +43,12 @@ public class ASCIIViewController extends ViewController {
     private String ASCIIEnCode(){
         return Coding_ASCII.encode(
                 JTA_src.getText(),
-                JTF_split.getText(),0);
+                ViewUtils.getSplit(JTF_split),0);
     }
 
     private String ASCIIDeCode(){
         return Coding_ASCII.deCode(
                 JTA_src.getText(),
-                JTF_split.getText());
+                ViewUtils.getSplit(JTF_split));
     }
 }

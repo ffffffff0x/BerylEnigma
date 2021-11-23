@@ -7,8 +7,6 @@ public class Coding_ASCII {
         if(Split.equals(""))
         {
             Split = " ";
-        }else if(Split.equals("\\n")){
-            Split = "\n";
         }
         //结果保存
         StringBuilder ASCIIL = new StringBuilder();
@@ -21,11 +19,12 @@ public class Coding_ASCII {
         //输入值保存为char数组
         char[] chars = ssvb.toString().toCharArray();
         for (int i = 0; i < chars.length; i++) {
+            final int i1 = (int) chars[i] + PMNumber;
             if(i != chars.length - 1)
             {
-                ASCIIL.append(Integer.valueOf(chars[i])+PMNumber).append(Split);
+                ASCIIL.append(i1).append(Split);
             } else {
-                ASCIIL.append(Integer.valueOf(chars[i])+PMNumber);
+                ASCIIL.append(i1);
             }
         }//ASCII转换
         return ASCIIL.toString();

@@ -30,19 +30,17 @@ public class BaseEncoding {
 
     public static String encodeToString(byte[] in) {
         byte[] encoded = encode(in);
+        assert encoded != null;
         return new String(encoded);
     }
 
     public static String decodeToString(byte[] in, String charset) throws UnsupportedEncodingException {
         //将byte数组转换成String输出
+        assert decode(in) != null;
         return new String(decode(in), charset);
     }
 
     public static String encodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
-        if("\\n".equals(split)){
-            split = "\n";
-        }
-
         String[] allMessage = in.split(split);
         StringBuilder result = new StringBuilder();
 
@@ -54,10 +52,6 @@ public class BaseEncoding {
     }
 
     public static String decodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
-        if("\\n".equals(split)){
-            split = "\n";
-        }
-
         String[] allMessage = in.split(split);
         StringBuilder result = new StringBuilder();
 

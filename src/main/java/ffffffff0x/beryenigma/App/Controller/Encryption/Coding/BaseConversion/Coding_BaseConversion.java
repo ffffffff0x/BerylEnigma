@@ -3,8 +3,7 @@ package ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseConversion;
 import java.math.BigInteger;
 
 public class Coding_BaseConversion {
-    public static String conversion(String sourceNumber,int srcConv,int dstConv,String split)
-    {
+    public static String conversion(String sourceNumber,int srcConv,int dstConv,String split) {
         String[] SourceNumb;
         StringBuilder sb = new StringBuilder();
 

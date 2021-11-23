@@ -84,10 +84,6 @@ public class Coding_Base58 {
     }
     //S2S
     public static String encodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
-        if("\\n".equals(split)){
-            split = "\n";
-        }
-
         String[] allMessage = in.split(split);
         StringBuilder result = new StringBuilder();
 
@@ -150,10 +146,6 @@ public class Coding_Base58 {
     }
 
     public static String decodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
-        if("\\n".equals(split)){
-            split = "\n";
-        }
-
         String[] allMessage = in.split(split);
         StringBuilder result = new StringBuilder();
 
