@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base32;
 
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base16;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base32;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
