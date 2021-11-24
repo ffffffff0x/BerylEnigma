@@ -113,7 +113,7 @@ public class OokEngine extends TrollScriptEngine {
 	 * @throws Exception
 	 */
 	@Override
-	public String interpret(String str) throws Exception {
+	public byte[] interpret(String str) throws Exception {
 		// List with tokens.defaultTokenLenght
 		List<Token> tokens = new ArrayList<Token>();
 		// It fine that all Ook! tokens are 9 characters long :)
@@ -180,7 +180,8 @@ public class OokEngine extends TrollScriptEngine {
 				//outWriter.write((char) data[dataPointer]);
 				// Flush the outputstream.
 				//outWriter.flush();
-				outStringBuilder.append((char) data[dataPointer]);
+				dataOut.add(data[dataPointer]);
+//				outStringBuilder.append((char) data[dataPointer]);
 				break;
 			case INPUT:
 				// accept one byte of input, storing its value in the
@@ -219,7 +220,11 @@ public class OokEngine extends TrollScriptEngine {
 		}
 		// Clear all data.
 		initate(data.length);
-
-		return outStringBuilder.toString();
+//		return outStringBuilder.toString();
+		byte[] dataResult = new byte[dataOut.size()];
+		for (int i = 0; i < dataOut.size(); i++) {
+			dataResult[i] = dataOut.get(i);
+		}
+		return dataResult;
 	}
 }

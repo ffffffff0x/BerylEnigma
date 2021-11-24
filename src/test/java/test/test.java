@@ -1,17 +1,6 @@
 package test;
 
-import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.ReverseShellGenerator.RedTeam_ReverseShellGenerator;
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
-import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.net.URLCodec;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Brainfuck.Coding_Brainfuck;
 
 /**
  * @author: RyuZUSUNC
@@ -19,7 +8,12 @@ import java.io.UnsupportedEncodingException;
  **/
 
 public class test {
-    public static void main(String[] args) throws UnsupportedEncodingException, DecoderException {
-
+    public static void main(String[] args) throws Exception {
+        System.out.println(Coding_Brainfuck.shortOokDeCode("..... ..... ..... ..... ..... ..... !?!!. ?.... ..... ..... ..... .....\n" +
+                "..... .?.?! .?... ..... ..!.? ..... ..... ..... !?!!. ?!!!! !!!!! !!!!!\n" +
+                "?.?!. ?!.?. ..... ..... ..!?! !.?!! !!!!! !!!!! ?.?!. ?!!!! !!!!! !!!!.\n" +
+                "?.... ..... ..... ..... !?!!. ?.... ..... ..... ....? .?!.? ..... .....\n" +
+                "..... ..... ....! .?... ..... ..... ..!?! !.?!! !!!!! !!!!! !!?.? !.?!!\n" +
+                "!!!!! !!!!! !!!!! .?... ..... ...!? !!.?! !!!!! !!!!? .?!.? !!!.? .","UTF-8"));
     }
 }

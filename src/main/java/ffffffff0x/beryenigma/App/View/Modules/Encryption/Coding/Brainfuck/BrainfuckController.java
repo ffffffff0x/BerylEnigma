@@ -9,6 +9,8 @@ import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * @author: RyuZUSUNC
  * @create: 2021-09-17 15:29
@@ -40,13 +42,16 @@ public class BrainfuckController extends ViewController {
                 String result = "";
                 try {
                     if (JCB_modeCheck.getValue().equals("Brainfuck")) {
-                        result = Coding_Brainfuck.BrainfuckDeCode(new String(JTA_src.getText().getBytes(JCB_charset.getValue())));
+                        result = Coding_Brainfuck.BrainfuckDeCode(JTA_src.getText(),JCB_charset.getValue());
                     }else if (JCB_modeCheck.getValue().equals("Ook")) {
-                        result = Coding_Brainfuck.OokDeCode(new String(JTA_src.getText().getBytes(JCB_charset.getValue())));
+                        result = Coding_Brainfuck.OokDeCode(JTA_src.getText(),JCB_charset.getValue());
+                    }else if (JCB_modeCheck.getValue().equals("ShortOok")) {
+                        result = Coding_Brainfuck.shortOokDeCode(JTA_src.getText(),JCB_charset.getValue());
                     }else if (JCB_modeCheck.getValue().equals("Trollscript")) {
-                        result = Coding_Brainfuck.TrollscriptDeCode(new String(JTA_src.getText().getBytes(JCB_charset.getValue())));
+                        result = Coding_Brainfuck.TrollscriptDeCode(JTA_src.getText(),JCB_charset.getValue());
                     }
                 }catch (Exception e) {
+                    e.printStackTrace();
                     ViewUtils.textAreaValidate(JTA_dst);
                 }
                 String finalResult = result;
@@ -58,12 +63,23 @@ public class BrainfuckController extends ViewController {
     }
 
     private void ComboBoxInit() {
-        ViewInit.comboBoxCharset(JCB_charset);
-        JCB_charset.setValue("GBK");
+        JCB_charset.getItems().addAll(
+                "UTF-8",
+                "GBK",
+                "BIG5",
+                "UTF-16",
+                "UTF-16LE",
+                "UTF-16BE",
+                "ISO-8859_1",
+                "US-ASCII"
+        );
+        JCB_charset.setValue("UTF-8");
+        JCB_charset.setVisibleRowCount(6);
 
         JCB_modeCheck.getItems().addAll(
                 "Brainfuck",
                 "Ook",
+                "ShortOok",
                 "Trollscript"
         );
         JCB_modeCheck.setValue("Brainfuck");

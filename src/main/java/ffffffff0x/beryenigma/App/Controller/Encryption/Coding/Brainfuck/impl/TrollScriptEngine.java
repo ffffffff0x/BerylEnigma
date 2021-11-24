@@ -100,7 +100,7 @@ public class TrollScriptEngine extends BrainfuckEngine {
 	 * @throws Exception
 	 */
 	@Override
-	public String interpret(String str) throws Exception {
+	public byte[] interpret(String str) throws Exception {
 		// Is this program already started?
 		boolean started = false;
 		// List with tokens.defaultTokenLenght
@@ -162,7 +162,8 @@ public class TrollScriptEngine extends BrainfuckEngine {
 //				outWriter.write((char) data[dataPointer]);
 				// Flush the outputstream.
 //				outWriter.flush();
-				outStringBuilder.append((char) data[dataPointer]);
+				dataOut.add(data[dataPointer]);
+//				outStringBuilder.append((char) data[dataPointer]);
 			} 
 			if (token.equalsIgnoreCase(Token.INPUT)) {
 				// accept one byte of input, storing its value in the
@@ -200,7 +201,12 @@ public class TrollScriptEngine extends BrainfuckEngine {
 		}
 		// Clear all data.
 		initate(data.length);
-		return outStringBuilder.toString();
+//		return outStringBuilder.toString();
+		byte[] dataResult = new byte[dataOut.size()];
+		for (int i = 0; i < dataOut.size(); i++) {
+			dataResult[i] = dataOut.get(i);
+		}
+		return dataResult;
 	}
 
 	/**

@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 /**
  * The {@link BrainfuckEngine} class is an implementation of the original brainfuck
@@ -35,6 +36,7 @@ public class BrainfuckEngine {
 	 * The memory thats available for this brainfuck program.
 	 */
 	protected byte[] data;
+	protected ArrayList<Byte> dataOut = new ArrayList<>();
 
 	/**
 	 * The data pointer that points to the current index in the {@link BrainfuckEngine#data} memory array.
@@ -162,11 +164,16 @@ public class BrainfuckEngine {
 	 *            The string to interpret.
 	 * @throws Exception
 	 */
-	public String interpret(String str) throws Exception {
+	public byte[] interpret(String str) throws Exception {
 		for (; charPointer < str.length(); charPointer++) 
 			interpret(str.charAt(charPointer), str.toCharArray());
 		initate(data.length);
-		return outStringBuilder.toString();
+
+		byte[] dataResult = new byte[dataOut.size()];
+		for (int i = 0; i < dataOut.size(); i++) {
+			dataResult[i] = dataOut.get(i);
+		}
+		return dataResult;
 	}
 
 	/**
@@ -219,7 +226,8 @@ public class BrainfuckEngine {
 		case Token.OUTPUT:
 			// Output the byte at the current index in a character.
 //			outWriter.write((char) data[dataPointer]);
-			outStringBuilder.append((char) data[dataPointer]);
+			dataOut.add(data[dataPointer]);
+//			outStringBuilder.append((char) data[dataPointer]);
 			break;
 		case Token.INPUT:
 			// Accept one byte of input, storing its value in the byte at the data pointer.
