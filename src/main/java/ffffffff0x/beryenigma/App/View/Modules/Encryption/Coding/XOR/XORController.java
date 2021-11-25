@@ -38,6 +38,7 @@ public class XORController extends ViewControllerFileMode {
     @Override
     protected void initialize() {
         super.initialize();
+        super.getFileOnDrag();
         setFileSelectButton();
         initCharsetComboBox();
     }

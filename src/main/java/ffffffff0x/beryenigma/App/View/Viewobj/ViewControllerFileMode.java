@@ -2,9 +2,14 @@ package ffffffff0x.beryenigma.App.View.Viewobj;
 
 import com.jfoenix.controls.JFXToggleButton;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * @author: RyuZUSUNC
@@ -13,6 +18,7 @@ import java.io.File;
 
 public abstract class ViewControllerFileMode extends ViewController {
     public File file;
+    public byte[] byteFile = null;
     @FXML public JFXToggleButton JTB_modeSelect;
 
     @FXML
@@ -37,6 +43,7 @@ public abstract class ViewControllerFileMode extends ViewController {
         JTA_src.setText("");
         JTA_src.setEditable(true);
         JTA_dst.setText(Init.languageResourceBundle.getString("Complete"));
+        byteFile = null;
     }
 
     public void notSelectedFile() {
@@ -57,8 +64,49 @@ public abstract class ViewControllerFileMode extends ViewController {
         JTB_modeSelect.setOnMouseClicked(mouseEvent -> ONClickModeSelect());
     }
 
-    public abstract void getFile();
-//      File file_temp = ViewUtils.getFile(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
-//      JTA_src.setText(file_temp.toString());
-//      file = file_temp;
+    public void getByteFileOnDrag() {
+        setOnDrage();
+        JTA_src.setOnDragDropped(dragEvent -> {
+            Dragboard dragboard = dragEvent.getDragboard();
+            List<File> files = dragboard.getFiles();
+            if(files.size() > 0){
+                JTA_src.setEditable(false);
+                JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
+                JTB_modeSelect.setSelected(true);
+                file = files.get(0);
+                JTA_src.setText(file.toString());
+                byteFile = FileUtils.getFilebyte(file);
+            }
+        });
+    }
+
+    public void getFileOnDrag() {
+        setOnDrage();
+        JTA_src.setOnDragDropped(dragEvent -> {
+            Dragboard dragboard = dragEvent.getDragboard();
+            List<File> files = dragboard.getFiles();
+            if(files.size() > 0){
+                JTA_src.setEditable(false);
+                JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
+                JTB_modeSelect.setSelected(true);
+                file = files.get(0);
+                JTA_src.setText(file.toString());
+            }
+        });
+    }
+
+    private void setOnDrage() {
+        JTA_src.setOnDragOver(dragEvent -> {
+            if (dragEvent.getGestureSource() != JTA_src) {
+                dragEvent.acceptTransferModes(TransferMode.ANY);
+            }
+        });
+    }
+
+    public void getFile() {
+        File file_temp = ViewUtils.getFile();
+        JTA_src.setText(file_temp.toString());
+        file = file_temp;
+        byteFile = FileUtils.getFilebyte(file);
+    }
 }

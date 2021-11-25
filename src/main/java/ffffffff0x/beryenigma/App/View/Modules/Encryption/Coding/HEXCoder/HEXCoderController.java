@@ -8,15 +8,12 @@ import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
-
-import java.io.File;
 import java.io.UnsupportedEncodingException;
 
 /**
  * @author RyuZU
  */
 public class HEXCoderController extends ViewControllerFileMode {
-    byte[] file = null;
 
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXTextField JTF_split;
@@ -24,6 +21,7 @@ public class HEXCoderController extends ViewControllerFileMode {
     @Override
     protected void initialize() {
         super.initialize();
+        super.getByteFileOnDrag();
         ViewInit.comboBoxCharset(JCB_charset);
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
     }
@@ -39,7 +37,7 @@ public class HEXCoderController extends ViewControllerFileMode {
                     e.printStackTrace();
                 }
             }else{
-                FileUtils.outPutFile(Coding_HEXCoder.encode(file));
+                FileUtils.outPutFile(Coding_HEXCoder.encode(byteFile));
                 fileEncodeEnd();
             }
         }catch (Exception e) {
@@ -58,7 +56,7 @@ public class HEXCoderController extends ViewControllerFileMode {
                     JTA_dst.validate();
                 }
             }else{
-                FileUtils.outPutFile(Coding_HEXCoder.decode(file));
+                FileUtils.outPutFile(Coding_HEXCoder.decode(byteFile));
                 fileEncodeEnd();
             }
         }catch (Exception e){
@@ -81,8 +79,7 @@ public class HEXCoderController extends ViewControllerFileMode {
 
     @Override
     public void getFile(){
-        File file_temp = ViewUtils.getFile();
-        JTA_src.setText(file_temp.toString());
-        file = FileUtils.getFilebyte(file_temp);
+        super.getFile();
+        byteFile = FileUtils.getFilebyte(file);
     }
 }

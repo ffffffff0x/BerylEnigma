@@ -21,14 +21,13 @@ public class HashController extends ViewControllerFileMode {
      * JTA_dst :base64 result
      */
 
-    byte[] file = null;
-
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXComboBox JCB_hashMode;
 
     @Override
     protected void initialize() {
         super.initialize();
+        super.getByteFileOnDrag();
         initComboBox();
     }
 
@@ -44,7 +43,7 @@ public class HashController extends ViewControllerFileMode {
                     e.printStackTrace();
                 }
             }else{
-                dst = hash(file);
+                dst = hash(byteFile);
                 fileEncodeEnd();
             }
             JTA_dst1.setText(dst[0]);
@@ -92,8 +91,7 @@ public class HashController extends ViewControllerFileMode {
 
     @Override
     public void getFile(){
-        File file_temp = ViewUtils.getFile();
-        JTA_src.setText(file_temp.toString());
-        file = FileUtils.getFilebyte(file_temp);
+        super.getFile();
+        byteFile = FileUtils.getFilebyte(file);
     }
 }

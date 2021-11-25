@@ -17,7 +17,6 @@ import java.util.Objects;
  * @author RyuZU
  */
 public abstract class BaseEncodingViewController extends ViewControllerFileMode {
-    protected byte[] file = null;
 
     @FXML protected JFXComboBox JCB_charset;
     @FXML protected JFXTextField JTF_split;
@@ -42,9 +41,8 @@ public abstract class BaseEncodingViewController extends ViewControllerFileMode 
 
     @Override
     public void getFile(){
-        File file_temp = ViewUtils.getFile();
-        JTA_src.setText(file_temp.toString());
-        file = FileUtils.getFilebyte(file_temp);
+        super.getFile();
+        byteFile = FileUtils.getFilebyte(file);
     }
 
     protected void onClickEncodeImpl() {

@@ -60,7 +60,7 @@ public class Base16ViewController extends BaseEncodingViewController {
     @Override
     protected void encodeToFile() {
         try {
-            FileUtils.outPutFile(Coding_Base16.encodeToString(file).getBytes(JCB_charset.getValue().toString()));
+            FileUtils.outPutFile(Coding_Base16.encodeToString(byteFile).getBytes(JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -70,7 +70,7 @@ public class Base16ViewController extends BaseEncodingViewController {
     @Override
     protected void decodeToFile() {
         try {
-            FileUtils.outPutFile((Coding_Base16.decodeToString(file,JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString()));
+            FileUtils.outPutFile((Coding_Base16.decodeToString(byteFile,JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();

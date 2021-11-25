@@ -19,14 +19,13 @@ public class SM3Controller extends ViewControllerFileMode {
      * JTA_dst1 :HEX result
      * JTA_dst :base64 result
      */
-    
-    byte[] file = null;
 
     @FXML private JFXComboBox JCB_charset;
 
     @Override
     protected void initialize() {
         super.initialize();
+        super.getByteFileOnDrag();
         ViewInit.comboBoxCharset(JCB_charset);
     }
 
@@ -42,7 +41,7 @@ public class SM3Controller extends ViewControllerFileMode {
                     e.printStackTrace();
                 }
             }else{
-                dst = hash(file);
+                dst = hash(byteFile);
                 fileEncodeEnd();
             }
             JTA_dst1.setText(dst[0]);
@@ -57,12 +56,5 @@ public class SM3Controller extends ViewControllerFileMode {
         out[0] = Hex.encodeHexString(Modern_SM3.hash(message));
         out[1] = Base64.encodeBase64String(Modern_SM3.hash(message));
         return out;
-    }
-
-    @Override
-    public void getFile(){
-        File file_temp = ViewUtils.getFile();
-        JTA_src.setText(file_temp.toString());
-        file = FileUtils.getFilebyte(file_temp);
     }
 }

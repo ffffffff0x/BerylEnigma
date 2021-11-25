@@ -32,6 +32,7 @@ public class DomainSplitController extends ViewControllerFileMode {
     @Override
     protected void initialize() {
         super.initialize();
+        super.getFileOnDrag();
         file = null;
     }
 
@@ -107,4 +108,6 @@ public class DomainSplitController extends ViewControllerFileMode {
             allResult = sb.toString();
         }
     }
+
+
 }

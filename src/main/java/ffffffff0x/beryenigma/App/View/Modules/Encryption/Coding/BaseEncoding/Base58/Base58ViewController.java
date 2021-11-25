@@ -104,7 +104,7 @@ public class Base58ViewController extends BaseEncodingViewController {
     protected void encodeToFile() {
         try {
             if (JCB_modeSelect.getValue().equals("Base58-String")){
-                FileUtils.outPutFile(Coding_Base58.encodeToString(file).getBytes(JCB_charset.getValue().toString()));
+                FileUtils.outPutFile(Coding_Base58.encodeToString(byteFile).getBytes(JCB_charset.getValue().toString()));
             } else {
                 if (JCB_modeSelect.getValue().equals("Base58-Check(P2PKH)")) {
                     FileUtils.outPutFile(Coding_Base58.encodeChecked(0,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString()));
@@ -122,12 +122,12 @@ public class Base58ViewController extends BaseEncodingViewController {
     protected void decodeToFile() {
         try {
             if (JCB_modeSelect.getValue().equals("Base58-String")){
-                FileUtils.outPutFile(Coding_Base58.decode(file,JCB_charset.getValue().toString()));
+                FileUtils.outPutFile(Coding_Base58.decode(byteFile,JCB_charset.getValue().toString()));
             } else {
                 if (JCB_modeSelect.getValue().equals("Base58-Check(P2PKH)")) {
-                    FileUtils.outPutFile(Coding_Base58.decodeChecked(new String(file,JCB_charset.getValue().toString())));
+                    FileUtils.outPutFile(Coding_Base58.decodeChecked(new String(byteFile,JCB_charset.getValue().toString())));
                 }else if(JCB_modeSelect.getValue().equals("Base58-Check(P2SH)")) {
-                    FileUtils.outPutFile(Coding_Base58.decodeChecked(new String(file,JCB_charset.getValue().toString())));
+                    FileUtils.outPutFile(Coding_Base58.decodeChecked(new String(byteFile,JCB_charset.getValue().toString())));
                 }
             }
         } catch (UnsupportedEncodingException e) {

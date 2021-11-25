@@ -9,15 +9,12 @@ import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 
-import java.io.File;
 import java.util.Objects;
 
 /**
  * @author RyuZU
  */
 public class Base64ViewController extends ViewControllerFileMode {
-    byte[] file = null;
-
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXTextField JTF_split;
     @FXML private JFXCheckBox JCHB_isBase64URL;
@@ -25,6 +22,7 @@ public class Base64ViewController extends ViewControllerFileMode {
     @Override
     protected void initialize() {
         super.initialize();
+        super.getByteFileOnDrag();
         ViewInit.comboBoxCharset(JCB_charset);
     }
 
@@ -44,7 +42,7 @@ public class Base64ViewController extends ViewControllerFileMode {
                     }
                     //文件模式
                 }else{
-                    FileUtils.outPutFile(Coding_Base64.encode(file));
+                    FileUtils.outPutFile(Coding_Base64.encode(byteFile));
                     fileEncodeEnd();
                 }
                 //URLBase64
@@ -59,7 +57,7 @@ public class Base64ViewController extends ViewControllerFileMode {
                     }
                     //文件模式
                 }else{
-                    FileUtils.outPutFile(Coding_Base64.urlEncode(file));
+                    FileUtils.outPutFile(Coding_Base64.urlEncode(byteFile));
                     fileEncodeEnd();
                 }
             }
@@ -81,7 +79,7 @@ public class Base64ViewController extends ViewControllerFileMode {
                         JTA_dst.setText(Coding_Base64.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                     }
                 }else{
-                    FileUtils.outPutFile(Coding_Base64.decode(file));
+                    FileUtils.outPutFile(Coding_Base64.decode(byteFile));
                     fileEncodeEnd();
                 }
             }else{
@@ -92,7 +90,7 @@ public class Base64ViewController extends ViewControllerFileMode {
                         JTA_dst.setText(Coding_Base64.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString()));
                     }
                 }else{
-                    FileUtils.outPutFile(Coding_Base64.urlDecode(file));
+                    FileUtils.outPutFile(Coding_Base64.urlDecode(byteFile));
                     fileEncodeEnd();
                 }
             }
@@ -104,8 +102,7 @@ public class Base64ViewController extends ViewControllerFileMode {
 
     @Override
     public void getFile(){
-        File file_temp = ViewUtils.getFile();
-        JTA_src.setText(file_temp.toString());
-        file = FileUtils.getFilebyte(file_temp);
+        super.getFile();
+        byteFile = FileUtils.getFilebyte(file);
     }
 }
