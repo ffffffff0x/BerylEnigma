@@ -15,13 +15,7 @@
  */
 package ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Brainfuck;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -36,7 +30,7 @@ public class BrainfuckEngine {
 	 * The memory thats available for this brainfuck program.
 	 */
 	protected byte[] data;
-	protected ArrayList<Byte> dataOut = new ArrayList<>();
+	protected ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
 	/**
 	 * The data pointer that points to the current index in the {@link BrainfuckEngine#data} memory array.
@@ -168,12 +162,7 @@ public class BrainfuckEngine {
 		for (; charPointer < str.length(); charPointer++) 
 			interpret(str.charAt(charPointer), str.toCharArray());
 		initate(data.length);
-
-		byte[] dataResult = new byte[dataOut.size()];
-		for (int i = 0; i < dataOut.size(); i++) {
-			dataResult[i] = dataOut.get(i);
-		}
-		return dataResult;
+		return byteArrayOutputStream.toByteArray();
 	}
 
 	/**
@@ -226,7 +215,7 @@ public class BrainfuckEngine {
 		case Token.OUTPUT:
 			// Output the byte at the current index in a character.
 //			outWriter.write((char) data[dataPointer]);
-			dataOut.add(data[dataPointer]);
+			byteArrayOutputStream.write(data[dataPointer]);
 //			outStringBuilder.append((char) data[dataPointer]);
 			break;
 		case Token.INPUT:

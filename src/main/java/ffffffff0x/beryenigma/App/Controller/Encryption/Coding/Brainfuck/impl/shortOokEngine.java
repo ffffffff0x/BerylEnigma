@@ -157,7 +157,7 @@ public class shortOokEngine extends  TrollScriptEngine {
                     //outWriter.write((char) data[dataPointer]);
                     // Flush the outputstream.
                     //outWriter.flush();
-                    dataOut.add(data[dataPointer]);
+                    byteArrayOutputStream.write(data[dataPointer]);
 //				outStringBuilder.append((char) data[dataPointer]);
                     break;
                 case INPUT:
@@ -198,10 +198,6 @@ public class shortOokEngine extends  TrollScriptEngine {
         // Clear all data.
         initate(data.length);
 //		return outStringBuilder.toString();
-        byte[] dataResult = new byte[dataOut.size()];
-        for (int i = 0; i < dataOut.size(); i++) {
-            dataResult[i] = dataOut.get(i);
-        }
-        return dataResult;
+        return byteArrayOutputStream.toByteArray();
     }
 }

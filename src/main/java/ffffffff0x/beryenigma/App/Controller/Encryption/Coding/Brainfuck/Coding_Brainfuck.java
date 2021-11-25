@@ -16,7 +16,8 @@ public class Coding_Brainfuck {
     }
 
     public static String OokDeCode(String message,String charset) throws Exception {
-        message = message.replace("\n"," ");
+        message = message.replace("\n","").replace(" ","");
+        message = message.replaceAll("(.{4})","$1 ");
         OokEngine ookEngine = new OokEngine(1024);
         return new String(ookEngine.interpret(message),charset);
     }
