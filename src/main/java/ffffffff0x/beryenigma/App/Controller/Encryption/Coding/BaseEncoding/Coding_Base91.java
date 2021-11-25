@@ -147,7 +147,6 @@ public class Coding_Base91 {
 
     public static String decodeToString(byte[] in, String charset) throws UnsupportedEncodingException {
         //将byte数组转换成String输出
-        assert decode(in) != null;
         return new String(decode(in), charset);
     }
 

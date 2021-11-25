@@ -37,9 +37,9 @@ public class Coding_Base32 {
     }
 
     public static String decodeToString(String in, String charset) throws UnsupportedEncodingException {
-        byte[] bs16 = in.getBytes(charset);
+        byte[] bs32 = in.getBytes(charset);
         //将byte数组转换成String输出
-        return new String(bs16, charset);
+        return new String(decode(bs32), charset);
     }
 
     public static String encodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {

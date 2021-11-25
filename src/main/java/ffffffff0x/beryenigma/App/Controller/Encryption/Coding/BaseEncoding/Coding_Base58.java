@@ -132,9 +132,9 @@ public class Coding_Base58 {
     }
 
     public static String decodeToString(String in, String charset) throws UnsupportedEncodingException {
-        byte[] bs = decode(in);
+        byte[] bs58 = in.getBytes(charset);
         //将byte数组转换成String输出
-        return new String(bs, charset);
+        return new String(decode(bs58,charset), charset);
     }
 
     public static byte[] decodeChecked(String input) {

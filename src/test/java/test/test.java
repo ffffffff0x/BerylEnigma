@@ -1,6 +1,6 @@
 package test;
 
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Brainfuck.Coding_Brainfuck;
+import org.apache.commons.codec.net.URLCodec;
 
 /**
  * @author: RyuZUSUNC
@@ -9,11 +9,8 @@ import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Brainfuck.Coding_B
 
 public class test {
     public static void main(String[] args) throws Exception {
-        System.out.println(Coding_Brainfuck.shortOokDeCode("..... ..... ..... ..... ..... ..... !?!!. ?.... ..... ..... ..... .....\n" +
-                "..... .?.?! .?... ..... ..!.? ..... ..... ..... !?!!. ?!!!! !!!!! !!!!!\n" +
-                "?.?!. ?!.?. ..... ..... ..!?! !.?!! !!!!! !!!!! ?.?!. ?!!!! !!!!! !!!!.\n" +
-                "?.... ..... ..... ..... !?!!. ?.... ..... ..... ....? .?!.? ..... .....\n" +
-                "..... ..... ....! .?... ..... ..... ..!?! !.?!! !!!!! !!!!! !!?.? !.?!!\n" +
-                "!!!!! !!!!! !!!!! .?... ..... ...!? !!.?! !!!!! !!!!? .?!.? !!!.? .","UTF-8"));
+        URLCodec urlCodec = new URLCodec();
+        System.out.println(urlCodec.encode("https://cloud.baidu.com/campaign/20211111/index.html?track=cp:bokeyuan|pf:pc|pp:H-bokeyuan-21shuangshiyi-shouyebanner-cpa|pu:21shuangshiyi-shouyebanner-cpa|ci:21ssy|kw:10511923"));
+
     }
 }

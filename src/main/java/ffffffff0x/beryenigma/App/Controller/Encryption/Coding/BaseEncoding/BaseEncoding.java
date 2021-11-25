@@ -16,18 +16,6 @@ public class BaseEncoding {
         return null;
     }
 
-    public static String encodeToString(String in, String charset) throws UnsupportedEncodingException {
-        //将用户输入字符转换成byte
-        byte[] bytes = in.getBytes(charset);
-        return encodeToString(bytes);
-    }
-
-    public static String decodeToString(String in, String charset) throws UnsupportedEncodingException {
-        byte[] bs64 = in.getBytes(charset);
-        //将byte数组转换成String输出
-        return new String(bs64, charset);
-    }
-
     public static String encodeToString(byte[] in) {
         byte[] encoded = encode(in);
         assert encoded != null;
@@ -39,6 +27,20 @@ public class BaseEncoding {
         assert decode(in) != null;
         return new String(decode(in), charset);
     }
+
+    public static String encodeToString(String in, String charset) throws UnsupportedEncodingException {
+        //将用户输入字符转换成byte
+        byte[] bytes = in.getBytes(charset);
+        return encodeToString(bytes);
+    }
+
+    public static String decodeToString(String in, String charset) throws UnsupportedEncodingException {
+        byte[] bs = in.getBytes(charset);
+        //将byte数组转换成String输出
+        assert decode(bs) != null;
+        return new String(decode(bs), charset);
+    }
+
 
     public static String encodeSplitToString(String in,String charset,String split) throws UnsupportedEncodingException {
         String[] allMessage = in.split(split);
