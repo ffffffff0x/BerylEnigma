@@ -16,7 +16,7 @@ public class Base16ViewController extends BaseEncodingViewController {
     @Override
     protected String encodeSplitToString() {
         try {
-            return Coding_Base16.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+            return Coding_Base16.encodeSplitToString(JTA_src.getText().toUpperCase(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -27,7 +27,7 @@ public class Base16ViewController extends BaseEncodingViewController {
     @Override
     protected String decodeSplitToString() {
         try {
-            return Coding_Base16.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+            return Coding_Base16.decodeSplitToString(JTA_src.getText().toUpperCase(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -38,7 +38,7 @@ public class Base16ViewController extends BaseEncodingViewController {
     @Override
     protected String encodeToString() {
         try {
-            return Coding_Base16.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+            return Coding_Base16.encodeToString(JTA_src.getText().toUpperCase(),JCB_charset.getValue().toString());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -49,7 +49,7 @@ public class Base16ViewController extends BaseEncodingViewController {
     @Override
     protected String decodeToString() {
         try {
-            return Coding_Base16.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+            return Coding_Base16.decodeToString(JTA_src.getText().toUpperCase(),JCB_charset.getValue().toString());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
