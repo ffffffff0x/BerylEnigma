@@ -46,6 +46,9 @@
   - Base16
   - Base32
   - Base58
+  - Base62
+  - Base85
+  - Base91
   - BrainFuck
   - HEX
   - HTML实体编码
