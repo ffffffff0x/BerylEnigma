@@ -184,6 +184,11 @@ public class ViewUtils {
         return new ImageView(wr).getImage();
     }
 
+    /**
+     * 用于获取文本分隔符
+     * @param jtaSplit 传入的JFXTextField对象
+     * @return
+     */
     public static String getSplit(JFXTextField jtaSplit) {
         return Util.splitStringReplace(jtaSplit.getText());
     }

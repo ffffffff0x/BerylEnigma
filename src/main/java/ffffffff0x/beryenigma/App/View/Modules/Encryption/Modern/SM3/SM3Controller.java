@@ -57,4 +57,10 @@ public class SM3Controller extends ViewControllerFileMode {
         out[1] = Base64.encodeBase64String(Modern_SM3.hash(message));
         return out;
     }
+
+    @Override
+    protected void JTADSTContextMenu() {
+        super.JTADSTContextMenu();
+        ViewInit.textAreaContextMenu(JTA_dst1,JTA_src);
+    }
 }

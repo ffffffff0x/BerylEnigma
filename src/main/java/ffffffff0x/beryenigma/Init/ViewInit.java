@@ -1,14 +1,19 @@
 package ffffffff0x.beryenigma.Init;
 
+import com.jfoenix.controls.JFXChip;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 
 import java.nio.charset.StandardCharsets;
 
 public class ViewInit {
-    public static void comboBoxCharset(JFXComboBox JCB_temp){
+    public static void comboBoxCharset(JFXComboBox JCB_temp) {
         JCB_temp.getItems().addAll(
                 StandardCharsets.UTF_8,
                 "GBK",
@@ -23,32 +28,31 @@ public class ViewInit {
         JCB_temp.setVisibleRowCount(6);
     }//combobox添加字符集选项
 
-    public static void comboBoxSplit(JFXComboBox<String> JCB_temp){
-        JCB_temp.getItems().addAll(
-                Init.languageResourceBundle.getString("Space_separation"),
-                Init.languageResourceBundle.getString("Line_break"),
-                Init.languageResourceBundle.getString("Semicolon_separated"),
-                Init.languageResourceBundle.getString("Colon_separated"),
-                Init.languageResourceBundle.getString("Comma_separated"),
-                Init.languageResourceBundle.getString("0x_seperated"),
-                Init.languageResourceBundle.getString("%_Separation"),
-                Init.languageResourceBundle.getString("$_separation"),
-                Init.languageResourceBundle.getString("Double_space_separation"),
-                Init.languageResourceBundle.getString("Double_line_break"),
-                Init.languageResourceBundle.getString("Double_semicolon_separated"),
-                Init.languageResourceBundle.getString("Double_colon_separated"),
-                Init.languageResourceBundle.getString("Double_comma_separated")
-        );
-        JCB_temp.setValue(Init.languageResourceBundle.getString("Space_separation"));
-        JCB_temp.setVisibleRowCount(6);
-    }//combobox添加分隔符选项
-
-    public static void textAreaErrorInfoGeneral(JFXTextArea JTA_temp){
+    public static void textAreaErrorInfoGeneral(JFXTextArea JTA_temp) {
         JTA_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
     }//textarea添加报错信息
 
-    public static void textAreaErrorInfoNumCheck(JFXTextField JTF_temp){
+    public static void textAreaErrorInfoNumCheck(JFXTextField JTF_temp) {
         JTF_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage_isNum")));
     }//textarea添加报错信息
 
+    public static void textAreaContextMenu(JFXTextArea JTA_dst,JFXTextArea JTA_src) {
+        // 创建右键菜单
+        ContextMenu contextMenu = new ContextMenu();
+        // 菜单项
+        MenuItem selectAllAndCopy = new MenuItem(Init.languageResourceBundle.getString("SelectAllAndCopy"));
+        selectAllAndCopy.setOnAction(event -> {
+            Clipboard clipboard = Clipboard.getSystemClipboard();
+            ClipboardContent clipboardContent = new ClipboardContent();
+            clipboardContent.putString(JTA_dst.getText());
+            clipboard.setContent(clipboardContent);
+        });
+        // 菜单项
+        MenuItem outputFillInputBox = new MenuItem(Init.languageResourceBundle.getString("OutputFillInputBox"));
+        outputFillInputBox.setOnAction(event -> {
+            JTA_src.setText(JTA_dst.getText());
+        });
+        contextMenu.getItems().addAll(selectAllAndCopy,outputFillInputBox);
+        JTA_dst.setContextMenu(contextMenu);
+    }
 }

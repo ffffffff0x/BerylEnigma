@@ -58,6 +58,7 @@ public abstract class ViewController {
     protected void initialize() {
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
         LoadPopupSettingNode();
+        JTADSTContextMenu();
 //        System.out.println("Father init");
     }
 
@@ -100,7 +101,12 @@ public abstract class ViewController {
     /**
      * 加载时的弹出式设置框初始化
      */
-    protected void LoadPopupSettingNode() {
+    protected void LoadPopupSettingNode() { }
 
+    /**
+     * 输出框右键菜单
+     */
+    protected void JTADSTContextMenu() {
+        ViewInit.textAreaContextMenu(JTA_dst,JTA_src);
     }
 }

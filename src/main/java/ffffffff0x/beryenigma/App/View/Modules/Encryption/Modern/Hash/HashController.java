@@ -94,4 +94,10 @@ public class HashController extends ViewControllerFileMode {
         super.getFile();
         byteFile = FileUtils.getFilebyte(file);
     }
+
+    @Override
+    protected void JTADSTContextMenu() {
+        super.JTADSTContextMenu();
+        ViewInit.textAreaContextMenu(JTA_dst1,JTA_src);
+    }
 }

@@ -126,3 +126,8 @@
     font-family: Jokerman;
     src: url("/fonts/JOKERMAN.TTF");
 }
+
+.menu-item .label {
+    -fx-font-size: 16;
+    -fx-padding: 0 5 0 5;
+}

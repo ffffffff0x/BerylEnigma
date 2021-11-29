@@ -131,4 +131,7 @@ public class LineSplicingController extends ViewController {
             return true;
         }
     }
+
+    @Override
+    protected void JTADSTContextMenu() {}
 }
