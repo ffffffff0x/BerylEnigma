@@ -9,8 +9,6 @@ import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 
-import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.util.Objects;
 
 /**
@@ -24,6 +22,7 @@ public abstract class BaseEncodingViewController extends ViewControllerFileMode 
     @Override
     protected void initialize() {
         super.initialize();
+        super.getByteFileOnDrag();
         ViewInit.comboBoxCharset(JCB_charset);
     }
 

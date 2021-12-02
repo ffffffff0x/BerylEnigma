@@ -59,7 +59,7 @@ public abstract class ViewControllerFileMode extends ViewController {
         JTB_modeSelect.setLayoutX(15);
         JTB_modeSelect.setLayoutY(-15);
         JTB_modeSelect.prefHeight(160);
-        JTB_modeSelect.prefWidth(30);
+        JTB_modeSelect.prefWidth(53);
         ACP_controllerAnchorPane.getChildren().add(JTB_modeSelect);
         JTB_modeSelect.setOnMouseClicked(mouseEvent -> ONClickModeSelect());
     }
