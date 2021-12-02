@@ -37,29 +37,29 @@ public class BrainfuckController extends ViewController {
     @Override
     public void ONClickDecode() {
         super.ONClickDecode();
-            JSP_running.setVisible(true);
-            new Thread(() -> {
-                String result = "";
-                try {
-                    if (JCB_modeCheck.getValue().equals("Brainfuck")) {
-                        result = Coding_Brainfuck.BrainfuckDeCode(JTA_src.getText(),JCB_charset.getValue());
-                    }else if (JCB_modeCheck.getValue().equals("Ook")) {
-                        result = Coding_Brainfuck.OokDeCode(JTA_src.getText(),JCB_charset.getValue());
-                    }else if (JCB_modeCheck.getValue().equals("ShortOok")) {
-                        result = Coding_Brainfuck.shortOokDeCode(JTA_src.getText(),JCB_charset.getValue());
-                    }else if (JCB_modeCheck.getValue().equals("Trollscript")) {
-                        result = Coding_Brainfuck.TrollscriptDeCode(JTA_src.getText(),JCB_charset.getValue());
-                    }
-                }catch (Exception e) {
-                    e.printStackTrace();
-                    ViewUtils.textAreaValidate(JTA_dst);
+        JSP_running.setVisible(true);
+        new Thread(() -> {
+            String result = "";
+            try {
+                if (JCB_modeCheck.getValue().equals("Brainfuck")) {
+                    result = Coding_Brainfuck.BrainfuckDeCode(JTA_src.getText(),JCB_charset.getValue());
+                }else if (JCB_modeCheck.getValue().equals("Ook")) {
+                    result = Coding_Brainfuck.OokDeCode(JTA_src.getText(),JCB_charset.getValue());
+                }else if (JCB_modeCheck.getValue().equals("ShortOok")) {
+                    result = Coding_Brainfuck.shortOokDeCode(JTA_src.getText(),JCB_charset.getValue());
+                }else if (JCB_modeCheck.getValue().equals("Trollscript")) {
+                    result = Coding_Brainfuck.TrollscriptDeCode(JTA_src.getText(),JCB_charset.getValue());
                 }
-                String finalResult = result;
-                Platform.runLater(() -> {
-                    JTA_dst.setText(finalResult);
-                    JSP_running.setVisible(false);
-                });
-            }).start();
+            }catch (Exception e) {
+                e.printStackTrace();
+                ViewUtils.textAreaValidate(JTA_dst);
+            }
+            String finalResult = result;
+            Platform.runLater(() -> {
+                JTA_dst.setText(finalResult);
+                JSP_running.setVisible(false);
+            });
+        }).start();
     }
 
     private void ComboBoxInit() {

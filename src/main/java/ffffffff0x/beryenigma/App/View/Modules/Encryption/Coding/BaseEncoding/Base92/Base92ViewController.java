@@ -4,7 +4,9 @@ import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Codin
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
+import javafx.application.Platform;
 
+import javax.swing.text.PlainDocument;
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -57,22 +59,12 @@ public class Base92ViewController extends BaseEncodingViewController {
     }
 
     @Override
-    protected void encodeToFile() {
-        try {
-            FileUtils.outPutFile(Coding_Base92.encodeToString(byteFile).getBytes(JCB_charset.getValue().toString()));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            JTA_dst.validate();
-        }
+    protected byte[] encodeToFile() {
+        return Coding_Base92.encode(byteFile);
     }
 
     @Override
-    protected void decodeToFile() {
-        try {
-            FileUtils.outPutFile((Coding_Base92.decodeToString(byteFile,JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString()));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            JTA_dst.validate();
-        }
+    protected byte[] decodeToFile() {
+        return Coding_Base92.decode(byteFile);
     }
 }

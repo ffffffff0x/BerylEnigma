@@ -57,22 +57,12 @@ public class Base62ViewController extends BaseEncodingViewController {
     }
 
     @Override
-    protected void encodeToFile() {
-        try {
-            FileUtils.outPutFile(Coding_Base62.encodeToString(byteFile).getBytes(JCB_charset.getValue().toString()));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            JTA_dst.validate();
-        }
+    protected byte[] encodeToFile() {
+        return Coding_Base62.encode(byteFile);
     }
 
     @Override
-    protected void decodeToFile() {
-        try {
-            FileUtils.outPutFile((Coding_Base62.decodeToString(byteFile,JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString()));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            JTA_dst.validate();
-        }
+    protected byte[] decodeToFile() {
+        return Coding_Base62.decode(byteFile);
     }
 }

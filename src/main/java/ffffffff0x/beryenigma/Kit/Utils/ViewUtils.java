@@ -187,9 +187,21 @@ public class ViewUtils {
     /**
      * 用于获取文本分隔符
      * @param jtaSplit 传入的JFXTextField对象
-     * @return
+     * @return String
      */
     public static String getSplit(JFXTextField jtaSplit) {
         return Util.splitStringReplace(jtaSplit.getText());
+    }
+
+    /**
+     * 获取一个圆形假进度条
+     * @return JFXSpinner
+     */
+    public static JFXSpinner getRunningSpinner() {
+        JFXSpinner jfxSpinner = new JFXSpinner();
+        jfxSpinner.setPrefSize(36.0,36.0);
+        jfxSpinner.setVisible(false);
+        setAnchor(jfxSpinner,null,null,50.0,47.0);
+        return jfxSpinner;
     }
 }

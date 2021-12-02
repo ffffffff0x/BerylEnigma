@@ -101,39 +101,41 @@ public class Base58ViewController extends BaseEncodingViewController {
     }
 
     @Override
-    protected void encodeToFile() {
+    protected byte[] encodeToFile() {
         try {
             if (JCB_modeSelect.getValue().equals("Base58-String")){
-                FileUtils.outPutFile(Coding_Base58.encodeToString(byteFile).getBytes(JCB_charset.getValue().toString()));
+                return Coding_Base58.encodeToString(byteFile).getBytes(JCB_charset.getValue().toString());
             } else {
                 if (JCB_modeSelect.getValue().equals("Base58-Check(P2PKH)")) {
-                    FileUtils.outPutFile(Coding_Base58.encodeChecked(0,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString()));
+                    return Coding_Base58.encodeChecked(0,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString());
                 }else if(JCB_modeSelect.getValue().equals("Base58-Check(P2SH)")) {
-                    FileUtils.outPutFile(Coding_Base58.encodeChecked(1,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString()));
+                    return Coding_Base58.encodeChecked(1,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString());
                 }
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
         }
+        return null;
     }
 
     @Override
-    protected void decodeToFile() {
+    protected byte[] decodeToFile() {
         try {
             if (JCB_modeSelect.getValue().equals("Base58-String")){
-                FileUtils.outPutFile(Coding_Base58.decode(byteFile,JCB_charset.getValue().toString()));
+                return Coding_Base58.decode(byteFile,JCB_charset.getValue().toString());
             } else {
                 if (JCB_modeSelect.getValue().equals("Base58-Check(P2PKH)")) {
-                    FileUtils.outPutFile(Coding_Base58.decodeChecked(new String(byteFile,JCB_charset.getValue().toString())));
+                    return Coding_Base58.decodeChecked(new String(byteFile,JCB_charset.getValue().toString()));
                 }else if(JCB_modeSelect.getValue().equals("Base58-Check(P2SH)")) {
-                    FileUtils.outPutFile(Coding_Base58.decodeChecked(new String(byteFile,JCB_charset.getValue().toString())));
+                    return Coding_Base58.decodeChecked(new String(byteFile,JCB_charset.getValue().toString()));
                 }
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
         }
+        return null;
     }
 
     @Override

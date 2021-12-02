@@ -109,25 +109,27 @@ public class Base85ViewController extends BaseEncodingViewController {
     }
 
     @Override
-    protected void encodeToFile() {
+    protected byte[] encodeToFile() {
         if (JCB_modeSelect.getValue().equals("Ascii85")){
-            FileUtils.outPutFile(Coding_Base85.encodeAscii85(byteFile));
+            return Coding_Base85.encodeAscii85(byteFile);
         }else if (JCB_modeSelect.getValue().equals("Base85-RFC1924")){
-            FileUtils.outPutFile(Coding_Base85.encodeRfc1924(byteFile));
+            return Coding_Base85.encodeRfc1924(byteFile);
         }else if(JCB_modeSelect.getValue().equals("Base85-Z85")) {
-            FileUtils.outPutFile(Coding_Base85.encodeZ85(byteFile));
+            return Coding_Base85.encodeZ85(byteFile);
         }
+        return null;
     }
 
     @Override
-    protected void decodeToFile() {
+    protected byte[] decodeToFile() {
         if (JCB_modeSelect.getValue().equals("Ascii85")){
-            FileUtils.outPutFile(Coding_Base85.decodeAscii85(byteFile));
+            return Coding_Base85.decodeAscii85(byteFile);
         }else if (JCB_modeSelect.getValue().equals("Base85-RFC1924")){
-            FileUtils.outPutFile(Coding_Base85.decodeRfc1924(byteFile));
+            return Coding_Base85.decodeRfc1924(byteFile);
         }else if(JCB_modeSelect.getValue().equals("Base85-Z85")) {
-            FileUtils.outPutFile(Coding_Base85.decodeZ85(byteFile));
+            return Coding_Base85.decodeZ85(byteFile);
         }
+        return null;
     }
 
     @Override
