@@ -24,6 +24,6 @@
          <JFXComboBox fx:id="JCB_charset" prefHeight="30.0" prefWidth="100.0" />
          <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClickDecode" prefHeight="50.0" prefWidth="101.0" text="%DeCode" />
       </HBox>
-      <JFXToggleButton fx:id="JTB_modeSelect" layoutX="15.0" layoutY="-15.0" onAction="#ONClickModeSelect" prefHeight="30.0" prefWidth="160.0" size="9.0" text="%TextMode" />
+      <JFXToggleButton fx:id="JTB_modeSelect" layoutX="35.0" layoutY="-15.0" onAction="#ONClickModeSelect" prefHeight="53.0" size="9.0" text="%TextMode" />
    </AnchorPane>
 </AnchorPane>

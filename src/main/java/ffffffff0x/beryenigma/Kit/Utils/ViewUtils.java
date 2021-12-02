@@ -159,8 +159,8 @@ public class ViewUtils {
      */
     public static void setAnchor(Node node, Double TopAnchor, Double LeftAnchor, Double RightAnchor, Double BottomAnchor){
         AnchorPane.setTopAnchor(node,TopAnchor);
-        AnchorPane.setRightAnchor(node,LeftAnchor);
-        AnchorPane.setLeftAnchor(node,RightAnchor);
+        AnchorPane.setRightAnchor(node,RightAnchor);
+        AnchorPane.setLeftAnchor(node,LeftAnchor);
         AnchorPane.setBottomAnchor(node,BottomAnchor);
     }
 

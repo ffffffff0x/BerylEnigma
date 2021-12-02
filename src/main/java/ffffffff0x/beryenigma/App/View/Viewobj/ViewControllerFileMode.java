@@ -56,11 +56,12 @@ public abstract class ViewControllerFileMode extends ViewController {
     public void setFileSelectButton() {
         JTB_modeSelect = new JFXToggleButton();
         JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-        JTB_modeSelect.setLayoutX(15);
-        JTB_modeSelect.setLayoutY(-15);
         JTB_modeSelect.prefHeight(160);
         JTB_modeSelect.prefWidth(53);
+        JTB_modeSelect.setSize(9.0);
         ACP_controllerAnchorPane.getChildren().add(JTB_modeSelect);
+        JTB_modeSelect.setLayoutX(35);
+        JTB_modeSelect.setLayoutY(-15);
         JTB_modeSelect.setOnMouseClicked(mouseEvent -> ONClickModeSelect());
     }
 

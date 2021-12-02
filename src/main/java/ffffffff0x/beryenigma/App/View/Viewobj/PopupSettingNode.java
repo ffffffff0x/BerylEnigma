@@ -47,7 +47,7 @@ public class PopupSettingNode extends AnchorPane {
 
 
     private void initAnchor() {
-        ViewUtils.setAnchor(title,10.0,10.0,  10.0,60.0);
+        ViewUtils.setAnchor(title,10.0,10.0,10.0,60.0);
         ViewUtils.setAnchor(controlAnchor,35.0,10.0,10.0,5.0);
         AnchorPane.setLeftAnchor(separator,10.0);
         AnchorPane.setRightAnchor(separator,10.0);
