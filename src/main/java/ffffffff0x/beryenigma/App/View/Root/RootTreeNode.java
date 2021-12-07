@@ -53,6 +53,7 @@ public class RootTreeNode {
 
         //RedTeam
         ItemAdd(redTeam,"ReverseShellGenerator","/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/ReverseShellGenerator/ReverseShellGeneratorView.fxml");
+        ItemAdd(redTeam,"PayloadConverter","/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/PayloadConverter/PayloadConverter.fxml");
         ItemAdd(redTeam,"TargetFinishing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/TargetClassification/TargetFinishingView.fxml");
         ItemAdd(redTeam,"DomainSplit", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/DomainSplit/DomainSplitView.fxml");
 

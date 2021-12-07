@@ -23,7 +23,7 @@ public class MockView extends Application {
 //        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/CaesarCipher/CaesarCipherView.fxml");
 //        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/Timestamp.fxml");
 //        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Coding/BaseEncoding/Base58/Base58View.fxml");
-        initRootLayout("/ffffffff0x/beryenigma/Kit/Mock/TestView.fxml");
+        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/PayloadConverter/PayloadConverter.fxml");
     }
 
     public void initRootLayout(String FXMLPath) {
