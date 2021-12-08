@@ -19,7 +19,7 @@ public class RedTeam_ReverseShellGenerator {
 
     public RedTeam_ReverseShellGenerator() {
         initListenerType();
-        String jsonData = new BufferedReader(new InputStreamReader(RedTeam_ReverseShellGenerator.class.getResourceAsStream("/redTeam/ReverseShell.json")))
+        String jsonData = new BufferedReader(new InputStreamReader(RedTeam_ReverseShellGenerator.class.getResourceAsStream("/json/redTeam/ReverseShell.json")))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
         Gson gson = new Gson();
         reverseShellBeans = gson.fromJson(jsonData, ReverseShellBeans.class);

@@ -26,12 +26,7 @@ public abstract class ViewControllerFileMode extends ViewController {
         if (JTB_modeSelect.isSelected()) {
             JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
             JTA_src.setEditable(false);
-            try {
-                getFile();
-            }catch (Exception e){
-                e.printStackTrace();
-                notSelectedFile();
-            }
+            getFile();
         }else {
             notSelectedFile();
         }
@@ -106,8 +101,12 @@ public abstract class ViewControllerFileMode extends ViewController {
 
     public void getFile() {
         File file_temp = ViewUtils.getFile();
-        JTA_src.setText(file_temp.toString());
-        file = file_temp;
-        byteFile = FileUtils.getFilebyte(file);
+        if (file_temp != null){
+            JTA_src.setText(file_temp.toString());
+            file = file_temp;
+            byteFile = FileUtils.getFilebyte(file);
+        }else {
+            notSelectedFile();
+        }
     }
 }
