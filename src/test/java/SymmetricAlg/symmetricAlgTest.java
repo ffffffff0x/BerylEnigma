@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @create: 2021-12-03 09:05
  **/
 
-public class SymmetricAlgTets {
+public class symmetricAlgTest {
     public static String[] ALG_b = {"AES", "ARIA", "Blowfish","CAST5","CAST6","Camellia","DES","DESEDE","DSTU7624","IDEA","RC2","RC5","RC6","SEED","SM4","Serpent","Skipjack","TEA","Threefish-1024","Threefish-256","Threefish-512","Twofish","XTEA"};
     public static String[] ALG_s = {};
     public static String[] ALG_PADDING = {"PKCS5Padding", "PKCS7Padding", "ISO10126Padding", "ZeroBytePadding", "NoPadding", "TBCPadding", "X923Padding", "ISO7816d4Padding", "ISO10126d2Padding"};
@@ -58,6 +58,7 @@ public class SymmetricAlgTets {
 //        }
 
         System.out.println(new Gson().toJson(algs));
+//        getmessage();
     }
 
     public static Boolean getAlgMode(String ALGORITHM) {
