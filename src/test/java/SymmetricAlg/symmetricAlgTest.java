@@ -8,6 +8,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Security;
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.stream.Stream;
 
 /**
  * @author: RyuZUSUNC
@@ -22,28 +25,30 @@ public class symmetricAlgTest {
 
     public static void main(String[] args) {
         Security.addProvider(new BouncyCastleProvider());
-        ArrayList<algName> algs = new ArrayList();
+//        ArrayList<algName> algs = new ArrayList();
 
+        LinkedHashMap<String,LinkedHashMap> alg = new LinkedHashMap<>();
         for (String ALG : ALG_b) {
-            algName algName = new algName();
-            algName.setAlgName(ALG);
+            LinkedHashMap<String,ArrayList<String>> algWorkMode = new LinkedHashMap<>();
             for (String MODE : ALG_MODE) {
-                algWorkMode algWorkMode = new algWorkMode();
+                ArrayList<String> modePaddingName = new ArrayList<>();
                 for (String PADDING : ALG_PADDING) {
                     String tmp = ALG + "/" + MODE + "/" + PADDING;
                     if (getAlgMode(tmp)) {
-                        algWorkMode.setModeName(MODE);
 //                        System.out.println(tmp);
-                        algWorkMode.getModePaddingName().add(PADDING);
+                        modePaddingName.add(PADDING);
                     }
                 }
-                if (algWorkMode.getModeName() != null) {
-                    algName.getAlgWorkModes().add(algWorkMode);
+                if (modePaddingName.size()>=1) {
+//                    System.out.println(modePaddingName);
+                    algWorkMode.put(MODE,modePaddingName);
                 }
             }
-            algs.add(algName);
+            alg.put(ALG,algWorkMode);
         }
 
+//        System.out.println(alg);
+//
 //        for (algName alg : algs) {
 //            System.out.print(alg.getAlgName() + " ");
 //            for (algWorkMode algWorkMode : alg.getAlgWorkModes()) {
@@ -57,7 +62,7 @@ public class symmetricAlgTest {
 //            System.out.println("\n");
 //        }
 
-        System.out.println(new Gson().toJson(algs));
+        System.out.println(new Gson().toJson(alg));
 //        getmessage();
     }
 

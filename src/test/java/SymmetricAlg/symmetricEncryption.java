@@ -6,16 +6,15 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
-import java.security.SecureRandom;
 import java.security.Security;
 
 /**
  * @author: RyuZUSUNC
- * @create: 2021/12/7 19:44
+ * @create: 2021-12-07 13:59
  **/
-public class SymmetricEncryption {
+
+public class symmetricEncryption {
     public static void main(String[] args) throws Exception {
         Security.addProvider(new BouncyCastleProvider());
         // 原文:
@@ -27,10 +26,10 @@ public class SymmetricEncryption {
         byte[] iv = "testtesttesttest".getBytes("UTF-8");
         // 加密:
         byte[] data = message.getBytes("UTF-8");
-        byte[] encrypted = encrypt(key, iv, data, "AES/CBC/PKCS7Padding");
+        byte[] encrypted = encrypt(key, iv, data, "AES/GCM/NoPadding");
         System.out.println("Encrypted: " + Coding_Base64.encodeToString(encrypted));
         // 解密:
-        byte[] decrypted = decrypt(key, iv, encrypted, "AES/CBC/PKCS7Padding");
+        byte[] decrypted = decrypt(key, iv, encrypted, "AES/GCM/NoPadding");
         System.out.println("Decrypted: " + new String(decrypted, "UTF-8"));
     }
 
