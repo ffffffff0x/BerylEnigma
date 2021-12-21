@@ -8,7 +8,7 @@ import javafx.scene.Node;
  * @create: 2021/9/7 21:22
  **/
 public class testPopupSettingNode extends PopupSettingNode {
-    public testPopupSettingNode(String titleName, Node controlNode, boolean isFirst) {
-        super(titleName, controlNode, isFirst);
+    public testPopupSettingNode(String titleName, Node controlNode) {
+        super(titleName, controlNode);
     }
 }

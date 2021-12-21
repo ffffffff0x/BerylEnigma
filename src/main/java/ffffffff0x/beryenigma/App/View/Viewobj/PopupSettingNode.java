@@ -31,6 +31,18 @@ public class PopupSettingNode extends AnchorPane {
         controlAnchor.getChildren().add(controlNode);
     }
 
+    public PopupSettingNode(String titleName, Node controlNode) {
+        super();
+        this.setPrefSize(160,80);
+        initAnchor();
+        ViewUtils.setAnchor(controlNode,5.0,5.0,5.0,15.0);
+        title.setText(titleName);
+        this.getChildren().add(title);
+        this.getChildren().add(controlAnchor);
+        this.getChildren().add(separator);
+        controlAnchor.getChildren().add(controlNode);
+    }
+
     public PopupSettingNode(String titleName, Node controlNode,Double prefWidth, boolean isFirst) {
         super();
         this.setPrefSize(prefWidth,80);
@@ -42,6 +54,18 @@ public class PopupSettingNode extends AnchorPane {
         if (!isFirst) {
             this.getChildren().add(separator);
         }
+        controlAnchor.getChildren().add(controlNode);
+    }
+
+    public PopupSettingNode(String titleName, Node controlNode,Double prefWidth) {
+        super();
+        this.setPrefSize(prefWidth,80);
+        initAnchor();
+        ViewUtils.setAnchor(controlNode,5.0,5.0,5.0,15.0);
+        title.setText(titleName);
+        this.getChildren().add(title);
+        this.getChildren().add(controlAnchor);
+        this.getChildren().add(separator);
         controlAnchor.getChildren().add(controlNode);
     }
 
