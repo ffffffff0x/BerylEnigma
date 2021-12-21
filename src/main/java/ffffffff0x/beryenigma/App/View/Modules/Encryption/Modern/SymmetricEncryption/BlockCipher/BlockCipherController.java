@@ -1,4 +1,4 @@
-package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SymmetricEncryption;
+package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SymmetricEncryption.BlockCipher;
 
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXComboBox;
@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
+import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
  * @author: RyuZUSUNC
  * @create: 2021/12/6 21:12
  **/
-public class SymmetricEncryptionController extends ViewControllerFileMode {
+public class BlockCipherController extends ViewControllerFileMode {
     //加密方式
     @FXML JFXComboBox<String> JCB_algorithm;
     //密钥
@@ -73,14 +74,14 @@ public class SymmetricEncryptionController extends ViewControllerFileMode {
         initControl();
 
         //弹出式控件框中添加初始化完的控件
-        popupSettingView.setSetting(new PopupSettingNode("IV",JTF_iv,true));
-        popupSettingView.setSetting(new PopupSettingNode("EncryptionMode",JCB_encryptionMode,true));
-        popupSettingView.setSetting(new PopupSettingNode("PaddingMode",JCB_paddingMode));
-        popupSettingView.setSetting(new PopupSettingNode("TextEncoding",JCB_textEncoding));
-        popupSettingView.setSetting(new PopupSettingNode("InputFormat",JCB_inputFormat));
-        popupSettingView.setSetting(new PopupSettingNode("KeyFormat",JCB_keyFormat));
-        popupSettingView.setSetting(new PopupSettingNode("IVFormat",JCB_ivFormat));
-        popupSettingView.setSetting(new PopupSettingNode("OutputFormat",JCB_outputFormat));
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("IV"),JTF_iv,true));
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("EncryptionMode"),JCB_encryptionMode,true));
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("PaddingMode"),JCB_paddingMode));
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("TextEncoding"),JCB_textEncoding));
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("InputFormat"),JCB_inputFormat));
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("KeyFormat"),JCB_keyFormat));
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("IVFormat"),JCB_ivFormat));
+        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("OutputFormat"),JCB_outputFormat));
 
     }
 
@@ -100,7 +101,7 @@ public class SymmetricEncryptionController extends ViewControllerFileMode {
     //初始化控件
     private void initControl() {
         //反序列化一个所有加密选项的实体
-        String jsonData = new BufferedReader(new InputStreamReader(Objects.requireNonNull(SymmetricEncryptionController.class.getResourceAsStream("/json/SymmetricEncryptionAlg.json"))))
+        String jsonData = new BufferedReader(new InputStreamReader(Objects.requireNonNull(BlockCipherController.class.getResourceAsStream("/json/SymmetricEncryptionAlg.json"))))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
         algs = new Gson().fromJson(jsonData, LinkedHashMap.class);
         //构建对称加密类型的选项
