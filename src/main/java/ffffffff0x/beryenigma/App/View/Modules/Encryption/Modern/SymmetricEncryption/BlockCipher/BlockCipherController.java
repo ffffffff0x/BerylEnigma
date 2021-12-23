@@ -3,6 +3,8 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SymmetricEncryp
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base64;
+import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
@@ -12,8 +14,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
+import javax.swing.table.TableRowSorter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Objects;
@@ -151,5 +156,41 @@ public class BlockCipherController extends ViewControllerFileMode {
         JCB_keyFormat.setValue("Text");
         JCB_ivFormat.setValue("Text");
         JCB_outputFormat.setValue("Text");
+    }
+
+    //分组密码加密参数
+    private BlockCipherParameters getBlockCipherParameters() {
+        BlockCipherParameters blockCipherParameters = new BlockCipherParameters();
+
+        blockCipherParameters.setAlgorithm(JCB_algorithm.getValue());
+        blockCipherParameters.setEncryptionMode(JCB_encryptionMode.getValue());
+        blockCipherParameters.setKey(patameterTransform(JTF_key.getText(),JCB_keyFormat,JCB_textEncoding));
+        blockCipherParameters.setIv(patameterTransform(JTF_iv.getText(),JCB_ivFormat,JCB_textEncoding));
+        blockCipherParameters.setMessageInput(patameterTransform(JTA_src.getText(),JCB_inputFormat,JCB_textEncoding));
+        blockCipherParameters.setPaddingMode(JCB_paddingMode.getValue());
+        blockCipherParameters.setTextEncoding(JCB_textEncoding.getValue());
+
+        return blockCipherParameters;
+    }
+
+    //输入值转换器获取器
+    private byte[] patameterTransform(String msg,JFXComboBox<String> jcb,JFXComboBox<String> textEncode) {
+        String msgType = jcb.getValue();
+        String msgEncode = textEncode.getValue();
+        byte[] msgByte;
+
+        try {
+            msgByte = msg.getBytes(msgEncode);
+            if (msgType.equals("Text")) {
+                return msgByte;
+            }else if (msgType.equals("Base64")) {
+                return Coding_Base64.decode(msgByte);
+            }else if (msgType.equals("HEX")) {
+                return Coding_HEXCoder.decode(msgByte);
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

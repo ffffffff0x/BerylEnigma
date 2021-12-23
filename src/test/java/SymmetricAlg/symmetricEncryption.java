@@ -26,10 +26,10 @@ public class symmetricEncryption {
         byte[] iv = "testtesttesttest".getBytes("UTF-8");
         // 加密:
         byte[] data = message.getBytes("UTF-8");
-        byte[] encrypted = encrypt(key, iv, data, "AES/GCM/NoPadding");
+        byte[] encrypted = encrypt(key, iv, data, "AES/ECB/NoPadding");
         System.out.println("Encrypted: " + Coding_Base64.encodeToString(encrypted));
         // 解密:
-        byte[] decrypted = decrypt(key, iv, encrypted, "AES/GCM/NoPadding");
+        byte[] decrypted = decrypt(key, iv, encrypted, "AES/ECB/NoPadding");
         System.out.println("Decrypted: " + new String(decrypted, "UTF-8"));
     }
 
@@ -58,12 +58,5 @@ public class symmetricEncryption {
             cipher.init(Cipher.DECRYPT_MODE, keySpec, ivps);
         }
         return cipher.doFinal(input);
-    }
-
-    public static byte[] join(byte[] bs1, byte[] bs2) {
-        byte[] r = new byte[bs1.length + bs2.length];
-        System.arraycopy(bs1, 0, r, 0, bs1.length);
-        System.arraycopy(bs2, 0, r, bs1.length, bs2.length);
-        return r;
     }
 }

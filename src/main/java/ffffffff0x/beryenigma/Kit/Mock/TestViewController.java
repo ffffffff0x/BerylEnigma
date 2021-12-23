@@ -1,15 +1,6 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.TransferMode;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.List;
 
 public class TestViewController extends ViewController {
     /**
