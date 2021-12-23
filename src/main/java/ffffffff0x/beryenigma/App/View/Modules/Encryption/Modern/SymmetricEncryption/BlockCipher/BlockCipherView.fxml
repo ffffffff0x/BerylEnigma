@@ -17,10 +17,10 @@
       <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="315.0" prefHeight="165.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0" />
       <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <children>
-            <JFXButton fx:id="JBT_enCode" buttonType="RAISED" prefHeight="50.0" prefWidth="101.0" text="%Encrypt" />
+            <JFXButton fx:id="JBT_enCode" buttonType="RAISED" onAction="#ONClickEncode" prefHeight="50.0" prefWidth="101.0" text="%Encrypt" />
             <JFXComboBox fx:id="JCB_algorithm" prefHeight="23.0" prefWidth="85.0" />
             <JFXTextField fx:id="JTF_key" prefHeight="23.0" prefWidth="150.0" promptText="%Key" />
-            <JFXButton fx:id="JBT_deCode" buttonType="RAISED" prefHeight="50.0" prefWidth="101.0" text="%Decrypt" />
+            <JFXButton fx:id="JBT_deCode" buttonType="RAISED" onAction="#ONClickDecode" prefHeight="50.0" prefWidth="101.0" text="%Decrypt" />
          </children>
          <opaqueInsets>
             <Insets />
