@@ -22,6 +22,7 @@ public class RootTreeNode {
             final TreeItem<String> imageTools = new TreeItem<>(Init.languageResourceBundle.getString("ImageTools"),folderIcon("open"));
         final TreeItem<String> encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
             final TreeItem<String> modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
+                final TreeItem<String> symmetricEncryption = new TreeItem<>(Init.languageResourceBundle.getString("SymmetricEncryption"),folderIcon("open"));
                 final TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
             final TreeItem<String> classical = new TreeItem<>(Init.languageResourceBundle.getString("Classical"),folderIcon("open"));
             final TreeItem<String> coding = new TreeItem<>(Init.languageResourceBundle.getString("Coding"),folderIcon("open"));
@@ -65,11 +66,10 @@ public class RootTreeNode {
 
         //Modern
         modern.getChildren().add(authentication);
-        // ItemAdd(modern,"AES");
-        // ItemAdd(modern,"DES");
+        modern.getChildren().add(symmetricEncryption);
+        ItemAdd(symmetricEncryption,"BlockCipher","/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/SymmetricEncryption/BlockCipher/BlockCipherView.fxml");
         ItemAdd(modern,"HASH", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/Hash/HashView.fxml");
         ItemAdd(modern,"SM3", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/SM3/SM3View.fxml");
-        // ItemAdd(modern,"SM4");
 
         //Authentication
         ItemAdd(authentication,"NTLM_Hash", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/Authentication/NTLM/NTLMView.fxml");

@@ -3,6 +3,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SymmetricEncryp
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base64;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.SymmetricEncryption.BlockCipher.Modern_BlockCipher;
@@ -11,6 +12,9 @@ import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
+import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.Util;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +22,7 @@ import javafx.fxml.FXML;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Objects;
@@ -62,13 +67,60 @@ public class BlockCipherController extends ViewControllerFileMode {
     @Override
     public void ONClickEncode() {
         super.ONClickEncode();
-        JTA_dst.setText(outputTransform(Modern_BlockCipher.encrypt(getBlockCipherParameters()).getMessageOutput(),JCB_outputFormat,JCB_textEncoding,true));
+        JTA_dst.setStyle("-fx-text-fill: black");
+        new Thread(() -> {
+            BlockCipherParameters blockCipherParameters;
+            String catchString = null;
+            try {
+                blockCipherParameters = Modern_BlockCipher.encrypt(getBlockCipherParameters());
+                if (JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))) {
+                    Platform.runLater(() -> JTA_dst.setText(outputTransform(blockCipherParameters.getMessageOutput(),JCB_outputFormat,JCB_textEncoding,true)));
+                }else {
+                    Platform.runLater(() -> {
+                        FileUtils.outPutFile(blockCipherParameters.getMessageOutput());
+                        fileEncodeEnd();
+                    });
+                }
+            } catch (Exception e) {
+                catchString = Util.getStackTraceInfo(e);
+            } finally {
+                if (catchString != null) {
+                    JTA_dst.setStyle("-fx-text-fill: red");
+                    JTA_dst.setText(catchString.split("\n")[0].substring(catchString.indexOf(":") + 1));
+//                    JTA_dst.setText(catchString.split("\n")[0]);
+                }
+            }
+        }).start();
+
     }
 
     @Override
     public void ONClickDecode() {
         super.ONClickDecode();
-        JTA_dst.setText(outputTransform(Modern_BlockCipher.decrypt(getBlockCipherParameters()).getMessageOutput(),JCB_outputFormat,JCB_textEncoding,false));
+        JTA_dst.setStyle("-fx-text-fill: black");
+        new Thread(() -> {
+            BlockCipherParameters blockCipherParameters;
+            String catchString = null;
+            try {
+                blockCipherParameters = Modern_BlockCipher.decrypt(getBlockCipherParameters());
+                if (JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))) {
+                    Platform.runLater(() -> JTA_dst.setText(outputTransform(blockCipherParameters.getMessageOutput(), JCB_outputFormat, JCB_textEncoding, false)));
+                }else {
+                    Platform.runLater(() -> {
+                        FileUtils.outPutFile(blockCipherParameters.getMessageOutput());
+                        fileEncodeEnd();
+                    });
+                }
+            } catch (Exception e) {
+                catchString = Util.getStackTraceInfo(e);
+            } finally {
+                if (catchString != null) {
+                    JTA_dst.setStyle("-fx-text-fill: red");
+                    JTA_dst.setText(catchString.split("\n")[0].substring(catchString.indexOf(":") + 1));
+//                    JTA_dst.setText(catchString.split("\n")[0]);
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -167,7 +219,16 @@ public class BlockCipherController extends ViewControllerFileMode {
         blockCipherParameters.setEncryptionMode(JCB_encryptionMode.getValue());
         blockCipherParameters.setKey(patameterTransform(JTF_key.getText(),JCB_keyFormat,JCB_textEncoding));
         blockCipherParameters.setIv(patameterTransform(JTF_iv.getText(),JCB_ivFormat,JCB_textEncoding));
-        blockCipherParameters.setMessageInput(patameterTransform(JTA_src.getText(),JCB_inputFormat,JCB_textEncoding));
+        if (JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))) {
+            blockCipherParameters.setMessageInput(patameterTransform(JTA_src.getText(),JCB_inputFormat,JCB_textEncoding));
+        }else {
+            if (byteFile != null){
+                blockCipherParameters.setMessageInput(byteFile);
+            }else {
+                JTA_dst.setText("输入不能为空");
+                System.out.println("输入不能为空");
+            }
+        }
         blockCipherParameters.setPaddingMode(JCB_paddingMode.getValue());
         blockCipherParameters.setTextEncoding(JCB_textEncoding.getValue().toString());
 
@@ -175,7 +236,7 @@ public class BlockCipherController extends ViewControllerFileMode {
     }
 
     //输入值转换器获取器
-    private byte[] patameterTransform(String msg,JFXComboBox<String> jcb,JFXComboBox textEncode) {
+    private byte[] patameterTransform(String msg, JFXComboBox<String> jcb, JFXComboBox textEncode) {
         String msgType = jcb.getValue();
         String msgEncode = textEncode.getValue().toString();
         byte[] msgByte;

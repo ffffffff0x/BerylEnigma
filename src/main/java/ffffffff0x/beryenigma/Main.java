@@ -8,8 +8,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.io.IOException;
+import java.security.Security;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -23,6 +25,7 @@ public class Main extends Application {
         primaryStage.setTitle("BerylEnigma");
         primaryStage.setMinHeight(664.0);
         primaryStage.setMinWidth(916.0);
+        Security.addProvider(new BouncyCastleProvider());
         initRootLayout();
     }
 
