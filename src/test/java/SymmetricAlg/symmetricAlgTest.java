@@ -27,6 +27,11 @@ public class symmetricAlgTest {
         Security.addProvider(new BouncyCastleProvider());
 //        ArrayList<algName> algs = new ArrayList();
 
+//        getAlg();
+        getmessage();
+    }
+
+    public static void getAlg() {
         LinkedHashMap<String,LinkedHashMap> alg = new LinkedHashMap<>();
         for (String ALG : ALG_b) {
             LinkedHashMap<String,ArrayList<String>> algWorkMode = new LinkedHashMap<>();
@@ -63,7 +68,6 @@ public class symmetricAlgTest {
 //        }
 
         System.out.println(new Gson().toJson(alg));
-//        getmessage();
     }
 
     public static Boolean getAlgMode(String ALGORITHM) {
@@ -84,7 +88,7 @@ public class symmetricAlgTest {
     public static void getmessage() {
 
         for (String message : Security.getAlgorithms("MessageDigest")) {
-//            System.out.println(message);
+            System.out.println(message);
         }
 
         System.out.println("----------------------------");
@@ -96,7 +100,7 @@ public class symmetricAlgTest {
         System.out.println("----------------------------");
 
         for (String s : Security.getAlgorithms("Cipher")) {
-            System.out.println(s);
+//            System.out.println(s);
 //            if (s.contains("AES_128")){
 //                System.out.println(s);
 //            }

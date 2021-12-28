@@ -11,9 +11,8 @@ import javafx.fxml.FXML;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 
-import java.io.File;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
+import java.util.*;
 
 public class HashController extends ViewControllerFileMode {
     /**
@@ -22,7 +21,8 @@ public class HashController extends ViewControllerFileMode {
      */
 
     @FXML private JFXComboBox JCB_charset;
-    @FXML private JFXComboBox JCB_hashMode;
+    @FXML private JFXComboBox<String> JCB_hashMode;
+    @FXML private JFXComboBox<String> JCB_hashBit;
 
     @Override
     protected void initialize() {
@@ -34,6 +34,8 @@ public class HashController extends ViewControllerFileMode {
     @Override
     public void ONClickConfirm() {
         super.ONClickConfirm();
+        JTA_dst.setStyle("-fx-text-fill: black");
+        JTA_dst1.setStyle("-fx-text-fill: black");
         try{
             String[] dst = new String[0];
             if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
@@ -49,29 +51,33 @@ public class HashController extends ViewControllerFileMode {
             JTA_dst1.setText(dst[0]);
             JTA_dst.setText(dst[1]);
         }catch (Exception e){
-            ViewUtils.textAreaValidate(JTA_dst);
+            JTA_dst.setStyle("-fx-text-fill: red");
+            JTA_dst1.setStyle("-fx-text-fill: red");
+            JTA_dst.setText(e.getMessage());
+            JTA_dst1.setText(e.getMessage());
         }
     }
 
     private void initComboBox(){
+        HashInstanceList hashInstanceList = new HashInstanceList();
+
+        new HashInstanceList().getInstanceList();
         JCB_hashMode.getItems().addAll(
-                "MD5",
-                "MD5-16",
-                "MD2",
-                "MD4",
-                "SHA-1",
-                "SHA-224",
-                "SHA-256",
-                "SHA-384",
-                "SHA-512",
-                "SHA-512/224",
-                "SHA-512/256",
-                "SHA3-224",
-                "SHA3-256",
-                "SHA3-384",
-                "SHA3-512");
+                hashInstanceList.getInstanceNameList());
         JCB_hashMode.setValue("MD5");
         JCB_hashMode.setVisibleRowCount(6);
+
+        JCB_hashMode.setOnAction(actionEvent -> {
+            List<String> bitList = hashInstanceList.getInstanceList().get(JCB_hashMode.getValue());
+            JCB_hashBit.getItems().setAll(bitList);
+            JCB_hashBit.setValue(bitList.get(0));
+        });
+
+        JCB_hashBit.setEditable(false);
+        JCB_hashBit.getItems().add("128");
+        JCB_hashBit.setValue("128");
+        JCB_hashBit.setVisibleRowCount(6);
+
         ViewInit.comboBoxCharset(JCB_charset);
     }
 
@@ -79,12 +85,12 @@ public class HashController extends ViewControllerFileMode {
         String[] out = new String[2];
         if(JCB_hashMode.getValue().equals("MD5-16")){
             byte[] md5_16;
-            md5_16 = Arrays.copyOfRange(Modern_Hash.hash(message,JCB_hashMode.getValue().toString()),4,12);
+            md5_16 = Arrays.copyOfRange(Modern_Hash.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()),4,12);
             out[0] = Hex.encodeHexString(md5_16);
             out[1] = Base64.encodeBase64String(md5_16);
         }else{
-            out[0] = Hex.encodeHexString(Modern_Hash.hash(message,JCB_hashMode.getValue().toString()));
-            out[1] = Base64.encodeBase64String(Modern_Hash.hash(message,JCB_hashMode.getValue().toString()));
+            out[0] = Hex.encodeHexString(Modern_Hash.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()));
+            out[1] = Base64.encodeBase64String(Modern_Hash.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()));
         }
         return out;
     }

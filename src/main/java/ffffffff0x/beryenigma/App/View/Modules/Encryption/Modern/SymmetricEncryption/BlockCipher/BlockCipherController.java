@@ -3,7 +3,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SymmetricEncryp
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base64;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.SymmetricEncryption.BlockCipher.Modern_BlockCipher;
@@ -22,7 +21,6 @@ import javafx.fxml.FXML;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Objects;
@@ -131,7 +129,7 @@ public class BlockCipherController extends ViewControllerFileMode {
         //初始化控件
         initControl();
 
-        //弹出式控件框中添加初始化完的控件
+        //弹出式控件框中添加初始化的控件
         popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("IV"),JTF_iv,true));
         popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("EncryptionMode"),JCB_encryptionMode,true));
         popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("PaddingMode"),JCB_paddingMode));
@@ -211,7 +209,7 @@ public class BlockCipherController extends ViewControllerFileMode {
         JCB_outputFormat.setValue("Text");
     }
 
-    //分组密码加密参数
+    //获取分组密码加密参数实体类
     private BlockCipherParameters getBlockCipherParameters() {
         BlockCipherParameters blockCipherParameters = new BlockCipherParameters();
 
@@ -235,7 +233,7 @@ public class BlockCipherController extends ViewControllerFileMode {
         return blockCipherParameters;
     }
 
-    //输入值转换器获取器
+    //输入值转换器，将输入值转换为byte[]格式
     private byte[] patameterTransform(String msg, JFXComboBox<String> jcb, JFXComboBox textEncode) {
         String msgType = jcb.getValue();
         String msgEncode = textEncode.getValue().toString();
