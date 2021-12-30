@@ -1,7 +1,6 @@
 package SymmetricAlg;
 
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base64;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -16,7 +15,6 @@ import java.security.Security;
 
 public class symmetricEncryption {
     public static void main(String[] args) throws Exception {
-        Security.addProvider(new BouncyCastleProvider());
         // 原文:
         String message = "Hello, world!";
         System.out.println("Message: " + message);

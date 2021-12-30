@@ -1,12 +1,10 @@
 package SymmetricAlg;
 
 import com.google.gson.Gson;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Security;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -24,7 +22,6 @@ public class symmetricAlgTest {
     public static String[] ALG_MODE = {"CBC", "ECB", "CFB", "OFB", "CTR", "GCM", "CCM", "EAX", "OCB"};
 
     public static void main(String[] args) {
-        Security.addProvider(new BouncyCastleProvider());
 //        ArrayList<algName> algs = new ArrayList();
 
 //        getAlg();

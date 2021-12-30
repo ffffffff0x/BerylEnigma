@@ -8,6 +8,7 @@
     <artifactId>BerylEnigma</artifactId>
     <version>1.11.0</version>
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <argLine>-Dfile.encoding=UTF-8</argLine>
@@ -86,9 +87,8 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.7</version>
+                <version>0.0.8</version>
                 <configuration>
-<!--                    <release>${maven.compiler.release}</release>-->
                     <jlinkImageName>beryenigma</jlinkImageName>
                     <launcher>launcher</launcher>
                     <mainClass>beryenigma/ffffffff0x.beryenigma.Main</mainClass>
@@ -157,14 +157,7 @@
             <version>2.8.9</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.70</version>
-        </dependency>
-
-<!--        <dependency>-->
+        <!--        <dependency>-->
 <!--            <groupId>com.twelvemonkeys.imageio</groupId>-->
 <!--            <artifactId>imageio-jpeg</artifactId>-->
 <!--            <version>${com.twelvemonkeys.version}</version>-->

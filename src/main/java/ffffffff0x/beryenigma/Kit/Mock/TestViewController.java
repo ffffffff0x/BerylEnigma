@@ -2,6 +2,9 @@ package ffffffff0x.beryenigma.Kit.Mock;
 
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
+import java.security.Provider;
+import java.security.Security;
+
 public class TestViewController extends ViewController {
     /**
      * 全局界面初始化
@@ -11,6 +14,11 @@ public class TestViewController extends ViewController {
         super.initialize();
         setTextareaOnDrag();
         JTA_src.setText(System.getProperty("user.dir"));
+        StringBuilder a = new StringBuilder();
+        for (Provider o : Security.getProviders()) {
+            a.append(o.getName()).append("\n");
+        }
+        JTA_dst.setText(a.toString());
     }
 
     protected void setTextareaOnDrag() {

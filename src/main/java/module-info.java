@@ -8,5 +8,6 @@ open module beryenigma {
     requires java.scripting;
     requires ApacheCommons;
     requires com.google.gson;
-    requires org.bouncycastle.provider;
+    requires java.naming;
+    requires java.sql;
 }

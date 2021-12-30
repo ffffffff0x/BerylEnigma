@@ -1,0 +1,5 @@
+#!/bin/bash
+jpackage -n BE-BerylEnigma --app-version $0 -m "beryenigma/ffffffff0x.beryenigma.Main" --runtime-image ../target/beryenigma --dest ../target/ --java-options "-Djava.class.path=../lib/runtime/ext/bcprov-jdk15on-1.70.jar --add-opens=java.base/java.lang.reflect=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports=javafx.base/com.sun.javafx.binding=com.jfoenix --add-exports=javafx.base/com.sun.javafx.event=com.jfoenix --add-exports=javafx.graphics/com.sun.javafx.stage=com.jfoenix --add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control=com.jfoenix" --icon ./ico/BerylEnigma.png --type app-image --description "BerylEnigma" --vendor "RyuZU,ffffffff0x" --copyright "Copyright 2021 ffffffff0x,MIT License"
+rm -rf ../target/BE-BerylEnigma/lib/runtime/conf/security/java.security
+cp -rf ./conf/java.security ../target/BE-BerylEnigma/lib/runtime/conf/security/java.security
+cp -rf ./ext ../target/BE-BerylEnigma/lib/runtime/ext
