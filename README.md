@@ -43,13 +43,15 @@
 - 编码
   - URL
   - ASCII
-  - Base64
-  - Base16
-  - Base32
-  - Base58
-  - Base62
-  - Base85
-  - Base91
+  - BaseEncoding
+    - Base64
+    - Base16
+    - Base32
+    - Base58
+    - Base62
+    - Base85
+    - Base91
+    - Base92
   - BrainFuck
   - HEX
   - HTML实体编码
@@ -67,6 +69,7 @@
 - 目标整理
 - 域名分割
 - 回弹shell生成
+- Payload转换
 
 **日常实用工具**
 - 货币金额大小写
