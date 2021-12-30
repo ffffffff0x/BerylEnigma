@@ -1,9 +1,6 @@
 package ffffffff0x.beryenigma.Init;
 
-import com.jfoenix.controls.JFXChip;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -51,6 +48,28 @@ public class ViewInit {
         MenuItem outputFillInputBox = new MenuItem(Init.languageResourceBundle.getString("OutputFillInputBox"));
         outputFillInputBox.setOnAction(event -> {
             JTA_src.setText(JTA_dst.getText());
+        });
+        contextMenu.getItems().addAll(selectAllAndCopy,outputFillInputBox);
+        JTA_dst.setContextMenu(contextMenu);
+    }
+
+    public static void textAreaContextMenu(JFXTextArea JTA_dst, JFXTextArea JTA_src, JFXToggleButton jfxToggleButton) {
+        // 创建右键菜单
+        ContextMenu contextMenu = new ContextMenu();
+        // 菜单项
+        MenuItem selectAllAndCopy = new MenuItem(Init.languageResourceBundle.getString("SelectAllAndCopy"));
+        selectAllAndCopy.setOnAction(event -> {
+            Clipboard clipboard = Clipboard.getSystemClipboard();
+            ClipboardContent clipboardContent = new ClipboardContent();
+            clipboardContent.putString(JTA_dst.getText());
+            clipboard.setContent(clipboardContent);
+        });
+        // 菜单项
+        MenuItem outputFillInputBox = new MenuItem(Init.languageResourceBundle.getString("OutputFillInputBox"));
+        outputFillInputBox.setOnAction(event -> {
+            JTA_src.setText(JTA_dst.getText());
+            jfxToggleButton.setText(Init.languageResourceBundle.getString("TextMode"));
+            jfxToggleButton.setSelected(false);
         });
         contextMenu.getItems().addAll(selectAllAndCopy,outputFillInputBox);
         JTA_dst.setContextMenu(contextMenu);

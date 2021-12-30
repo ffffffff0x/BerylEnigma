@@ -2,6 +2,7 @@ package ffffffff0x.beryenigma.App.View.Viewobj;
 
 import com.jfoenix.controls.JFXToggleButton;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
@@ -108,5 +109,13 @@ public abstract class ViewControllerFileMode extends ViewController {
         }else {
             notSelectedFile();
         }
+    }
+
+    /**
+     * 输出框右键菜单
+     */
+    @Override
+    protected void JTADSTContextMenu() {
+        ViewInit.textAreaContextMenu(JTA_dst,JTA_src,JTB_modeSelect);
     }
 }
