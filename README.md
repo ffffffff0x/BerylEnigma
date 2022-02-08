@@ -10,7 +10,7 @@
 
 软件基于JDK17开发，使用JAVAFX UI框架以及JFoenixUI组件架构。详见开发文档。
 
-名称中的 **Beryl**`(['berəl])` 是一种宝石/矿物的名字，**Enigma** `([ɪ'nɪɡmə])`有谜团的意思，也泛指二战中的一种密码机。
+名称中的 **Beryl**`(['berəl])` 是一种宝石/矿物的名字，**Enigma** `([ɪ'nɪɡmə])`有谜团的意思，也指二战中的一种密码机。
 
 ---
 
@@ -95,3 +95,8 @@
 # 免责声明
 
 本项目所有文件仅供学习和研究使用,请勿使用项目中的文件用于非法用途,任何人造成的任何负面影响,与本人无关.
+
+# Special Thanks
+Special thanks to [JetBrains](https://www.jetbrains.com) for their support to this project.
+
+[![](./assets/img/JetBrains.png)](https://www.jetbrains.com)

@@ -1,6 +1,10 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
+import ffffffff0x.beryenigma.Init.ViewInit;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
+import javafx.scene.control.TextFormatter;
+import javafx.stage.Stage;
 
 import java.security.Provider;
 import java.security.Security;
@@ -19,6 +23,16 @@ public class TestViewController extends ViewController {
             a.append(o.getName()).append("\n");
         }
         JTA_dst.setText(a.toString());
+        ViewInit.textAreaErrorInfoGeneral(JTA_src);
+        JTA_src.setTextFormatter(new TextFormatter<String>(change -> {
+            System.out.println(change.getText());//获取文本
+            String value = change.getText();
+            if (value.matches("[A-Z]") || value.length() == 0){//限制用户输入，使用正则表达式很重要
+                return change;
+            }
+            ViewUtils.alertPane(new Stage(),"test","test");
+            return null;
+        }));
     }
 
     protected void setTextareaOnDrag() {
