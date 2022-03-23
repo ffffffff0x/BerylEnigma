@@ -14,9 +14,9 @@
         <argLine>-Dfile.encoding=UTF-8</argLine>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <javafx.version>17.0.0.1</javafx.version>
-        <classifier>win</classifier>
-        <com.twelvemonkeys.version>3.7.0</com.twelvemonkeys.version>
+        <javafx.version>17.0.2</javafx.version>
+<!--        <classifier>win</classifier>-->
+<!--        <com.twelvemonkeys.version>3.7.0</com.twelvemonkeys.version>-->
     </properties>
     <build>
         <resources>
@@ -112,28 +112,28 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>
             <version>${javafx.version}</version>
-            <classifier>${classifier}</classifier>
+<!--            <classifier>${classifier}</classifier>-->
         </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
-            <classifier>${classifier}</classifier>
+<!--            <classifier>${classifier}</classifier>-->
         </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
             <version>${javafx.version}</version>
-            <classifier>${classifier}</classifier>
+<!--            <classifier>${classifier}</classifier>-->
         </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
-            <classifier>${classifier}</classifier>
+<!--            <classifier>${classifier}</classifier>-->
         </dependency>
 
         <dependency>
