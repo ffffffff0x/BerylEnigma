@@ -22,6 +22,7 @@
 ## 下载
 访问 [releases](https://github.com/ffffffff0x/BerylEnigma/releases) 下载
 
+**MAC 用户请放置在应用程序路径下以加载bcprov的加解密包**
 ---
 
 # 目前支持的功能
