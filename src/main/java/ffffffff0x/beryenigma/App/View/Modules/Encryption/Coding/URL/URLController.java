@@ -1,11 +1,13 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.URL;
 
+import com.jfoenix.controls.JFXCheckBox;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.URL.Coding_URL;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
+import org.apache.commons.codec.DecoderException;
 
 import java.io.UnsupportedEncodingException;
 
@@ -15,6 +17,8 @@ import java.io.UnsupportedEncodingException;
 public class URLController extends ViewController {
     @FXML
     private JFXComboBox JCB_charset;
+    @FXML
+    private JFXCheckBox JCB_encodeAll;
 
     @Override
     protected void initialize(){
@@ -27,7 +31,11 @@ public class URLController extends ViewController {
     public void ONClickEncode() {
         super.ONClickEncode();
         try {
-            JTA_dst.setText(Coding_URL.encode(JTA_src.getText(),JCB_charset.getValue().toString()));
+            if (JCB_encodeAll.isSelected()) {
+                JTA_dst.setText(Coding_URL.encodeAll(JTA_src.getText(),JCB_charset.getValue().toString()));
+            }else {
+                JTA_dst.setText(Coding_URL.encode(JTA_src.getText(),JCB_charset.getValue().toString()));
+            }
         } catch (UnsupportedEncodingException e) {
 //            e.printStackTrace();
             ViewUtils.textAreaValidate(JTA_dst);
@@ -42,6 +50,8 @@ public class URLController extends ViewController {
         } catch (UnsupportedEncodingException e) {
 //            e.printStackTrace();
             ViewUtils.textAreaValidate(JTA_dst);
+        } catch (DecoderException e) {
+            e.printStackTrace();
         }
     }
 }

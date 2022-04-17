@@ -10,7 +10,7 @@ import java.math.BigInteger;
  * @create: 2021-12-01 14:51
  **/
 
-public class test {
+public class base92test {
     private static String base92CHR(int val) {
         char tmp;
         if ((val < 0) || (val >= 91)) {
