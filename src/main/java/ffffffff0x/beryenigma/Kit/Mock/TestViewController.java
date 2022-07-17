@@ -6,8 +6,11 @@ import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.security.Provider;
 import java.security.Security;
+import java.util.Properties;
 
 public class TestViewController extends ViewController {
     /**
@@ -33,6 +36,19 @@ public class TestViewController extends ViewController {
             ViewUtils.alertPane(new Stage(),"test","test");
             return null;
         }));
+    }
+
+    @Override
+    public void ONClickEncode() {
+        super.ONClickEncode();
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("/META-INF/maven/org.ffffffff0x/BerylEnigma/pom.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JBT_enCode.setText("test");
+
     }
 
     protected void setTextareaOnDrag() {
