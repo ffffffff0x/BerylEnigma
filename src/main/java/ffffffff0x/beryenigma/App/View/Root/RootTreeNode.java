@@ -69,6 +69,7 @@ public class RootTreeNode {
         modern.getChildren().add(symmetricEncryption);
         ItemAdd(symmetricEncryption,"BlockCipher","/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/SymmetricEncryption/BlockCipher/BlockCipherView.fxml");
         ItemAdd(modern,"HASH", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/Hash/HashView.fxml");
+        ItemAdd(modern,"HMAC", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/HMAC/HMACView.fxml");
 
         //Authentication
         ItemAdd(authentication,"NTLM_Hash", "/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/Authentication/NTLM/NTLMView.fxml");

@@ -10,4 +10,5 @@ open module beryenigma {
     requires com.google.gson;
     requires java.naming;
     requires java.sql;
+    requires org.bouncycastle.provider;
 }
