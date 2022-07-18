@@ -1,5 +1,7 @@
 package algorithmtest;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 import java.security.Security;
 import java.util.Set;
 
@@ -10,7 +12,13 @@ import java.util.Set;
 
 public class algorithmtest {
     public static void main(String[] args) {
-        Set<String> messageDigest = Security.getAlgorithms("MessageDigest");
-        messageDigest.forEach(System.out::println);
+        Security.addProvider(new BouncyCastleProvider());
+        Set<String> messageDigest = Security.getAlgorithms("Mac");
+        for (String s : messageDigest) {
+            if (s.contains("HMAC")) {
+                System.out.println(s);
+            }
+        }
+//        messageDigest.forEach(System.out::println);
     }
 }
