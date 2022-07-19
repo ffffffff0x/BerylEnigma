@@ -3,7 +3,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.HMAC;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.HMAC.Modern_HMAC;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.Hash.Modern_Hash;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
@@ -110,13 +109,6 @@ public class HMACController extends ViewControllerFileMode {
                 "HMACSHA512",
                 "HMACSHA512/224",
                 "HMACSHA512/256",
-                "HMACPBESHA1",
-                "HMACPBESHA224",
-                "HMACPBESHA256",
-                "HMACPBESHA384",
-                "HMACPBESHA512",
-                "HMACPBESHA512/224",
-                "HMACPBESHA512/256",
                 "HMACRIPEMD128",
                 "HMACRIPEMD160",
                 "HMACRIPEMD256",
