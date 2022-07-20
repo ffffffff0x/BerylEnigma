@@ -1,5 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.ROT;
 
+import com.jfoenix.controls.JFXCheckBox;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.ROT.Classical_ROT;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -9,6 +10,8 @@ import javafx.fxml.FXML;
 public class ROTController extends ViewController {
 
     @FXML private JFXComboBox JCB_rotNum;
+
+    @FXML private JFXCheckBox JCB_encryptAll;
 
     @Override
     protected void initialize() {
@@ -20,7 +23,24 @@ public class ROTController extends ViewController {
     public void ONReleasedOrSelected() {
         super.ONReleasedOrSelected();
         try {
-            JTA_dst.setText(Classical_ROT.encode(JTA_src.getText(), JCB_rotNum.getValue().toString()));
+            if (JCB_encryptAll.isSelected()) {
+                JTA_dst.setText(Classical_ROT.encodeAll(JTA_src.getText(), JCB_rotNum.getValue().toString()));
+            }else {
+                JTA_dst.setText(Classical_ROT.encode(JTA_src.getText(), JCB_rotNum.getValue().toString()));
+            }
+        }catch (Exception e){
+            ViewUtils.textAreaValidate(JTA_dst);
+        }
+    }
+
+    @FXML
+    public void ONChangeSelectJCBEncryptAll() {
+        try {
+            if (JCB_encryptAll.isSelected()) {
+                JTA_dst.setText(Classical_ROT.encodeAll(JTA_src.getText(), JCB_rotNum.getValue().toString()));
+            }else {
+                JTA_dst.setText(Classical_ROT.encode(JTA_src.getText(), JCB_rotNum.getValue().toString()));
+            }
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }

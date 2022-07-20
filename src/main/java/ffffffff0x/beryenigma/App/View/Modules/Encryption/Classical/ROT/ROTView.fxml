@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.ROT.ROTController">
+<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.ROT.ROTController">
    <children>
       <Label fx:id="JLB_title" alignment="CENTER" layoutX="24.0" layoutY="38.0" prefHeight="70.0" prefWidth="610.0" text="ROT" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
@@ -19,6 +19,7 @@
             <JFXTextArea fx:id="JTA_dst" editable="false" layoutX="40.0" layoutY="315.0" prefHeight="165.0" prefWidth="530.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="315.0" />
             <HBox alignment="CENTER" layoutX="40.0" layoutY="220.0" prefHeight="70.0" spacing="140.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                <JFXComboBox fx:id="JCB_rotNum" onAction="#ONReleasedOrSelected" prefHeight="30.0" prefWidth="110.0" />
+               <JFXCheckBox fx:id="JCB_encryptAll" mnemonicParsing="false" onAction="#ONChangeSelectJCBEncryptAll" text="%EncryptAll" />
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
