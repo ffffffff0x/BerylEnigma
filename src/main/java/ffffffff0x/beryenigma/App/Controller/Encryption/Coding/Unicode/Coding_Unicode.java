@@ -13,7 +13,8 @@ public class Coding_Unicode {
      * @return
      */
     public static String encode(String string) {
-        UnicodeEscaper ue = UnicodeEscaper.outsideOf(0x20, 0x7E);
+//        UnicodeEscaper ue = UnicodeEscaper.outsideOf(0x20, 0x7E);
+        UnicodeEscaper ue = new UnicodeEscaper();
         return ue.translate(string);
     }
 
