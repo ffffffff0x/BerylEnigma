@@ -52,7 +52,7 @@ public class RootViewController {
     private void initialize() {
         RootTree.setRoot(rootTreeNode.rootItem);
         setImage();
-//        test02();
+        test02();
     }
 
     @FXML
