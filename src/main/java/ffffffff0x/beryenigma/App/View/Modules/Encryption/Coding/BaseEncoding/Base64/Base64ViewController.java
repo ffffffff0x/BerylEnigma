@@ -23,7 +23,6 @@ public class Base64ViewController extends ViewControllerFileMode {
     @Override
     protected void initialize() {
         super.initialize();
-        super.getByteFileOnDrag();
         ViewInit.comboBoxCharset(JCB_charset);
     }
 
@@ -128,6 +127,5 @@ public class Base64ViewController extends ViewControllerFileMode {
     @Override
     public void getFile(){
         super.getFile();
-        byteFile = FileUtils.getFilebyte(file);
     }
 }

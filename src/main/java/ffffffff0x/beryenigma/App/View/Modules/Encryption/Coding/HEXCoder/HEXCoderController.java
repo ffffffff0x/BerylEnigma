@@ -21,7 +21,6 @@ public class HEXCoderController extends ViewControllerFileMode {
     @Override
     protected void initialize() {
         super.initialize();
-        super.getByteFileOnDrag();
         ViewInit.comboBoxCharset(JCB_charset);
         ViewInit.textAreaErrorInfoGeneral(JTA_dst);
     }
@@ -80,6 +79,6 @@ public class HEXCoderController extends ViewControllerFileMode {
     @Override
     public void getFile(){
         super.getFile();
-        byteFile = FileUtils.getFilebyte(file);
+//        byteFile = FileUtils.getFilebyte(file);
     }
 }

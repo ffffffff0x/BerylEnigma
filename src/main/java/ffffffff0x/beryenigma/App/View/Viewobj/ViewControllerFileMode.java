@@ -22,6 +22,12 @@ public abstract class ViewControllerFileMode extends ViewController {
     public byte[] byteFile = null;
     @FXML public JFXToggleButton JTB_modeSelect;
 
+    @Override
+    protected void initialize() {
+        super.initialize();
+        getByteFileOnDrag();
+    }
+
     @FXML
     public void ONClickModeSelect() {
         if (JTB_modeSelect.isSelected()) {
@@ -77,20 +83,20 @@ public abstract class ViewControllerFileMode extends ViewController {
         });
     }
 
-    public void getFileOnDrag() {
-        setOnDrage();
-        JTA_src.setOnDragDropped(dragEvent -> {
-            Dragboard dragboard = dragEvent.getDragboard();
-            List<File> files = dragboard.getFiles();
-            if(files.size() > 0){
-                JTA_src.setEditable(false);
-                JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
-                JTB_modeSelect.setSelected(true);
-                file = files.get(0);
-                JTA_src.setText(file.toString());
-            }
-        });
-    }
+//    public void getFileOnDrag() {
+//        setOnDrage();
+//        JTA_src.setOnDragDropped(dragEvent -> {
+//            Dragboard dragboard = dragEvent.getDragboard();
+//            List<File> files = dragboard.getFiles();
+//            if(files.size() > 0){
+//                JTA_src.setEditable(false);
+//                JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
+//                JTB_modeSelect.setSelected(true);
+//                file = files.get(0);
+//                JTA_src.setText(file.toString());
+//            }
+//        });
+//    }
 
     private void setOnDrage() {
         JTA_src.setOnDragOver(dragEvent -> {

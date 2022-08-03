@@ -34,7 +34,6 @@ public class HMACController extends ViewControllerFileMode {
     @Override
     protected void initialize() {
         super.initialize();
-        super.getByteFileOnDrag();
         initComboBox();
     }
 
@@ -85,7 +84,7 @@ public class HMACController extends ViewControllerFileMode {
     @Override
     public void getFile(){
         super.getFile();
-        byteFile = FileUtils.getFilebyte(file);
+//        byteFile = FileUtils.getFilebyte(file);
     }
 
     @Override

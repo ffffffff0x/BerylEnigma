@@ -11,7 +11,7 @@
    <children>
       <BorderPane fx:id="borderPane" layoutY="7.0" onMousePressed="#checkView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <AnchorPane prefHeight="600.0" prefWidth="270.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="treePane" prefHeight="600.0" prefWidth="270.0" BorderPane.alignment="CENTER">
                <children>
                   <JFXTreeView fx:id="RootTree" layoutX="11.0" layoutY="26.0" onMousePressed="#checkView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children></AnchorPane>

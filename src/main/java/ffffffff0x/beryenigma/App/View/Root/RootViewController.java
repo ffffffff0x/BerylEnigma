@@ -24,6 +24,9 @@ public class RootViewController {
     private AnchorPane indexpane;
 
     @FXML
+    private AnchorPane treePane;
+
+    @FXML
     private TreeView<String> RootTree;
 
     @FXML

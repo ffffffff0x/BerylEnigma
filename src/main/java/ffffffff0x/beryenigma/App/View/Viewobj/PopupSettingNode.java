@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
  **/
 
 public class PopupSettingNode extends AnchorPane {
-    public Label title = new Label();
+    public Label settingNodeTitle = new Label();
     public AnchorPane controlAnchor = new AnchorPane();
     public final Separator separator = new Separator();
 
@@ -22,8 +22,8 @@ public class PopupSettingNode extends AnchorPane {
         this.setPrefSize(160,80);
         initAnchor();
         ViewUtils.setAnchor(controlNode,5.0,5.0,5.0,15.0);
-        title.setText(titleName);
-        this.getChildren().add(title);
+        settingNodeTitle.setText(titleName);
+        this.getChildren().add(settingNodeTitle);
         this.getChildren().add(controlAnchor);
         if (!isFirst) {
             this.getChildren().add(separator);
@@ -36,8 +36,8 @@ public class PopupSettingNode extends AnchorPane {
         this.setPrefSize(160,80);
         initAnchor();
         ViewUtils.setAnchor(controlNode,5.0,5.0,5.0,15.0);
-        title.setText(titleName);
-        this.getChildren().add(title);
+        settingNodeTitle.setText(titleName);
+        this.getChildren().add(settingNodeTitle);
         this.getChildren().add(controlAnchor);
         this.getChildren().add(separator);
         controlAnchor.getChildren().add(controlNode);
@@ -48,8 +48,8 @@ public class PopupSettingNode extends AnchorPane {
         this.setPrefSize(prefWidth,80);
         initAnchor();
         ViewUtils.setAnchor(controlNode,5.0,5.0,5.0,15.0);
-        title.setText(titleName);
-        this.getChildren().add(title);
+        settingNodeTitle.setText(titleName);
+        this.getChildren().add(settingNodeTitle);
         this.getChildren().add(controlAnchor);
         if (!isFirst) {
             this.getChildren().add(separator);
@@ -62,8 +62,8 @@ public class PopupSettingNode extends AnchorPane {
         this.setPrefSize(prefWidth,80);
         initAnchor();
         ViewUtils.setAnchor(controlNode,5.0,5.0,5.0,15.0);
-        title.setText(titleName);
-        this.getChildren().add(title);
+        settingNodeTitle.setText(titleName);
+        this.getChildren().add(settingNodeTitle);
         this.getChildren().add(controlAnchor);
         this.getChildren().add(separator);
         controlAnchor.getChildren().add(controlNode);
@@ -71,10 +71,10 @@ public class PopupSettingNode extends AnchorPane {
 
 
     private void initAnchor() {
-        ViewUtils.setAnchor(title,10.0,10.0,10.0,60.0);
+        ViewUtils.setAnchor(settingNodeTitle,10.0,10.0,10.0,60.0);
         ViewUtils.setAnchor(controlAnchor,35.0,10.0,10.0,5.0);
         AnchorPane.setLeftAnchor(separator,10.0);
         AnchorPane.setRightAnchor(separator,10.0);
-        title.setStyle("-fx-font-size: 14");
+        settingNodeTitle.setStyle("-fx-font-size: 14");
     }
 }

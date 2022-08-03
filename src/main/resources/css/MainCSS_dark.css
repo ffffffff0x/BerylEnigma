@@ -1,0 +1,233 @@
+/* ListTree */
+.tree-cell .tree-disclosure-node .arrow {
+    -fx-scale-shape: false;
+    -fx-background-color: transparent;
+    -fx-shape: "M 0 4 L 0 -4 L 5 0 z";
+    -fx-border-color: grey;
+    -fx-border-width: 0.083333em;
+}
+
+.tree-cell:expanded .tree-disclosure-node .arrow {
+    -fx-scale-shape: false;
+
+    -fx-background-color: -fx-mark-color;
+    -fx-rotate: 0;
+    -fx-shape: "M 0 3 L 6 -3 L 6 3 z";
+    -fx-border-width: 0.083333em;
+}
+
+.tree-cell:filled:hover .tree-disclosure-node .arrow {
+    -fx-background-color: transparent;
+    -fx-border-color: #9eecff;
+}
+
+.tree-cell:filled:selected .tree-disclosure-node .arrow {
+    -fx-border-color: #9eecff;
+}
+
+.tree-cell:filled:selected:hover .tree-disclosure-node .arrow {
+    -fx-border-color: #9eecff;
+}
+
+.tree-cell {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: lightgray;
+}
+
+.tree-view {
+    -fx-background-insets: 1;
+}
+
+/* 滚动条部分 */
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color : #424242;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    /*-fx-border-radius :2.0em;*/
+}
+
+.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 0.0 10.0 0.0;
+
+}
+
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.15em 0.0;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color  : #595b5d;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    /*-fx-background-radius : 2.0em;*/
+}
+
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color  : #666868;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    /*-fx-background-radius : 2.0em;*/
+}
+
+/* Pane */
+#borderPane {
+    -fx-background-color: #323232;
+}
+
+
+/* Textarea */
+.text-area {
+    -fx-text-fill: lightgray;
+    -fx-prompt-text-fill: rgba(190, 190, 190, 0.62);
+    -fx-font-size: 16;
+    -fx-background-color: #3c3c3c;
+}
+
+#NoBackgroundColorJFXArea {
+    -fx-background-color: null;
+}
+
+/* Button */
+.button {
+    -fx-font-size: 15;
+    -fx-background-color: #2c3e75;
+    -fx-text-fill: lightgray;
+}
+
+/* TextField */
+.text-field {
+    -fx-text-fill: lightgray;
+    -fx-prompt-text-fill: rgba(190, 190, 190, 0.62);
+}
+
+/* Lable */
+.label {
+    -fx-text-fill: lightgray;
+}
+
+#JLB_title {
+    -fx-font-family: Jokerman;
+    /*-fx-font-family: 'Hylia Serif Beta';*/
+    -fx-font-size: 45px;
+    -fx-text-fill: lightgray;
+}
+
+/* font-family */
+@font-face {
+    font-family: 'Hylia Serif Beta';
+    src: url("/fonts/HyliaSerif.otf");
+
+}
+
+@font-face {
+    font-family: Jokerman;
+    src: url("/fonts/JOKERMAN.TTF");
+}
+
+.menu-item .label {
+    -fx-font-size: 16;
+    -fx-padding: 0 5 0 5;
+}
+
+.combo-box-base .text{
+    -fx-fill: lightgray;
+}
+
+.combo-box .combo-box-popup .list-view,
+.combo-box .combo-box-popup .list-cell {
+    -fx-background-color: #3c3c3c ;
+    -fx-text-fill: lightgray ;
+}
+
+.combo-box .combo-box-popup .list-cell:hover {
+    -fx-text-fill: white ;
+    -fx-background-color: #004d99 ;
+}
+
+.jfx-hamburger StackPane {
+    -fx-background-color: gray;
+    -fx-background-radius: 5px;
+}
+
+.jfx-popup-container {
+    -fx-background-color: #3c3c3c ;
+}
+
+#JBT_loadImg, #JBT_outImg {
+    -fx-background-color: #3c3c3c ;
+}
+
+.tree-table-view {
+    -fx-background-color: #3c3c3c;
+}
+
+.tree-table-view .column-header {
+    -fx-border-width: 0 0 0 0;
+}
+
+.tree-table-view .column-header-background{
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #323232;
+}
+
+.tree-table-row-cell {
+    -fx-background-color: #3c3c3c ;
+    -fx-border-color: #3c3c3c ;
+    -fx-border-style: solid;
+}
+
+.tree-table-row-cell .text{
+    -fx-fill: lightgray ;
+}
+
+.tree-table-row-cell:selected,
+.tree-table-row-cell:selected:odd {
+    -fx-background-color: #004d99, #00477d, #2c3e75;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.check-box {
+    -fx-text-fill: lightgray;
+    -jfx-checked-color: #228b22;
+}
+
+.jfx-toggle-button {
+    -fx-text-fill: lightgray ;
+    /*-jfx-toggle-color: #00477d;*/
+}
+
+.jfx-toggle-button Line {
+    -fx-stroke: gray;
+}
+
+.jfx-toggle-button:selected Line{
+    -fx-stroke: -jfx-toggle-line-color;
+}
+
+.jfx-toggle-button Circle{
+    -fx-fill: lightgray;
+}
+
+.jfx-toggle-button:selected Circle{
+    -fx-fill: -jfx-toggle-color;
+}

@@ -28,37 +28,37 @@ public class PopupSettingDoubleColumnView extends PopupSettingView{
     @Override
     protected void PopupSettingView(Pane pane) {
         //图标
-        this.hamburger = new JFXHamburger();
+        this.popupSettingHamburger = new JFXHamburger();
         //设置padding
 //        hamburger.setPadding(new Insets(10,10,10,10));
         //弹出器
-        rippler = new JFXRippler(hamburger, JFXRippler.RipplerMask.CIRCLE, JFXRippler.RipplerPos.BACK);
+        popupSettingRippler = new JFXRippler(popupSettingHamburger, JFXRippler.RipplerMask.CIRCLE, JFXRippler.RipplerPos.BACK);
 
         //给要弹出的Pane设置弹出器
-        this.anchorPane = new AnchorPane();
-        anchorPane.getChildren().add(rippler);
+        this.popupSettingAnchorPane = new AnchorPane();
+        popupSettingAnchorPane.getChildren().add(popupSettingRippler);
 
         //StackPane添加可弹出的AnchorPane
-        this.getChildren().add(anchorPane);
+        this.getChildren().add(popupSettingAnchorPane);
 
         //AnchorPane中存放控件的纵列布局器
-        list = new VBox();
+        popupSettingList = new VBox();
         list2 = new VBox();
         hBox = new HBox();
 
-        hBox.getChildren().addAll(list,list2);
+        hBox.getChildren().addAll(popupSettingList,list2);
 
-        popup = new JFXPopup(hBox);
-        rippler.setOnMouseClicked(e -> popup.show(rippler, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT));
+        popupSettingPopup = new JFXPopup(hBox);
+        popupSettingRippler.setOnMouseClicked(e -> popupSettingPopup.show(popupSettingRippler, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT));
         pane.getChildren().add(this);
     }
 
     @Override
     public void setSetting(PopupSettingNode... popupSetting) {
         for (PopupSettingNode popupSettingNode:popupSetting) {
-            int count = list.getChildren().size() + list2.getChildren().size() + 1;
+            int count = popupSettingList.getChildren().size() + list2.getChildren().size() + 1;
             if (count % 2 == 1){
-                list.getChildren().add(popupSettingNode);
+                popupSettingList.getChildren().add(popupSettingNode);
             }else {
                 list2.getChildren().add(popupSettingNode);
             }

@@ -29,6 +29,10 @@
     -fx-border-color: #9eecff;
 }
 
+.tree-view {
+    -fx-background-insets: 1;
+}
+
 /* 滚动条部分 */
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track{

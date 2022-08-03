@@ -1,24 +1,17 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.TargetClassification;
 
 import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXToggleButton;
 import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification.TargetFinishingBean;
 import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification.RedTeam_TargetFinishing;
-import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
+import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
-import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
-import javafx.stage.FileChooser;
 
-import java.io.File;
-
-public class TargetFinishingController extends ViewController {
+public class TargetFinishingController extends ViewControllerFileMode {
 
     @FXML private JFXCheckBox JCB_MultipleFile;
-    @FXML private JFXToggleButton JTB_modeSelect;
 
-    File file;
     TargetFinishingBean TargetClassificationBean;
     /**
      * 全局界面初始化
@@ -52,29 +45,6 @@ public class TargetFinishingController extends ViewController {
         }catch (Exception e){
             e.printStackTrace();
             JTA_dst.validate();
-        }
-    }
-
-    @FXML
-    public void ONClickModeSelect(){
-        if (JTB_modeSelect.isSelected()){
-            JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
-            JTA_src.setEditable(false);
-            try {
-                File file_temp = ViewUtils.getFile(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
-                JTA_src.setText(file_temp.toString());
-                file = file_temp;
-            }catch (Exception e){
-                e.printStackTrace();
-                JTB_modeSelect.selectedProperty().setValue(false);
-                JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-                JTA_src.setText("");
-                JTA_src.setEditable(true);
-            }
-        }else {
-            JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
-            JTA_src.setText("");
-            JTA_src.setEditable(true);
         }
     }
 

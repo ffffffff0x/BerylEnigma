@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
  **/
 public class PopupSettingImageView extends StackPane {
     protected JFXRippler rippler;
-    protected AnchorPane anchorPane;
+    protected AnchorPane popupAnchorPane;
     protected JFXPopup popup;
     protected VBox list;
     protected VBox vBoximageView;
@@ -48,11 +48,11 @@ public class PopupSettingImageView extends StackPane {
         rippler = new JFXRippler(vBoximageView, JFXRippler.RipplerMask.CIRCLE, JFXRippler.RipplerPos.BACK);
 
         //给要弹出的Pane设置弹出器
-        this.anchorPane = new AnchorPane();
-        anchorPane.getChildren().add(rippler);
+        this.popupAnchorPane = new AnchorPane();
+        popupAnchorPane.getChildren().add(rippler);
 
         //StackPane添加可弹出的AnchorPane
-        this.getChildren().add(anchorPane);
+        this.getChildren().add(popupAnchorPane);
 
         //AnchorPane中存放控件的纵列布局器
         list = new VBox();

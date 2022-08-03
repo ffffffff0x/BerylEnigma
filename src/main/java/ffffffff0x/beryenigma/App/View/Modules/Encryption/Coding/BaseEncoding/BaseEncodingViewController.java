@@ -26,7 +26,6 @@ public abstract class BaseEncodingViewController extends ViewControllerFileMode 
     @Override
     protected void initialize() {
         super.initialize();
-        super.getByteFileOnDrag();
         ViewInit.comboBoxCharset(JCB_charset);
         ACP_controllerAnchorPane.getChildren().add(JSP_running);
     }
@@ -46,7 +45,7 @@ public abstract class BaseEncodingViewController extends ViewControllerFileMode 
     @Override
     public void getFile(){
         super.getFile();
-        byteFile = FileUtils.getFilebyte(file);
+//        byteFile = FileUtils.getFilebyte(file);
     }
 
     protected void onClickEncodeImpl() {

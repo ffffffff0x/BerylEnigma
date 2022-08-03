@@ -24,32 +24,32 @@ public class testPopupSettingView extends PopupSettingView {
     }
 
     public void setSetting(ArrayList<PopupSettingNode> popupSetting) {
-        list.getChildren().add(new testPopupSettingNode("测试参数1",new JFXButton("测试参数1")));
-        list.getChildren().add(new testPopupSettingNode("测试参数2",new JFXComboBox<>()));
-        list.getChildren().add(new testPopupSettingNode("测试参数3",new JFXToggleButton()));
+        popupSettingList.getChildren().add(new testPopupSettingNode("测试参数1",new JFXButton("测试参数1")));
+        popupSettingList.getChildren().add(new testPopupSettingNode("测试参数2",new JFXComboBox<>()));
+        popupSettingList.getChildren().add(new testPopupSettingNode("测试参数3",new JFXToggleButton()));
     }
 
     @Override
     protected void PopupSettingView(Pane pane) {
         //图标
-        this.hamburger = new JFXHamburger();
+        this.popupSettingHamburger = new JFXHamburger();
         //设置padding
 //        hamburger.setPadding(new Insets(10,10,10,10));
         //弹出器
-        rippler = new JFXRippler(hamburger, JFXRippler.RipplerMask.CIRCLE, JFXRippler.RipplerPos.BACK);
+        popupSettingRippler = new JFXRippler(popupSettingHamburger, JFXRippler.RipplerMask.CIRCLE, JFXRippler.RipplerPos.BACK);
 
         //给要弹出的Pane设置弹出器
-        this.anchorPane = new AnchorPane();
-        anchorPane.getChildren().add(rippler);
+        this.popupSettingAnchorPane = new AnchorPane();
+        popupSettingAnchorPane.getChildren().add(popupSettingRippler);
 
         //StackPane添加可弹出的AnchorPane
-        this.getChildren().add(anchorPane);
+        this.getChildren().add(popupSettingAnchorPane);
 
         //AnchorPane中存放控件的纵列布局器
-        list = new VBox();
+        popupSettingList = new VBox();
 
-        popup = new JFXPopup(list);
-        rippler.setOnMouseClicked(e -> popup.show(rippler, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT));
+        popupSettingPopup = new JFXPopup(popupSettingList);
+        popupSettingRippler.setOnMouseClicked(e -> popupSettingPopup.show(popupSettingRippler, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT));
         pane.getChildren().add(this);
     }
 }

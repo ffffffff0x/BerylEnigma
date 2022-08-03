@@ -38,7 +38,6 @@ public class XORController extends ViewControllerFileMode {
     @Override
     protected void initialize() {
         super.initialize();
-        super.getFileOnDrag();
         setFileSelectButton();
         initCharsetComboBox();
     }
@@ -62,12 +61,12 @@ public class XORController extends ViewControllerFileMode {
         }
     }
 
-    @Override
-    public void getFile() {
-        File file_temp = ViewUtils.getFile();
-        JTA_src.setText(file_temp.toString());
-        file = file_temp;
-    }
+//    @Override
+//    public void getFile() {
+//        File file_temp = ViewUtils.getFile();
+//        JTA_src.setText(file_temp.toString());
+//        file = file_temp;
+//    }
 
     @Override
     protected void LoadPopupSettingNode() {

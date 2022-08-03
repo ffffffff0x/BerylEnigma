@@ -10,8 +10,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.security.Security;
-import java.util.Locale;
 import java.util.Objects;
 
 public class Main extends Application {
@@ -23,7 +21,7 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BerylEnigma");
         primaryStage.setMinHeight(664.0);
-        primaryStage.setMinWidth(916.0);
+        primaryStage.setMinWidth(920.0);
         initRootLayout();
     }
 
@@ -47,7 +45,7 @@ public class Main extends Application {
             Scene scene = new Scene(rootLayout);
             Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/JOKERMAN.TTF")).toExternalForm(), 10);
             Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/HyliaSerif.otf")).toExternalForm(), 10);
-            scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
             primaryStage.setScene(scene);
             // primaryStage.setResizable(false);
             primaryStage.show();
