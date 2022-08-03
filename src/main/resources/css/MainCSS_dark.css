@@ -231,3 +231,8 @@
 .jfx-toggle-button:selected Circle{
     -fx-fill: -jfx-toggle-color;
 }
+
+#JBT_GithubLink {
+    -fx-text-fill: #2074c4;
+    -fx-background-color: rgba(255,0,0,0)
+}

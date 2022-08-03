@@ -57,7 +57,7 @@
                               <Rectangle2D />
                            </viewport>
                         </ImageView>
-                        <JFXButton onAction="#openURL" prefHeight="40.0" prefWidth="165.0" ripplerFill="cadetblue" style="-fx-background-color: rgba(255,0,0,0)" text="By ffffffff0x/RyuZU" textFill="#2695ff" GridPane.columnIndex="1">
+                        <JFXButton fx:id="JBT_GithubLink" onAction="#openURL" prefHeight="40.0" prefWidth="165.0" ripplerFill="cadetblue" text="By ffffffff0x/RyuZU" GridPane.columnIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>

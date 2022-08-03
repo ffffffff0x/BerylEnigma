@@ -2,7 +2,9 @@ package ffffffff0x.beryenigma.App.View.Root;
 
 import ffffffff0x.beryenigma.Init.Init;
 import com.jfoenix.controls.JFXButton;
-import javafx.event.Event;
+import ffffffff0x.beryenigma.Main;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TreeView;
@@ -10,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -38,6 +39,11 @@ public class RootViewController {
     @FXML
     private ImageView IV_Github;
 
+    @FXML
+    private JFXButton JBT_GithubLink;
+
+    private int styleMode;
+
     AnchorPane selectedAnchorPane = null;
 
     private int testnum;
@@ -46,6 +52,7 @@ public class RootViewController {
     private void initialize() {
         RootTree.setRoot(rootTreeNode.rootItem);
         setImage();
+//        test02();
     }
 
     @FXML
@@ -122,5 +129,31 @@ public class RootViewController {
             }
             borderPane.setCenter(selectedAnchorPane);
         }
+    }
+
+    private void test02() {
+        JFXButton testButton = new JFXButton();
+        borderPane.setTop(testButton);
+        styleMode = 0;
+        testButton.setMinHeight(20.0);
+        testButton.setMinWidth(20.0);
+        testButton.setText("C");
+        testButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (styleMode == 0) {
+                    System.out.println( "Stylemode:" + styleMode);
+                    borderPane.getScene().getStylesheets().clear();
+                    borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_light.css")).toExternalForm());
+                    styleMode = 1;
+                }else {
+                    System.out.println( "Stylemode:" + styleMode);
+                    borderPane.getScene().getStylesheets().clear();
+                    borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
+
+                    styleMode = 0;
+                }
+            }
+        });
     }
 }

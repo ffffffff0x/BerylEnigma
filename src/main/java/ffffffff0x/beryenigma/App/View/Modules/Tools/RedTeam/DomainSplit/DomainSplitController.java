@@ -68,8 +68,13 @@ public class DomainSplitController extends ViewControllerFileMode {
     @Override
     public void getFile(){
         File file_temp = ViewUtils.getFile(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
-        JTA_src.setText(file_temp.toString());
-        file = file_temp;
+        if (file_temp != null){
+            JTA_src.setText(file_temp.toString());
+            file = file_temp;
+            byteFile = FileUtils.getFilebyte(file);
+        }else {
+            notSelectedFile();
+        }
     }
 
     private void paraPocessing(Map<Integer, HashSet<String>> result,boolean multipleFile){

@@ -29,6 +29,11 @@
     -fx-border-color: #9eecff;
 }
 
+.tree-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: black;
+}
+
 .tree-view {
     -fx-background-insets: 1;
 }
@@ -85,9 +90,9 @@
     /*-fx-background-radius : 2.0em;*/
 }
 
-/* AnchorPane */
-#AP_option {
-    -fx-background-color: #eeeeee;
+/* Pane */
+#borderPane {
+    -fx-background-color: #f4f4f4;
 }
 
 /* Textarea */
@@ -105,18 +110,25 @@
 .button {
     -fx-font-size: 15;
     -fx-background-color: #ffffff;
+    -fx-text-fill: black;
 }
 
 /* TextField */
 .text-field {
+    -fx-text-fill: black;
     -fx-prompt-text-fill: rgba(109, 109, 109, 0.62);
 }
 
 /* Lable */
+.label {
+    -fx-text-fill: black;
+}
+
 #JLB_title {
     -fx-font-family: Jokerman;
     /*-fx-font-family: 'Hylia Serif Beta';*/
     -fx-font-size: 45px;
+    -fx-text-fill: black;
 }
 
 /* font-family */
@@ -134,4 +146,92 @@
 .menu-item .label {
     -fx-font-size: 16;
     -fx-padding: 0 5 0 5;
+}
+
+.combo-box-base .text{
+    -fx-fill: black;
+}
+
+.combo-box .combo-box-popup .list-view,
+.combo-box .combo-box-popup .list-cell {
+    -fx-background-color: #ffffff ;
+    -fx-text-fill: black ;
+}
+
+.combo-box .combo-box-popup .list-cell:hover {
+    -fx-text-fill: black ;
+    -fx-background-color: #0096c9 ;
+}
+
+.jfx-hamburger StackPane {
+    -fx-background-color: black;
+    -fx-background-radius: 5px;
+}
+
+.jfx-popup-container {
+    -fx-background-color: #ffffff ;
+}
+
+#JBT_loadImg, #JBT_outImg {
+    -fx-background-color: #ffffff ;
+}
+
+.tree-table-view {
+    -fx-background-color: #ffffff;
+}
+
+.tree-table-view .column-header {
+    -fx-border-width: 0 0 0 0;
+}
+
+.tree-table-view .column-header-background{
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #3c3c3c;
+}
+
+.tree-table-row-cell {
+    -fx-background-color: #ffffff ;
+    -fx-border-color: #ffffff ;
+    -fx-border-style: solid;
+}
+
+.tree-table-row-cell .text{
+    -fx-fill: black ;
+}
+
+.tree-table-row-cell:selected,
+.tree-table-row-cell:selected:odd {
+    -fx-background-color: #b9c1de, #d3d3d3, #b9c1de;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.check-box {
+    -fx-text-fill: black;
+    -jfx-checked-color: #228b22;
+}
+
+.jfx-toggle-button {
+    -fx-text-fill: black ;
+    /*-jfx-toggle-color: #00477d;*/
+}
+
+.jfx-toggle-button Line {
+    -fx-stroke: gray;
+}
+
+.jfx-toggle-button:selected Line{
+    -fx-stroke: -jfx-toggle-line-color;
+}
+
+.jfx-toggle-button Circle{
+    -fx-fill: lightgray;
+}
+
+.jfx-toggle-button:selected Circle{
+    -fx-fill: -jfx-toggle-color;
+}
+
+#JBT_GithubLink {
+    -fx-text-fill: #2695ff;
+    -fx-background-color: rgba(255,0,0,0)
 }
