@@ -2,10 +2,13 @@ package ffffffff0x.beryenigma.Kit.Mock;
 
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ViewInit;
+import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
+import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.Provider;
@@ -20,7 +23,7 @@ public class TestViewController extends ViewController {
     protected void initialize() {
         super.initialize();
         setTextareaOnDrag();
-        JTA_src.setText(System.getProperty("user.dir"));
+        JTA_src.setText(System.getProperty("user.home"));
         StringBuilder a = new StringBuilder();
         for (Provider o : Security.getProviders()) {
             a.append(o.getName()).append("\n");

@@ -42,6 +42,9 @@ public class RootViewController {
     @FXML
     private JFXButton JBT_GithubLink;
 
+    @FXML
+    private JFXButton JBT_StyleChange;
+
     private int styleMode;
 
     AnchorPane selectedAnchorPane = null;
@@ -52,12 +55,15 @@ public class RootViewController {
     private void initialize() {
         RootTree.setRoot(rootTreeNode.rootItem);
         setImage();
-        test02();
+        changeStyle();
     }
 
     @FXML
     private void checkView() {
         try{
+            if (RootTree.getSelectionModel().getSelectedItem().getValue().equals(Init.languageResourceBundle.getString("Root"))) {
+                borderPane.setCenter(indexpane);
+            }
             //如果选中节点是叶子节点才进行pane切换
             if ((RootTree.getSelectionModel().getSelectedItem()).isLeaf()) {
                 if(!"".equals(rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()))){
@@ -106,7 +112,9 @@ public class RootViewController {
     }
 
     private void setImage() {
-        IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo.png"))));
+        // 设置团队LOGO
+        IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo_dark.png"))));
+        // 设置github图标
         IV_Github.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/github-fill.png"))));
     }
 
@@ -131,27 +139,33 @@ public class RootViewController {
         }
     }
 
-    private void test02() {
-        JFXButton testButton = new JFXButton();
-        borderPane.setTop(testButton);
-        styleMode = 0;
-        testButton.setMinHeight(20.0);
-        testButton.setMinWidth(20.0);
-        testButton.setText("C");
-        testButton.setOnAction(new EventHandler<ActionEvent>() {
+    private void changeStyle() {
+        styleMode = 2;
+        JBT_StyleChange.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if (styleMode == 0) {
-                    System.out.println( "Stylemode:" + styleMode);
+                if (styleMode == 100) {
+                    styleMode = 2;
+                }
+                if (styleMode % 2 == 0) {
+//                    System.out.println( "Stylemode:" + styleMode);
                     borderPane.getScene().getStylesheets().clear();
                     borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_light.css")).toExternalForm());
-                    styleMode = 1;
+                    IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo_light.png"))));
+                    JBT_StyleChange.setText(Init.languageResourceBundle.getString("LightMode"));
+                    styleMode ++;
                 }else {
-                    System.out.println( "Stylemode:" + styleMode);
+//                    System.out.println( "Stylemode:" + styleMode);
                     borderPane.getScene().getStylesheets().clear();
                     borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
-
-                    styleMode = 0;
+                    if (styleMode % 11 == 0) {
+                        IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo_dark_redeye.png"))));
+                        JBT_StyleChange.setText("???Mode");
+                    } else {
+                        IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo_dark.png"))));
+                        JBT_StyleChange.setText(Init.languageResourceBundle.getString("DarkMode"));
+                    }
+                    styleMode ++;
                 }
             }
         });
