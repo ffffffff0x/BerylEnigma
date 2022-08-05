@@ -17,6 +17,7 @@
 # 界面展示
 
 ![](./assets/img/01.png)
+![](./assets/img/02.png)
 
 
 ## 下载
