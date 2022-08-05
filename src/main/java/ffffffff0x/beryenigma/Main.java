@@ -1,13 +1,19 @@
 package ffffffff0x.beryenigma;
 
+import ffffffff0x.beryenigma.Init.ConfigListInit;
+import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -20,8 +26,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BerylEnigma");
-        primaryStage.setMinHeight(664.0);
-        primaryStage.setMinWidth(920.0);
+        primaryStage.setMinHeight(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinheight)));
+        primaryStage.setMinWidth(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinwidth)));
         initRootLayout();
     }
 
@@ -38,14 +44,30 @@ public class Main extends Application {
             loader.setResources(Init.languageResourceBundle);
             rootLayout = loader.load();
 
-            primaryStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("/img/ffffffff0x_ico.png"))));
+            primaryStage.getIcons().add(ViewUtils.getImage(ImageListInit.ICON));
             primaryStage.setOnCloseRequest(event -> System.exit(0));
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/JOKERMAN.TTF")).toExternalForm(), 10);
             Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/HyliaSerif.otf")).toExternalForm(), 10);
-            scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
+
+            if (Init.getConfig(ConfigListInit.AppStyle).equals("dark")) {
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
+            } else {
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_light.css")).toExternalForm());
+            }
+            primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent windowEvent) {
+                    try {
+                        ConfigUtils.saveConfigFile(Init.CONFIGFILEPATH_NOW);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+
             primaryStage.setScene(scene);
             // primaryStage.setResizable(false);
             primaryStage.show();

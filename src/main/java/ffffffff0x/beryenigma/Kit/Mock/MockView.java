@@ -1,6 +1,8 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
+import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -38,7 +40,7 @@ public class MockView extends Application {
             loader.setResources(Init.languageResourceBundle);
             rootLayout = loader.load();
 
-            primaryStage.getIcons().add(new Image(Objects.requireNonNull(MockView.class.getResourceAsStream("/img/ffffffff0x_ico.png"))));
+            primaryStage.getIcons().add(ViewUtils.getImage(ImageListInit.ICON));
             primaryStage.setOnCloseRequest(event -> System.exit(0));
 
             // Show the scene containing the root layout.

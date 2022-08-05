@@ -1,10 +1,12 @@
 package ffffffff0x.beryenigma.Kit.Utils;
 
 import com.jfoenix.controls.*;
+import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
@@ -203,5 +205,14 @@ public class ViewUtils {
         jfxSpinner.setVisible(false);
         setAnchor(jfxSpinner,null,null,50.0,47.0);
         return jfxSpinner;
+    }
+
+    /**
+     * 获取图片
+     * @return Image
+     */
+    public static Image getImage(String imgName) {
+        imgName = imgName.replace("{$}", Init.getConfig(ConfigListInit.AppStyle));
+        return new Image(Objects.requireNonNull(ViewUtils.class.getResourceAsStream(imgName)));
     }
 }

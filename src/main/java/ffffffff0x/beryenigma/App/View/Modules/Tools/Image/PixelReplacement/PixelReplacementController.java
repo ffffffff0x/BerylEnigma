@@ -9,6 +9,7 @@ import ffffffff0x.beryenigma.App.Controller.Tools.Image.PixelReplacement.Image_P
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
+import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
@@ -61,7 +62,7 @@ public class PixelReplacementController extends ViewController {
     protected void initialize() {
         LoadPopupSettingNode();
         JTF_key.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
-        IMG_loadImg = new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/JBT_loadImg.png"))));
+        IMG_loadImg = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_LOADIMG));
         IMG_loadImg.setFitHeight(165 - margins);
         IMG_loadImg.setPreserveRatio(true);
         JBT_loadImg.setGraphic(IMG_loadImg);

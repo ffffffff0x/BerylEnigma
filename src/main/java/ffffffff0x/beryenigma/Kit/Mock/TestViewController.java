@@ -23,7 +23,7 @@ public class TestViewController extends ViewController {
     protected void initialize() {
         super.initialize();
         setTextareaOnDrag();
-        JTA_src.setText(System.getProperty("user.home"));
+        JTA_src.setText(System.getProperty("user.home") + "\n" + System.getProperty("user.dir"));
         StringBuilder a = new StringBuilder();
         for (Provider o : Security.getProviders()) {
             a.append(o.getName()).append("\n");

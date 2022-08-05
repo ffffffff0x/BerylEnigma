@@ -1,6 +1,8 @@
 package ffffffff0x.beryenigma.App.View.Root;
 
+import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
@@ -11,22 +13,22 @@ import java.util.Map;
 import java.util.Objects;
 
 public class RootTreeNode {
-    public final TreeItem<String> rootItem = new TreeItem<>(Init.languageResourceBundle.getString("Root"),folderIcon("open"));
+    public TreeItem<String> rootItem = new TreeItem<>(Init.languageResourceBundle.getString("Root"),folderIcon("open"));
     public Map<TreeItem<String>,String> nodeMap = new HashMap<>();
 
     public RootTreeNode(){
-        final TreeItem<String> tools = new TreeItem<>(Init.languageResourceBundle.getString("Tools"),folderIcon("open"));
-            final TreeItem<String> textModify = new TreeItem<>(Init.languageResourceBundle.getString("TextModify"),folderIcon("open"));
-            final TreeItem<String> practical = new TreeItem<>(Init.languageResourceBundle.getString("Practical"),folderIcon("open"));
-            final TreeItem<String> redTeam = new TreeItem<>(Init.languageResourceBundle.getString("RedTeam"),folderIcon("open"));
-            final TreeItem<String> imageTools = new TreeItem<>(Init.languageResourceBundle.getString("ImageTools"),folderIcon("open"));
-        final TreeItem<String> encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
-            final TreeItem<String> modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
-                final TreeItem<String> symmetricEncryption = new TreeItem<>(Init.languageResourceBundle.getString("SymmetricEncryption"),folderIcon("open"));
-                final TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
-            final TreeItem<String> classical = new TreeItem<>(Init.languageResourceBundle.getString("Classical"),folderIcon("open"));
-            final TreeItem<String> coding = new TreeItem<>(Init.languageResourceBundle.getString("Coding"),folderIcon("open"));
-                final TreeItem<String> baseEncoding = new TreeItem<>(Init.languageResourceBundle.getString("BaseEncoding"),folderIcon("open"));
+        TreeItem<String> tools = new TreeItem<>(Init.languageResourceBundle.getString("Tools"),folderIcon("open"));
+        TreeItem<String> textModify = new TreeItem<>(Init.languageResourceBundle.getString("TextModify"),folderIcon("open"));
+        TreeItem<String> practical = new TreeItem<>(Init.languageResourceBundle.getString("Practical"),folderIcon("open"));
+        TreeItem<String> redTeam = new TreeItem<>(Init.languageResourceBundle.getString("RedTeam"),folderIcon("open"));
+        TreeItem<String> imageTools = new TreeItem<>(Init.languageResourceBundle.getString("ImageTools"),folderIcon("open"));
+        TreeItem<String> encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
+        TreeItem<String> modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
+        TreeItem<String> symmetricEncryption = new TreeItem<>(Init.languageResourceBundle.getString("SymmetricEncryption"),folderIcon("open"));
+        TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
+        TreeItem<String> classical = new TreeItem<>(Init.languageResourceBundle.getString("Classical"),folderIcon("open"));
+        TreeItem<String> coding = new TreeItem<>(Init.languageResourceBundle.getString("Coding"),folderIcon("open"));
+        TreeItem<String> baseEncoding = new TreeItem<>(Init.languageResourceBundle.getString("BaseEncoding"),folderIcon("open"));
 
         //rootitem
         rootItem.setExpanded(true);
@@ -116,9 +118,9 @@ public class RootTreeNode {
 
     private Node folderIcon(String check){
         return switch (check) {
-            case "open" -> new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/icon_folder-open-fill.png"))));
-            case "close" -> new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/icon_folder-3-fill.png"))));
-            case "settings" -> new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/icon_settings-3-line.png"))));
+            case "open" -> new ImageView(ViewUtils.getImage(ImageListInit.ICON_FOLDER_OPEN));
+//            case "close" -> new ImageView(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/icon_folder-3-fill.png"))));
+            case "settings" -> new ImageView(ViewUtils.getImage(ImageListInit.ICON_SETTING));
             default -> null;
         };
     }

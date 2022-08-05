@@ -8,6 +8,8 @@ import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.ReverseShellGenerator.
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingImageView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
+import ffffffff0x.beryenigma.Init.ImageListInit;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -166,7 +168,7 @@ public class ReverseShellGeneratorController extends ViewController {
      * 初始化所有弹出式设置框
      */
     private void initPopupSettings() {
-        Image Settingimage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/list-settings-line.png")));
+        Image Settingimage = ViewUtils.getImage(ImageListInit.ICON_LIST_SETTING);
         SettingListener = new PopupSettingImageView(AP_Listener, Settingimage,3.0,null,80.0,null);
         SettingPayload = new PopupSettingImageView(AP_Reverseshell, Settingimage,3.0,null,126.0,null);
 //        ObservableList<String> OSOptions =

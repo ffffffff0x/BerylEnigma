@@ -1,14 +1,17 @@
 package ffffffff0x.beryenigma.App.View.Root;
 
+import ffffffff0x.beryenigma.Init.ConfigListInit;
+import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import com.jfoenix.controls.JFXButton;
+import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TreeView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
@@ -16,7 +19,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class RootViewController {
-    RootTreeNode rootTreeNode = new RootTreeNode();
+    RootTreeNode rootTreeNode;
 
     @FXML
     private BorderPane borderPane;
@@ -53,6 +56,7 @@ public class RootViewController {
 
     @FXML
     private void initialize() {
+        rootTreeNode = new RootTreeNode();
         RootTree.setRoot(rootTreeNode.rootItem);
         setImage();
         changeStyle();
@@ -61,11 +65,11 @@ public class RootViewController {
     @FXML
     private void checkView() {
         try{
-            if (RootTree.getSelectionModel().getSelectedItem().getValue().equals(Init.languageResourceBundle.getString("Root"))) {
+            if ((RootTree.getSelectionModel().getSelectedItem()) != null && RootTree.getSelectionModel().getSelectedItem().getValue().equals(Init.languageResourceBundle.getString("Root"))) {
                 borderPane.setCenter(indexpane);
             }
             //如果选中节点是叶子节点才进行pane切换
-            if ((RootTree.getSelectionModel().getSelectedItem()).isLeaf()) {
+            if ((RootTree.getSelectionModel().getSelectedItem()) != null && (RootTree.getSelectionModel().getSelectedItem()).isLeaf()) {
                 if(!"".equals(rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()))){
                     ////显示选择的页面
                     //FXML布局加载器
@@ -88,7 +92,7 @@ public class RootViewController {
                 }
             }
         }catch (NullPointerException e){
-            //e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -113,9 +117,9 @@ public class RootViewController {
 
     private void setImage() {
         // 设置团队LOGO
-        IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo_dark.png"))));
+        IV_Logo.setImage(ViewUtils.getImage(ImageListInit.LOGO));
         // 设置github图标
-        IV_Github.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/github-fill.png"))));
+        IV_Github.setImage(ViewUtils.getImage(ImageListInit.ICON_GITHUB));
     }
 
     @FXML
@@ -140,7 +144,11 @@ public class RootViewController {
     }
 
     private void changeStyle() {
-        styleMode = 2;
+        if (Init.getConfig(ConfigListInit.AppStyle).equals("dark")) {
+            styleMode = 2;
+        } else {
+            styleMode = 3;
+        }
         JBT_StyleChange.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -151,20 +159,28 @@ public class RootViewController {
 //                    System.out.println( "Stylemode:" + styleMode);
                     borderPane.getScene().getStylesheets().clear();
                     borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_light.css")).toExternalForm());
-                    IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo_light.png"))));
+                    ConfigUtils.editConfigFile(ConfigListInit.AppStyle,"light");
+                    setImage();
                     JBT_StyleChange.setText(Init.languageResourceBundle.getString("LightMode"));
+                    rootTreeNode = new RootTreeNode();
+                    RootTree.setRoot(rootTreeNode.rootItem);
+
                     styleMode ++;
                 }else {
 //                    System.out.println( "Stylemode:" + styleMode);
                     borderPane.getScene().getStylesheets().clear();
                     borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
+                    ConfigUtils.editConfigFile(ConfigListInit.AppStyle,"dark");
                     if (styleMode % 11 == 0) {
-                        IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo_dark_redeye.png"))));
+                        IV_Logo.setImage(ViewUtils.getImage(ImageListInit.LOGO_REDEYE));
+                        IV_Github.setImage(ViewUtils.getImage(ImageListInit.ICON_GITHUB));
                         JBT_StyleChange.setText("???Mode");
                     } else {
-                        IV_Logo.setImage(new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/img/ffffffff0x_Logo_dark.png"))));
+                        setImage();
                         JBT_StyleChange.setText(Init.languageResourceBundle.getString("DarkMode"));
                     }
+                    rootTreeNode = new RootTreeNode();
+                    RootTree.setRoot(rootTreeNode.rootItem);
                     styleMode ++;
                 }
             }
