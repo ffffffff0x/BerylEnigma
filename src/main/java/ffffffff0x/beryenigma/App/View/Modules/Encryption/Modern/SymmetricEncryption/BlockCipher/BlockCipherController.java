@@ -9,6 +9,7 @@ import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.SymmetricEncryptio
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
+import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -65,7 +66,13 @@ public class BlockCipherController extends ViewControllerFileMode {
     @Override
     public void ONClickEncode() {
         super.ONClickEncode();
-        JTA_dst.setStyle("-fx-text-fill: black");
+        if (Init.getConfig(ConfigListInit.AppStyle).equals("light")) {
+            JTA_dst.setStyle("-fx-text-fill: black");
+            JTA_dst1.setStyle("-fx-text-fill: black");
+        } else {
+            JTA_dst.setStyle("-fx-text-fill: lightgray");
+            JTA_dst1.setStyle("-fx-text-fill: lightgray");
+        }
         new Thread(() -> {
             BlockCipherParameters blockCipherParameters;
             String catchString = null;
@@ -95,7 +102,13 @@ public class BlockCipherController extends ViewControllerFileMode {
     @Override
     public void ONClickDecode() {
         super.ONClickDecode();
-        JTA_dst.setStyle("-fx-text-fill: black");
+        if (Init.getConfig(ConfigListInit.AppStyle).equals("light")) {
+            JTA_dst.setStyle("-fx-text-fill: black");
+            JTA_dst1.setStyle("-fx-text-fill: black");
+        } else {
+            JTA_dst.setStyle("-fx-text-fill: lightgray");
+            JTA_dst1.setStyle("-fx-text-fill: lightgray");
+        }
         new Thread(() -> {
             BlockCipherParameters blockCipherParameters;
             String catchString = null;
