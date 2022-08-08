@@ -6,6 +6,7 @@ import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.HMAC.Modern_HMAC;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
+import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -39,8 +40,14 @@ public class HMACController extends ViewControllerFileMode {
     @Override
     public void ONClickConfirm() {
         super.ONClickConfirm();
-        JTA_dst.setStyle("-fx-text-fill: black");
-        JTA_dst1.setStyle("-fx-text-fill: black");
+        if (Init.getConfig(ConfigListInit.AppStyle).equals("light")) {
+            JTA_dst.setStyle("-fx-text-fill: black");
+            JTA_dst1.setStyle("-fx-text-fill: black");
+        } else {
+            JTA_dst.setStyle("-fx-text-fill: lightgray");
+            JTA_dst1.setStyle("-fx-text-fill: lightgray");
+        }
+
         try{
             String[] dst = new String[0];
             if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){

@@ -103,6 +103,21 @@
     -fx-background-color: #3c3c3c;
 }
 
+.jfx-text-field:error, .jfx-password-field:error, .jfx-text-area:error {
+    -jfx-focus-color: #D34336;
+    -jfx-unfocus-color: #D34336;
+}
+
+.jfx-text-field .error-label, .jfx-password-field .error-label, .jfx-text-area .error-label {
+    -fx-text-fill: #D34336;
+    -fx-font-size: 0.75em;
+}
+
+.jfx-text-field .error-icon, .jfx-password-field .error-icon, .jfx-text-area .error-icon {
+    -fx-text-fill: #D34336;
+    -fx-font-size: 1em;
+}
+
 #NoBackgroundColorJFXArea {
     -fx-background-color: null;
 }

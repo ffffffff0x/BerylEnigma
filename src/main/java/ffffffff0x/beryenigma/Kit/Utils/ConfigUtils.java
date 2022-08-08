@@ -15,7 +15,7 @@ import java.util.Properties;
 
 public class ConfigUtils {
     private static final String CONFIGPATH_WIN = System.getProperty("user.dir") +"\\app";
-    private static final String CONFIGPATH_MAC = System.getProperty("user.home") + "/BeryEnigma";
+    private static final String CONFIGPATH_MAC = System.getProperty("user.home") + "/Library/BeryEnigma";
     private static final String CONFIGPATH_LINUX = System.getProperty("user.dir");
 
     private static final String OS_WIN = "win";
