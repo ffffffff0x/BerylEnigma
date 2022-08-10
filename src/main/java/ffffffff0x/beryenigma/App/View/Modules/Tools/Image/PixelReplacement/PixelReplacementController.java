@@ -13,13 +13,18 @@ import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
+import ffffffff0x.beryenigma.Main;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -27,6 +32,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -61,6 +67,7 @@ public class PixelReplacementController extends ViewController {
     @Override
     protected void initialize() {
         LoadPopupSettingNode();
+        DragClickLoadImg();
         JTF_key.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
         IMG_loadImg = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_LOADIMG));
         IMG_loadImg.setFitHeight(165 - margins);
@@ -118,10 +125,15 @@ public class PixelReplacementController extends ViewController {
         ImgFile = ViewUtils.getFile();
         try {
             if (ImgFile != null) {
-                IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
-                JBT_loadImg.setGraphic(IMG_loadImg);
+                if (FileUtils.isImage(ImgFile.getPath())) {
+                    IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
+                    JBT_loadImg.setGraphic(IMG_loadImg);
+                }  else {
+                    ViewUtils.alertPane(new Stage(), Init.languageResourceBundle.getString("Warning"), Init.languageResourceBundle.getString("ErrotMessage_isImage"));
+                    ImgFile = null;
+                }
             }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -169,5 +181,25 @@ public class PixelReplacementController extends ViewController {
         JCB_modeSelect.setValue(Init.languageResourceBundle.getString("Row&Colum"));
         PopupSettingView popupSettingView = new PopupSettingView(ACP_controllerAnchorPane);
         popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("OperateMode"), JCB_modeSelect,true));
+    }
+
+    private void DragClickLoadImg() {
+        JBT_loadImg.setOnDragDropped(dragEvent -> {
+            Dragboard dragboard = dragEvent.getDragboard();
+            List<File> files = dragboard.getFiles();
+            if(files.size() > 0){
+                try {
+                    if (FileUtils.isImage(files.get(0).getPath())) {
+                        ImgFile = files.get(0);
+                        IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
+                        JBT_loadImg.setGraphic(IMG_loadImg);
+                    } else {
+                        ViewUtils.alertPane(new Stage(), Init.languageResourceBundle.getString("Warning"), Init.languageResourceBundle.getString("ErrotMessage_isImage"));
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

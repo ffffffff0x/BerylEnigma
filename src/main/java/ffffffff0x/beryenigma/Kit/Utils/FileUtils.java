@@ -5,7 +5,9 @@ import javafx.scene.image.PixelFormat;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritablePixelFormat;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -203,5 +205,21 @@ public class FileUtils {
             return file.getName().substring(file.getName().lastIndexOf(".") + 1);
         }
         return null;
+    }
+
+    /**
+     * 检查文件是否是图片
+     *
+     * @param filePath 文件路径
+     * @return boolean
+     * @throws IOException 文件异常
+     */
+    public static boolean isImage(String filePath) throws IOException {
+        BufferedImage image;
+        image = ImageIO.read(new File(filePath));
+        if (image == null || image.getWidth() <= 0 || image.getHeight() <= 0) {
+            return false;
+        }
+        return true;
     }
 }
