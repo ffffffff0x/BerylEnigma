@@ -1,0 +1,166 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Java CI with Maven
+
+on:
+  push:
+    tags:
+    - "**"
+
+jobs:
+  win-build:
+    runs-on: windows-latest
+
+    outputs:
+      output1: ${{ steps.create_release.outputs.upload_url }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Jlink with Maven
+      run: mvn javafx:jlink --file pom.xml
+
+    - name: Jpackage
+      run: cd jpackage && jpackage -n BE-BerylEnigma --app-version ${{ github.ref_name }} -m "beryenigma/ffffffff0x.beryenigma.Main" --runtime-image ..\target\beryenigma --dest ..\target\ --java-options "-Djava.class.path=.\runtime\ext\bcprov-jdk18on-171.jar --add-opens=java.base/java.lang.reflect=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports=javafx.base/com.sun.javafx.binding=com.jfoenix --add-exports=javafx.base/com.sun.javafx.event=com.jfoenix --add-exports=javafx.graphics/com.sun.javafx.stage=com.jfoenix --add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control=com.jfoenix" --icon .\ico\BerylEnigma.ico --type app-image --description "BerylEnigma" --vendor "RyuZU,ffffffff0x" --copyright "Copyright 2022 ffffffff0x,MIT License"
+
+    - name: Show target dir
+      run: ls target
+
+    - name: Add new sec file
+      run: cd jpackage && xcopy .\conf\java.security ..\target\BE-BerylEnigma\runtime\conf\security\ /y
+
+    - name: Add ext jar
+      run: cd jpackage && xcopy .\ext ..\target\BE-BerylEnigma\runtime\ext\
+
+    - name: Download 7z
+      run: powershell -c "invoke-webrequest -uri https://github.com/RyuZUSUNC/Archive/raw/main/ArchiveUtils/7z.exe -outfile 7z.exe"
+
+    - name: Zip the Build
+      run: 7z.exe a BE-BerylEnigma-win.zip .\target\BE-BerylEnigma
+
+    - name: Show file dir
+      run: ls
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: TODO New Release.
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./BE-BerylEnigma-win.zip
+        asset_name: BE-BerylEnigma-win.zip
+        asset_content_type: application/zip
+
+  linux-build:
+    needs: win-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Jlink with Maven
+        run: mvn javafx:jlink --file pom.xml
+
+      - name: Jpackage
+        run: cd jpackage && jpackage -n BE-BerylEnigma --app-version ${{ github.ref_name }} -m "beryenigma/ffffffff0x.beryenigma.Main" --runtime-image ../target/beryenigma --dest ../target/ --java-options "-Djava.class.path=../lib/runtime/ext/bcprov-jdk18on-171.jar --add-opens=java.base/java.lang.reflect=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports=javafx.base/com.sun.javafx.binding=com.jfoenix --add-exports=javafx.base/com.sun.javafx.event=com.jfoenix --add-exports=javafx.graphics/com.sun.javafx.stage=com.jfoenix --add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control=com.jfoenix" --icon ./ico/BerylEnigma.png --type app-image --description "BerylEnigma" --vendor "RyuZU,ffffffff0x" --copyright "Copyright 2022 ffffffff0x,MIT License"
+
+      - name: Show target dir
+        run: ls target
+
+      - name: Del old sec file
+        run: cd jpackage && rm -rf ../target/BE-BerylEnigma/lib/runtime/conf/security/java.security
+
+      - name: Add new sec file
+        run: cd jpackage && cp -rf ./conf/java.security ../target/BE-BerylEnigma/lib/runtime/conf/security/java.security
+
+      - name: Add ext jar
+        run: cd jpackage && cp -rf ./ext ../target/BE-BerylEnigma/lib/runtime/ext
+
+      - name: Zip the Build
+        run: cd target && zip -r ../BE-BerylEnigma-linux.zip BE-BerylEnigma
+
+      - name: Show file dir
+        run: ls
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.win-build.outputs.output1 }}
+          asset_path: ./BE-BerylEnigma-linux.zip
+          asset_name: BE-BerylEnigma-linux.zip
+          asset_content_type: application/zip
+
+  mac-build:
+    needs: win-build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Jlink with Maven
+        run: mvn javafx:jlink --file pom.xml
+
+      - name: Jpackage
+        run: cd jpackage && jpackage -n BE-BerylEnigma --app-version ${{ github.ref_name }} -m "beryenigma/ffffffff0x.beryenigma.Main" --runtime-image ../target/beryenigma --dest ../target/ --java-options "-Djava.class.path=/Applications/BE-BerylEnigma.app/Contents/runtime/Contents/Home/ext/bcprov-jdk18on-171.jar --add-opens=java.base/java.lang.reflect=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports=javafx.base/com.sun.javafx.binding=com.jfoenix --add-exports=javafx.base/com.sun.javafx.event=com.jfoenix --add-exports=javafx.graphics/com.sun.javafx.stage=com.jfoenix --add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports=javafx.controls/com.sun.javafx.scene.control=com.jfoenix" --icon ./ico/BerylEnigma.icns --type app-image --description "BerylEnigma" --vendor "RyuZU,ffffffff0x" --copyright "Copyright 2022 ffffffff0x,MIT License"
+
+      - name: Show target dir
+        run: ls target
+
+      - name: Del old sec file
+        run: cd jpackage && rm -rf ../target/BE-BerylEnigma.app/Contents/runtime/Contents/Home/conf/security/java.security
+
+      - name: Add new sec file
+        run: cd jpackage && cp -rf ./conf/mac_java.security ../target/BE-BerylEnigma.app/Contents/runtime/Contents/Home/conf/security/java.security
+
+      - name: Add ext jar
+        run: cd jpackage && cp -rf ./ext ../target/BE-BerylEnigma.app/Contents/runtime/Contents/Home/ext
+
+      - name: Zip the Build
+        run: cd target && zip -r ../BE-BerylEnigma-mac.zip BE-BerylEnigma.app
+
+      - name: Show file dir
+        run: ls
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.win-build.outputs.output1 }}
+          asset_path: ./BE-BerylEnigma-mac.zip
+          asset_name: BE-BerylEnigma-mac.zip
+          asset_content_type: application/zip
