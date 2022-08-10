@@ -23,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -67,15 +68,15 @@ public class PixelReplacementController extends ViewController {
     @Override
     protected void initialize() {
         LoadPopupSettingNode();
-        DragClickLoadImg();
         JTF_key.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
         IMG_loadImg = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_LOADIMG));
         IMG_loadImg.setFitHeight(165 - margins);
         IMG_loadImg.setPreserveRatio(true);
         JBT_loadImg.setGraphic(IMG_loadImg);
-
+        DragClickLoadImg();
         IMG_outImg = new ImageView();
         IMG_outImg.setPreserveRatio(true);
+
     }
 
     @Override
@@ -129,7 +130,7 @@ public class PixelReplacementController extends ViewController {
                     IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
                     JBT_loadImg.setGraphic(IMG_loadImg);
                 }  else {
-                    ViewUtils.alertPane(new Stage(), Init.languageResourceBundle.getString("Warning"), Init.languageResourceBundle.getString("ErrotMessage_isImage"));
+                    ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.languageResourceBundle.getString("Warning"), Init.languageResourceBundle.getString("ErrotMessage_isImage"));
                     ImgFile = null;
                 }
             }
@@ -184,6 +185,11 @@ public class PixelReplacementController extends ViewController {
     }
 
     private void DragClickLoadImg() {
+        JBT_loadImg.setOnDragOver(dragEvent -> {
+            if (dragEvent.getGestureSource() != JBT_loadImg) {
+                dragEvent.acceptTransferModes(TransferMode.ANY);
+            }
+        });
         JBT_loadImg.setOnDragDropped(dragEvent -> {
             Dragboard dragboard = dragEvent.getDragboard();
             List<File> files = dragboard.getFiles();
@@ -194,7 +200,7 @@ public class PixelReplacementController extends ViewController {
                         IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
                         JBT_loadImg.setGraphic(IMG_loadImg);
                     } else {
-                        ViewUtils.alertPane(new Stage(), Init.languageResourceBundle.getString("Warning"), Init.languageResourceBundle.getString("ErrotMessage_isImage"));
+                        ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.languageResourceBundle.getString("Warning"), Init.languageResourceBundle.getString("ErrotMessage_isImage"));
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

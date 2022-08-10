@@ -120,13 +120,10 @@ public class ViewUtils {
         alert.setOverlayClose(false);
         JFXDialogLayout layout = new JFXDialogLayout();
         Label HeadingLable = new Label(heading);
-        HeadingLable.setStyle("-fx-font-size: 20.0px;");
         layout.setHeading(HeadingLable);
         layout.setBody(new Label(body));
         JFXButton closeButton = new JFXButton(Init.languageResourceBundle.getString("Accept"));
         closeButton.setPrefSize(120,60);
-        closeButton.setStyle("    -fx-background-color: WHITE;\n" +
-                "    -fx-font-size: 14.0px;");
         closeButton.setOnAction(event -> alert.hideWithAnimation());
         layout.setActions(closeButton);
         alert.setContent(layout);

@@ -258,3 +258,23 @@
     -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
     -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
 }
+
+.jfx-dialog-overlay-pane {
+    -fx-background-color: rgba(0.0, 0.0, 0.0, 0.1);
+}
+
+.jfx-layout-heading {
+    -fx-background-color: #323232;
+}
+
+.jfx-layout-heading .label {
+    -fx-font-size: 35px;
+}
+
+.jfx-layout-actions {
+    -fx-background-color: #323232;
+}
+
+.jfx-layout-body {
+    -fx-background-color: #323232;
+}

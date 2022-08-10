@@ -44,13 +44,19 @@ public class TestViewController extends ViewController {
     @Override
     public void ONClickEncode() {
         super.ONClickEncode();
-        Properties properties = new Properties();
+        System.out.println("Test");
+        ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(),"test","test");
+    }
+
+    @Override
+    public void ONClickDecode() {
+        super.ONClickDecode();
         try {
-            properties.load(new FileInputStream("/META-INF/maven/org.ffffffff0x/BerylEnigma/pom.properties"));
-        } catch (IOException e) {
+            System.out.println("123123");
+            ViewUtils.alertPane(new Stage(),"test","test");
+        }catch (Exception e) {
             e.printStackTrace();
         }
-        JBT_enCode.setText("test");
 
     }
 
