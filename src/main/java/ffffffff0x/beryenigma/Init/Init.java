@@ -16,6 +16,7 @@ public class Init {
 
     public static ResourceBundle languageResourceBundle = ResourceBundle.getBundle("Language");
 
+    /* 程序初始化 */
     static {
         OS_NOW = ConfigUtils.getOS();
         if (OS_NOW != null) {
@@ -30,6 +31,11 @@ public class Init {
         }
     }
 
+    /**
+     * 加载本地配置文件，如果没有就加载默认配置文件并创建本地配置文件
+     *
+     * @throws IOException 文件系统异常
+     */
     private static void loadConfig() throws IOException {
         if (ConfigUtils.checkFolderExist(CONFIGPATH_NOW)) {
             if (ConfigUtils.checkFileExist(CONFIGFILEPATH_NOW)) {
@@ -43,6 +49,12 @@ public class Init {
         }
     }
 
+    /**
+     * 获取配置，如果没有就从默认配置文件中获取
+     *
+     * @param configName KeyName
+     * @return 根据 KeyName 获取的 Value
+     */
     public static String getConfig(String configName) {
         if (MAIN_CONFIG.containsKey(configName)) {
             return MAIN_CONFIG.getProperty(configName);

@@ -14,6 +14,7 @@ import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.Util;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,13 +67,7 @@ public class BlockCipherController extends ViewControllerFileMode {
     @Override
     public void ONClickEncode() {
         super.ONClickEncode();
-        if (Init.getConfig(ConfigListInit.AppStyle).equals("light")) {
-            JTA_dst.setStyle("-fx-text-fill: black");
-            JTA_dst1.setStyle("-fx-text-fill: black");
-        } else {
-            JTA_dst.setStyle("-fx-text-fill: lightgray");
-            JTA_dst1.setStyle("-fx-text-fill: lightgray");
-        }
+        ViewUtils.setTextAreaTextRed(false, JTA_dst, JTA_dst1);
         new Thread(() -> {
             BlockCipherParameters blockCipherParameters;
             String catchString = null;
@@ -90,7 +85,7 @@ public class BlockCipherController extends ViewControllerFileMode {
                 catchString = Util.getStackTraceInfo(e);
             } finally {
                 if (catchString != null) {
-                    JTA_dst.setStyle("-fx-text-fill: red");
+                    ViewUtils.setTextAreaTextRed(true, JTA_dst);
                     JTA_dst.setText(catchString.split("\n")[0].substring(catchString.indexOf(":") + 1));
 //                    JTA_dst.setText(catchString.split("\n")[0]);
                 }
@@ -126,7 +121,7 @@ public class BlockCipherController extends ViewControllerFileMode {
                 catchString = Util.getStackTraceInfo(e);
             } finally {
                 if (catchString != null) {
-                    JTA_dst.setStyle("-fx-text-fill: red");
+                    ViewUtils.setTextAreaTextRed(true, JTA_dst);
                     JTA_dst.setText(catchString.split("\n")[0].substring(catchString.indexOf(":") + 1));
 //                    JTA_dst.setText(catchString.split("\n")[0]);
                 }

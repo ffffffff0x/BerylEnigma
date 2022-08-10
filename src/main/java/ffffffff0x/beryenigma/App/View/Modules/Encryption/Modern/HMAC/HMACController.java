@@ -10,10 +10,12 @@ import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 
+import javax.swing.text.View;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -40,14 +42,7 @@ public class HMACController extends ViewControllerFileMode {
     @Override
     public void ONClickConfirm() {
         super.ONClickConfirm();
-        if (Init.getConfig(ConfigListInit.AppStyle).equals("light")) {
-            JTA_dst.setStyle("-fx-text-fill: black");
-            JTA_dst1.setStyle("-fx-text-fill: black");
-        } else {
-            JTA_dst.setStyle("-fx-text-fill: lightgray");
-            JTA_dst1.setStyle("-fx-text-fill: lightgray");
-        }
-
+        ViewUtils.setTextAreaTextRed(false, JTA_dst, JTA_dst1);
         try{
             String[] dst = new String[0];
             if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
@@ -64,8 +59,7 @@ public class HMACController extends ViewControllerFileMode {
             JTA_dst1.setText(dst[0]);
             JTA_dst.setText(dst[1]);
         }catch (Exception e){
-            JTA_dst.setStyle("-fx-text-fill: red");
-            JTA_dst1.setStyle("-fx-text-fill: red");
+            ViewUtils.setTextAreaTextRed(true, JTA_dst, JTA_dst1);
             JTA_dst.setText(e.getMessage());
             JTA_dst1.setText(e.getMessage());
         }

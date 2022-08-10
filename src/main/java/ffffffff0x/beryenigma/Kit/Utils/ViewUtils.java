@@ -5,7 +5,6 @@ import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
@@ -208,11 +207,41 @@ public class ViewUtils {
     }
 
     /**
-     * 获取图片
+     * 根据程序使用样式，获取图片
      * @return Image
      */
     public static Image getImage(String imgName) {
         imgName = imgName.replace("{$}", Init.getConfig(ConfigListInit.AppStyle));
         return new Image(Objects.requireNonNull(ViewUtils.class.getResourceAsStream(imgName)));
+    }
+
+    /**
+     * 设置文本域控件文字颜色为红色
+     *
+     * @param isRed
+     * @param textAreas
+     */
+    public static void setTextAreaTextRed(Boolean isRed, JFXTextArea... textAreas) {
+        if (Init.getConfig(ConfigListInit.AppStyle).equals("light")) {
+            if (isRed) {
+                for (JFXTextArea jfxTextArea : textAreas) {
+                    jfxTextArea.setStyle("-fx-text-fill: red");
+                }
+            } else {
+                for (JFXTextArea jfxTextArea : textAreas) {
+                    jfxTextArea.setStyle("-fx-text-fill: black");
+                }
+            }
+        } else {
+            if (isRed) {
+                for (JFXTextArea jfxTextArea : textAreas) {
+                    jfxTextArea.setStyle("-fx-text-fill: red");
+                }
+            } else {
+                for (JFXTextArea jfxTextArea : textAreas) {
+                    jfxTextArea.setStyle("-fx-text-fill: lightgray");
+                }
+            }
+        }
     }
 }
