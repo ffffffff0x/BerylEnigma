@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
-import ffffffff0x.beryenigma.App.Controller.Tools.Image.PixelReplacement.Image_PixelReplacement;
+import ffffffff0x.beryenigma.App.Implement.Tools.Image.PixelReplacement.Image_PixelReplacement;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -13,15 +13,12 @@ import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.Main;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
@@ -31,10 +28,8 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author: RyuZUSUNC
@@ -68,7 +63,7 @@ public class PixelReplacementController extends ViewController {
     @Override
     protected void initialize() {
         LoadPopupSettingNode();
-        JTF_key.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
+        JTF_key.setValidators(new RequiredFieldValidator(Init.getLanguage("ErrorMessage")));
         IMG_loadImg = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_LOADIMG));
         IMG_loadImg.setFitHeight(165 - margins);
         IMG_loadImg.setPreserveRatio(true);
@@ -130,7 +125,7 @@ public class PixelReplacementController extends ViewController {
                     IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
                     JBT_loadImg.setGraphic(IMG_loadImg);
                 }  else {
-                    ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.languageResourceBundle.getString("Warning"), Init.languageResourceBundle.getString("ErrotMessage_isImage"));
+                    ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrotMessage_isImage"));
                     ImgFile = null;
                 }
             }
@@ -156,9 +151,9 @@ public class PixelReplacementController extends ViewController {
     }
 
     private String ModeSelect() {
-        if (JCB_modeSelect.getValue().equals(Init.languageResourceBundle.getString("Row&Colum"))) {
+        if (JCB_modeSelect.getValue().equals(Init.getLanguage("Row&Colum"))) {
             return "rc";
-        }else if(JCB_modeSelect.getValue().equals(Init.languageResourceBundle.getString("Row"))) {
+        }else if(JCB_modeSelect.getValue().equals(Init.getLanguage("Row"))) {
             return "r";
         }
         return null;
@@ -168,13 +163,13 @@ public class PixelReplacementController extends ViewController {
     protected void LoadPopupSettingNode() {
         ObservableList<String> options =
                 FXCollections.observableArrayList(
-                        Init.languageResourceBundle.getString("Row"),
-                        Init.languageResourceBundle.getString("Row&Colum")
+                        Init.getLanguage("Row"),
+                        Init.getLanguage("Row&Colum")
                 );
         JCB_modeSelect = new JFXComboBox<>(options);
-        JCB_modeSelect.setValue(Init.languageResourceBundle.getString("Row&Colum"));
+        JCB_modeSelect.setValue(Init.getLanguage("Row&Colum"));
         PopupSettingView popupSettingView = new PopupSettingView(ACP_controllerAnchorPane);
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("OperateMode"), JCB_modeSelect,true));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("OperateMode"), JCB_modeSelect,true));
     }
 
     private void DragClickLoadImg() {
@@ -193,7 +188,7 @@ public class PixelReplacementController extends ViewController {
                         IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
                         JBT_loadImg.setGraphic(IMG_loadImg);
                     } else {
-                        ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.languageResourceBundle.getString("Warning"), Init.languageResourceBundle.getString("ErrotMessage_isImage"));
+                        ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrotMessage_isImage"));
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

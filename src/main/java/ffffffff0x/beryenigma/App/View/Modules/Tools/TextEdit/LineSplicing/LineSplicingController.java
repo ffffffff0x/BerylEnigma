@@ -1,6 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.TextEdit.LineSplicing;
 
-import ffffffff0x.beryenigma.App.Controller.Tools.TextEdit.LineSplicing.TextEdit_LineSplicing;
+import ffffffff0x.beryenigma.App.Implement.Tools.TextEdit.LineSplicing.TextEdit_LineSplicing;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
@@ -125,7 +125,7 @@ public class LineSplicingController extends ViewController {
 
     private Boolean fileNullCheck(ArrayList<String> fileLines){
         if(fileLines.size()==0){
-            ViewUtils.alertPane((Stage) JTA_dst.getScene().getWindow(), Init.languageResourceBundle.getString("Warning"),Init.languageResourceBundle.getString("ErrorMessage_notNull"));
+            ViewUtils.alertPane((Stage) JTA_dst.getScene().getWindow(), Init.getLanguage("Warning"),Init.getLanguage("ErrorMessage_notNull"));
             return false;
         }else {
             return true;

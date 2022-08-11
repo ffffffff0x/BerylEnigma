@@ -37,7 +37,7 @@ public class MockView extends Application {
             FXMLLoader loader = new FXMLLoader();
             System.out.println(MockView.class.getResource(FXMLPath));
             loader.setLocation(MockView.class.getResource(FXMLPath));
-            loader.setResources(Init.languageResourceBundle);
+            loader.setResources(Init.getLanguageResourceBundle());
             rootLayout = loader.load();
 
             primaryStage.getIcons().add(ViewUtils.getImage(ImageListInit.ICON));

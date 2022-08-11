@@ -13,22 +13,22 @@ import java.util.Map;
 import java.util.Objects;
 
 public class RootTreeNode {
-    public TreeItem<String> rootItem = new TreeItem<>(Init.languageResourceBundle.getString("Root"),folderIcon("open"));
+    public TreeItem<String> rootItem = new TreeItem<>(Init.getLanguage("Root"),folderIcon("open"));
     public Map<TreeItem<String>,String> nodeMap = new HashMap<>();
 
     public RootTreeNode(){
-        TreeItem<String> tools = new TreeItem<>(Init.languageResourceBundle.getString("Tools"),folderIcon("open"));
-        TreeItem<String> textModify = new TreeItem<>(Init.languageResourceBundle.getString("TextModify"),folderIcon("open"));
-        TreeItem<String> practical = new TreeItem<>(Init.languageResourceBundle.getString("Practical"),folderIcon("open"));
-        TreeItem<String> redTeam = new TreeItem<>(Init.languageResourceBundle.getString("RedTeam"),folderIcon("open"));
-        TreeItem<String> imageTools = new TreeItem<>(Init.languageResourceBundle.getString("ImageTools"),folderIcon("open"));
-        TreeItem<String> encryption = new TreeItem<>(Init.languageResourceBundle.getString("Encryption"),folderIcon("open"));
-        TreeItem<String> modern = new TreeItem<>(Init.languageResourceBundle.getString("Modern"),folderIcon("open"));
-        TreeItem<String> symmetricEncryption = new TreeItem<>(Init.languageResourceBundle.getString("SymmetricEncryption"),folderIcon("open"));
-        TreeItem<String> authentication = new TreeItem<>(Init.languageResourceBundle.getString("Authentication"),folderIcon("open"));
-        TreeItem<String> classical = new TreeItem<>(Init.languageResourceBundle.getString("Classical"),folderIcon("open"));
-        TreeItem<String> coding = new TreeItem<>(Init.languageResourceBundle.getString("Coding"),folderIcon("open"));
-        TreeItem<String> baseEncoding = new TreeItem<>(Init.languageResourceBundle.getString("BaseEncoding"),folderIcon("open"));
+        TreeItem<String> tools = new TreeItem<>(Init.getLanguage("Tools"),folderIcon("open"));
+        TreeItem<String> textModify = new TreeItem<>(Init.getLanguage("TextModify"),folderIcon("open"));
+        TreeItem<String> practical = new TreeItem<>(Init.getLanguage("Practical"),folderIcon("open"));
+        TreeItem<String> redTeam = new TreeItem<>(Init.getLanguage("RedTeam"),folderIcon("open"));
+        TreeItem<String> imageTools = new TreeItem<>(Init.getLanguage("ImageTools"),folderIcon("open"));
+        TreeItem<String> encryption = new TreeItem<>(Init.getLanguage("Encryption"),folderIcon("open"));
+        TreeItem<String> modern = new TreeItem<>(Init.getLanguage("Modern"),folderIcon("open"));
+        TreeItem<String> symmetricEncryption = new TreeItem<>(Init.getLanguage("SymmetricEncryption"),folderIcon("open"));
+        TreeItem<String> authentication = new TreeItem<>(Init.getLanguage("Authentication"),folderIcon("open"));
+        TreeItem<String> classical = new TreeItem<>(Init.getLanguage("Classical"),folderIcon("open"));
+        TreeItem<String> coding = new TreeItem<>(Init.getLanguage("Coding"),folderIcon("open"));
+        TreeItem<String> baseEncoding = new TreeItem<>(Init.getLanguage("BaseEncoding"),folderIcon("open"));
 
         //rootitem
         rootItem.setExpanded(true);
@@ -44,6 +44,7 @@ public class RootTreeNode {
 
         //ImageTools
         ItemAdd(imageTools,"PixelReplacement","/ffffffff0x/beryenigma/App/View/Modules/Tools/Image/PixelReplacement/PixelReplacementView.fxml");
+        ItemAdd(imageTools,"QRCode","/ffffffff0x/beryenigma/App/View/Modules/Tools/Image/QRcode/QRcodeView.fxml");
 
         //Practical
         ItemAdd(practical,"MoneyConvert", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");
@@ -107,11 +108,11 @@ public class RootTreeNode {
     }
 
     private void ItemAdd(TreeItem<String> treeItem,String itemName){
-        treeItem.getChildren().add(new TreeItem<>(Init.languageResourceBundle.getString(itemName)));
+        treeItem.getChildren().add(new TreeItem<>(Init.getLanguage(itemName)));
     }
 
     public void ItemAdd(TreeItem<String> treeItem, String itemName, String viewPath){
-        TreeItem<String> Temp = new TreeItem<>(Init.languageResourceBundle.getString(itemName),folderIcon("settings"));
+        TreeItem<String> Temp = new TreeItem<>(Init.getLanguage(itemName),folderIcon("settings"));
         treeItem.getChildren().add(Temp);
         nodeMap.put(Temp,viewPath);
     }

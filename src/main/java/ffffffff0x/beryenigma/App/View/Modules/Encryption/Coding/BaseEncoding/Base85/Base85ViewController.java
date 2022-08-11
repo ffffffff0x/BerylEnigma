@@ -1,12 +1,11 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base85;
 
 import com.jfoenix.controls.JFXComboBox;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base85;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base85;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.Init.Init;
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -144,6 +143,6 @@ public class Base85ViewController extends BaseEncodingViewController {
         JCB_modeSelect = new JFXComboBox<>(options);
         JCB_modeSelect.setValue("Ascii85");
         PopupSettingView popupSettingView = new PopupSettingView(ACP_controllerAnchorPane);
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("OperateMode"), JCB_modeSelect,true));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("OperateMode"), JCB_modeSelect,true));
     }
 }

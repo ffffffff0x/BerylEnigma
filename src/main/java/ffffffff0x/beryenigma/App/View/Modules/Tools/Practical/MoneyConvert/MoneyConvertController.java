@@ -1,7 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.Practical.MoneyConvert;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Controller.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
+import ffffffff0x.beryenigma.App.Implement.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
@@ -32,7 +32,7 @@ public class MoneyConvertController extends ViewController {
         try {
             if(MAX_VALUE.compareTo(new BigDecimal(JTA_src.getText())) ==-1 ){
                 JTA_src.setText("");
-                JTA_dst.setText(Init.languageResourceBundle.getString("ErrorMessage"));
+                JTA_dst.setText(Init.getLanguage("ErrorMessage"));
             }else{
                 JTA_dst.setText(Practical_MoneyConvert.convert(new BigDecimal(JTA_src.getText())));
             }
@@ -42,8 +42,8 @@ public class MoneyConvertController extends ViewController {
     }
 
     private void initComboBox(){
-        JCB_language.getItems().addAll(Init.languageResourceBundle.getString("Chinese"));
-        JCB_language.setValue(Init.languageResourceBundle.getString("Chinese"));
+        JCB_language.getItems().addAll(Init.getLanguage("Chinese"));
+        JCB_language.setValue(Init.getLanguage("Chinese"));
         JCB_language.setVisibleRowCount(6);
     }
 }

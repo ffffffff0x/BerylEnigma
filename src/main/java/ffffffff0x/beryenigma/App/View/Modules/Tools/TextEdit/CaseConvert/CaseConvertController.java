@@ -1,7 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.TextEdit.CaseConvert;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Controller.Tools.TextEdit.CaseConvert.TextEdit_CaseConvert;
+import ffffffff0x.beryenigma.App.Implement.Tools.TextEdit.CaseConvert.TextEdit_CaseConvert;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
 public class CaseConvertController extends ViewController {

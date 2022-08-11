@@ -1,7 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.CaesarCipher;
 
 import com.jfoenix.controls.JFXTextField;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.CaesarCipher.Classical_CaesarCipher;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Classical.CaesarCipher.Classical_CaesarCipher;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;

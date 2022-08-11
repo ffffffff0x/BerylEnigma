@@ -53,7 +53,7 @@ public abstract class BaseEncodingViewController extends ViewControllerFileMode 
         new Thread(() -> {
             try {
                 //判断是否为文本模式
-                if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                     String result;
                     //判断是否使用分隔符
                     if(!Objects.equals(JTF_split.getText(), "")){
@@ -85,7 +85,7 @@ public abstract class BaseEncodingViewController extends ViewControllerFileMode 
         JSP_running.setVisible(true);
         new Thread(() -> {
             try {
-                if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+                if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                     String result;
                     //判断是否使用分隔符
                     if(!Objects.equals(JTF_split.getText(), "")){

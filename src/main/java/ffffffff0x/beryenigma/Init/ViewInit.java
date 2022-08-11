@@ -34,14 +34,14 @@ public class ViewInit {
      * @param JTA_temp JFXTextArea
      */
     public static void textAreaErrorInfoGeneral(JFXTextArea JTA_temp) {
-        JTA_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage")));
+        JTA_temp.setValidators(new RequiredFieldValidator(Init.getLanguage("ErrorMessage")));
     }
 
     /** JFXTextField添加报错信息
      * @param JTF_temp JFXTextField
      */
     public static void textAreaErrorInfoNumCheck(JFXTextField JTF_temp) {
-        JTF_temp.setValidators(new RequiredFieldValidator(Init.languageResourceBundle.getString("ErrorMessage_isNum")));
+        JTF_temp.setValidators(new RequiredFieldValidator(Init.getLanguage("ErrorMessage_isNum")));
     }
 
     /**
@@ -54,7 +54,7 @@ public class ViewInit {
         // 创建右键菜单
         ContextMenu contextMenu = new ContextMenu();
         // 菜单项
-        MenuItem selectAllAndCopy = new MenuItem(Init.languageResourceBundle.getString("SelectAllAndCopy"));
+        MenuItem selectAllAndCopy = new MenuItem(Init.getLanguage("SelectAllAndCopy"));
         selectAllAndCopy.setOnAction(event -> {
             Clipboard clipboard = Clipboard.getSystemClipboard();
             ClipboardContent clipboardContent = new ClipboardContent();
@@ -62,7 +62,7 @@ public class ViewInit {
             clipboard.setContent(clipboardContent);
         });
         // 菜单项
-        MenuItem outputFillInputBox = new MenuItem(Init.languageResourceBundle.getString("OutputFillInputBox"));
+        MenuItem outputFillInputBox = new MenuItem(Init.getLanguage("OutputFillInputBox"));
         outputFillInputBox.setOnAction(event -> {
             JTA_src.setText(JTA_dst.getText());
         });
@@ -81,7 +81,7 @@ public class ViewInit {
         // 创建右键菜单
         ContextMenu contextMenu = new ContextMenu();
         // 菜单项
-        MenuItem selectAllAndCopy = new MenuItem(Init.languageResourceBundle.getString("SelectAllAndCopy"));
+        MenuItem selectAllAndCopy = new MenuItem(Init.getLanguage("SelectAllAndCopy"));
         selectAllAndCopy.setOnAction(event -> {
             Clipboard clipboard = Clipboard.getSystemClipboard();
             ClipboardContent clipboardContent = new ClipboardContent();
@@ -89,10 +89,10 @@ public class ViewInit {
             clipboard.setContent(clipboardContent);
         });
         // 菜单项
-        MenuItem outputFillInputBox = new MenuItem(Init.languageResourceBundle.getString("OutputFillInputBox"));
+        MenuItem outputFillInputBox = new MenuItem(Init.getLanguage("OutputFillInputBox"));
         outputFillInputBox.setOnAction(event -> {
             JTA_src.setText(JTA_dst.getText());
-            jfxToggleButton.setText(Init.languageResourceBundle.getString("TextMode"));
+            jfxToggleButton.setText(Init.getLanguage("TextMode"));
             jfxToggleButton.setSelected(false);
         });
         contextMenu.getItems().addAll(selectAllAndCopy,outputFillInputBox);

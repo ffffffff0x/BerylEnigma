@@ -2,7 +2,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.URL;
 
 import com.jfoenix.controls.JFXCheckBox;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.URL.Coding_URL;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.URL.Coding_URL;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;

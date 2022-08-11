@@ -1,12 +1,9 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base92;
 
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base92;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base92;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import javafx.application.Platform;
 
-import javax.swing.text.PlainDocument;
 import java.io.UnsupportedEncodingException;
 
 /**

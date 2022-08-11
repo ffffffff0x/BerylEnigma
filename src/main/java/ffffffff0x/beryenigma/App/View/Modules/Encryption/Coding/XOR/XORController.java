@@ -3,9 +3,9 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.XOR;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base64;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.XOR.Coding_XOR;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base64;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.HEXCoder.Coding_HEXCoder;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.XOR.Coding_XOR;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
@@ -17,7 +17,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
@@ -46,7 +45,7 @@ public class XORController extends ViewControllerFileMode {
     public void ONClickConfirm() {
         super.ONClickConfirm();
         try {
-            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                 try {
                     JTA_dst.setText(OutputEncode(TextModeEnCode(),JCB_outPutMode.getValue()));
                 } catch (IOException e) {
@@ -76,9 +75,9 @@ public class XORController extends ViewControllerFileMode {
                         "HEX"
                 );
         JCB_outPutMode = new JFXComboBox<>(options);
-        JCB_outPutMode.setValue(Init.languageResourceBundle.getString("HEX"));
+        JCB_outPutMode.setValue(Init.getLanguage("HEX"));
         PopupSettingView popupSettingView = new PopupSettingView(ACP_controllerAnchorPane);
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("OutputEncoding"), JCB_outPutMode,true));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("OutputEncoding"), JCB_outPutMode,true));
     }
 
     private void initCharsetComboBox() {

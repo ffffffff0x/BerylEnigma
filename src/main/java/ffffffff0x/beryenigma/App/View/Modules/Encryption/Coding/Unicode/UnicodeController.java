@@ -1,7 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Unicode;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.Unicode.Coding_Unicode;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.Unicode.Coding_Unicode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
 /**

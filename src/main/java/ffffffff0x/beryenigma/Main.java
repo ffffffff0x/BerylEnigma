@@ -41,7 +41,7 @@ public class Main extends Application {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("/ffffffff0x/beryenigma/App/View/Root/RootView.fxml"));
-            loader.setResources(Init.languageResourceBundle);
+            loader.setResources(Init.getLanguageResourceBundle());
             rootLayout = loader.load();
 
             primaryStage.getIcons().add(ViewUtils.getImage(ImageListInit.ICON));

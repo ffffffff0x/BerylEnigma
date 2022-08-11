@@ -3,9 +3,9 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SymmetricEncryp
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseEncoding.Coding_Base64;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.SymmetricEncryption.BlockCipher.Modern_BlockCipher;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base64;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.HEXCoder.Coding_HEXCoder;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.SymmetricEncryption.BlockCipher.Modern_BlockCipher;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
@@ -73,7 +73,7 @@ public class BlockCipherController extends ViewControllerFileMode {
             String catchString = null;
             try {
                 blockCipherParameters = Modern_BlockCipher.encrypt(getBlockCipherParameters());
-                if (JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))) {
+                if (JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))) {
                     Platform.runLater(() -> JTA_dst.setText(outputTransform(blockCipherParameters.getMessageOutput(),JCB_outputFormat,JCB_textEncoding,true)));
                 }else {
                     Platform.runLater(() -> {
@@ -109,7 +109,7 @@ public class BlockCipherController extends ViewControllerFileMode {
             String catchString = null;
             try {
                 blockCipherParameters = Modern_BlockCipher.decrypt(getBlockCipherParameters());
-                if (JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))) {
+                if (JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))) {
                     Platform.runLater(() -> JTA_dst.setText(outputTransform(blockCipherParameters.getMessageOutput(), JCB_outputFormat, JCB_textEncoding, false)));
                 }else {
                     Platform.runLater(() -> {
@@ -138,14 +138,14 @@ public class BlockCipherController extends ViewControllerFileMode {
         initControl();
 
         //弹出式控件框中添加初始化的控件
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("IV"),JTF_iv,true));
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("EncryptionMode"),JCB_encryptionMode,true));
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("PaddingMode"),JCB_paddingMode));
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("TextEncoding"),JCB_textEncoding));
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("InputFormat"),JCB_inputFormat));
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("KeyFormat"),JCB_keyFormat));
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("IVFormat"),JCB_ivFormat));
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("OutputFormat"),JCB_outputFormat));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("IV"),JTF_iv,true));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("EncryptionMode"),JCB_encryptionMode,true));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("PaddingMode"),JCB_paddingMode));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("TextEncoding"),JCB_textEncoding));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("InputFormat"),JCB_inputFormat));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("KeyFormat"),JCB_keyFormat));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("IVFormat"),JCB_ivFormat));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("OutputFormat"),JCB_outputFormat));
 
     }
 
@@ -225,7 +225,7 @@ public class BlockCipherController extends ViewControllerFileMode {
         blockCipherParameters.setEncryptionMode(JCB_encryptionMode.getValue());
         blockCipherParameters.setKey(patameterTransform(JTF_key.getText(),JCB_keyFormat,JCB_textEncoding));
         blockCipherParameters.setIv(patameterTransform(JTF_iv.getText(),JCB_ivFormat,JCB_textEncoding));
-        if (JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))) {
+        if (JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))) {
             blockCipherParameters.setMessageInput(patameterTransform(JTA_src.getText(),JCB_inputFormat,JCB_textEncoding));
         }else {
             if (byteFile != null){

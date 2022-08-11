@@ -2,20 +2,17 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.HMAC;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.HMAC.Modern_HMAC;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.HMAC.Modern_HMAC;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
-import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 
-import javax.swing.text.View;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -45,7 +42,7 @@ public class HMACController extends ViewControllerFileMode {
         ViewUtils.setTextAreaTextRed(false, JTA_dst, JTA_dst1);
         try{
             String[] dst = new String[0];
-            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                 try {
                     dst = hmac(JTA_src.getText().getBytes(JCB_charset.getValue().toString()),
                             JTA_HMACKey.getText().getBytes(JCB_charset.getValue().toString()));
@@ -152,6 +149,6 @@ public class HMACController extends ViewControllerFileMode {
         PopupSettingDoubleColumnView popupSettingView = new PopupSettingDoubleColumnView(ACP_controllerAnchorPane);
 
         //弹出式控件框中添加初始化的控件
-        popupSettingView.setSetting(new PopupSettingNode(Init.languageResourceBundle.getString("Charset"),JCB_charset,true));
+        popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("Charset"),JCB_charset,true));
     }
 }

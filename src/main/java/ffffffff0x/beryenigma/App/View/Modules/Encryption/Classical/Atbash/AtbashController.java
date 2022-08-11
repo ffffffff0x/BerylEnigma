@@ -2,7 +2,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.Atbash;
 
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.Atbash.Classical_Atbash;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Classical.Atbash.Classical_Atbash;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
 public class AtbashController extends ViewController {

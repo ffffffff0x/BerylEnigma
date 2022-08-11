@@ -28,7 +28,7 @@ public class ViewUtils {
     public static File getFile(){
         Stage primaryStage = null;
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle(Init.languageResourceBundle.getString("File"));
+        fileChooser.setTitle(Init.getLanguage("File"));
         FileSystemView fsv = FileSystemView.getFileSystemView();
         fileChooser.setInitialDirectory(fsv.getHomeDirectory());
         return fileChooser.showOpenDialog(primaryStage);
@@ -43,7 +43,7 @@ public class ViewUtils {
         Stage primaryStage = null;
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(extFilter);
-        fileChooser.setTitle(Init.languageResourceBundle.getString("File"));
+        fileChooser.setTitle(Init.getLanguage("File"));
         FileSystemView fsv = FileSystemView.getFileSystemView();
         fileChooser.setInitialDirectory(fsv.getHomeDirectory());
         return fileChooser.showOpenDialog(primaryStage);
@@ -61,7 +61,7 @@ public class ViewUtils {
         for (FileChooser.ExtensionFilter filter:extFilter) {
             fileChooser.getExtensionFilters().add(filter);
         }
-        fileChooser.setTitle(Init.languageResourceBundle.getString("File"));
+        fileChooser.setTitle(Init.getLanguage("File"));
         FileSystemView fsv = FileSystemView.getFileSystemView();
         fileChooser.setInitialDirectory(fsv.getHomeDirectory());
         return fileChooser.showOpenDialog(primaryStage);
@@ -78,6 +78,23 @@ public class ViewUtils {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.jpg"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("GIF files (*.gif)", "*.gif"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        fileChooser.setInitialDirectory(fsv.getHomeDirectory());
+        fileChooser.setInitialFileName("Result");
+        return fileChooser.showSaveDialog(new Stage());
+    }
+
+    /**
+     * 保存文件时的文件选择器(自定义格式筛选器)
+     *
+     * @param fitter 格式筛选器
+     * @return 文件
+     */
+    public static File fileChooser(FileChooser.ExtensionFilter... fitter) {
+        FileChooser fileChooser = new FileChooser();
+        for (FileChooser.ExtensionFilter extensionFilter : fitter) {
+            fileChooser.getExtensionFilters().add(extensionFilter);
+        }
         FileSystemView fsv = FileSystemView.getFileSystemView();
         fileChooser.setInitialDirectory(fsv.getHomeDirectory());
         fileChooser.setInitialFileName("Result");
@@ -122,7 +139,7 @@ public class ViewUtils {
         Label HeadingLable = new Label(heading);
         layout.setHeading(HeadingLable);
         layout.setBody(new Label(body));
-        JFXButton closeButton = new JFXButton(Init.languageResourceBundle.getString("Accept"));
+        JFXButton closeButton = new JFXButton(Init.getLanguage("Accept"));
         closeButton.setPrefSize(120,60);
         closeButton.setOnAction(event -> alert.hideWithAnimation());
         layout.setActions(closeButton);

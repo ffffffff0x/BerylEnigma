@@ -1,7 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.DomainSplit;
 
 import com.jfoenix.controls.JFXCheckBox;
-import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.DomainSplit.RedTeam_DomainSplit;
+import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.DomainSplit.RedTeam_DomainSplit;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -42,7 +42,7 @@ public class DomainSplitController extends ViewControllerFileMode {
     public void ONClickConfirm() {
         super.ONClickConfirm();
         try{
-            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                 originalResult = RedTeam_DomainSplit.domainSplit(JTA_src.getText());
             }else{
                 originalResult = RedTeam_DomainSplit.domainSplit(file);

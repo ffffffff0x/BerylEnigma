@@ -1,7 +1,7 @@
 package test;
 
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.ASCII.Coding_ASCII;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.BaseConversion.Coding_BaseConversion;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.ASCII.Coding_ASCII;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseConversion.Coding_BaseConversion;
 import java.io.IOException;
 import java.math.BigInteger;
 

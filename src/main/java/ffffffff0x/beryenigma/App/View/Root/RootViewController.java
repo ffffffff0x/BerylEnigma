@@ -65,7 +65,7 @@ public class RootViewController {
     @FXML
     private void checkView() {
         try{
-            if ((RootTree.getSelectionModel().getSelectedItem()) != null && RootTree.getSelectionModel().getSelectedItem().getValue().equals(Init.languageResourceBundle.getString("Root"))) {
+            if ((RootTree.getSelectionModel().getSelectedItem()) != null && RootTree.getSelectionModel().getSelectedItem().getValue().equals(Init.getLanguage("Root"))) {
                 borderPane.setCenter(indexpane);
             }
             //如果选中节点是叶子节点才进行pane切换
@@ -77,7 +77,7 @@ public class RootViewController {
                     //根据路径加载布局
                     loader.setLocation(RootViewController.class.getResource(rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem())));
                     //加载语言配置文件
-                    loader.setResources(Init.languageResourceBundle);
+                    loader.setResources(Init.getLanguageResourceBundle());
                     try {
                         selectedAnchorPane = loader.load();
                     } catch (IOException e) {
@@ -133,7 +133,7 @@ public class RootViewController {
             //根据路径加载布局
             loader.setLocation(RootViewController.class.getResource("/ffffffff0x/beryenigma/Kit/Mock/TestView.fxml"));
             //加载语言配置文件
-            loader.setResources(Init.languageResourceBundle);
+            loader.setResources(Init.getLanguageResourceBundle());
             try {
                 selectedAnchorPane = loader.load();
             } catch (IOException e) {
@@ -161,7 +161,7 @@ public class RootViewController {
                     borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_light.css")).toExternalForm());
                     ConfigUtils.editConfigFile(ConfigListInit.AppStyle,"light");
                     setImage();
-                    JBT_StyleChange.setText(Init.languageResourceBundle.getString("LightMode"));
+                    JBT_StyleChange.setText(Init.getLanguage("LightMode"));
                     rootTreeNode = new RootTreeNode();
                     RootTree.setRoot(rootTreeNode.rootItem);
 
@@ -177,7 +177,7 @@ public class RootViewController {
                         JBT_StyleChange.setText("???Mode");
                     } else {
                         setImage();
-                        JBT_StyleChange.setText(Init.languageResourceBundle.getString("DarkMode"));
+                        JBT_StyleChange.setText(Init.getLanguage("DarkMode"));
                     }
                     rootTreeNode = new RootTreeNode();
                     RootTree.setRoot(rootTreeNode.rootItem);

@@ -1,6 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HEXCoder;
 
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.HEXCoder.Coding_HEXCoder;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
@@ -29,7 +29,7 @@ public class HEXCoderController extends ViewControllerFileMode {
     public void ONClickEncode() {
         super.ONClickEncode();
         try {
-            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                 try {
                     JTA_dst.setText(HEXCodeEnCode());
                 } catch (UnsupportedEncodingException e) {
@@ -48,7 +48,7 @@ public class HEXCoderController extends ViewControllerFileMode {
     public void ONClickDecode() {
         super.ONClickDecode();
         try{
-            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                 try {
                     JTA_dst.setText(HEXCodeDeCode());
                 } catch (UnsupportedEncodingException e) {

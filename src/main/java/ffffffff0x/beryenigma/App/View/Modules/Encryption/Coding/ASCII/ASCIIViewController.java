@@ -1,7 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.ASCII;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Coding.ASCII.Coding_ASCII;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.ASCII.Coding_ASCII;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;

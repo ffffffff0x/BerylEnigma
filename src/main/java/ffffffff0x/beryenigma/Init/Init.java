@@ -14,7 +14,7 @@ public class Init {
     public static Properties MAIN_CONFIG;
     private static final Properties DEFAULT_CONFIG;
 
-    public static ResourceBundle languageResourceBundle = ResourceBundle.getBundle("Language");
+    private static ResourceBundle languageResourceBundle = ResourceBundle.getBundle("Language");
 
     /* 程序初始化 */
     static {
@@ -61,5 +61,19 @@ public class Init {
         } else {
             return DEFAULT_CONFIG.getProperty(configName);
         }
+    }
+
+    /**
+     * 获取当前语言环境的词
+     *
+     * @param key 英文key
+     * @return string
+     */
+    public static String getLanguage(String key) {
+        return languageResourceBundle.getString(key);
+    }
+
+    public static ResourceBundle getLanguageResourceBundle() {
+        return languageResourceBundle;
     }
 }

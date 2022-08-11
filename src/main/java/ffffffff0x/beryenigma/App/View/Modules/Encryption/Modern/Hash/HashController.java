@@ -1,12 +1,9 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Hash;
 
-import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.Hash.Modern_Hash;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.Hash.Modern_Hash;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
-import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
-import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
@@ -38,7 +35,7 @@ public class HashController extends ViewControllerFileMode {
         ViewUtils.setTextAreaTextRed(false, JTA_dst, JTA_dst1);
         try{
             String[] dst = new String[0];
-            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                 try {
                     dst = hash(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
                 } catch (UnsupportedEncodingException e) {

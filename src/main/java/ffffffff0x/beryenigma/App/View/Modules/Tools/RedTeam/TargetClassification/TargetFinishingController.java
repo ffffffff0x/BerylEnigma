@@ -1,8 +1,8 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.TargetClassification;
 
 import com.jfoenix.controls.JFXCheckBox;
-import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification.TargetFinishingBean;
-import ffffffff0x.beryenigma.App.Controller.Tools.RedTeam.TargetClassification.RedTeam_TargetFinishing;
+import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.TargetClassification.TargetFinishingBean;
+import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.TargetClassification.RedTeam_TargetFinishing;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -29,7 +29,7 @@ public class TargetFinishingController extends ViewControllerFileMode {
     public void ONClickConfirm() {
         super.ONClickConfirm();
         try{
-            if(JTB_modeSelect.getText().equals(Init.languageResourceBundle.getString("TextMode"))){
+            if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                 TargetClassificationBean = RedTeam_TargetFinishing.TargetClassification(JTA_src.getText());
             }else{
                 TargetClassificationBean = RedTeam_TargetFinishing.TargetClassification(file);
@@ -49,13 +49,13 @@ public class TargetFinishingController extends ViewControllerFileMode {
     }
 
     private void count(){
-        String outCount = Init.languageResourceBundle.getString("AfterDe-duplication") + " : " + TargetClassificationBean.getNumduplication() + "\nIP : " + TargetClassificationBean.getNumIP() + "\nURL&Other : " + TargetClassificationBean.getNumUrl() + "\nIP:PORT : " + TargetClassificationBean.getNumIPPort();
+        String outCount = Init.getLanguage("AfterDe-duplication") + " : " + TargetClassificationBean.getNumduplication() + "\nIP : " + TargetClassificationBean.getNumIP() + "\nURL&Other : " + TargetClassificationBean.getNumUrl() + "\nIP:PORT : " + TargetClassificationBean.getNumIPPort();
         JTA_dst.setText(outCount);
     }
 
     public void FileEncodeEnd(){
         JTB_modeSelect.selectedProperty().set(false);
-        JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
+        JTB_modeSelect.setText(Init.getLanguage("TextMode"));
         JTA_src.setText("");
         JTA_src.setEditable(true);
     }

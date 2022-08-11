@@ -2,7 +2,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.ROT;
 
 import com.jfoenix.controls.JFXCheckBox;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Classical.ROT.Classical_ROT;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Classical.ROT.Classical_ROT;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;

@@ -32,7 +32,7 @@ public abstract class ViewControllerFileMode extends ViewController {
     @FXML
     public void ONClickModeSelect() {
         if (JTB_modeSelect.isSelected()) {
-            JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
+            JTB_modeSelect.setText(Init.getLanguage("FileMode"));
             JTA_src.setEditable(false);
             getFile();
         }else {
@@ -42,23 +42,23 @@ public abstract class ViewControllerFileMode extends ViewController {
 
     public void fileEncodeEnd() {
         JTB_modeSelect.selectedProperty().set(false);
-        JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
+        JTB_modeSelect.setText(Init.getLanguage("TextMode"));
         JTA_src.setText("");
         JTA_src.setEditable(true);
-        JTA_dst.setText(Init.languageResourceBundle.getString("Complete"));
+        JTA_dst.setText(Init.getLanguage("Complete"));
         byteFile = null;
     }
 
     public void notSelectedFile() {
         JTB_modeSelect.selectedProperty().setValue(false);
-        JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
+        JTB_modeSelect.setText(Init.getLanguage("TextMode"));
         JTA_src.setText("");
         JTA_src.setEditable(true);
     }
 
     public void setFileSelectButton() {
         JTB_modeSelect = new JFXToggleButton();
-        JTB_modeSelect.setText(Init.languageResourceBundle.getString("TextMode"));
+        JTB_modeSelect.setText(Init.getLanguage("TextMode"));
         JTB_modeSelect.prefHeight(160);
         JTB_modeSelect.prefWidth(53);
         JTB_modeSelect.setSize(9.0);
@@ -74,7 +74,7 @@ public abstract class ViewControllerFileMode extends ViewController {
             List<File> files = dragboard.getFiles();
             if(files.size() > 0){
                 JTA_src.setEditable(false);
-                JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
+                JTB_modeSelect.setText(Init.getLanguage("FileMode"));
                 JTB_modeSelect.setSelected(true);
                 file = files.get(0);
                 JTA_src.setText(file.toString());
@@ -90,7 +90,7 @@ public abstract class ViewControllerFileMode extends ViewController {
 //            List<File> files = dragboard.getFiles();
 //            if(files.size() > 0){
 //                JTA_src.setEditable(false);
-//                JTB_modeSelect.setText(Init.languageResourceBundle.getString("FileMode"));
+//                JTB_modeSelect.setText(Init.getLanguage("FileMode"));
 //                JTB_modeSelect.setSelected(true);
 //                file = files.get(0);
 //                JTA_src.setText(file.toString());

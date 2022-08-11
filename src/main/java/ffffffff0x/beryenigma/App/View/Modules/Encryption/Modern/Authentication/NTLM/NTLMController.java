@@ -1,7 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Authentication.NTLM;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Controller.Encryption.Modern.Authentication.NTLM.Authentication_NTLM;
+import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.Authentication.NTLM.Authentication_NTLM;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import org.apache.commons.codec.binary.Hex;
 
