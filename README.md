@@ -15,10 +15,12 @@
 ---
 
 # 界面展示
-
-![](./assets/img/01.png)
-![](./assets/img/02.png)
-
+<p align="center">
+    <img src="./assets/img/03.png" width="48%">
+    <img src="./assets/img/04.png" width="48%">
+    <img src="./assets/img/01.png" width="48%">
+    <img src="./assets/img/02.png" width="48%">
+</p>
 
 ## 下载
 访问 [releases](https://github.com/ffffffff0x/BerylEnigma/releases) 下载
@@ -79,12 +81,10 @@
 
 **图像工具**
 - 像素置换加密
+- 二维码生成与解码
 
 
 ## 待办清单
-- 图像工具 - 二维码
-- 现代加密 - RSA因数分解
-- 编码 - URL编码增强
 - 日常实用 - Unix时间戳
 - 红队工具 - 目标生成
 - 红队工具 - 字典生成
