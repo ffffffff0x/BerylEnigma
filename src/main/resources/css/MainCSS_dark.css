@@ -94,6 +94,9 @@
     -fx-background-color: #323232;
 }
 
+#ACP_backgroundAnchorPane {
+    -fx-background-color: #323232;
+}
 
 /* Textarea */
 .text-area {

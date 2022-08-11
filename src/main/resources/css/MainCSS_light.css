@@ -95,6 +95,10 @@
     -fx-background-color: #f4f4f4;
 }
 
+#ACP_backgroundAnchorPane {
+    -fx-background-color: #f4f4f4;
+}
+
 /* Textarea */
 .text-area {
     -fx-prompt-text-fill: rgba(109, 109, 109, 0.62);

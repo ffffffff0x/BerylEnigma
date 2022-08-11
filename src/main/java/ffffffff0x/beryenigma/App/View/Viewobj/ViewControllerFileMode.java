@@ -25,6 +25,7 @@ public abstract class ViewControllerFileMode extends ViewController {
     @Override
     protected void initialize() {
         super.initialize();
+        setOnDrage();
         getByteFileOnDrag();
     }
 
@@ -68,7 +69,6 @@ public abstract class ViewControllerFileMode extends ViewController {
     }
 
     public void getByteFileOnDrag() {
-        setOnDrage();
         JTA_src.setOnDragDropped(dragEvent -> {
             Dragboard dragboard = dragEvent.getDragboard();
             List<File> files = dragboard.getFiles();

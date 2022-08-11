@@ -11,6 +11,8 @@ public class ImageListInit {
 
     public static final String ICON_GITHUB = "/img/{$}/github.png";
     public static final String ICON_JBT_LOADIMG = "/img/JBT_loadImg.png";
+    public static final String ICON_JBT_SAVEIMG = "/img/JBT_saveImg.png";
+    public static final String ICON_JBT_LOADQRIMG = "/img/JBT_loadqrImg.png";
 
     public static final String ICON_FOLDER_OPEN = "/img/{$}/icon_folder-open.png";
     public static final String ICON_FOLDER = "/img/{$}/icon_folder.png";

@@ -143,16 +143,9 @@ public class PixelReplacementController extends ViewController {
     public void ONClickOutImg() {
         try {
             if (ImgFile != null) {
-                String formatName = FileUtils.getFileFormatName(ImgFile);
                 StringBuilder imgFileName = new StringBuilder(ImgFile.getName());
                 imgFileName.insert(ImgFile.getName().lastIndexOf("."),"_PixelReplacement");
                 File outFile = ViewUtils.fileChooser(imgFileName.toString());
-
-//                if (FileUtils.getFileFormatName(ImgFile).equals("jpg") || FileUtils.getFileFormatName(ImgFile).equals("jpeg")) {
-//                    ColorSpace cpace = new ICC_ColorSpace(ICC_Profile.getInstance(Image_PixelReplacement.class.getClassLoader().getResourceAsStream("icc/cmyk.icc")));
-//                    ColorConvertOp op = new ColorConvertOp(outBufferedImage.getColorModel().getColorSpace(), cpace, null);
-//                    outBufferedImage = op.filter(outBufferedImage, null);
-//                }
                 if (outFile != null) {
                     ImageIO.write(outBufferedImage,"png",outFile);
                 }

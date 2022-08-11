@@ -10,4 +10,6 @@ open module beryenigma {
     requires com.google.gson;
     requires java.naming;
     requires java.sql;
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
 }
