@@ -3,7 +3,9 @@ package ffffffff0x.beryenigma.Kit.Utils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 
 public class Util {
     /**
@@ -460,5 +462,9 @@ public class Util {
             bt[i] = input[i + startIndex];
         }
         return bt;
+    }
+
+    public static String stringCharsetConvert(String s, String charset) throws UnsupportedEncodingException {
+        return new String(s.getBytes(charset), charset);
     }
 }

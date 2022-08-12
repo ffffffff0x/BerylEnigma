@@ -14,6 +14,7 @@ import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.TextFormatter.IntegerFilter;
+import ffffffff0x.beryenigma.Kit.Utils.Util;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -32,6 +33,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -53,24 +55,17 @@ public class QRcodeController extends ViewController {
     private JFXTextField JTF_outImgWidth = new JFXTextField();
     private JFXTextField JTF_outImgHeight = new JFXTextField();
     private JFXComboBox<Integer> JCB_imgMargin = new JFXComboBox();
-
     private QRcodeParameters qRcodeParameters = new QRcodeParameters();
-
     @FXML
     private JFXToggleButton JTB_modeSelect;
-
     @FXML
     private JFXComboBox JCB_charset;
-
     @FXML
     private JFXComboBox<String> JCB_barcodeFormat;
-
     @FXML
     private JFXSpinner JSP_running;
-
     @FXML
     private JFXButton JBT_loadImg;
-
     @FXML
     private JFXButton JBT_outImg;
 
@@ -79,6 +74,7 @@ public class QRcodeController extends ViewController {
         super.initialize();
         initViews();
         DragClickLoadImg();
+        System.out.println();
     }
 
     @Override
@@ -189,11 +185,13 @@ public class QRcodeController extends ViewController {
         // 加载图像输入框图像
         IMG_loadImg = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_LOADQRIMG));
         IMG_loadImg.setFitHeight(165);
+        IMG_loadImg.setFitWidth(500);
         IMG_loadImg.setPreserveRatio(true);
         JBT_loadImg.setGraphic(IMG_loadImg);
         // 加载图像输出框图像
         IMG_outImg = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_SAVEIMG));
         IMG_outImg.setFitHeight(165);
+        IMG_outImg.setFitWidth(500);
         IMG_outImg.setPreserveRatio(true);
         JBT_outImg.setGraphic(IMG_outImg);
 
@@ -282,7 +280,12 @@ public class QRcodeController extends ViewController {
     private void encode() {
         if (JTA_src.getText().length() > 0) {
             JSP_running.setVisible(true);
-            qRcodeParameters.setInputContent(JTA_src.getText());
+            try {
+                qRcodeParameters.setInputContent(Util.stringCharsetConvert(JTA_src.getText(),JCB_charset.getValue().toString()));
+            } catch (UnsupportedEncodingException e) {
+                ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), e.getMessage());
+                JSP_running.setVisible(false);
+            }
             qRcodeParameters.setBackgroundColor(colorStringConvert(JCP_BKColor.getValue().toString()));
             qRcodeParameters.setQrCodeColor(colorStringConvert(JCP_QRColor.getValue().toString()));
             qRcodeParameters.setCharacterSet(JCB_charset.getValue().toString());

@@ -36,7 +36,6 @@ public class Image_QRcode {
     public static String decode(String filepath, String characterSet) throws IOException, NotFoundException {
         BufferedImage bufferedImage = ImageIO.read(new FileInputStream(filepath));
         LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
-//        source = new InvertedLuminanceSource(source);
         return getResultString(characterSet, source);
     }
 
