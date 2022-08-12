@@ -85,60 +85,9 @@ public class QRcodeController extends ViewController {
     public void ONClickConfirm() {
         super.ONClickConfirm();
         if (JTB_modeSelect.isSelected()) {
-            if (JTA_src.getText().length() > 0) {
-                JSP_running.setVisible(true);
-                qRcodeParameters.setInputContent(JTA_src.getText());
-                qRcodeParameters.setBackgroundColor(colorStringConvert(JCP_BKColor.getValue().toString()));
-                qRcodeParameters.setQrCodeColor(colorStringConvert(JCP_QRColor.getValue().toString()));
-                qRcodeParameters.setCharacterSet(JCB_charset.getValue().toString());
-                qRcodeParameters.setBarcodeFormat(getBarcodeFormat(JCB_barcodeFormat.getValue()));
-                qRcodeParameters.setImgWidth(!JTF_outImgWidth.getText().equals("") ? Integer.parseInt(JTF_outImgWidth.getText()) : 400);
-                qRcodeParameters.setImgHeight(!JTF_outImgHeight.getText().equals("") ? Integer.parseInt(JTF_outImgHeight.getText()) : 400);
-                qRcodeParameters.setMargin(JCB_imgMargin.getValue());
-                new Thread(() -> {
-                    try {
-                        outBufferedImage = Image_QRcode.encode(qRcodeParameters);
-                        Platform.runLater(() -> {
-                            IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
-                            IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
-                            JBT_outImg.setGraphic(IMG_outImg);
-                            JSP_running.setVisible(false);
-                        });
-                    } catch (WriterException | IOException e) {
-                        Platform.runLater(() -> {
-                            ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), e.getMessage());
-                            JSP_running.setVisible(false);
-                        });
-                        throw new RuntimeException(e);
-                    }
-                }).start();
-            } else {
-                ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_notNull"));
-                JSP_running.setVisible(false);
-            }
+            encode();
         } else {
-            if (ImgFile != null) {
-                JSP_running.setVisible(true);
-                new Thread(() -> {
-                    try {
-                        JTA_dst.setText(Image_QRcode.decode(ImgFile.getPath(), JCB_charset.getValue().toString()));
-                        Platform.runLater(() -> JSP_running.setVisible(false));
-                    } catch (IOException e) {
-                        Platform.runLater(() -> {
-                            ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), e.getMessage());
-                            JSP_running.setVisible(false);
-                        });
-                    } catch (NotFoundException e) {
-                        Platform.runLater(() -> {
-                            ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_noQRcode"));
-                            JSP_running.setVisible(false);
-                        });
-                    }
-                }).start();
-            } else {
-                ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_notNull"));
-                JSP_running.setVisible(false);
-            }
+            decode();
         }
     }
 
@@ -293,5 +242,74 @@ public class QRcodeController extends ViewController {
             sb.append(colorList[i]);
         }
         return new BigInteger(sb.toString(), 16).intValue();
+    }
+
+    private void decode() {
+        if (ImgFile != null) {
+            JSP_running.setVisible(true);
+            new Thread(() -> {
+                try {
+                    JTA_dst.setText(Image_QRcode.decode(ImgFile.getPath(), JCB_charset.getValue().toString()));
+                    Platform.runLater(() -> JSP_running.setVisible(false));
+                } catch (IOException e) {
+                    Platform.runLater(() -> {
+                        ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), e.getMessage());
+                        JSP_running.setVisible(false);
+                    });
+                } catch (NotFoundException e) {
+                    try {
+                        JTA_dst.setText(Image_QRcode.decodeReverseColor(ImgFile.getPath(), JCB_charset.getValue().toString()));
+                        JSP_running.setVisible(false);
+                    } catch (IOException ex) {
+                        Platform.runLater(() -> {
+                            ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), ex.getMessage());
+                            JSP_running.setVisible(false);
+                        });
+                    } catch (NotFoundException ex) {
+                        Platform.runLater(() -> {
+                            ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_noQRcode"));
+                            JSP_running.setVisible(false);
+                        });
+                    }
+                }
+            }).start();
+        } else {
+            ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_notNull"));
+            JSP_running.setVisible(false);
+        }
+    }
+
+    private void encode() {
+        if (JTA_src.getText().length() > 0) {
+            JSP_running.setVisible(true);
+            qRcodeParameters.setInputContent(JTA_src.getText());
+            qRcodeParameters.setBackgroundColor(colorStringConvert(JCP_BKColor.getValue().toString()));
+            qRcodeParameters.setQrCodeColor(colorStringConvert(JCP_QRColor.getValue().toString()));
+            qRcodeParameters.setCharacterSet(JCB_charset.getValue().toString());
+            qRcodeParameters.setBarcodeFormat(getBarcodeFormat(JCB_barcodeFormat.getValue()));
+            qRcodeParameters.setImgWidth(!JTF_outImgWidth.getText().equals("") ? Integer.parseInt(JTF_outImgWidth.getText()) : 400);
+            qRcodeParameters.setImgHeight(!JTF_outImgHeight.getText().equals("") ? Integer.parseInt(JTF_outImgHeight.getText()) : 400);
+            qRcodeParameters.setMargin(JCB_imgMargin.getValue());
+            new Thread(() -> {
+                try {
+                    outBufferedImage = Image_QRcode.encode(qRcodeParameters);
+                    Platform.runLater(() -> {
+                        IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
+                        IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
+                        JBT_outImg.setGraphic(IMG_outImg);
+                        JSP_running.setVisible(false);
+                    });
+                } catch (WriterException | IOException e) {
+                    Platform.runLater(() -> {
+                        ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), e.getMessage());
+                        JSP_running.setVisible(false);
+                    });
+                    throw new RuntimeException(e);
+                }
+            }).start();
+        } else {
+            ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_notNull"));
+            JSP_running.setVisible(false);
+        }
     }
 }

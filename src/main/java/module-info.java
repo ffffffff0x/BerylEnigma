@@ -11,5 +11,4 @@ open module beryenigma {
     requires java.naming;
     requires java.sql;
     requires com.google.zxing;
-    requires com.google.zxing.javase;
 }
