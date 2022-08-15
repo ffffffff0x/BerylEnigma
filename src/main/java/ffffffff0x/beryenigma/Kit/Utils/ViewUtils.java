@@ -10,12 +10,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.filechooser.FileSystemView;
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Objects;
@@ -257,5 +262,69 @@ public class ViewUtils {
                 }
             }
         }
+    }
+
+    public static VBox getLittleButtonVBoxSrc(AnchorPane anchorPane) {
+        VBox vBox = getLittleButtonVBox();
+        AnchorPane.setRightAnchor(vBox, 0.0);
+        AnchorPane.setTopAnchor(vBox, 30.0);
+        vBox.setPrefSize(30.0, 170.0);
+        anchorPane.getChildren().add(vBox);
+        return vBox;
+    }
+
+    public static VBox getLittleButtonVBoxDst(AnchorPane anchorPane) {
+        VBox vBox = getLittleButtonVBox();
+        AnchorPane.setRightAnchor(vBox, 0.0);
+        AnchorPane.setTopAnchor(vBox, 315.0);
+        vBox.setPrefSize(30.0, 170.0);
+        anchorPane.getChildren().add(vBox);
+        return vBox;
+    }
+
+    public static VBox getLittleButtonVBox() {
+        VBox vBox = new VBox();
+        vBox.setSpacing(5.0);
+        return vBox;
+    }
+
+    public static void setLittleButtonToVBox(VBox vBox, JFXButton jfxButton, String iamgePath) {
+        ImageView imageView = new ImageView(getImage(iamgePath));
+        jfxButton.setGraphic(imageView);
+        vBox.getChildren().add(jfxButton);
+    }
+
+    public static void openURLWithBrowser(Node node, String url) {
+        if (java.awt.Desktop.isDesktopSupported()) {
+            try {
+                // 创建一个URI实例
+                java.net.URI uri = java.net.URI.create(url);
+                // 获取当前系统桌面扩展
+                java.awt.Desktop dp = java.awt.Desktop.getDesktop();
+                // 判断系统桌面是否支持要执行的功能
+                if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) {
+                    // 获取系统默认浏览器打开链接
+                    dp.browse(uri);
+                }
+            } catch (Exception e) {
+                alertPane((Stage) node.getScene().getWindow(), Init.getConfig("Warning"), e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            alertPane((Stage) node.getScene().getWindow(), Init.getConfig("Warning"), "System not Suppot");
+        }
+    }
+
+    public static BufferedImage getBufferedImageFromClipboard() throws Exception {
+        Clipboard sysc = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable cc = sysc.getContents(null);
+        java.awt.Image image;
+        if (cc == null) {
+            return null;
+        } else if (cc.isDataFlavorSupported(DataFlavor.imageFlavor)) {
+            image = (java.awt.Image) cc.getTransferData(DataFlavor.imageFlavor);
+            return new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        }
+        return null;
     }
 }

@@ -23,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -49,6 +50,10 @@ public class QRcodeController extends ViewController {
     private File ImgFile = null;
     private BufferedImage outBufferedImage;
     private final double margins = 10.0;
+    private VBox imageInputLittleButtonVBox;
+    private VBox textOutputLittleButtonVBox;
+    private JFXButton JBT_LoadClipboardImage = new JFXButton();
+    private JFXButton JBT_OpenUrlWithBrowser = new JFXButton();
 
     private JFXColorPicker JCP_QRColor = new JFXColorPicker(Color.BLACK);
     private JFXColorPicker JCP_BKColor = new JFXColorPicker(Color.WHITE);
@@ -68,6 +73,9 @@ public class QRcodeController extends ViewController {
     private JFXButton JBT_loadImg;
     @FXML
     private JFXButton JBT_outImg;
+
+    public QRcodeController() {
+    }
 
     @Override
     protected void initialize() {
@@ -129,6 +137,8 @@ public class QRcodeController extends ViewController {
             JBT_loadImg.setVisible(false);
             JTA_dst.setVisible(false);
             JBT_outImg.setVisible(true);
+            imageInputLittleButtonVBox.setVisible(false);
+            textOutputLittleButtonVBox.setVisible(false);
         }else {
             JTB_modeSelect.setText(Init.getLanguage("DeCodeMode"));
             JBT_confirm.setText(Init.getLanguage("DeCode"));
@@ -136,6 +146,8 @@ public class QRcodeController extends ViewController {
             JBT_loadImg.setVisible(true);
             JTA_dst.setVisible(true);
             JBT_outImg.setVisible(false);
+            imageInputLittleButtonVBox.setVisible(true);
+            textOutputLittleButtonVBox.setVisible(true);
         }
     }
 
@@ -210,6 +222,12 @@ public class QRcodeController extends ViewController {
                 new IntegerStringConverter(), // Standard converter form JavaFX
                 400,
                 new IntegerFilter()));
+
+        imageInputLittleButtonVBox = ViewUtils.getLittleButtonVBoxSrc(ACP_controllerAnchorPane);
+        textOutputLittleButtonVBox = ViewUtils.getLittleButtonVBoxDst(ACP_controllerAnchorPane);
+
+        ViewUtils.setLittleButtonToVBox(imageInputLittleButtonVBox, JBT_LoadClipboardImage, ImageListInit.ICON_LJBT_CLIPBOARD);
+        ViewUtils.setLittleButtonToVBox(textOutputLittleButtonVBox, JBT_OpenUrlWithBrowser, ImageListInit.ICON_LJBT_IE);
     }
 
     private void initControl() {

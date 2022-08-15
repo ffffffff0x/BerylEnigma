@@ -1,11 +1,17 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
+import com.jfoenix.controls.JFXButton;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
+import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -16,6 +22,9 @@ import java.security.Security;
 import java.util.Properties;
 
 public class TestViewController extends ViewController {
+
+    private VBox vBoxDst;
+
     /**
      * 全局界面初始化
      */
@@ -23,6 +32,11 @@ public class TestViewController extends ViewController {
     protected void initialize() {
         super.initialize();
         setTextareaOnDrag();
+
+        vBoxDst = ViewUtils.getLittleButtonVBoxDst(ACP_controllerAnchorPane);
+        JFXButton t = new JFXButton();
+        ViewUtils.setLittleButtonToVBox(vBoxDst, t, ImageListInit.ICON_LJBT_IE);
+
         JTA_src.setText(System.getProperty("user.home") + "\n" + System.getProperty("user.dir"));
         StringBuilder a = new StringBuilder();
         for (Provider o : Security.getProviders()) {
