@@ -32,14 +32,14 @@
     <img src="assets/img/02-zh.png" width="48%">
 </p>
 
-## 下载
+# 下载
 访问 [releases](https://github.com/ffffffff0x/BerylEnigma/releases) 下载
 
 **MAC 用户请放置在应用程序路径下以加载bcprov的加解密包**
 
 **一些旧版本的macOS可能无法运行**
 
-## 打包
+# 打包
 1. 在电脑上安装并配置好 JDK17 以及 Maven 环境
 2. 克隆仓库
 3. 运行 `jpackage` 目录下的对应系统的打包脚本

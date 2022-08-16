@@ -30,14 +30,14 @@ The **Beryl** `(['berəl])` in the name is the name of a gem/mineral and **Enigm
     <img src="assets/img/02-en.png" width="48%">
 </p>
 
-## Download
+# Download
 Visit [releases](https://github.com/ffffffff0x/BerylEnigma/releases) 
 
 **MAC users should place it in the application path to load bcprov's package**
 
 **Some older versions of macOS may not work**
 
-## Package
+# Package
 1. Install and configure JDK17 and Maven environment on your computer
 2. Clone ffffffff0x/BerylEnigma project
 3. Run the packaging script for the corresponding system in the `jpackage` directory
