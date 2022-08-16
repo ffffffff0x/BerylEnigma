@@ -12,7 +12,7 @@
 <a href="README.md">English</a> | <a href="README-zh.md">中文</a>
 </p>
 
-## Introduction
+## Description
 
 A CTF + penetration testing toolkit, mainly to achieve some common encryption and coding functions, in the process of using the software found problems or suggestions are welcome to submit issues and also welcome to submit new feature requirements.
 
@@ -22,7 +22,7 @@ The **Beryl** `(['berəl])` in the name is the name of a gem/mineral and **Enigm
 
 ---
 
-# Interface Show
+# View
 <p align="center">
     <img src="assets/img/03-en.png" width="48%">
     <img src="assets/img/04-en.png" width="48%">
@@ -45,7 +45,7 @@ Visit [releases](https://github.com/ffffffff0x/BerylEnigma/releases)
 
 ---
 
-# Currently supported features
+# Function
 
 **Encryption/Decoding**
 - Modern
