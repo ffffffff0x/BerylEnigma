@@ -45,6 +45,16 @@ public class Image_QRcode {
         return getResultString(characterSet, source);
     }
 
+    public static String decode(BufferedImage bufferedImage, String characterSet) throws NotFoundException {
+        LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
+        return getResultString(characterSet, source);
+    }
+
+    public static String decodeReverseColor(BufferedImage bufferedImage, String characterSet) throws NotFoundException {
+        LuminanceSource source = new InvertedLuminanceSource(new BufferedImageLuminanceSource(bufferedImage));
+        return getResultString(characterSet, source);
+    }
+
     private static String getResultString(String characterSet, LuminanceSource source) throws NotFoundException {
         Binarizer binarizer = new HybridBinarizer(source);
         BinaryBitmap bitmap = new BinaryBitmap(binarizer);

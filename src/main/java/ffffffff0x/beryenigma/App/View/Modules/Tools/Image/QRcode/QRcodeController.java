@@ -17,8 +17,11 @@ import ffffffff0x.beryenigma.Kit.Utils.TextFormatter.IntegerFilter;
 import ffffffff0x.beryenigma.Kit.Utils.Util;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
@@ -48,6 +51,7 @@ public class QRcodeController extends ViewController {
     private ImageView IMG_loadImg;
     private ImageView IMG_outImg;
     private File ImgFile = null;
+    private BufferedImage inBufferedImage;
     private BufferedImage outBufferedImage;
     private final double margins = 10.0;
     private VBox imageInputLittleButtonVBox;
@@ -61,6 +65,9 @@ public class QRcodeController extends ViewController {
     private JFXTextField JTF_outImgHeight = new JFXTextField();
     private JFXComboBox<Integer> JCB_imgMargin = new JFXComboBox();
     private QRcodeParameters qRcodeParameters = new QRcodeParameters();
+    //弹出式控件框
+    private PopupSettingDoubleColumnView popupSettingView;
+
     @FXML
     private JFXToggleButton JTB_modeSelect;
     @FXML
@@ -103,8 +110,9 @@ public class QRcodeController extends ViewController {
                 if (FileUtils.isImage(ImgFile.getPath())) {
                     IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
                     JBT_loadImg.setGraphic(IMG_loadImg);
+                    inBufferedImage = null;
                 }  else {
-                    ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrotMessage_isImage"));
+                    ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_isImage"));
                     ImgFile = null;
                 }
             }
@@ -137,6 +145,7 @@ public class QRcodeController extends ViewController {
             JBT_loadImg.setVisible(false);
             JTA_dst.setVisible(false);
             JBT_outImg.setVisible(true);
+            popupSettingView.setVisible(true);
             imageInputLittleButtonVBox.setVisible(false);
             textOutputLittleButtonVBox.setVisible(false);
         }else {
@@ -146,6 +155,7 @@ public class QRcodeController extends ViewController {
             JBT_loadImg.setVisible(true);
             JTA_dst.setVisible(true);
             JBT_outImg.setVisible(false);
+            popupSettingView.setVisible(false);
             imageInputLittleButtonVBox.setVisible(true);
             textOutputLittleButtonVBox.setVisible(true);
         }
@@ -154,7 +164,7 @@ public class QRcodeController extends ViewController {
     @Override
     protected void LoadPopupSettingNode() {
         //弹出式控件框
-        PopupSettingDoubleColumnView popupSettingView = new PopupSettingDoubleColumnView(ACP_controllerAnchorPane);
+        popupSettingView = new PopupSettingDoubleColumnView(ACP_controllerAnchorPane);
 
         //初始化控件
         initControl();
@@ -184,7 +194,7 @@ public class QRcodeController extends ViewController {
                         IMG_loadImg.setImage(new Image(new FileInputStream(ImgFile)));
                         JBT_loadImg.setGraphic(IMG_loadImg);
                     } else {
-                        ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrotMessage_isImage"));
+                        ViewUtils.alertPane((Stage)JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_isImage"));
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -226,8 +236,36 @@ public class QRcodeController extends ViewController {
         imageInputLittleButtonVBox = ViewUtils.getLittleButtonVBoxSrc(ACP_controllerAnchorPane);
         textOutputLittleButtonVBox = ViewUtils.getLittleButtonVBoxDst(ACP_controllerAnchorPane);
 
+        popupSettingView.setVisible(false);
+
         ViewUtils.setLittleButtonToVBox(imageInputLittleButtonVBox, JBT_LoadClipboardImage, ImageListInit.ICON_LJBT_CLIPBOARD);
         ViewUtils.setLittleButtonToVBox(textOutputLittleButtonVBox, JBT_OpenUrlWithBrowser, ImageListInit.ICON_LJBT_IE);
+
+        JBT_LoadClipboardImage.setTooltip(new Tooltip(Init.getLanguage("LoadImageFromClipboard")));
+        JBT_LoadClipboardImage.setOnAction(actionEvent -> {
+            try {
+                inBufferedImage = ViewUtils.getBufferedImageFromClipboard();
+                if (inBufferedImage != null) {
+                    ImgFile = null;
+                    IMG_loadImg.setImage(ViewUtils.convertToFxImage(inBufferedImage));
+                    JBT_loadImg.setGraphic(IMG_loadImg);
+                } else {
+                    ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_isImage"));
+                }
+            } catch (Exception e) {
+                ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), e.getMessage());
+                e.printStackTrace();
+            }
+        });
+
+        JBT_OpenUrlWithBrowser.setTooltip(new Tooltip(Init.getLanguage("OpenInBrowser")));
+        JBT_OpenUrlWithBrowser.setOnAction(actionEvent -> {
+            if (JTA_dst.getText().length() > 1) {
+                ViewUtils.openURLWithBrowser(JBT_OpenUrlWithBrowser, JTA_dst.getText());
+            }
+        });
+
+
     }
 
     private void initControl() {
@@ -245,19 +283,6 @@ public class QRcodeController extends ViewController {
             case "PDF 417" -> BarcodeFormat.PDF_417;
             default -> null;
         };
-    }
-
-    private int colorStringConvert(String colorString) {
-        colorString = colorString.replace("0x","");
-        String[] colorList = colorString.split("");
-        StringBuilder sb = new StringBuilder();
-        sb.append(colorList[colorList.length - 2]);
-        sb.append(colorList[colorList.length - 1]);
-
-        for (int i = 0; i < colorList.length - 2; i++) {
-            sb.append(colorList[i]);
-        }
-        return new BigInteger(sb.toString(), 16).intValue();
     }
 
     private void decode() {
@@ -281,6 +306,24 @@ public class QRcodeController extends ViewController {
                             ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), ex.getMessage());
                             JSP_running.setVisible(false);
                         });
+                    } catch (NotFoundException ex) {
+                        Platform.runLater(() -> {
+                            ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_noQRcode"));
+                            JSP_running.setVisible(false);
+                        });
+                    }
+                }
+            }).start();
+        } else if(inBufferedImage != null) {
+            JSP_running.setVisible(true);
+            new Thread(() -> {
+                try {
+                    JTA_dst.setText(Image_QRcode.decode(inBufferedImage, JCB_charset.getValue().toString()));
+                    Platform.runLater(() -> JSP_running.setVisible(false));
+                } catch (NotFoundException e) {
+                    try {
+                        JTA_dst.setText(Image_QRcode.decodeReverseColor(inBufferedImage, JCB_charset.getValue().toString()));
+                        JSP_running.setVisible(false);
                     } catch (NotFoundException ex) {
                         Platform.runLater(() -> {
                             ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_noQRcode"));
@@ -332,5 +375,18 @@ public class QRcodeController extends ViewController {
             ViewUtils.alertPane((Stage) JLB_title.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("ErrorMessage_notNull"));
             JSP_running.setVisible(false);
         }
+    }
+
+    private int colorStringConvert(String colorString) {
+        colorString = colorString.replace("0x","");
+        String[] colorList = colorString.split("");
+        StringBuilder sb = new StringBuilder();
+        sb.append(colorList[colorList.length - 2]);
+        sb.append(colorList[colorList.length - 1]);
+
+        for (int i = 0; i < colorList.length - 2; i++) {
+            sb.append(colorList[i]);
+        }
+        return new BigInteger(sb.toString(), 16).intValue();
     }
 }

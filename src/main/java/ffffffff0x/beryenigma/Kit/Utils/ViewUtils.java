@@ -3,6 +3,7 @@ package ffffffff0x.beryenigma.Kit.Utils;
 import com.jfoenix.controls.*;
 import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -18,11 +19,12 @@ import javafx.stage.Stage;
 
 import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 public class ViewUtils {
@@ -307,23 +309,18 @@ public class ViewUtils {
                     dp.browse(uri);
                 }
             } catch (Exception e) {
-                alertPane((Stage) node.getScene().getWindow(), Init.getConfig("Warning"), e.getMessage());
+                alertPane((Stage) node.getScene().getWindow(), Init.getLanguage("Warning"), Init.getLanguage("CanTOpenWithBrowser"));
                 e.printStackTrace();
             }
         } else {
-            alertPane((Stage) node.getScene().getWindow(), Init.getConfig("Warning"), "System not Suppot");
+            alertPane((Stage) node.getScene().getWindow(), Init.getLanguage("Warning"), "System not Suppot");
         }
     }
 
-    public static BufferedImage getBufferedImageFromClipboard() throws Exception {
-        Clipboard sysc = Toolkit.getDefaultToolkit().getSystemClipboard();
-        Transferable cc = sysc.getContents(null);
-        java.awt.Image image;
-        if (cc == null) {
-            return null;
-        } else if (cc.isDataFlavorSupported(DataFlavor.imageFlavor)) {
-            image = (java.awt.Image) cc.getTransferData(DataFlavor.imageFlavor);
-            return new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+    public static BufferedImage getBufferedImageFromClipboard() throws IOException, UnsupportedFlavorException {
+        Transferable t = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
+        if ( t != null && t.isDataFlavorSupported( DataFlavor.imageFlavor ) ) {
+            return (java.awt.image.BufferedImage) t.getTransferData(DataFlavor.imageFlavor);
         }
         return null;
     }
