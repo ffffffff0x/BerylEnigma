@@ -1,10 +1,12 @@
 <p align="center">
     <img src="./assets/img/BE_Banner.png" width="70%">
 </p>
+<p align="center">
 <a href="https://github.com/ffffffff0x/BerylEnigma/releases/latest"><img src="https://img.shields.io/github/v/release/ffffffff0x/BerylEnigma"/></a>
 <img src="https://img.shields.io/github/license/ffffffff0x/BerylEnigma" />
 <img src="https://img.shields.io/github/downloads/ffffffff0x/BerylEnigma/total" />
 <img src="https://img.shields.io/github/languages/top/ffffffff0x/BerylEnigma?color=%23ac6a30" />
+</p>
 
 <p align="center">
 <a href="README.md">English</a> | <a href="README-zh.md">中文</a>
