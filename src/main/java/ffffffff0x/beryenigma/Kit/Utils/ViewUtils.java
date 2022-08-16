@@ -266,6 +266,12 @@ public class ViewUtils {
         }
     }
 
+    /**
+     * 获取一个输入框右边的小按钮Vbox
+     *
+     * @param anchorPane controlPane
+     * @return VBox
+     */
     public static VBox getLittleButtonVBoxSrc(AnchorPane anchorPane) {
         VBox vBox = getLittleButtonVBox();
         AnchorPane.setRightAnchor(vBox, 0.0);
@@ -275,6 +281,12 @@ public class ViewUtils {
         return vBox;
     }
 
+    /**
+     * 获取一个输出框右边的小按钮Vbox
+     *
+     * @param anchorPane controlPane
+     * @return VBox
+     */
     public static VBox getLittleButtonVBoxDst(AnchorPane anchorPane) {
         VBox vBox = getLittleButtonVBox();
         AnchorPane.setRightAnchor(vBox, 0.0);
@@ -284,18 +296,36 @@ public class ViewUtils {
         return vBox;
     }
 
+    /**
+     * 获取一个Vbox，node间隔为5
+     *
+     * @return VBox
+     */
     public static VBox getLittleButtonVBox() {
         VBox vBox = new VBox();
         vBox.setSpacing(5.0);
         return vBox;
     }
 
+    /**
+     * 将小按钮放入Vbox
+     *
+     * @param vBox VBox
+     * @param jfxButton littlebutton
+     * @param iamgePath iamgePath
+     */
     public static void setLittleButtonToVBox(VBox vBox, JFXButton jfxButton, String iamgePath) {
         ImageView imageView = new ImageView(getImage(iamgePath));
         jfxButton.setGraphic(imageView);
         vBox.getChildren().add(jfxButton);
     }
 
+    /**
+     * 使用浏览器打开链接
+     *
+     * @param node 调用此方法的控件
+     * @param url 目标链接
+     */
     public static void openURLWithBrowser(Node node, String url) {
         if (java.awt.Desktop.isDesktopSupported()) {
             try {
@@ -317,6 +347,11 @@ public class ViewUtils {
         }
     }
 
+    /**
+     * 从剪贴板获取BufferedImage
+     *
+     * @return BufferedImage
+     */
     public static BufferedImage getBufferedImageFromClipboard() throws IOException, UnsupportedFlavorException {
         Transferable t = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
         if ( t != null && t.isDataFlavorSupported( DataFlavor.imageFlavor ) ) {
