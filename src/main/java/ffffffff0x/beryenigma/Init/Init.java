@@ -14,7 +14,7 @@ public class Init {
     public static Properties MAIN_CONFIG;
     private static final Properties DEFAULT_CONFIG;
 
-    private static ResourceBundle languageResourceBundle = ResourceBundle.getBundle("Language");
+    private static ResourceBundle languageResourceBundle;
 
     /* 程序初始化 */
     static {
@@ -74,6 +74,7 @@ public class Init {
     }
 
     public static ResourceBundle getLanguageResourceBundle() {
+        languageResourceBundle = ResourceBundle.getBundle("Language");
         return languageResourceBundle;
     }
 }
