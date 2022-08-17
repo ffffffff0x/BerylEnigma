@@ -24,7 +24,7 @@ public class MockView extends Application {
         primaryStage.setTitle("BEMock");
 //        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/CaesarCipher/CaesarCipherView.fxml");
 //        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/Timestamp.fxml");
-        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/Image/QRcode/QRcodeView.fxml");
+        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/Timestamp.fxml");
 //        initRootLayout("/ffffffff0x/beryenigma/Kit/Mock/TestView.fxml");
     }
 
@@ -45,7 +45,7 @@ public class MockView extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
-            scene.getStylesheets().add(Objects.requireNonNull(MockView.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(MockView.class.getResource("/css/MainCSS_light.css")).toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
