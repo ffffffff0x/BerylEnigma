@@ -44,9 +44,7 @@ public class Coding_HTMLCharEntity {
                 out.append(unicodeDecode("\\u"+a.substring(3)));
             }
         }else {
-            for (String a:sourceSplit) {
-                out.append(StringEscapeUtils.unescapeHtml4(a+";"));
-            }
+            out.append(StringEscapeUtils.unescapeHtml4(source));
         }
         return out.toString();
     }
