@@ -35,7 +35,16 @@ Visit [releases](https://github.com/ffffffff0x/BerylEnigma/releases)
 
 **MAC users should place it in the application path to load bcprov's package**
 
+---
+
+# FAQ
 **Some older versions of macOS may not work**
+
+Q: in macOS, You may encounter **"XXX is corrupted and cannot be opened..."**
+
+You can try changing **Settings -> Privacy & Security -> Security -> Allow programs downloaded from** to **Any source**.
+
+---
 
 # Package
 1. Install and configure JDK17 and Maven environment on your computer
