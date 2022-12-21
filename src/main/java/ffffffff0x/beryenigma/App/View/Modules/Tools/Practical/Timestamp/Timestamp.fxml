@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <Label alignment="CENTER" layoutX="24.0" layoutY="28.0" prefHeight="70.0" prefWidth="610.0" text="Timestamp" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
       <font>
          <Font name="Jokerman" size="45.0" />
@@ -13,12 +13,16 @@
    </Label>
    <AnchorPane layoutX="74.0" layoutY="147.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
       <children>
-         <Label layoutX="211.0" layoutY="38.0" prefWidth="160.0" text="当前时间戳:" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="40.0">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Label>
-         <JFXTextField alignment="TOP_CENTER" editable="false" layoutX="225.0" layoutY="34.0" text="1646193721000" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="224.0" AnchorPane.topAnchor="80.0" />
+         <AnchorPane layoutX="198.0" layoutY="26.0" prefHeight="71.0" prefWidth="215.0" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="30.0">
+            <children>
+               <Label layoutX="-10.0" layoutY="31.0" prefWidth="160.0" text="当前时间戳:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <JFXTextField alignment="TOP_CENTER" editable="false" layoutX="34.0" layoutY="44.0" text="1646193721000" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="44.0" />
+            </children>
+         </AnchorPane>
          <HBox alignment="CENTER" layoutX="206.0" layoutY="104.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="180.0">
             <children>
                <JFXTextField alignment="CENTER" text="1646193721000" />
