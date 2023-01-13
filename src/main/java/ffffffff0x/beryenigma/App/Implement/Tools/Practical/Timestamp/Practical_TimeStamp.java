@@ -1,8 +1,8 @@
 package ffffffff0x.beryenigma.App.Implement.Tools.Practical.Timestamp;
 
-import java.sql.SQLOutput;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 
 /**
  * @author: RyuZUSUNC
@@ -25,9 +25,9 @@ public class Practical_TimeStamp {
      * @param format 文本格式
      * @return 固定格式文本
      */
-    public static String timeStampToString(Long timestamp,String format) {
+    public static String timeStampToString(Long timestamp,String format,ZoneId zoneId) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
-        return formatter.format(Instant.ofEpochMilli(timestamp).atZone(ZoneId.systemDefault()));
+        return formatter.format(Instant.ofEpochMilli(timestamp).atZone(zoneId));
     }
 
     /**
@@ -37,17 +37,27 @@ public class Practical_TimeStamp {
      * @param format 转换格式
      * @return 时间戳
      */
-    public static Long stringToTimeStamp(String time,String format) {
+    public static Long stringToTimeStamp(String time,String format,ZoneId zoneId) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         LocalDateTime ldt = LocalDateTime.parse(time,formatter);
-        ZonedDateTime zdt = ZonedDateTime.of(ldt,ZoneId.systemDefault());
+        ZonedDateTime zdt = ZonedDateTime.of(ldt,zoneId);
         return zdt.toInstant().toEpochMilli();
+    }
+
+    /**
+     * 获取所有时区信息
+     */
+    public static Map<String, String> getAllTimeZone() {
+        return ZoneId.SHORT_IDS;
     }
 
     public static void main(String[] args) {
         System.out.println(getNowTimeStamp());
-        System.out.println(timeStampToString(getNowTimeStamp(),"yyyy-MM-dd HH:mm:ss"));
-        System.out.println(stringToTimeStamp(timeStampToString(getNowTimeStamp(),"yyyy-MM-dd HH:mm:ss"),"yyyy-MM-dd HH:mm:ss"));
+        System.out.println(timeStampToString(getNowTimeStamp(),"yyyy-MM-dd HH:mm:ss",ZoneId.systemDefault()));
+        System.out.println(
+                stringToTimeStamp(timeStampToString(getNowTimeStamp(),"yyyy-MM-dd HH:mm:ss",ZoneId.systemDefault()),
+                "yyyy-MM-dd HH:mm:ss",
+                ZoneId.systemDefault()));
         System.out.println(ZoneId.SHORT_IDS);
         System.out.println(ZoneId.systemDefault());
     }

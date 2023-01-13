@@ -1,61 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-   <Label alignment="CENTER" layoutX="24.0" layoutY="28.0" prefHeight="70.0" prefWidth="610.0" text="Timestamp" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+<AnchorPane prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Tools.Practical.Timestamp.TimeStampController">
+   <Label fx:id="JLB_title" alignment="CENTER" layoutX="24.0" layoutY="28.0" prefHeight="70.0" prefWidth="610.0" text="Timestamp" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
       <font>
          <Font name="Jokerman" size="45.0" />
       </font>
    </Label>
    <AnchorPane layoutX="74.0" layoutY="147.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
       <children>
-         <AnchorPane layoutX="198.0" layoutY="26.0" prefHeight="71.0" prefWidth="215.0" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="30.0">
+         <AnchorPane layoutX="28.0" layoutY="30.0" prefHeight="71.0" prefWidth="215.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="367.0" AnchorPane.topAnchor="30.0">
             <children>
-               <Label layoutX="-10.0" layoutY="31.0" prefWidth="160.0" text="当前时间戳:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <Label layoutX="-10.0" layoutY="31.0" prefWidth="160.0" text="%Now_Timestamp" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
-               <JFXTextField alignment="TOP_CENTER" editable="false" layoutX="34.0" layoutY="44.0" text="1646193721000" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="44.0" />
+               <JFXTextField fx:id="JTF_nowTimestamp" alignment="TOP_CENTER" editable="false" layoutX="34.0" layoutY="44.0" text="1646193721000" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="44.0" />
+               <ImageView fx:id="IMG_refresh" fitHeight="16.0" fitWidth="16.0" layoutX="65.0" layoutY="-60.0" onMouseClicked="#ONClickRefresh" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="10.0" />
             </children>
          </AnchorPane>
-         <HBox alignment="CENTER" layoutX="206.0" layoutY="104.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="180.0">
+         <AnchorPane layoutX="243.0" layoutY="31.0" prefHeight="71.0" prefWidth="343.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="30.0">
             <children>
-               <JFXTextField alignment="CENTER" text="1646193721000" />
-               <JFXButton buttonType="RAISED" mnemonicParsing="false" text="&gt;&gt; 转换 &gt;&gt;" />
-               <JFXTextField alignment="CENTER" text="2022-03-02 12:02:01" />
-            </children>
-         </HBox>
-         <HBox alignment="CENTER" layoutX="67.0" layoutY="255.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="330.0">
+               <VBox layoutX="107.0" layoutY="-64.0" prefHeight="200.0" prefWidth="100.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <children>
+                           <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <children>
+                                 <AnchorPane prefWidth="110.0">
+                                    <children>
+                                       <Label text="%TimeZone" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                          <font>
+                                             <Font size="14.0" />
+                                          </font></Label>
+                                    </children>
+                                 </AnchorPane>
+                                 <AnchorPane prefHeight="200.0" prefWidth="230.0">
+                                    <children>
+                                       <JFXComboBox fx:id="JCB_timeZone" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    </children>
+                                 </AnchorPane>
+                              </children>
+                           </HBox>
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <children>
+                           <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <children>
+                                 <AnchorPane prefWidth="110.0">
+                                    <children>
+                                       <Label text="%DateFormat" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                          <font>
+                                             <Font size="14.0" />
+                                          </font></Label>
+                                    </children>
+                                 </AnchorPane>
+                                 <AnchorPane prefHeight="200.0" prefWidth="230.0">
+                                    <children>
+                                       <JFXTextField fx:id="JTF_dateFormatString" text="yyyy-MM-dd HH:mm:ss" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    </children>
+                                 </AnchorPane>
+                              </children>
+                           </HBox>
+                        </children>
+                     </AnchorPane>
+                  </children>
+               </VBox>
+            </children></AnchorPane>
+         <AnchorPane layoutX="28.0" layoutY="118.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="101.0">
             <children>
-                <JFXTextField alignment="CENTER" text="2022-03-02 12:02:01" />
-               <JFXButton buttonType="RAISED" mnemonicParsing="false" text="&gt;&gt; 转换 &gt;&gt;" />
-                <JFXTextField alignment="CENTER" text="1646193721000" />
+               <VBox layoutX="96.0" layoutY="54.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <children>
+                           <JFXTextArea fx:id="JTA_src" layoutX="92.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+                           <JFXComboBox fx:id="JCB_timestampAccuracy" prefWidth="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane prefHeight="80.0" prefWidth="200.0">
+                        <children>
+                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <children>
+                                 <JFXButton fx:id="JBT_enCode" buttonType="RAISED" mnemonicParsing="false" onAction="#ONClickEncode" prefHeight="40.0" text="%TimestampToTime">
+                                    <HBox.margin>
+                                       <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                       <Insets left="20.0" right="20.0" />
+                                    </padding></JFXButton>
+                                 <JFXButton fx:id="JBT_deCode" buttonType="RAISED" mnemonicParsing="false" onAction="#ONClickDecode" prefHeight="40.0" text="%TimeToTimestamp">
+                                    <padding>
+                                       <Insets left="20.0" right="20.0" />
+                                    </padding></JFXButton>
+                              </children>
+                           </HBox>
+                        </children></AnchorPane>
+                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <children>
+                           <JFXTextArea fx:id="JTA_dst" editable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+                        </children>
+                     </AnchorPane>
+                  </children>
+               </VBox>
             </children>
-          </HBox>
-         <Label layoutX="55.0" layoutY="175.0" prefHeight="20.0" prefWidth="160.0" text="时间戳: " AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="175.0">
-            <font>
-               <Font size="15.0" />
-            </font>
-         </Label>
-         <Label layoutX="366.0" layoutY="175.0" prefHeight="20.0" prefWidth="160.0" text="时间: " AnchorPane.leftAnchor="366.0" AnchorPane.rightAnchor="84.0" AnchorPane.topAnchor="175.0">
-            <font>
-               <Font size="15.0" />
-            </font>
-         </Label>
-         <Label layoutX="366.0" layoutY="325.0" prefHeight="20.0" prefWidth="160.0" text="时间戳: " AnchorPane.leftAnchor="366.0" AnchorPane.topAnchor="325.0">
-            <font>
-               <Font size="15.0" />
-            </font>
-         </Label>
-         <Label layoutX="55.0" layoutY="325.0" prefHeight="20.0" prefWidth="160.0" text="时间: " AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="395.0" AnchorPane.topAnchor="325.0">
-            <font>
-               <Font size="15.0" />
-            </font>
-         </Label>
+         </AnchorPane>
       </children></AnchorPane>
 </AnchorPane>

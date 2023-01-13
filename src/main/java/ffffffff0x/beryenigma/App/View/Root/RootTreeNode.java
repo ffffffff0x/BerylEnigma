@@ -48,6 +48,7 @@ public class RootTreeNode {
 
         //Practical
         ItemAdd(practical,"MoneyConvert", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");
+        ItemAdd(practical,"Timestamp", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/Timestamp.fxml");
 
         //TextModify
         ItemAdd(textModify,"CaseConvert", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/CaseConvert/CaseConvertView.fxml");

@@ -118,9 +118,10 @@ You can try changing **Settings -> Privacy & Security -> Security -> Allow progr
 - Code - Global Events
 - Function - History
 - Function - Select Language (now is auto)
+- TextEdit - MessyCodeRecovery
 ---
 
-# Disclaimers
+# Disclaimer11s
 
 All files in this project are for study and research purposes only, please do not use the files in the project for illegal purposes, and any negative impact caused by anyone is not my responsibility.
 

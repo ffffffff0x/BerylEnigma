@@ -20,5 +20,6 @@ public class ImageListInit {
     public static final String ICON_FOLDER = "/img/{$}/icon_folder.png";
     public static final String ICON_SETTING = "/img/{$}/icon_settings.png";
     public static final String ICON_LIST_SETTING = "/img/{$}/list-settings.png";
+    public static final String ICON_JBT_REFRESH = "/img/{$}/refresh.png";
 
 }
