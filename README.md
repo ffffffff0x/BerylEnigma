@@ -42,7 +42,7 @@ Visit [releases](https://github.com/ffffffff0x/BerylEnigma/releases)
 
 Q: in macOS, You may encounter **"XXX is corrupted and cannot be opened..."**
 
-You can try changing **Settings -> Privacy & Security -> Security -> Allow programs downloaded from** to **Any source**.
+A: You can try changing **Settings -> Privacy & Security -> Security -> Allow programs downloaded from** to **Any source**.
 
 ---
 
