@@ -2,6 +2,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Ba
 
 import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base92;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -10,6 +11,7 @@ import java.io.UnsupportedEncodingException;
  * @author: RyuZUSUNC
  * @create: 2021/11/22 21:19
  **/
+@ViewNode(name = "Base92",folderPath = "Root/Encryption/Coding/BaseEncoding/",fxmlName = "Base92View.fxml")
 public class Base92ViewController extends BaseEncodingViewController {
     @Override
     protected String encodeSplitToString() {

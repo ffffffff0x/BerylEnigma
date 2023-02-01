@@ -1,5 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HTMLCharEntity;
 
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.HTMLCharEntity.Coding_HTMLCharEntity;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -9,6 +10,7 @@ import javafx.fxml.FXML;
 /**
  * @author RyuZU
  */
+@ViewNode(name = "HTMLCharEntity",folderPath = "Root/Encryption/Coding/",fxmlName = "HTMLCharEntityView.fxml")
 public class HTMLCharEntityController extends ViewController {
     @FXML private JFXComboBox JCB_reference;
 

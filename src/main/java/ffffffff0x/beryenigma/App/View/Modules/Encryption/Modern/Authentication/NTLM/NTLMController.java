@@ -1,10 +1,12 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Authentication.NTLM;
 
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.Authentication.NTLM.Authentication_NTLM;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import org.apache.commons.codec.binary.Hex;
 
+@ViewNode(name = "NTLM",folderPath = "Root/Encryption/Coding/Modern/Authentication/",fxmlName = "NTLMView.fxml")
 public class NTLMController extends ViewController {
     @Override
     protected void initialize() {

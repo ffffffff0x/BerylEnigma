@@ -9,6 +9,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingImageView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ImageListInit;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -29,6 +30,8 @@ import java.util.Arrays;
  * @author: RyuZUSUNC
  * @create: 2021/9/14 22:05
  **/
+
+@ViewNode(name = "ReverseShellGenerator",folderPath = "Root/Tools/RedTeam/",fxmlName = "ReverseShellGeneratorView.fxml")
 public class ReverseShellGeneratorController extends ViewController {
     @FXML
     private JFXTextField JTF_IP;

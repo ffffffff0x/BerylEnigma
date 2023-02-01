@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Classical.RailFence.Classical_RailFence;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -12,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
+@ViewNode(name = "RailFence",folderPath = "Root/Encryption/Classical/",fxmlName = "RailFenceView.fxml")
 public class RailFenceController extends ViewController {
 
     @FXML private JFXTextField JTF_quantity;

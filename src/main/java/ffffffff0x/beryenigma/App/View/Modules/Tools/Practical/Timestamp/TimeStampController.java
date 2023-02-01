@@ -7,6 +7,7 @@ import ffffffff0x.beryenigma.App.Implement.Tools.Practical.Timestamp.Practical_T
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -19,6 +20,7 @@ import java.time.ZoneId;
  * @create: 2023-01-13 10:44
  **/
 
+@ViewNode(name = "TimeStamp",folderPath = "Root/Tools/Practical/",fxmlName = "TimeStampView.fxml")
 public class TimeStampController extends ViewController {
     @FXML
     ImageView IMG_refresh;

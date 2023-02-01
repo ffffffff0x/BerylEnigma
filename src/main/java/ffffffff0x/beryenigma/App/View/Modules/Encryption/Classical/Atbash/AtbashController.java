@@ -1,10 +1,12 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.Atbash;
 
 
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Classical.Atbash.Classical_Atbash;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
+@ViewNode(name = "Atbash",folderPath = "Root/Encryption/Classical/",fxmlName = "AtbashView.fxml")
 public class AtbashController extends ViewController {
 
     @Override

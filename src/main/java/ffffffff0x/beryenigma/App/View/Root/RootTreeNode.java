@@ -5,12 +5,10 @@ import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class RootTreeNode {
     public TreeItem<String> rootItem = new TreeItem<>(Init.getLanguage("Root"),folderIcon("open"));
@@ -48,7 +46,7 @@ public class RootTreeNode {
 
         //Practical
         ItemAdd(practical,"MoneyConvert", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/MoneyConvert/MoneyConvertView.fxml");
-        ItemAdd(practical,"Timestamp", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/Timestamp.fxml");
+        ItemAdd(practical,"Timestamp", "/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/TimestampView.fxml");
 
         //TextModify
         ItemAdd(textModify,"CaseConvert", "/ffffffff0x/beryenigma/App/View/Modules/Tools/TextEdit/CaseConvert/CaseConvertView.fxml");
@@ -58,7 +56,7 @@ public class RootTreeNode {
 
         //RedTeam
         ItemAdd(redTeam,"ReverseShellGenerator","/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/ReverseShellGenerator/ReverseShellGeneratorView.fxml");
-        ItemAdd(redTeam,"PayloadConverter","/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/PayloadConverter/PayloadConverter.fxml");
+        ItemAdd(redTeam,"PayloadConverter", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/PayloadConverter/PayloadConverterView.fxml");
         ItemAdd(redTeam,"TargetFinishing", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/TargetClassification/TargetFinishingView.fxml");
         ItemAdd(redTeam,"DomainSplit", "/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/DomainSplit/DomainSplitView.fxml");
 

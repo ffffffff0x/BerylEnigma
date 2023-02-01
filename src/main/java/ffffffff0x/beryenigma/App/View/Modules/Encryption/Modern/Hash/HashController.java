@@ -4,6 +4,7 @@ import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.Hash.Modern_Hash;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import org.apache.commons.codec.binary.Hex;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+@ViewNode(name = "Hash",folderPath = "Root/Encryption/Coding/Modern/",fxmlName = "HashView.fxml")
 public class HashController extends ViewControllerFileMode {
     /**
      * JTA_dst1 :HEX result

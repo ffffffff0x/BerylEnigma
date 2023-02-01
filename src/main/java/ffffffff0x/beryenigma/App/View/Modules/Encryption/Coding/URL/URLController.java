@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.URL;
 
 import com.jfoenix.controls.JFXCheckBox;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.URL.Coding_URL;
 import ffffffff0x.beryenigma.Init.ViewInit;
@@ -14,6 +15,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author RyuZU
  */
+@ViewNode(name = "URL",folderPath = "Root/Encryption/Coding/",fxmlName = "URLView.fxml")
 public class URLController extends ViewController {
     @FXML
     private JFXComboBox JCB_charset;

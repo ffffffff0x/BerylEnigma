@@ -12,6 +12,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +25,7 @@ import java.io.UnsupportedEncodingException;
  * @author: RyuZUSUNC
  * @create: 2021-03-18 13:20
  **/
-
+@ViewNode(name = "XOR",folderPath = "Root/Encryption/Coding/",fxmlName = "XORView.fxml")
 public class XORController extends ViewControllerFileMode {
     @FXML
     JFXTextField JTF_key;

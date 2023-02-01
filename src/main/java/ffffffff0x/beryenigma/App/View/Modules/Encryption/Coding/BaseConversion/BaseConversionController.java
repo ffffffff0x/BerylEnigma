@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseConversion;
 
 import com.jfoenix.controls.JFXCheckBox;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseConversion.Coding_BaseConversion;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -8,6 +9,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
+@ViewNode(name = "BaseConversion",folderPath = "Root/Encryption/Coding/",fxmlName = "BaseConversionView.fxml")
 public class BaseConversionController extends ViewController {
 
     @FXML private JFXTextField JTF_split;

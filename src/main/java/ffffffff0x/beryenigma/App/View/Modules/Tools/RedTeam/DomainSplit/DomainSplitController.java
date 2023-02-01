@@ -5,6 +5,7 @@ import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.DomainSplit.RedTeam_Dom
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
@@ -19,6 +20,7 @@ import java.util.Map;
  * @create: 2021-05-09 14:13
  **/
 
+@ViewNode(name = "DomainSplit",folderPath = "Root/Tools/RedTeam/",fxmlName = "DomainSplitView.fxml")
 public class DomainSplitController extends ViewControllerFileMode {
     private String allResult;
     private Map<String,String> multipleResult = new HashMap<>();

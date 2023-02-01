@@ -14,6 +14,7 @@ import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.Util;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -32,6 +33,8 @@ import java.util.stream.Collectors;
  * @author: RyuZUSUNC
  * @create: 2021/12/6 21:12
  **/
+
+@ViewNode(name = "BlockCipher",folderPath = "Root/Encryption/Coding/Modern/",fxmlName = "BlockCipherView.fxml")
 public class BlockCipherController extends ViewControllerFileMode {
     //加密方式
     @FXML JFXComboBox<String> JCB_algorithm;

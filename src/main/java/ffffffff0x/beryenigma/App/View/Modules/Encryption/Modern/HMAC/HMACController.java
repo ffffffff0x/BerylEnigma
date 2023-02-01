@@ -8,6 +8,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import org.apache.commons.codec.binary.Base64;
@@ -20,6 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+@ViewNode(name = "HMAC",folderPath = "Root/Encryption/Coding/Modern/",fxmlName = "HMACView.fxml")
 public class HMACController extends ViewControllerFileMode {
     /**
      * JTA_dst1 :HEX result

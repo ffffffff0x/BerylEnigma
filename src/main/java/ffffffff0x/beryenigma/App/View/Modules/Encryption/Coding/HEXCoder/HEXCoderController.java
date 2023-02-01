@@ -5,6 +5,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author RyuZU
  */
+@ViewNode(name = "HEXCoder",folderPath = "Root/Encryption/Coding/",fxmlName = "HEXCoderView.fxml")
 public class HEXCoderController extends ViewControllerFileMode {
 
     @FXML private JFXComboBox JCB_charset;

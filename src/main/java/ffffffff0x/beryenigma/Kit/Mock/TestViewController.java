@@ -37,7 +37,8 @@ public class TestViewController extends ViewController {
         JFXButton t = new JFXButton();
         ViewUtils.setLittleButtonToVBox(vBoxDst, t, ImageListInit.ICON_LJBT_IE);
 
-        JTA_src.setText(System.getProperty("user.home") + "\n" + System.getProperty("user.dir"));
+        JTA_src.setText(System.getProperty("user.home") + "\n" + System.getProperty("user.dir") + "\n"
+        + TestViewController.class.getPackageName());
         StringBuilder a = new StringBuilder();
         for (Provider o : Security.getProviders()) {
             a.append(o.getName()).append("\n");

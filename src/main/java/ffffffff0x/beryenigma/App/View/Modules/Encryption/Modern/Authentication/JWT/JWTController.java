@@ -1,10 +1,12 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Authentication.JWT;
 
 import ffffffff0x.beryenigma.Init.ViewInit;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.Authentication.JWT.Authentication_JWT;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
+@ViewNode(name = "JWT",folderPath = "Root/Encryption/Coding/Modern/Authentication/",fxmlName = "JWTView.fxml")
 public class JWTController extends ViewController {
     /**
      *  JTA_dst1 :Header

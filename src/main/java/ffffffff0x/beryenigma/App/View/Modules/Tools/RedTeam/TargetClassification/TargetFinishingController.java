@@ -6,8 +6,10 @@ import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.TargetClassification.Re
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import javafx.fxml.FXML;
 
+@ViewNode(name = "TargetFinishing",folderPath = "Root/Tools/RedTeam/",fxmlName = "TargetFinishingView.fxml")
 public class TargetFinishingController extends ViewControllerFileMode {
 
     @FXML private JFXCheckBox JCB_MultipleFile;

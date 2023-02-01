@@ -1,5 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.Practical.MoneyConvert;
 
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
 import ffffffff0x.beryenigma.Init.Init;
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
  * @create: 2021-03-01 14:33
  **/
 
+@ViewNode(name = "MoneyConvert",folderPath = "Root/Tools/Practical/",fxmlName = "MoneyConvertView.fxml")
 public class MoneyConvertController extends ViewController {
     private final BigDecimal MAX_VALUE = new BigDecimal("9999999999999999.99");
 

@@ -1,5 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.ASCII;
 
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.ASCII.Coding_ASCII;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -9,6 +10,7 @@ import javafx.fxml.FXML;
 /**
  * @author RyuZU
  */
+@ViewNode(name = "ASCII",folderPath = "Root/Encryption/Coding/",fxmlName = "ASCIIView.fxml")
 public class ASCIIViewController extends ViewController {
     @FXML
     private JFXTextField JTF_split;

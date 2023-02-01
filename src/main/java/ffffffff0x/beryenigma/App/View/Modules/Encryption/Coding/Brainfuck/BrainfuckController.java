@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXSpinner;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.Brainfuck.Coding_Brainfuck;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -12,7 +13,7 @@ import javafx.fxml.FXML;
  * @author: RyuZUSUNC
  * @create: 2021-09-17 15:29
  **/
-
+@ViewNode(name = "Brainfuck",folderPath = "Root/Encryption/Coding/",fxmlName = "BrainfuckView.fxml")
 public class BrainfuckController extends ViewController {
     @FXML private JFXComboBox<String> JCB_modeCheck;
     @FXML private JFXComboBox<String> JCB_charset;

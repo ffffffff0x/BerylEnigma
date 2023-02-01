@@ -12,6 +12,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -36,6 +37,7 @@ import java.util.List;
  * @create: 2021-05-20 11:29
  **/
 
+@ViewNode(name = "PixelReplacement",folderPath = "Root/Tools/Image/",fxmlName = "PixelReplacementView.fxml")
 public class PixelReplacementController extends ViewController {
     private ImageView IMG_loadImg;
     private ImageView IMG_outImg;

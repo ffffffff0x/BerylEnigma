@@ -6,6 +6,7 @@ import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Bas
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,7 @@ import java.io.UnsupportedEncodingException;
  * @author: RyuZUSUNC
  * @create: 2021/10/19 21:12
  **/
+@ViewNode(name = "Base58",folderPath = "Root/Encryption/Coding/BaseEncoding/",fxmlName = "Base58View.fxml")
 public class Base58ViewController extends BaseEncodingViewController {
     private JFXComboBox<String> JCB_modeSelect;
 

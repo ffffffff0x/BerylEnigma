@@ -1,5 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Unicode;
 
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.Unicode.Coding_Unicode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -7,6 +8,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 /**
  * @author RyuZU
  */
+@ViewNode(name = "Unicode",folderPath = "Root/Encryption/Coding/",fxmlName = "UnicodeView.fxml")
 public class UnicodeController extends ViewController {
     @Override
     protected void initialize() {

@@ -5,6 +5,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.*;
 import javafx.application.Platform;
@@ -15,6 +16,7 @@ import java.util.Objects;
 /**
  * @author RyuZU
  */
+@ViewNode(name = "Base64",folderPath = "Root/Encryption/Coding/BaseEncoding/",fxmlName = "Base64View.fxml")
 public class Base64ViewController extends ViewControllerFileMode {
     @FXML private JFXComboBox JCB_charset;
     @FXML private JFXTextField JTF_split;
