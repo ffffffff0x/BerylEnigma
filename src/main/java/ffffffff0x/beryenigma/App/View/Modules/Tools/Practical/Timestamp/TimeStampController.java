@@ -20,7 +20,7 @@ import java.time.ZoneId;
  * @create: 2023-01-13 10:44
  **/
 
-@ViewNode(name = "TimeStamp",folderPath = "Root/Tools/Practical/",fxmlName = "TimeStampView.fxml")
+@ViewNode(name = "Timestamp",folderPath = "Root/Tools/Practical/",fxmlName = "TimeStampView.fxml")
 public class TimeStampController extends ViewController {
     @FXML
     ImageView IMG_refresh;

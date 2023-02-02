@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.util.ArrayList;
 
-@ViewNode(name = "LineSplicing",folderPath = "Root/Tools/TextEdit/",fxmlName = "LineSplicingView.fxml")
+@ViewNode(name = "LineSplicing",folderPath = "Root/Tools/TextModify/",fxmlName = "LineSplicingView.fxml")
 public class LineSplicingController extends ViewController {
     @FXML private JFXTextField JTF_split;
     @FXML private JFXButton JBT_loadFile1;

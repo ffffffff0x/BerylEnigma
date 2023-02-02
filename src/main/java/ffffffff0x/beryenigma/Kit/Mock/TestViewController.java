@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
 import com.jfoenix.controls.JFXButton;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.Atbash.AtbashController;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.ViewInit;
@@ -39,6 +40,11 @@ public class TestViewController extends ViewController {
 
         JTA_src.setText(System.getProperty("user.home") + "\n" + System.getProperty("user.dir") + "\n"
         + TestViewController.class.getPackageName());
+
+        Class tClass = AtbashController.class;
+        JTA_src.setText(tClass.getPackageName());
+        System.out.println(tClass.getPackageName());
+
         StringBuilder a = new StringBuilder();
         for (Provider o : Security.getProviders()) {
             a.append(o.getName()).append("\n");

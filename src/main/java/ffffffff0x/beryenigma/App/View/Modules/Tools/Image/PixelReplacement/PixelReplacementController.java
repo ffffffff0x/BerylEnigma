@@ -37,7 +37,7 @@ import java.util.List;
  * @create: 2021-05-20 11:29
  **/
 
-@ViewNode(name = "PixelReplacement",folderPath = "Root/Tools/Image/",fxmlName = "PixelReplacementView.fxml")
+@ViewNode(name = "PixelReplacement",folderPath = "Root/Tools/ImageTools/",fxmlName = "PixelReplacementView.fxml")
 public class PixelReplacementController extends ViewController {
     private ImageView IMG_loadImg;
     private ImageView IMG_outImg;

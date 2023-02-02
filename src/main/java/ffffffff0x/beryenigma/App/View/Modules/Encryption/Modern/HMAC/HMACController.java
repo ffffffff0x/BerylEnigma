@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-@ViewNode(name = "HMAC",folderPath = "Root/Encryption/Coding/Modern/",fxmlName = "HMACView.fxml")
+@ViewNode(name = "HMAC",folderPath = "Root/Encryption/Modern/",fxmlName = "HMACView.fxml")
 public class HMACController extends ViewControllerFileMode {
     /**
      * JTA_dst1 :HEX result

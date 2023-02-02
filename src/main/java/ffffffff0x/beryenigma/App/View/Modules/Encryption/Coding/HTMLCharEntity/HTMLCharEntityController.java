@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 /**
  * @author RyuZU
  */
-@ViewNode(name = "HTMLCharEntity",folderPath = "Root/Encryption/Coding/",fxmlName = "HTMLCharEntityView.fxml")
+@ViewNode(name = "HTMLCharacterEntity",folderPath = "Root/Encryption/Coding/",fxmlName = "HTMLCharEntityView.fxml")
 public class HTMLCharEntityController extends ViewController {
     @FXML private JFXComboBox JCB_reference;
 

@@ -7,7 +7,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
-@ViewNode(name = "TextSeparate",folderPath = "Root/Tools/TextEdit/",fxmlName = "TextSeparateView.fxml")
+@ViewNode(name = "TextSeparate",folderPath = "Root/Tools/TextModify/",fxmlName = "TextSeparateView.fxml")
 public class TextSeparateController extends ViewController {
     @FXML private JFXTextField JTF_split;
     @FXML private JFXTextField JTF_quantity;

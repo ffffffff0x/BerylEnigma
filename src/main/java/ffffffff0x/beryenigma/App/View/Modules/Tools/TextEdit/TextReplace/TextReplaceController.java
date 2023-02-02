@@ -7,7 +7,7 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
-@ViewNode(name = "TextReplace",folderPath = "Root/Tools/TextEdit/",fxmlName = "TextReplaceView.fxml")
+@ViewNode(name = "TextReplace",folderPath = "Root/Tools/TextModify/",fxmlName = "TextReplaceView.fxml")
 public class TextReplaceController extends ViewController {
     @FXML private JFXTextArea JTA_oldString;
     @FXML private JFXTextArea JTA_newString;

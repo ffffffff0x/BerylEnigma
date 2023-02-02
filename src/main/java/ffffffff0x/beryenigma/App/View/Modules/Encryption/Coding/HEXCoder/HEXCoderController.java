@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author RyuZU
  */
-@ViewNode(name = "HEXCoder",folderPath = "Root/Encryption/Coding/",fxmlName = "HEXCoderView.fxml")
+@ViewNode(name = "HEX",folderPath = "Root/Encryption/Coding/",fxmlName = "HEXCoderView.fxml")
 public class HEXCoderController extends ViewControllerFileMode {
 
     @FXML private JFXComboBox JCB_charset;

@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
  * @create: 2021/12/6 21:12
  **/
 
-@ViewNode(name = "BlockCipher",folderPath = "Root/Encryption/Coding/Modern/",fxmlName = "BlockCipherView.fxml")
+@ViewNode(name = "BlockCipher",folderPath = "Root/Encryption/Modern/",fxmlName = "BlockCipherView.fxml")
 public class BlockCipherController extends ViewControllerFileMode {
     //加密方式
     @FXML JFXComboBox<String> JCB_algorithm;

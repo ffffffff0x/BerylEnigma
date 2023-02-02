@@ -48,7 +48,7 @@ import java.util.List;
  * @create: 2022-08-11 13:17
  **/
 
-@ViewNode(name = "QRcode",folderPath = "Root/Tools/Image/",fxmlName = "QRcodeView.fxml")
+@ViewNode(name = "QRCode",folderPath = "Root/Tools/ImageTools/",fxmlName = "QRcodeView.fxml")
 public class QRcodeController extends ViewController {
     private ImageView IMG_loadImg;
     private ImageView IMG_outImg;

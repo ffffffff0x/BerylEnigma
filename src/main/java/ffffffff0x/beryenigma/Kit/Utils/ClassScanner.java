@@ -1,5 +1,7 @@
 package ffffffff0x.beryenigma.Kit.Utils;
 
+import ffffffff0x.beryenigma.Lanucher;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -29,17 +31,29 @@ public class ClassScanner {
         // 定义一个枚举的集合 并进行循环来处理这个目录下的things
         Enumeration<URL> dirs;
         try {
+
+            String classPath = ClassScanner.class.getName().replaceAll("\\.", "/") + ".class";
+            URL resource = ClassScanner.class.getClassLoader().getResource(classPath);
+            if (resource == null) {
+                return null;
+            }
+            String urlString = resource.toString();
+            System.out.println(urlString);
+
             dirs = Thread.currentThread().getContextClassLoader().getResources(packageDirName);
+            System.out.println("T1: " + packageDirName);
             // 循环迭代下去
             while (dirs.hasMoreElements()) {
                 // 获取下一个元素
                 URL url = dirs.nextElement();
+                System.out.println(url.toString());
                 // 得到协议的名称
                 String protocol = url.getProtocol();
                 // 如果是以文件的形式保存在服务器上
                 if ("file".equals(protocol)) {
                     // 获取包的物理路径
                     String filePath = URLDecoder.decode(url.getFile(), "UTF-8");
+                    System.out.println(filePath);
                     // 以文件的方式扫描整个包下的文件 并添加到集合中
                     findClassInPackageByFile(packageName, filePath, classes);
 //                    addClass(classes, filePath, packageName);

@@ -19,7 +19,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class RootViewController {
-    RootTreeNode rootTreeNode;
+//    RootTreeNode rootTreeNode;
+    AutoRootTreeNode autoRootTreeNode;
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -46,8 +47,9 @@ public class RootViewController {
 
     @FXML
     private void initialize() {
-        rootTreeNode = new RootTreeNode();
-        RootTree.setRoot(rootTreeNode.rootItem);
+//        rootTreeNode = new RootTreeNode();
+        autoRootTreeNode = new AutoRootTreeNode();
+        RootTree.setRoot(autoRootTreeNode.rootItem);
         setImage();
         changeStyle();
     }
@@ -60,12 +62,12 @@ public class RootViewController {
             }
             //如果选中节点是叶子节点才进行pane切换
             if ((RootTree.getSelectionModel().getSelectedItem()) != null && (RootTree.getSelectionModel().getSelectedItem()).isLeaf()) {
-                if(!"".equals(rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()))){
+                if(!"".equals(autoRootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()))){
                     ////显示选择的页面
                     //FXML布局加载器
                     FXMLLoader loader = new FXMLLoader();
                     //根据路径加载布局
-                    loader.setLocation(RootViewController.class.getResource(rootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem())));
+                    loader.setLocation(RootViewController.class.getResource(autoRootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem())));
                     //加载语言配置文件
                     loader.setResources(Init.getLanguageResourceBundle());
                     try {
@@ -138,8 +140,8 @@ public class RootViewController {
                     ConfigUtils.editConfigFile(ConfigListInit.AppStyle,"light");
                     setImage();
                     JBT_StyleChange.setText(Init.getLanguage("LightMode"));
-                    rootTreeNode = new RootTreeNode();
-                    RootTree.setRoot(rootTreeNode.rootItem);
+                    autoRootTreeNode = new AutoRootTreeNode();
+                    RootTree.setRoot(autoRootTreeNode.rootItem);
 
                     styleMode ++;
                 }else {
@@ -155,8 +157,8 @@ public class RootViewController {
                         setImage();
                         JBT_StyleChange.setText(Init.getLanguage("DarkMode"));
                     }
-                    rootTreeNode = new RootTreeNode();
-                    RootTree.setRoot(rootTreeNode.rootItem);
+                    autoRootTreeNode = new AutoRootTreeNode();
+                    RootTree.setRoot(autoRootTreeNode.rootItem);
                     styleMode ++;
                 }
             }
