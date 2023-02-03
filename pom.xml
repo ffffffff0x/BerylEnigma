@@ -171,6 +171,13 @@
             <systemPath>${pom.basedir}/lib/zxing-core-javase-onjdk17-3.5.0.jar</systemPath>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.github.classgraph/classgraph -->
+        <dependency>
+            <groupId>io.github.classgraph</groupId>
+            <artifactId>classgraph</artifactId>
+            <version>4.8.154</version>
+        </dependency>
+
         <!--        <dependency>-->
 <!--            <groupId>com.twelvemonkeys.imageio</groupId>-->
 <!--            <artifactId>imageio-jpeg</artifactId>-->

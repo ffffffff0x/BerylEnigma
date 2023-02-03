@@ -17,7 +17,7 @@ import java.util.jar.JarFile;
  **/
 
 public class ClassScanner {
-    public Set<Class<?>> getClasses(String packageName) throws Exception {
+    public Set<Class<?>> getClasses(String packageName) {
 
         // 第一个class类的集合
         //List<Class<?>> classes = new ArrayList<Class<?>>();
@@ -30,18 +30,22 @@ public class ClassScanner {
         Enumeration<URL> dirs;
         try {
             dirs = Thread.currentThread().getContextClassLoader().getResources(packageDirName);
+            System.out.println("T1: " + packageDirName);
             // 循环迭代下去
             while (dirs.hasMoreElements()) {
                 // 获取下一个元素
                 URL url = dirs.nextElement();
+                System.out.println(url.toString());
                 // 得到协议的名称
                 String protocol = url.getProtocol();
                 // 如果是以文件的形式保存在服务器上
                 if ("file".equals(protocol)) {
                     // 获取包的物理路径
                     String filePath = URLDecoder.decode(url.getFile(), "UTF-8");
+                    System.out.println(filePath);
                     // 以文件的方式扫描整个包下的文件 并添加到集合中
-                    addClass(classes, filePath, packageName);
+                    findClassInPackageByFile(packageName, filePath, classes);
+//                    addClass(classes, filePath, packageName);
                 } else if ("jar".equals(protocol)) {
                     // 如果是jar包文件
                     // 定义一个JarFile
@@ -134,6 +138,44 @@ public class ClassScanner {
             }
         }
         return controllers;
+    }
+
+    /**
+     * 在package对应的路径下找到所有的class
+     *
+     * @param packageName
+     *            package名称
+     * @param filePath
+     *            package对应的路径
+     * @param clazzs
+     *            找到class以后存放的集合
+     */
+    public void findClassInPackageByFile(String packageName, String filePath, Set<Class<?>> clazzs) {
+        File dir = new File(filePath);
+        if (!dir.exists() || !dir.isDirectory()) {
+            return;
+        }
+        // 在给定的目录下找到所有的文件，并且进行条件过滤
+        File[] dirFiles = dir.listFiles(file -> {
+            boolean acceptDir = file.isDirectory();// 接受dir目录
+            boolean acceptClass = file.getName().endsWith("class");// 接受class文件
+            return acceptDir || acceptClass;
+        });
+
+        if (dirFiles != null) {
+            for (File file : dirFiles) {
+                if (file.isDirectory()) {
+                    findClassInPackageByFile(packageName + "." + file.getName(), file.getAbsolutePath(), clazzs);
+                } else {
+                    String className = file.getName().substring(0, file.getName().length() - 6);
+                    try {
+                        clazzs.add(Thread.currentThread().getContextClassLoader().loadClass(packageName + "." + className));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {

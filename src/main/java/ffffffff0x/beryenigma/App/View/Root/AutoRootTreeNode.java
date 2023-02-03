@@ -50,8 +50,8 @@ public class AutoRootTreeNode {
         HashSet<String> folderPaths = new HashSet<>();
         try {
             // 扫描包路径，获取存在注解的类
-            Set<Class<?>> set = new ClassScanner().getAnnotationClasses("ffffffff0x.beryenigma.App.View.Modules", ViewNode.class);
-            System.out.println(set.size());
+            List<Class<?>> set = new ClassScanner().getAnnotationClasses("ffffffff0x.beryenigma.App.View.Modules", ViewNode.class);
+            System.out.println("扫描获取功能节点数量: " + set.size());
             // 遍历获取到的所有类
             for (Class<?> aClass : set) {
                 // 获取注解
@@ -60,7 +60,7 @@ public class AutoRootTreeNode {
                 viewNodeContainer.put(annotation.name(), new ViewNodeInfo(annotation.name(),
                         annotation.folderPath(),
                         ("/" + aClass.getPackageName().replace(".","/") + "/" + annotation.fxmlName())));
-                System.out.println(aClass.getPackageName());
+//                System.out.println(aClass.getPackageName());
                 // 获取注解信息中的目录路径
                 folderPaths.add(annotation.folderPath());
             }
@@ -103,6 +103,7 @@ public class AutoRootTreeNode {
                 tempFolderPath.append(folder).append("/");
                 // 如果不存在这个文件夹
                 if (!folderMap.containsKey(tempFolderPath.toString())) {
+//                    System.out.println("创建" + Init.getLanguage(folder) + "目录");
                     // 创建文件夹
                     TreeItem<String> tempTreeItem = new TreeItem<>(Init.getLanguage(folder),folderIcon("open"));
                     // 将文件夹装载入folderMap
@@ -126,6 +127,7 @@ public class AutoRootTreeNode {
 
     public void createTreeItem(Map<String, ViewNodeInfo> viewNodeContainer) {
         for (String viewNodeName : viewNodeContainer.keySet()) {
+//            System.out.println("加载" + viewNodeContainer.get(viewNodeName).name + "模块");
             ItemAdd(folderMap.get(viewNodeContainer.get(viewNodeName).folderPath)
                     ,viewNodeContainer.get(viewNodeName).name,
                     viewNodeContainer.get(viewNodeName).fxmlPath);

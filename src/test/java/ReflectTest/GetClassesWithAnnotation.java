@@ -32,11 +32,10 @@ public class GetClassesWithAnnotation {
 //        }
 //        return annotatedClasses;
 //    }
-//
-//    public static void main(String[] args) throws Exception {
-//        String packageName = "com.example";
-//
+
+    public static void main(String[] args) throws Exception {
+        String packageName = "com.example";
 //        List<Class<?>> annotatedClasses = getAnnotatedClasses(packageName, Deprecated.class);
 //        annotatedClasses.forEach(System.out::println);
-//    }
+    }
 }
