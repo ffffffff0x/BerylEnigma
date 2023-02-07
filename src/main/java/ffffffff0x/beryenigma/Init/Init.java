@@ -3,6 +3,7 @@ package ffffffff0x.beryenigma.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
 
 import java.io.IOException;
+import java.util.MissingResourceException;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -70,7 +71,11 @@ public class Init {
      * @return string
      */
     public static String getLanguage(String key) {
-        return languageResourceBundle.getString(key);
+        try {
+            return languageResourceBundle.getString(key);
+        }catch (MissingResourceException e) {
+            return key;
+        }
     }
 
     public static ResourceBundle getLanguageResourceBundle() {
