@@ -3,8 +3,10 @@ package ffffffff0x.beryenigma.Kit.Utils;
 import com.jfoenix.controls.*;
 import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -358,5 +360,14 @@ public class ViewUtils {
             return (java.awt.image.BufferedImage) t.getTransferData(DataFlavor.imageFlavor);
         }
         return null;
+    }
+
+    public static Scene setCSSStyle(Scene scene) {
+        if (Init.getConfig(ConfigListInit.AppStyle).equals("dark")) {
+            scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
+        } else {
+            scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_light.css")).toExternalForm());
+        }
+        return scene;
     }
 }

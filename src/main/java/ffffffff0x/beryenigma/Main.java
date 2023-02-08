@@ -6,6 +6,7 @@ import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -45,30 +46,34 @@ public class Main extends Application {
             loader.setResources(Init.getLanguageResourceBundle());
             rootLayout = loader.load();
 
+            // 设置图标
             primaryStage.getIcons().add(ViewUtils.getImage(ImageListInit.ICON));
-            primaryStage.setOnCloseRequest(event -> System.exit(0));
+//            primaryStage.setOnCloseRequest(event -> System.exit(0));
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/JOKERMAN.TTF")).toExternalForm(), 10);
             Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/HyliaSerif.otf")).toExternalForm(), 10);
 
-            if (Init.getConfig(ConfigListInit.AppStyle).equals("dark")) {
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
-            } else {
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_light.css")).toExternalForm());
-            }
+            // 设置CSS样式
+            ViewUtils.setCSSStyle(scene);
+
+            // 窗口关闭事件
             primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent windowEvent) {
                     try {
+                        // 关闭所有子窗口
+                        Platform.exit();
+                        // 保存当前窗口配置
                         ConfigUtils.saveConfigFile(Init.CONFIGFILEPATH_NOW);
+                        // 关闭程序
+                        System.exit(0);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                 }
             });
-
             primaryStage.setScene(scene);
             // primaryStage.setResizable(false);
             primaryStage.show();

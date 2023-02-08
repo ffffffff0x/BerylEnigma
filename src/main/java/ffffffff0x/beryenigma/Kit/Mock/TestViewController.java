@@ -1,17 +1,29 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXMasonryPane;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.Atbash.AtbashController;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerator.ReverseShellGeneratorController;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
+import ffffffff0x.beryenigma.App.View.Viewobj.WindowStage;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextFormatter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -42,8 +54,8 @@ public class TestViewController extends ViewController {
         + TestViewController.class.getPackageName());
 
         Class tClass = AtbashController.class;
-        JTA_src.setText(tClass.getPackageName());
-        System.out.println(tClass.getPackageName());
+//        JTA_src.setText(tClass.getPackageName());
+//        System.out.println(tClass.getPackageName());
 
         StringBuilder a = new StringBuilder();
         for (Provider o : Security.getProviders()) {
@@ -74,11 +86,11 @@ public class TestViewController extends ViewController {
         super.ONClickDecode();
         try {
             System.out.println("123123");
-            ViewUtils.alertPane(new Stage(),"test","test");
+//            ViewUtils.alertPane(new Stage(),"test","test");
         }catch (Exception e) {
             e.printStackTrace();
         }
-
+        newViewTest();
     }
 
     protected void setTextareaOnDrag() {
@@ -95,5 +107,24 @@ public class TestViewController extends ViewController {
 //                JTA_dst.setText(files.get(0).getPath());
 //            }
 //        });
+    }
+
+    protected void newViewTest() {
+        JFXMasonryPane jfxMasonryPane = new JFXMasonryPane();
+
+        for (int i = 0; i < 50; i++) {
+            AnchorPane a = new AnchorPane(new Label("BIG5 To GBK:  ?誏盎訴楠豜?証許?"));
+            AnchorPane.setRightAnchor(a,20.0);
+            AnchorPane.setLeftAnchor(a,20.0);
+
+            jfxMasonryPane.getChildren().add(a);
+        }
+
+        ScrollBar scrollBar = new ScrollBar();
+        jfxMasonryPane.setId("ACP_backgroundAnchorPane");
+//        AnchorPane anchorPane = new AnchorPane(jfxMasonryPane);
+//        anchorPane.setId("ACP_backgroundAnchorPane");
+
+        new WindowStage("Test",800.0,600.0,jfxMasonryPane);
     }
 }

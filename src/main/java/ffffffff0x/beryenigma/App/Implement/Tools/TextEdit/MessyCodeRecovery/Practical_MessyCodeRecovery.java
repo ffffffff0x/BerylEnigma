@@ -1,7 +1,6 @@
 package ffffffff0x.beryenigma.App.Implement.Tools.TextEdit.MessyCodeRecovery;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 
 /**
  * @program: BerylEnigma
@@ -10,18 +9,16 @@ import java.nio.charset.StandardCharsets;
  **/
 
 public class Practical_MessyCodeRecovery {
-    public static String[] CHARENCODE = new String[] {"Shift_Jis",
-            "UTF_8","US_ASCII","GBK","ISO_8859_1","windows-1252",
+    public static String[] CHAR_ENCODE = new String[] {"Shift-Jis",
+            "UTF-8","US-ASCII","GBK","ISO-8859-1","windows-1252",
             "GB2312","BIG5"};
 
     public static void recovery(String message) throws UnsupportedEncodingException {
-        System.out.println(new String(message.getBytes("Shift_Jis"),StandardCharsets.UTF_8));
-        System.out.println(new String(message.getBytes("Shift_Jis"),StandardCharsets.US_ASCII));
-        System.out.println(new String(message.getBytes("Shift_Jis"),"GBK"));
-        System.out.println(new String(message.getBytes("Shift_Jis"), StandardCharsets.ISO_8859_1));
-        System.out.println(new String(message.getBytes("Shift_Jis"), "windows-1252"));
-        System.out.println(new String(message.getBytes("Shift_Jis"), "GB2312"));
-        System.out.println(new String(message.getBytes("Shift_Jis"), "BIG5"));
+        for (String s : CHAR_ENCODE) {
+            for (String s1 : CHAR_ENCODE) {
+                System.out.println(s + " To "+ s1 + ":  " + new String(message.getBytes(s),s1));
+            }
+        }
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
