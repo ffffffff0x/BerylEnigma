@@ -1,9 +1,6 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXMasonryPane;
-import com.jfoenix.controls.JFXTreeTableView;
-import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.Atbash.AtbashController;
 import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerator.ReverseShellGeneratorController;
@@ -11,28 +8,17 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.App.View.Viewobj.WindowStage;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.ViewInit;
-import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.security.Provider;
 import java.security.Security;
-import java.util.Properties;
 
 public class TestViewController extends ViewController {
 
@@ -110,21 +96,39 @@ public class TestViewController extends ViewController {
     }
 
     protected void newViewTest() {
-        JFXMasonryPane jfxMasonryPane = new JFXMasonryPane();
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setId("ACP_backgroundAnchorPane");
 
-        for (int i = 0; i < 50; i++) {
-            AnchorPane a = new AnchorPane(new Label("BIG5 To GBK:  ?誏盎訴楠豜?証許?"));
-            AnchorPane.setRightAnchor(a,20.0);
-            AnchorPane.setLeftAnchor(a,20.0);
+//        TreeTableView<test> treeTableView = new TreeTableView<>();
+//
+//        TreeTableColumn<test, String> treeTableColumn1 = new TreeTableColumn<>("TE1");
+//        TreeTableColumn<test, String> treeTableColumn2 = new TreeTableColumn<>("TE2");
+//
+//        treeTableColumn1.setCellValueFactory(new TreeItemPropertyValueFactory<>("te1"));
+//        treeTableColumn2.setCellValueFactory(new TreeItemPropertyValueFactory<>("te2"));
+//
+//        treeTableView.getColumns().add(treeTableColumn1);
+//        treeTableView.getColumns().add(treeTableColumn2);
 
-            jfxMasonryPane.getChildren().add(a);
-        }
+        JFXTreeTableView<test> treeTableView;
+        ObservableList<test> tol = FXCollections.observableArrayList();
+        tol.add(new test("t1","t1"));
+        tol.add(new test("t2","t2"));
+        tol.add(new test("t3","t3"));
+        tol.add(new test("t4","t4"));
+        TreeItem<test> root = new RecursiveTreeItem<>(tol, RecursiveTreeObject::getChildren);
+        treeTableView = new JFXTreeTableView<>(root);
+        treeTableView.setShowRoot(false);
+        JFXTreeTableColumn<test, String> testName = new JFXTreeTableColumn<>("Test");
 
-        ScrollBar scrollBar = new ScrollBar();
-        jfxMasonryPane.setId("ACP_backgroundAnchorPane");
-//        AnchorPane anchorPane = new AnchorPane(jfxMasonryPane);
-//        anchorPane.setId("ACP_backgroundAnchorPane");
+        treeTableView.getColumns().setAll(testName);
 
-        new WindowStage("Test",800.0,600.0,jfxMasonryPane);
+        anchorPane.getChildren().add(treeTableView);
+        AnchorPane.setLeftAnchor(treeTableView,0.0);
+        AnchorPane.setRightAnchor(treeTableView,0.0);
+        AnchorPane.setTopAnchor(treeTableView,0.0);
+        AnchorPane.setBottomAnchor(treeTableView,0.0);
+
+        new WindowStage("Test",800.0,600.0,anchorPane);
     }
 }

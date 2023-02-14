@@ -91,7 +91,6 @@ public class QRcodeController extends ViewController {
         super.initialize();
         initViews();
         DragClickLoadImg();
-        System.out.println();
     }
 
     @Override
