@@ -70,7 +70,7 @@ public class BlockCipherController extends ViewControllerFileMode {
     @Override
     public void ONClickEncode() {
         super.ONClickEncode();
-        ViewUtils.setTextAreaTextRed(false, JTA_dst, JTA_dst1);
+        ViewUtils.setTextAreaTextRed(false, JTA_dst);
         new Thread(() -> {
             BlockCipherParameters blockCipherParameters;
             String catchString = null;
@@ -102,10 +102,10 @@ public class BlockCipherController extends ViewControllerFileMode {
         super.ONClickDecode();
         if (Init.getConfig(ConfigListInit.AppStyle).equals("light")) {
             JTA_dst.setStyle("-fx-text-fill: black");
-            JTA_dst1.setStyle("-fx-text-fill: black");
+//            JTA_dst1.setStyle("-fx-text-fill: black");
         } else {
             JTA_dst.setStyle("-fx-text-fill: lightgray");
-            JTA_dst1.setStyle("-fx-text-fill: lightgray");
+//            JTA_dst1.setStyle("-fx-text-fill: lightgray");
         }
         new Thread(() -> {
             BlockCipherParameters blockCipherParameters;
@@ -278,8 +278,13 @@ public class BlockCipherController extends ViewControllerFileMode {
             }
         }else {
             try {
-                jcb.setValue("Text");
-                return new String(output,textEncode.getValue().toString());
+                if (jcb.getValue().equals("Text")) {
+                    return new String(output,textEncode.getValue().toString());
+                }else if (jcb.getValue().equals("Base64")) {
+                    return Coding_Base64.encodeToString(output);
+                }else {
+                    return Coding_HEXCoder.encodeToString(output);
+                }
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
