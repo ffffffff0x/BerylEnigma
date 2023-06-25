@@ -222,4 +222,34 @@ public class FileUtils {
         }
         return true;
     }
+
+    /**
+     * 检查文件是否存在
+     *
+     * @param filePath 文件路径
+     * @return boolean
+     */
+    public static boolean checkFileExist(String filePath) {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * 检查文件夹是否存在，如果不存在就创建文件夹
+     *
+     * @param folderPath 文件夹路径
+     * @return boolean
+     */
+    public static boolean checkFolderExist(String folderPath) {
+        File folder = new File(folderPath);
+        if (!folder.exists() && !folder.isDirectory()) {
+            return folder.mkdirs();
+        } else {
+            return true;
+        }
+    }
 }

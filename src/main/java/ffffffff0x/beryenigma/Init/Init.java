@@ -1,6 +1,8 @@
 package ffffffff0x.beryenigma.Init;
 
 import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
+import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.OSUtils;
 
 import java.io.IOException;
 import java.util.MissingResourceException;
@@ -14,12 +16,11 @@ public class Init {
     public static String OS_NOW;
     public static Properties MAIN_CONFIG;
     private static final Properties DEFAULT_CONFIG;
-
     private static ResourceBundle languageResourceBundle;
 
     /* 程序初始化 */
     static {
-        OS_NOW = ConfigUtils.getOS();
+        OS_NOW = OSUtils.getOS();
         if (OS_NOW != null) {
             CONFIGPATH_NOW = ConfigUtils.getConfigPath(OS_NOW);
             CONFIGFILEPATH_NOW = CONFIGPATH_NOW + "/" + CONFIG_FILENAME;
@@ -38,8 +39,8 @@ public class Init {
      * @throws IOException 文件系统异常
      */
     private static void loadConfig() throws IOException {
-        if (ConfigUtils.checkFolderExist(CONFIGPATH_NOW)) {
-            if (ConfigUtils.checkFileExist(CONFIGFILEPATH_NOW)) {
+        if (FileUtils.checkFolderExist(CONFIGPATH_NOW)) {
+            if (FileUtils.checkFileExist(CONFIGFILEPATH_NOW)) {
                 MAIN_CONFIG = ConfigUtils.getLocalConfig(CONFIGFILEPATH_NOW);
             }else {
                 ConfigUtils.createConfigFile(CONFIGFILEPATH_NOW);
