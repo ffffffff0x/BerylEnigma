@@ -62,7 +62,7 @@ public class Modern_BlockCipher {
         Cipher cipher = Cipher.getInstance(cipherInstance);
         SecretKeySpec keySpec = new SecretKeySpec(key, cipherInstance.split("/")[0]);
         if (iv == null) {
-            cipher.init(Cipher.ENCRYPT_MODE, keySpec);
+            cipher.init(Cipher.DECRYPT_MODE, keySpec);
         }else {
             IvParameterSpec ivps = new IvParameterSpec(iv);
             cipher.init(Cipher.DECRYPT_MODE, keySpec, ivps);

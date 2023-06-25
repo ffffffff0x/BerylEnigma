@@ -15,7 +15,7 @@ public class algorithmtest {
         Security.addProvider(new BouncyCastleProvider());
         Set<String> messageDigest = Security.getAlgorithms("Mac");
         for (String s : messageDigest) {
-            if (s.contains("HMAC")) {
+            if (s.contains("AES")) {
                 System.out.println(s);
             }
         }
