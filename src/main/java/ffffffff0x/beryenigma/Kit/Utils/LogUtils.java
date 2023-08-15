@@ -2,7 +2,7 @@ package ffffffff0x.beryenigma.Kit.Utils;
 
 import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * @author: RyuZUSUNC
@@ -16,11 +16,12 @@ public class LogUtils {
     // linux LOG存储目录
     private static final String LOGPATH_LINUX = System.getProperty("user.dir") + "/log";
 
-    private static ArrayList<HistoryInfo> logArrayList = new ArrayList<>();
+    private static LinkedList<HistoryInfo> logArrayList = new LinkedList<>();
 
     // 新增一条历史记录日志
     public static void addLog(HistoryInfo historyInfo) {
         logArrayList.add(historyInfo);
+
         // TODO: 2023/6/25
     }
 
