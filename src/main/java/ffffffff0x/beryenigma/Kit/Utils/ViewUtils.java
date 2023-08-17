@@ -4,7 +4,6 @@ import com.jfoenix.controls.*;
 import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Main;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -27,6 +26,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 public class ViewUtils {
@@ -35,12 +35,23 @@ public class ViewUtils {
      * @return 返回文件获取窗口
      */
     public static File getFile(){
-        Stage primaryStage = null;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(Init.getLanguage("File"));
         FileSystemView fsv = FileSystemView.getFileSystemView();
         fileChooser.setInitialDirectory(fsv.getHomeDirectory());
-        return fileChooser.showOpenDialog(primaryStage);
+        return fileChooser.showOpenDialog(new Stage());
+    }
+
+    /**
+     * 返回文件获取窗口（多选）
+     * @return 返回文件获取窗口
+     */
+    public static List<File> getFiles() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle(Init.getLanguage("File"));
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        fileChooser.setInitialDirectory(fsv.getHomeDirectory());
+        return fileChooser.showOpenMultipleDialog(new Stage());
     }
 
     /**

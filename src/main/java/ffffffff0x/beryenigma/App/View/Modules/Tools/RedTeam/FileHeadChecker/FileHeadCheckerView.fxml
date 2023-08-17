@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.FileHeadCheckerController">
+<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.FileHeadCheckerController">
    <children>
       <Label fx:id="JLB_title" alignment="CENTER" layoutX="24.0" layoutY="28.0" prefHeight="70.0" prefWidth="610.0" text="File Head Checker" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
@@ -35,7 +35,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="53.0" prefWidth="150.0">
                            <children>
-                              <Label fx:id="JLB_JSONNum" alignment="CENTER" text="Num:99999" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="16.0">
+                              <Label fx:id="JLB_JSONNum" alignment="CENTER" text="Num: 99999" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="16.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
