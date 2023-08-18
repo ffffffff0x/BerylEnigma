@@ -191,7 +191,7 @@
     -fx-background-color: #ffffff ;
 }
 
-#JBT_loadImg, #JBT_outImg {
+#JBT_loadImg, #JBT_outImg, #JBT_LoadFiles{
     -fx-background-color: #e8e8e8 ;
 }
 
@@ -276,4 +276,9 @@
 
 .jfx-layout-body {
     -fx-background-color: #f4f4f4;
+}
+
+.separator *.line {
+    -fx-border-color: #E8E8E8;
+    -fx-border-width: 1;
 }
