@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base62;
 
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base62;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
@@ -16,7 +15,7 @@ public class Base62ViewController extends BaseEncodingViewController {
     @Override
     protected String encodeSplitToString() {
         try {
-            return Coding_Base62.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+            return Base62Impl.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -27,7 +26,7 @@ public class Base62ViewController extends BaseEncodingViewController {
     @Override
     protected String decodeSplitToString() {
         try {
-            return Coding_Base62.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+            return Base62Impl.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -38,7 +37,7 @@ public class Base62ViewController extends BaseEncodingViewController {
     @Override
     protected String encodeToString() {
         try {
-            return Coding_Base62.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+            return Base62Impl.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -49,7 +48,7 @@ public class Base62ViewController extends BaseEncodingViewController {
     @Override
     protected String decodeToString() {
         try {
-            return Coding_Base62.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+            return Base62Impl.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -59,11 +58,11 @@ public class Base62ViewController extends BaseEncodingViewController {
 
     @Override
     protected byte[] encodeToFile() {
-        return Coding_Base62.encode(byteFile);
+        return Base62Impl.encode(byteFile);
     }
 
     @Override
     protected byte[] decodeToFile() {
-        return Coding_Base62.decode(byteFile);
+        return Base62Impl.decode(byteFile);
     }
 }

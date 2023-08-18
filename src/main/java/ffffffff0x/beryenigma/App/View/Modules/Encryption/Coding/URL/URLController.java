@@ -3,7 +3,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.URL;
 import com.jfoenix.controls.JFXCheckBox;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.URL.Coding_URL;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
@@ -34,9 +33,9 @@ public class URLController extends ViewController {
         super.ONClickEncode();
         try {
             if (JCB_encodeAll.isSelected()) {
-                JTA_dst.setText(Coding_URL.encodeAll(JTA_src.getText(),JCB_charset.getValue().toString()));
+                JTA_dst.setText(URLImpl.encodeAll(JTA_src.getText(),JCB_charset.getValue().toString()));
             }else {
-                JTA_dst.setText(Coding_URL.encode(JTA_src.getText(),JCB_charset.getValue().toString()));
+                JTA_dst.setText(URLImpl.encode(JTA_src.getText(),JCB_charset.getValue().toString()));
             }
         } catch (UnsupportedEncodingException e) {
 //            e.printStackTrace();
@@ -48,7 +47,7 @@ public class URLController extends ViewController {
     public void ONClickDecode() {
         super.ONClickDecode();
         try {
-            JTA_dst.setText(Coding_URL.decode(JTA_src.getText(),JCB_charset.getValue().toString()));
+            JTA_dst.setText(URLImpl.decode(JTA_src.getText(),JCB_charset.getValue().toString()));
         } catch (UnsupportedEncodingException e) {
 //            e.printStackTrace();
             ViewUtils.textAreaValidate(JTA_dst);

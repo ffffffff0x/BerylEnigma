@@ -6,7 +6,6 @@ import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Classical.RailFence.Classical_RailFence;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
@@ -29,9 +28,9 @@ public class RailFenceController extends ViewController {
         super.ONClickEncode();
         try{
             if (JCB_modeSelect.getValue().equals(Init.getLanguage("RailFence"))) {
-                JTA_dst.setText(Classical_RailFence.encode(JTA_src.getText(),Integer.parseInt(JTF_quantity.getText())));
+                JTA_dst.setText(RailFenceImpl.encode(JTA_src.getText(),Integer.parseInt(JTF_quantity.getText())));
             }else {
-                JTA_dst.setText(Classical_RailFence.encodeTypeW(JTA_src.getText(),Integer.parseInt(JTF_quantity.getText())));
+                JTA_dst.setText(RailFenceImpl.encodeTypeW(JTA_src.getText(),Integer.parseInt(JTF_quantity.getText())));
             }
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
@@ -43,9 +42,9 @@ public class RailFenceController extends ViewController {
         super.ONClickDecode();
         try{
             if (JCB_modeSelect.getValue().equals(Init.getLanguage("RailFence"))) {
-                JTA_dst.setText(Classical_RailFence.decode(JTA_src.getText(),Integer.parseInt(JTF_quantity.getText())));
+                JTA_dst.setText(RailFenceImpl.decode(JTA_src.getText(),Integer.parseInt(JTF_quantity.getText())));
             }else {
-                JTA_dst.setText(Classical_RailFence.decodeTypeW(JTA_src.getText(),Integer.parseInt(JTF_quantity.getText())));
+                JTA_dst.setText(RailFenceImpl.decodeTypeW(JTA_src.getText(),Integer.parseInt(JTF_quantity.getText())));
             }
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);

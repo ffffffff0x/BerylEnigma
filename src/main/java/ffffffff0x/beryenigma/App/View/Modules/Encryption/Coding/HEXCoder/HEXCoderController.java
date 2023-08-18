@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HEXCoder;
 
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.HEXCoder.Coding_HEXCoder;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
@@ -38,7 +37,7 @@ public class HEXCoderController extends ViewControllerFileMode {
                     e.printStackTrace();
                 }
             }else{
-                FileUtils.outPutFile(Coding_HEXCoder.encode(byteFile));
+                FileUtils.outPutFile(HEXCoderImpl.encode(byteFile));
                 fileEncodeEnd();
             }
         }catch (Exception e) {
@@ -57,7 +56,7 @@ public class HEXCoderController extends ViewControllerFileMode {
                     JTA_dst.validate();
                 }
             }else{
-                FileUtils.outPutFile(Coding_HEXCoder.decode(byteFile));
+                FileUtils.outPutFile(HEXCoderImpl.decode(byteFile));
                 fileEncodeEnd();
             }
         }catch (Exception e){
@@ -66,13 +65,13 @@ public class HEXCoderController extends ViewControllerFileMode {
     }
 
     private String HEXCodeEnCode() throws UnsupportedEncodingException {
-        return Coding_HEXCoder.encode(JTA_src.getText(),
+        return HEXCoderImpl.encode(JTA_src.getText(),
                 JTF_split.getText(),
                 JCB_charset.getValue().toString());
     }
 
     private String HEXCodeDeCode() throws UnsupportedEncodingException {
-        return Coding_HEXCoder.decode(JTA_src.getText(),
+        return HEXCoderImpl.decode(JTA_src.getText(),
                 JTF_split.getText(),
                 JCB_charset.getValue().toString());
     }

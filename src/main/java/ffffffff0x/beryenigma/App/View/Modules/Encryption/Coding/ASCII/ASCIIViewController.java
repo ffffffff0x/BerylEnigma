@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.ASCII;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.ASCII.Coding_ASCII;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
@@ -43,13 +42,13 @@ public class ASCIIViewController extends ViewController {
 
 
     private String ASCIIEnCode(){
-        return Coding_ASCII.encode(
+        return ASCIIImpl.encode(
                 JTA_src.getText(),
                 ViewUtils.getSplit(JTF_split),0);
     }
 
     private String ASCIIDeCode(){
-        return Coding_ASCII.deCode(
+        return ASCIIImpl.deCode(
                 JTA_src.getText(),
                 ViewUtils.getSplit(JTF_split));
     }

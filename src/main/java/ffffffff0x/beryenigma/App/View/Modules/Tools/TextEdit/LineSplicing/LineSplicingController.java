@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.TextEdit.LineSplicing;
 
-import ffffffff0x.beryenigma.App.Implement.Tools.TextEdit.LineSplicing.TextEdit_LineSplicing;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
@@ -38,7 +37,7 @@ public class LineSplicingController extends ViewController {
     public void ONClickConfirm() {
         super.ONClickConfirm();
         try {
-            FileUtils.outPutFile(TextEdit_LineSplicing.LineSplicing(fileLines1,fileLines2,JTF_split.getText()),"UTF-8");
+            FileUtils.outPutFile(LineSplicingImpl.LineSplicing(fileLines1,fileLines2,JTF_split.getText()),"UTF-8");
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }

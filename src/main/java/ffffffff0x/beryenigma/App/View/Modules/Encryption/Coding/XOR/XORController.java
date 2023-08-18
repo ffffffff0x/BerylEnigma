@@ -3,9 +3,8 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.XOR;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base64;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.HEXCoder.Coding_HEXCoder;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.XOR.Coding_XOR;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base64.Base64Impl;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HEXCoder.HEXCoderImpl;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
@@ -90,18 +89,18 @@ public class XORController extends ViewControllerFileMode {
     }
 
     private byte[] TextModeEnCode() throws UnsupportedEncodingException {
-        return Coding_XOR.encrypt(JTA_src.getText().getBytes(JCB_charset.getValue().toString()),JTF_key.getText().getBytes(JCB_charset.getValue().toString()));
+        return XORImpl.encrypt(JTA_src.getText().getBytes(JCB_charset.getValue().toString()),JTF_key.getText().getBytes(JCB_charset.getValue().toString()));
     }
 
     private byte[] FileModeEnCode() throws UnsupportedEncodingException {
-        return Coding_XOR.encrypt(FileUtils.getFilebyte(file),JTF_key.getText().getBytes(JCB_charset.getValue().toString()));
+        return XORImpl.encrypt(FileUtils.getFilebyte(file),JTF_key.getText().getBytes(JCB_charset.getValue().toString()));
     }
 
     private String OutputEncode(byte[] msg,String mode) {
         if (mode.equals("Base64")) {
-            return Coding_Base64.encodeToString(msg);
+            return Base64Impl.encodeToString(msg);
         } else if (mode.equals("HEX")) {
-            return Coding_HEXCoder.encodeToString(msg);
+            return HEXCoderImpl.encodeToString(msg);
         }
         return "";
     }

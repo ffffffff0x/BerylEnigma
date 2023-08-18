@@ -1,7 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base58;
 
 import com.jfoenix.controls.JFXComboBox;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base58;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
@@ -44,7 +43,7 @@ public class Base58ViewController extends BaseEncodingViewController {
     @Override
     protected String encodeSplitToString() {
         try {
-            return Coding_Base58.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+            return Base58Impl.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -55,7 +54,7 @@ public class Base58ViewController extends BaseEncodingViewController {
     @Override
     protected String decodeSplitToString() {
         try {
-            return Coding_Base58.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+            return Base58Impl.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             JTA_dst.validate();
@@ -67,12 +66,12 @@ public class Base58ViewController extends BaseEncodingViewController {
     protected String encodeToString() {
         try {
             if (JCB_modeSelect.getValue().equals("Base58-String")){
-                return Coding_Base58.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+                return Base58Impl.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
             }else {
                 if (JCB_modeSelect.getValue().equals("Base58-Check(P2PKH)")) {
-                    return Coding_Base58.encodeChecked(0,JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
+                    return Base58Impl.encodeChecked(0,JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
                 }else if(JCB_modeSelect.getValue().equals("Base58-Check(P2SH)")) {
-                    return Coding_Base58.encodeChecked(1,JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
+                    return Base58Impl.encodeChecked(1,JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
                 }
             }
         } catch (UnsupportedEncodingException e) {
@@ -86,12 +85,12 @@ public class Base58ViewController extends BaseEncodingViewController {
     protected String decodeToString() {
         try {
             if (JCB_modeSelect.getValue().equals("Base58-String")){
-                return Coding_Base58.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+                return Base58Impl.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
             }else {
                 if (JCB_modeSelect.getValue().equals("Base58-Check(P2PKH)")) {
-                    return new String(Coding_Base58.decodeChecked(JTA_src.getText()),JCB_charset.getValue().toString());
+                    return new String(Base58Impl.decodeChecked(JTA_src.getText()),JCB_charset.getValue().toString());
                 }else if(JCB_modeSelect.getValue().equals("Base58-Check(P2SH)")) {
-                    return new String(Coding_Base58.decodeChecked(JTA_src.getText()),JCB_charset.getValue().toString());
+                    return new String(Base58Impl.decodeChecked(JTA_src.getText()),JCB_charset.getValue().toString());
                 }
            }
         } catch (UnsupportedEncodingException e) {
@@ -105,12 +104,12 @@ public class Base58ViewController extends BaseEncodingViewController {
     protected byte[] encodeToFile() {
         try {
             if (JCB_modeSelect.getValue().equals("Base58-String")){
-                return Coding_Base58.encodeToString(byteFile).getBytes(JCB_charset.getValue().toString());
+                return Base58Impl.encodeToString(byteFile).getBytes(JCB_charset.getValue().toString());
             } else {
                 if (JCB_modeSelect.getValue().equals("Base58-Check(P2PKH)")) {
-                    return Coding_Base58.encodeChecked(0,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString());
+                    return Base58Impl.encodeChecked(0,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString());
                 }else if(JCB_modeSelect.getValue().equals("Base58-Check(P2SH)")) {
-                    return Coding_Base58.encodeChecked(1,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString());
+                    return Base58Impl.encodeChecked(1,JTA_src.getText().getBytes(JCB_charset.getValue().toString())).getBytes(JCB_charset.getValue().toString());
                 }
             }
         } catch (UnsupportedEncodingException e) {
@@ -124,12 +123,12 @@ public class Base58ViewController extends BaseEncodingViewController {
     protected byte[] decodeToFile() {
         try {
             if (JCB_modeSelect.getValue().equals("Base58-String")){
-                return Coding_Base58.decode(byteFile,JCB_charset.getValue().toString());
+                return Base58Impl.decode(byteFile,JCB_charset.getValue().toString());
             } else {
                 if (JCB_modeSelect.getValue().equals("Base58-Check(P2PKH)")) {
-                    return Coding_Base58.decodeChecked(new String(byteFile,JCB_charset.getValue().toString()));
+                    return Base58Impl.decodeChecked(new String(byteFile,JCB_charset.getValue().toString()));
                 }else if(JCB_modeSelect.getValue().equals("Base58-Check(P2SH)")) {
-                    return Coding_Base58.decodeChecked(new String(byteFile,JCB_charset.getValue().toString()));
+                    return Base58Impl.decodeChecked(new String(byteFile,JCB_charset.getValue().toString()));
                 }
             }
         } catch (UnsupportedEncodingException e) {

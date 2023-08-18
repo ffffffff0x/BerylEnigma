@@ -1,7 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.DomainSplit;
 
 import com.jfoenix.controls.JFXCheckBox;
-import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.DomainSplit.RedTeam_DomainSplit;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -45,9 +44,9 @@ public class DomainSplitController extends ViewControllerFileMode {
         super.ONClickConfirm();
         try{
             if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
-                originalResult = RedTeam_DomainSplit.domainSplit(JTA_src.getText());
+                originalResult = DomainSplitImpl.domainSplit(JTA_src.getText());
             }else{
-                originalResult = RedTeam_DomainSplit.domainSplit(file);
+                originalResult = DomainSplitImpl.domainSplit(file);
             }
 
             //将处理完的数据格式处理为可以输出文本文件的格式

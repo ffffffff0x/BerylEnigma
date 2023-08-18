@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.TextEdit.TextReplace;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Tools.TextEdit.TextReplace.TextEdit_TextReplace;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
@@ -21,7 +20,7 @@ public class TextReplaceController extends ViewController {
     public void ONClickConfirm() {
         super.ONClickConfirm();
         try {
-            JTA_dst.setText(TextEdit_TextReplace.TextReplace(JTA_src.getText(),JTA_oldString.getText(),JTA_newString.getText()));
+            JTA_dst.setText(TextReplaceImpl.TextReplace(JTA_src.getText(),JTA_oldString.getText(),JTA_newString.getText()));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }

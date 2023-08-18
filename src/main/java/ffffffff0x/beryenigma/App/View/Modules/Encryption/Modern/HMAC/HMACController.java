@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.HMAC;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.HMAC.Modern_HMAC;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
@@ -74,9 +73,9 @@ public class HMACController extends ViewControllerFileMode {
 
     private String[] hmac(byte[] data, byte[] key) throws NoSuchAlgorithmException, InvalidKeyException {
         String[] out = new String[2];
-        out[0] = Hex.encodeHexString(Objects.requireNonNull(Modern_HMAC.encryptHMAC(data,
+        out[0] = Hex.encodeHexString(Objects.requireNonNull(HMACImpl.encryptHMAC(data,
                 key, JCB_HMACMode.getValue())));
-        out[1] = Base64.encodeBase64String(Objects.requireNonNull(Modern_HMAC.encryptHMAC(data,
+        out[1] = Base64.encodeBase64String(Objects.requireNonNull(HMACImpl.encryptHMAC(data,
                 key, JCB_HMACMode.getValue())));
         return out;
     }

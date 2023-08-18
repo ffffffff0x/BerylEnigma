@@ -1,7 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base85;
 
 import com.jfoenix.controls.JFXComboBox;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base85;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.BaseEncodingViewController;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
@@ -45,11 +44,11 @@ public class Base85ViewController extends BaseEncodingViewController {
     protected String encodeSplitToString() {
         try {
             if (JCB_modeSelect.getValue().equals("Ascii85")){
-                return Coding_Base85.encodeAscii85SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                return Base85Impl.encodeAscii85SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
             }else if (JCB_modeSelect.getValue().equals("Base85-RFC1924")){
-                return Coding_Base85.encodeRfc1924SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                return Base85Impl.encodeRfc1924SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
             }else if(JCB_modeSelect.getValue().equals("Base85-Z85")) {
-                return Coding_Base85.encodeZ85SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                return Base85Impl.encodeZ85SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -62,11 +61,11 @@ public class Base85ViewController extends BaseEncodingViewController {
     protected String decodeSplitToString() {
         try {
             if (JCB_modeSelect.getValue().equals("Ascii85")){
-                return Coding_Base85.decodeAscii85SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                return Base85Impl.decodeAscii85SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
             }else if (JCB_modeSelect.getValue().equals("Base85-RFC1924")){
-                return Coding_Base85.decodeRfc1924SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                return Base85Impl.decodeRfc1924SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
             }else if(JCB_modeSelect.getValue().equals("Base85-Z85")) {
-                return Coding_Base85.decodeZ85SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                return Base85Impl.decodeZ85SplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -79,11 +78,11 @@ public class Base85ViewController extends BaseEncodingViewController {
     protected String encodeToString() {
         try {
             if (JCB_modeSelect.getValue().equals("Ascii85")){
-                return Coding_Base85.encodeAscii85ToString(JTA_src.getText(),JCB_charset.getValue().toString());
+                return Base85Impl.encodeAscii85ToString(JTA_src.getText(),JCB_charset.getValue().toString());
             }else if (JCB_modeSelect.getValue().equals("Base85-RFC1924")){
-                return Coding_Base85.encodeRfc1924ToString(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
+                return Base85Impl.encodeRfc1924ToString(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
             }else if(JCB_modeSelect.getValue().equals("Base85-Z85")) {
-                return Coding_Base85.encodeZ85ToString(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
+                return Base85Impl.encodeZ85ToString(JTA_src.getText().getBytes(JCB_charset.getValue().toString()));
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -96,11 +95,11 @@ public class Base85ViewController extends BaseEncodingViewController {
     protected String decodeToString() {
         try {
             if (JCB_modeSelect.getValue().equals("Ascii85")){
-                return Coding_Base85.decodeAscii85ToString(JTA_src.getText(),JCB_charset.getValue().toString());
+                return Base85Impl.decodeAscii85ToString(JTA_src.getText(),JCB_charset.getValue().toString());
             }else if (JCB_modeSelect.getValue().equals("Base85-RFC1924")){
-                return Coding_Base85.decodeRfc1924ToString(JTA_src.getText().getBytes(JCB_charset.getValue().toString()),JCB_charset.getValue().toString());
+                return Base85Impl.decodeRfc1924ToString(JTA_src.getText().getBytes(JCB_charset.getValue().toString()),JCB_charset.getValue().toString());
             }else if(JCB_modeSelect.getValue().equals("Base85-Z85")) {
-                return Coding_Base85.decodeZ85ToString(JTA_src.getText().getBytes(JCB_charset.getValue().toString()),JCB_charset.getValue().toString());
+                return Base85Impl.decodeZ85ToString(JTA_src.getText().getBytes(JCB_charset.getValue().toString()),JCB_charset.getValue().toString());
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -112,11 +111,11 @@ public class Base85ViewController extends BaseEncodingViewController {
     @Override
     protected byte[] encodeToFile() {
         if (JCB_modeSelect.getValue().equals("Ascii85")){
-            return Coding_Base85.encodeAscii85(byteFile);
+            return Base85Impl.encodeAscii85(byteFile);
         }else if (JCB_modeSelect.getValue().equals("Base85-RFC1924")){
-            return Coding_Base85.encodeRfc1924(byteFile);
+            return Base85Impl.encodeRfc1924(byteFile);
         }else if(JCB_modeSelect.getValue().equals("Base85-Z85")) {
-            return Coding_Base85.encodeZ85(byteFile);
+            return Base85Impl.encodeZ85(byteFile);
         }
         return null;
     }
@@ -124,11 +123,11 @@ public class Base85ViewController extends BaseEncodingViewController {
     @Override
     protected byte[] decodeToFile() {
         if (JCB_modeSelect.getValue().equals("Ascii85")){
-            return Coding_Base85.decodeAscii85(byteFile);
+            return Base85Impl.decodeAscii85(byteFile);
         }else if (JCB_modeSelect.getValue().equals("Base85-RFC1924")){
-            return Coding_Base85.decodeRfc1924(byteFile);
+            return Base85Impl.decodeRfc1924(byteFile);
         }else if(JCB_modeSelect.getValue().equals("Base85-Z85")) {
-            return Coding_Base85.decodeZ85(byteFile);
+            return Base85Impl.decodeZ85(byteFile);
         }
         return null;
     }

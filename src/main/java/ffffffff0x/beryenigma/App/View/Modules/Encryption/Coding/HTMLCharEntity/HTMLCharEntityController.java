@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HTMLCharEntity;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.HTMLCharEntity.Coding_HTMLCharEntity;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.FXML;
@@ -24,7 +23,7 @@ public class HTMLCharEntityController extends ViewController {
     public void ONClickEncode() {
         super.ONClickEncode();
         try {
-            JTA_dst.setText(Coding_HTMLCharEntity.encode(JTA_src.getText(),JCB_reference.getValue().toString()));
+            JTA_dst.setText(HTMLCharEntityImpl.encode(JTA_src.getText(),JCB_reference.getValue().toString()));
         }catch (Exception e){
             e.printStackTrace();
             ViewUtils.textAreaValidate(JTA_dst);
@@ -35,7 +34,7 @@ public class HTMLCharEntityController extends ViewController {
     public void ONClickDecode() {
         super.ONClickDecode();
         try{
-            JTA_dst.setText(Coding_HTMLCharEntity.decode(JTA_src.getText(),JCB_reference.getValue().toString()));
+            JTA_dst.setText(HTMLCharEntityImpl.decode(JTA_src.getText(),JCB_reference.getValue().toString()));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }

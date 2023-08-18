@@ -1,9 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.Practical.Timestamp;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import ffffffff0x.beryenigma.App.Implement.Tools.Practical.Timestamp.Practical_TimeStamp;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
@@ -35,7 +33,7 @@ public class TimeStampController extends ViewController {
 
     @Override
     protected void initialize() {
-        JTF_nowTimestamp.setText(Practical_TimeStamp.getNowTimeStamp().toString());
+        JTF_nowTimestamp.setText(TimeStampImpl.getNowTimeStamp().toString());
         JTA_src.setPromptText("1673598230000\r\n" +
                 "1773598230000\r\n" +
                 "1873598230000\r\n" +
@@ -54,9 +52,9 @@ public class TimeStampController extends ViewController {
         try {
             for (String s : JTA_src.getText().split("\n")) {
                 if (JCB_timestampAccuracy.getValue().equals(Init.getLanguage("Seconds"))) {
-                    sb.append(Practical_TimeStamp.timeStampToString(Long.valueOf(s,10)*1000,JTF_dateFormatString.getText(),ZoneId.of(JCB_timeZone.getValue())));
+                    sb.append(TimeStampImpl.timeStampToString(Long.valueOf(s,10)*1000,JTF_dateFormatString.getText(),ZoneId.of(JCB_timeZone.getValue())));
                 } else {
-                    sb.append(Practical_TimeStamp.timeStampToString(Long.valueOf(s,10),JTF_dateFormatString.getText(),ZoneId.of(JCB_timeZone.getValue())));
+                    sb.append(TimeStampImpl.timeStampToString(Long.valueOf(s,10),JTF_dateFormatString.getText(),ZoneId.of(JCB_timeZone.getValue())));
                 }
                 sb.append("\n");
             }
@@ -75,9 +73,9 @@ public class TimeStampController extends ViewController {
         try {
             for (String s : JTA_src.getText().split("\n")) {
                 if (JCB_timestampAccuracy.getValue().equals(Init.getLanguage("Seconds"))) {
-                    sb.append(Practical_TimeStamp.stringToTimeStamp(s,JTF_dateFormatString.getText(),ZoneId.of(JCB_timeZone.getValue()))/1000);
+                    sb.append(TimeStampImpl.stringToTimeStamp(s,JTF_dateFormatString.getText(),ZoneId.of(JCB_timeZone.getValue()))/1000);
                 } else {
-                    sb.append(Practical_TimeStamp.stringToTimeStamp(s,JTF_dateFormatString.getText(),ZoneId.of(JCB_timeZone.getValue())));
+                    sb.append(TimeStampImpl.stringToTimeStamp(s,JTF_dateFormatString.getText(),ZoneId.of(JCB_timeZone.getValue())));
                 }
                 sb.append("\n");
             }
@@ -90,11 +88,11 @@ public class TimeStampController extends ViewController {
 
     @FXML
     public void ONClickRefresh() {
-        JTF_nowTimestamp.setText(Practical_TimeStamp.getNowTimeStamp().toString());
+        JTF_nowTimestamp.setText(TimeStampImpl.getNowTimeStamp().toString());
     }
 
     public void initComboBox() {
-        for (String temp : Practical_TimeStamp.getAllTimeZone().values()) {
+        for (String temp : TimeStampImpl.getAllTimeZone().values()) {
             JCB_timeZone.getItems().add(temp);
         }
         JCB_timeZone.setValue(ZoneId.systemDefault().toString());

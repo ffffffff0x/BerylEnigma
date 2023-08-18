@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.Hash;
 
-import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.Hash.Modern_Hash;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
@@ -83,12 +82,12 @@ public class HashController extends ViewControllerFileMode {
         String[] out = new String[2];
         if(JCB_hashMode.getValue().equals("MD5-16")){
             byte[] md5_16;
-            md5_16 = Arrays.copyOfRange(Modern_Hash.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()),4,12);
+            md5_16 = Arrays.copyOfRange(HashImpl.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()),4,12);
             out[0] = Hex.encodeHexString(md5_16);
             out[1] = Base64.encodeBase64String(md5_16);
         }else{
-            out[0] = Hex.encodeHexString(Modern_Hash.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()));
-            out[1] = Base64.encodeBase64String(Modern_Hash.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()));
+            out[0] = Hex.encodeHexString(HashImpl.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()));
+            out[1] = Base64.encodeBase64String(HashImpl.hash(message,JCB_hashMode.getValue(),JCB_hashBit.getValue()));
         }
         return out;
     }

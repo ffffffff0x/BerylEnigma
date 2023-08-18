@@ -1,7 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.CaesarCipher;
 
 import com.jfoenix.controls.JFXTextField;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Classical.CaesarCipher.Classical_CaesarCipher;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
@@ -31,7 +30,7 @@ public class CaesarCipherController extends ViewController {
     public void ONClickEncode() {
         super.ONClickEncode();
         try{
-            JTA_dst.setText(Classical_CaesarCipher.encode(JTA_src.getText(), Integer.parseInt(JTA_key.getText())));
+            JTA_dst.setText(CaesarCipherImpl.encode(JTA_src.getText(), Integer.parseInt(JTA_key.getText())));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }
@@ -44,7 +43,7 @@ public class CaesarCipherController extends ViewController {
     public void ONClickDecode() {
         super.ONClickDecode();
         try{
-            JTA_dst.setText(Classical_CaesarCipher.decode(JTA_src.getText(),getKey(JTA_key)));
+            JTA_dst.setText(CaesarCipherImpl.decode(JTA_src.getText(),getKey(JTA_key)));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }

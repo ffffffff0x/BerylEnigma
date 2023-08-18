@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Unicode;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.Unicode.Coding_Unicode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 
 /**
@@ -19,7 +18,7 @@ public class UnicodeController extends ViewController {
     public void ONClickEncode() {
         super.ONClickEncode();
         try {
-            JTA_dst.setText(Coding_Unicode.encode(JTA_src.getText()));
+            JTA_dst.setText(UnicodeImpl.encode(JTA_src.getText()));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }
@@ -29,7 +28,7 @@ public class UnicodeController extends ViewController {
     public void ONClickDecode() {
         super.ONClickDecode();
         try {
-            JTA_dst.setText(Coding_Unicode.decode(JTA_src.getText()));
+            JTA_dst.setText(UnicodeImpl.decode(JTA_src.getText()));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }

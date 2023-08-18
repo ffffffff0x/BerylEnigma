@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.TextEdit.TextSeparate;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Tools.TextEdit.TextSeparate.TextEdit_TextSeparate;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -21,7 +20,7 @@ public class TextSeparateController extends ViewController {
     public void ONClickConfirm() {
         super.ONClickConfirm();
         try {
-            JTA_dst.setText(TextEdit_TextSeparate.TextSeparate(JTA_src.getText(),
+            JTA_dst.setText(TextSeparateImpl.TextSeparate(JTA_src.getText(),
                     JTF_split.getText(),
                     Integer.parseInt(JTF_quantity.getText())));
         }catch (Exception e){

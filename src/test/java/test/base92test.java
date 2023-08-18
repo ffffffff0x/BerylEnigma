@@ -1,7 +1,7 @@
 package test;
 
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.ASCII.Coding_ASCII;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseConversion.Coding_BaseConversion;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.ASCII.ASCIIImpl;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseConversion.BaseConversionImpl;
 import java.io.IOException;
 import java.math.BigInteger;
 
@@ -40,31 +40,31 @@ public class base92test {
     }
 
     public static String encode(String in) {
-        String[] asciiStrList = Coding_ASCII.encode(in," ",0).split(" ");
+        String[] asciiStrList = ASCIIImpl.encode(in," ",0).split(" ");
         StringBuilder bitStr = new StringBuilder();
         StringBuilder resultStr = new StringBuilder();
         int count = 0;
         while (bitStr.length() < 13 && count < asciiStrList.length) {
-            bitStr.append(Coding_BaseConversion.conversion(asciiStrList[count],10,2," ").replace(" ",""));
+            bitStr.append(BaseConversionImpl.conversion(asciiStrList[count],10,2," ").replace(" ",""));
             count++;
         }
         while (bitStr.length() > 13 || count < asciiStrList.length) {
-            int temp = Integer.parseInt(Coding_BaseConversion.conversion(bitStr.substring(0,13),2,10," ").replace(" ",""));
+            int temp = Integer.parseInt(BaseConversionImpl.conversion(bitStr.substring(0,13),2,10," ").replace(" ",""));
             resultStr.append(base92CHR(temp / 91));
             resultStr.append(base92CHR(temp % 91));
             bitStr = new StringBuilder(bitStr.substring(13, bitStr.length()));
             while (bitStr.length() < 13 && count < asciiStrList.length) {
-                bitStr.append(Coding_BaseConversion.conversion(asciiStrList[count],10,2," ").replace(" ","").replace(" ",""));
+                bitStr.append(BaseConversionImpl.conversion(asciiStrList[count],10,2," ").replace(" ","").replace(" ",""));
                 count++;
             }
         }
         if (bitStr.length() > 0) {
             if (bitStr.length() < 7) {
                 bitStr.append("0".repeat(6 - bitStr.length()));
-                resultStr.append(base92CHR(Integer.parseInt(Coding_BaseConversion.conversion(bitStr.toString(),2,10," ").replace(" ",""))));
+                resultStr.append(base92CHR(Integer.parseInt(BaseConversionImpl.conversion(bitStr.toString(),2,10," ").replace(" ",""))));
             } else {
                 bitStr.append("0".repeat(13 - bitStr.length()));
-                int i = Integer.parseInt(Coding_BaseConversion.conversion(bitStr.toString(),2,10," ").replace(" ",""));
+                int i = Integer.parseInt(BaseConversionImpl.conversion(bitStr.toString(),2,10," ").replace(" ",""));
                 resultStr.append(base92CHR(i / 91));
                 resultStr.append(base92CHR(i % 91));
             }
@@ -74,7 +74,7 @@ public class base92test {
     }
 
     public static String decode(String in) {
-        String[] asciiStrList = Coding_ASCII.encode(in," ",0).split(" ");
+        String[] asciiStrList = ASCIIImpl.encode(in," ",0).split(" ");
         StringBuilder bitStr = new StringBuilder();
         StringBuilder resultStr = new StringBuilder();
         if (in.equals("~")) {
@@ -86,7 +86,7 @@ public class base92test {
             bitStr.append(conversionB13(String.valueOf(x),10,2,"").replace(" ",""));
             while (8 <= bitStr.length()) {
                 String temp = conversionB13(bitStr.substring(0,8),2,10," ").replace(" ","");
-                resultStr.append(Coding_ASCII.deCode(temp," "));
+                resultStr.append(ASCIIImpl.deCode(temp," "));
                 bitStr = new StringBuilder(bitStr.substring(8,bitStr.length()));
             }
         }
@@ -96,7 +96,7 @@ public class base92test {
             bitStr.append(temp);
             while (8 <= bitStr.length()) {
                 String temp1 = conversionB13(bitStr.substring(0,8),2,10," ").replace(" ","");
-                resultStr.append(Coding_ASCII.deCode(temp1," "));
+                resultStr.append(ASCIIImpl.deCode(temp1," "));
                 bitStr = new StringBuilder(bitStr.substring(8,bitStr.length()));
             }
         }

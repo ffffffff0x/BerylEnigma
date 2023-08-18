@@ -2,9 +2,8 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerat
 
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.ReverseShellGenerator.RedTeam_ReverseShellGenerator;
-import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.ReverseShellGenerator.ReverseShellBeans;
-import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.ReverseShellGenerator.ReverseShellDataBean;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerator.Engine.ReverseShellBeans;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerator.Engine.ReverseShellDataBean;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingImageView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -54,14 +53,14 @@ public class ReverseShellGeneratorController extends ViewController {
     private PopupSettingImageView SettingListener;
     private PopupSettingImageView SettingPayload;
 
-    private RedTeam_ReverseShellGenerator reverseShellGenerator;
+    private ReverseShellGeneratorImpl reverseShellGenerator;
     private ReverseShellDataBean reverseShellDataBean;
 
     JFXTreeTableView<shellName> treeView;
 
     @Override
     protected void initialize() {
-        reverseShellGenerator = new RedTeam_ReverseShellGenerator();
+        reverseShellGenerator = new ReverseShellGeneratorImpl();
         tableViewInit();
         initDataBean();
         initPopupSettings();

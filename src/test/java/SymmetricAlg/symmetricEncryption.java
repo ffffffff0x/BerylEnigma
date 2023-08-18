@@ -1,6 +1,6 @@
 package SymmetricAlg;
 
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base64;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base64.Base64Impl;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -24,7 +24,7 @@ public class symmetricEncryption {
         // 加密:
         byte[] data = message.getBytes("UTF-8");
         byte[] encrypted = encrypt(key, iv, data, "AES/ECB/NoPadding");
-        System.out.println("Encrypted: " + Coding_Base64.encodeToString(encrypted));
+        System.out.println("Encrypted: " + Base64Impl.encodeToString(encrypted));
         // 解密:
         byte[] decrypted = decrypt(key, iv, encrypted, "AES/ECB/NoPadding");
         System.out.println("Decrypted: " + new String(decrypted, "UTF-8"));

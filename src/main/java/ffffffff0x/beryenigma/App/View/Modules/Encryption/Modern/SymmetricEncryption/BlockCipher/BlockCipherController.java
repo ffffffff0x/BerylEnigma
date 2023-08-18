@@ -3,9 +3,8 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SymmetricEncryp
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base64;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.HEXCoder.Coding_HEXCoder;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Modern.SymmetricEncryption.BlockCipher.Modern_BlockCipher;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base64.Base64Impl;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HEXCoder.HEXCoderImpl;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
@@ -75,7 +74,7 @@ public class BlockCipherController extends ViewControllerFileMode {
             BlockCipherParameters blockCipherParameters;
             String catchString = null;
             try {
-                blockCipherParameters = Modern_BlockCipher.encrypt(getBlockCipherParameters());
+                blockCipherParameters = BlockCipherImpl.encrypt(getBlockCipherParameters());
                 if (JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))) {
                     Platform.runLater(() -> JTA_dst.setText(outputTransform(blockCipherParameters.getMessageOutput(),JCB_outputFormat,JCB_textEncoding,true)));
                 }else {
@@ -111,7 +110,7 @@ public class BlockCipherController extends ViewControllerFileMode {
             BlockCipherParameters blockCipherParameters;
             String catchString = null;
             try {
-                blockCipherParameters = Modern_BlockCipher.decrypt(getBlockCipherParameters());
+                blockCipherParameters = BlockCipherImpl.decrypt(getBlockCipherParameters());
                 if (JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))) {
                     Platform.runLater(() -> JTA_dst.setText(outputTransform(blockCipherParameters.getMessageOutput(), JCB_outputFormat, JCB_textEncoding, false)));
                 }else {
@@ -255,9 +254,9 @@ public class BlockCipherController extends ViewControllerFileMode {
             if (msgType.equals("Text")) {
                 return msgByte;
             }else if (msgType.equals("Base64")) {
-                return Coding_Base64.decode(msgByte);
+                return Base64Impl.decode(msgByte);
             }else if (msgType.equals("HEX")) {
-                return Coding_HEXCoder.decode(msgByte);
+                return HEXCoderImpl.decode(msgByte);
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -270,20 +269,20 @@ public class BlockCipherController extends ViewControllerFileMode {
         if (isEncrypt) {
             if (jcb.getValue().equals("Text")) {
                 jcb.setValue("Base64");
-                return Coding_Base64.encodeToString(output);
+                return Base64Impl.encodeToString(output);
             }else if (jcb.getValue().equals("Base64")) {
-                return Coding_Base64.encodeToString(output);
+                return Base64Impl.encodeToString(output);
             }else {
-                return Coding_HEXCoder.encodeToString(output);
+                return HEXCoderImpl.encodeToString(output);
             }
         }else {
             try {
                 if (jcb.getValue().equals("Text")) {
                     return new String(output,textEncode.getValue().toString());
                 }else if (jcb.getValue().equals("Base64")) {
-                    return Coding_Base64.encodeToString(output);
+                    return Base64Impl.encodeToString(output);
                 }else {
-                    return Coding_HEXCoder.encodeToString(output);
+                    return HEXCoderImpl.encodeToString(output);
                 }
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();

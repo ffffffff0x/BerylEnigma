@@ -1,7 +1,6 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.PayloadConverter;
 
 import com.jfoenix.controls.JFXComboBox;
-import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.PayloadConverter.RedTeam_PayloadConverter;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import javafx.fxml.FXML;
@@ -13,7 +12,7 @@ import javafx.fxml.FXML;
 
 @ViewNode(name = "PayloadConverter",folderPath = "Root/Tools/RedTeam/",fxmlName = "PayloadConverterView.fxml")
 public class PayloadConverterController extends ViewController {
-    private RedTeam_PayloadConverter payloadConverter =  new RedTeam_PayloadConverter();
+    private PayloadConverterImpl payloadConverter =  new PayloadConverterImpl();
     @FXML
     JFXComboBox<String> JCB_payloadType;
 

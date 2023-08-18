@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.MorseCoder;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.MorseCoder.Coding_MorseCoder;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -22,9 +21,9 @@ public class MorseCoderController extends ViewController {
         super.ONClickEncode();
         try {
             if(JTF_split.getText().equals("")){
-                JTA_dst.setText(Coding_MorseCoder.encode(JTA_src.getText()," "));
+                JTA_dst.setText(MorseCoderImpl.encode(JTA_src.getText()," "));
             }else{
-                JTA_dst.setText(Coding_MorseCoder.encode(JTA_src.getText(),JTF_split.getText()));
+                JTA_dst.setText(MorseCoderImpl.encode(JTA_src.getText(),JTF_split.getText()));
             }
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
@@ -36,9 +35,9 @@ public class MorseCoderController extends ViewController {
         super.ONClickDecode();
         try {
             if(JTF_split.getText().equals("")){
-                JTA_dst.setText(Coding_MorseCoder.decode(JTA_src.getText()," "));
+                JTA_dst.setText(MorseCoderImpl.decode(JTA_src.getText()," "));
             }else{
-                JTA_dst.setText(Coding_MorseCoder.decode(JTA_src.getText(),JTF_split.getText()));
+                JTA_dst.setText(MorseCoderImpl.decode(JTA_src.getText(),JTF_split.getText()));
             }
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);

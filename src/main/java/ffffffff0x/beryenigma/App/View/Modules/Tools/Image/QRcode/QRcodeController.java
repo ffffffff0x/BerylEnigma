@@ -4,8 +4,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
 import com.jfoenix.controls.*;
-import ffffffff0x.beryenigma.App.Implement.Tools.Image.QRcode.Image_QRcode;
-import ffffffff0x.beryenigma.App.Implement.Tools.Image.QRcode.QRcodeParameters;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.Image.QRcode.Engine.QRcodeParameters;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -18,8 +17,6 @@ import ffffffff0x.beryenigma.Kit.Utils.Util;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.Tooltip;
@@ -291,7 +288,7 @@ public class QRcodeController extends ViewController {
             JSP_running.setVisible(true);
             new Thread(() -> {
                 try {
-                    JTA_dst.setText(Image_QRcode.decode(ImgFile.getPath(), JCB_charset.getValue().toString()));
+                    JTA_dst.setText(QRcodeImpl.decode(ImgFile.getPath(), JCB_charset.getValue().toString()));
                     Platform.runLater(() -> JSP_running.setVisible(false));
                 } catch (IOException e) {
                     Platform.runLater(() -> {
@@ -300,7 +297,7 @@ public class QRcodeController extends ViewController {
                     });
                 } catch (NotFoundException e) {
                     try {
-                        JTA_dst.setText(Image_QRcode.decodeReverseColor(ImgFile.getPath(), JCB_charset.getValue().toString()));
+                        JTA_dst.setText(QRcodeImpl.decodeReverseColor(ImgFile.getPath(), JCB_charset.getValue().toString()));
                         JSP_running.setVisible(false);
                     } catch (IOException ex) {
                         Platform.runLater(() -> {
@@ -319,11 +316,11 @@ public class QRcodeController extends ViewController {
             JSP_running.setVisible(true);
             new Thread(() -> {
                 try {
-                    JTA_dst.setText(Image_QRcode.decode(inBufferedImage, JCB_charset.getValue().toString()));
+                    JTA_dst.setText(QRcodeImpl.decode(inBufferedImage, JCB_charset.getValue().toString()));
                     Platform.runLater(() -> JSP_running.setVisible(false));
                 } catch (NotFoundException e) {
                     try {
-                        JTA_dst.setText(Image_QRcode.decodeReverseColor(inBufferedImage, JCB_charset.getValue().toString()));
+                        JTA_dst.setText(QRcodeImpl.decodeReverseColor(inBufferedImage, JCB_charset.getValue().toString()));
                         JSP_running.setVisible(false);
                     } catch (NotFoundException ex) {
                         Platform.runLater(() -> {
@@ -357,7 +354,7 @@ public class QRcodeController extends ViewController {
             qRcodeParameters.setMargin(JCB_imgMargin.getValue());
             new Thread(() -> {
                 try {
-                    outBufferedImage = Image_QRcode.encode(qRcodeParameters);
+                    outBufferedImage = QRcodeImpl.encode(qRcodeParameters);
                     Platform.runLater(() -> {
                         IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
                         IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));

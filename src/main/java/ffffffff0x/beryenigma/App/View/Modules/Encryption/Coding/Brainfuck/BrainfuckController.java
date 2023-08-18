@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Brainfuck;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXSpinner;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.Brainfuck.Coding_Brainfuck;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
@@ -40,13 +39,13 @@ public class BrainfuckController extends ViewController {
             String result = "";
             try {
                 if (JCB_modeCheck.getValue().equals("Brainfuck")) {
-                    result = Coding_Brainfuck.BrainfuckDeCode(JTA_src.getText(),JCB_charset.getValue());
+                    result = BrainfuckImpl.BrainfuckDeCode(JTA_src.getText(),JCB_charset.getValue());
                 }else if (JCB_modeCheck.getValue().equals("Ook")) {
-                    result = Coding_Brainfuck.OokDeCode(JTA_src.getText(),JCB_charset.getValue());
+                    result = BrainfuckImpl.OokDeCode(JTA_src.getText(),JCB_charset.getValue());
                 }else if (JCB_modeCheck.getValue().equals("ShortOok")) {
-                    result = Coding_Brainfuck.shortOokDeCode(JTA_src.getText(),JCB_charset.getValue());
+                    result = BrainfuckImpl.shortOokDeCode(JTA_src.getText(),JCB_charset.getValue());
                 }else if (JCB_modeCheck.getValue().equals("Trollscript")) {
-                    result = Coding_Brainfuck.TrollscriptDeCode(JTA_src.getText(),JCB_charset.getValue());
+                    result = BrainfuckImpl.TrollscriptDeCode(JTA_src.getText(),JCB_charset.getValue());
                 }
             }catch (Exception e) {
                 e.printStackTrace();

@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base64;
 
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseEncoding.Coding_Base64;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
@@ -40,14 +39,14 @@ public class Base64ViewController extends ViewControllerFileMode {
                         String tmp;
                         //判断是否使用分隔符
                         if(!Objects.equals(JTF_split.getText(), "")){
-                            tmp = Coding_Base64.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                            tmp = Base64Impl.encodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
                         }else{
-                            tmp = Coding_Base64.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+                            tmp = Base64Impl.encodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
                         }
                         Platform.runLater(() -> JTA_dst.setText(tmp));
                         //文件模式
                     }else{
-                        byte[] tmp = Coding_Base64.encode(byteFile);
+                        byte[] tmp = Base64Impl.encode(byteFile);
                         Platform.runLater(() -> {
                             FileUtils.outPutFile(tmp);
                             fileEncodeEnd();
@@ -60,14 +59,14 @@ public class Base64ViewController extends ViewControllerFileMode {
                         String tmp;
                         //判断是否使用分隔符
                         if(!Objects.equals(JTF_split.getText(), "")){
-                            tmp = Coding_Base64.urlEncodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                            tmp = Base64Impl.urlEncodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
                         }else{
-                            tmp = Coding_Base64.urlEncodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+                            tmp = Base64Impl.urlEncodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
                         }
                         Platform.runLater(() -> JTA_dst.setText(tmp));
                         //文件模式
                     }else{
-                        byte[] tmp = Coding_Base64.urlEncode(byteFile);
+                        byte[] tmp = Base64Impl.urlEncode(byteFile);
                         Platform.runLater(() -> {
                             FileUtils.outPutFile(tmp);
                             fileEncodeEnd();
@@ -90,13 +89,13 @@ public class Base64ViewController extends ViewControllerFileMode {
                     if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                         String tmp;
                         if(!Objects.equals(JTF_split.getText(), "")){
-                            tmp = Coding_Base64.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                            tmp = Base64Impl.decodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
                         }else{
-                            tmp = Coding_Base64.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+                            tmp = Base64Impl.decodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
                         }
                         Platform.runLater(() -> JTA_dst.setText(tmp));
                     }else{
-                        byte[] tmp = Coding_Base64.decode(byteFile);
+                        byte[] tmp = Base64Impl.decode(byteFile);
                         Platform.runLater(() -> {
                             FileUtils.outPutFile(tmp);
                             fileEncodeEnd();
@@ -106,13 +105,13 @@ public class Base64ViewController extends ViewControllerFileMode {
                     if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                         String tmp;
                         if(!Objects.equals(JTF_split.getText(), "")){
-                            tmp = Coding_Base64.urlDecodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
+                            tmp = Base64Impl.urlDecodeSplitToString(JTA_src.getText(),JCB_charset.getValue().toString(),ViewUtils.getSplit(JTF_split));
                         }else{
-                            tmp = Coding_Base64.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
+                            tmp = Base64Impl.urlDecodeToString(JTA_src.getText(),JCB_charset.getValue().toString());
                         }
                         Platform.runLater(() -> JTA_dst.setText(tmp));
                     }else{
-                        byte[] tmp = Coding_Base64.urlDecode(byteFile);
+                        byte[] tmp = Base64Impl.urlDecode(byteFile);
                         Platform.runLater(() -> {
                             FileUtils.outPutFile(tmp);
                             fileEncodeEnd();

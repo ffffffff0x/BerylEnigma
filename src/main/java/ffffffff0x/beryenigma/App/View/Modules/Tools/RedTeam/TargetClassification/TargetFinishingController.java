@@ -1,8 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.TargetClassification;
 
 import com.jfoenix.controls.JFXCheckBox;
-import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.TargetClassification.TargetFinishingBean;
-import ffffffff0x.beryenigma.App.Implement.Tools.RedTeam.TargetClassification.RedTeam_TargetFinishing;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.TargetClassification.Engine.TargetFinishingBean;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
@@ -32,9 +31,9 @@ public class TargetFinishingController extends ViewControllerFileMode {
         super.ONClickConfirm();
         try{
             if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
-                TargetClassificationBean = RedTeam_TargetFinishing.TargetClassification(JTA_src.getText());
+                TargetClassificationBean = TargetFinishingImpl.TargetClassification(JTA_src.getText());
             }else{
-                TargetClassificationBean = RedTeam_TargetFinishing.TargetClassification(file);
+                TargetClassificationBean = TargetFinishingImpl.TargetClassification(file);
             }
 
             if(!JCB_MultipleFile.isSelected()){

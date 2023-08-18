@@ -1,0 +1,37 @@
+package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Brainfuck;
+
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Brainfuck.Engine.BrainfuckEngine;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Brainfuck.Engine.OokEngine;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Brainfuck.Engine.TrollScriptEngine;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Brainfuck.Engine.shortOokEngine;
+
+/**
+ * @author: RyuZUSUNC
+ * @create: 2021-09-17 15:18
+ **/
+
+public class BrainfuckImpl {
+    public static String BrainfuckDeCode(String message,String charset) throws Exception {
+        BrainfuckEngine brainfuckEngine = new BrainfuckEngine(1024);
+        return new String(brainfuckEngine.interpret(message),charset);
+    }
+
+    public static String OokDeCode(String message,String charset) throws Exception {
+        message = message.replace("\n","").replace(" ","");
+        message = message.replaceAll("(.{4})","$1 ");
+        OokEngine ookEngine = new OokEngine(1024);
+        return new String(ookEngine.interpret(message),charset);
+    }
+
+    public static String shortOokDeCode(String message,String charset) throws Exception {
+        message = message.replace("\n"," ").replace(" ","");
+        message = message.replaceAll("(.{2})","$1 ");
+        shortOokEngine shortOokEngine = new shortOokEngine(1024);
+        return new String(shortOokEngine.interpret(message),charset);
+    }
+
+    public static String TrollscriptDeCode(String message,String charset) throws Exception {
+        TrollScriptEngine trollScriptEngine = new TrollScriptEngine(1024);
+        return new String(trollScriptEngine.interpret(message),charset);
+    }
+}

@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
-import ffffffff0x.beryenigma.App.Implement.Tools.Image.PixelReplacement.Image_PixelReplacement;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.Image.PixelReplacement.Engine.PixelReplacementImpl;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingView;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
@@ -83,7 +83,7 @@ public class PixelReplacementController extends ViewController {
             if (ImgFile != null) {
                 JSP_running.setVisible(true);
                 new Thread(() -> {
-                    outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,true,ModeSelect());
+                    outBufferedImage = PixelReplacementImpl.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,true,ModeSelect());
                     Platform.runLater(() -> {
                         IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
                         IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));
@@ -104,7 +104,7 @@ public class PixelReplacementController extends ViewController {
             if (ImgFile != null) {
                 JSP_running.setVisible(true);
                 new Thread(() -> {
-                    outBufferedImage = Image_PixelReplacement.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,false,ModeSelect());
+                    outBufferedImage = PixelReplacementImpl.image_transform(Double.parseDouble(JTF_key.getText()) / 100, ImgFile,false,ModeSelect());
                     Platform.runLater(() -> {
                         IMG_outImg.setFitHeight(JBT_outImg.getHeight() - margins);
                         IMG_outImg.setImage(ViewUtils.convertToFxImage(outBufferedImage));

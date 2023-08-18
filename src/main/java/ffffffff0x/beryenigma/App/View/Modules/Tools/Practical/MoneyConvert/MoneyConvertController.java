@@ -2,7 +2,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.Practical.MoneyConvert;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Tools.Practical.MoneyConvert.Practical_MoneyConvert;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
@@ -36,7 +35,7 @@ public class MoneyConvertController extends ViewController {
                 JTA_src.setText("");
                 JTA_dst.setText(Init.getLanguage("ErrorMessage"));
             }else{
-                JTA_dst.setText(Practical_MoneyConvert.convert(new BigDecimal(JTA_src.getText())));
+                JTA_dst.setText(MoneyConvertImpl.convert(new BigDecimal(JTA_src.getText())));
             }
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);

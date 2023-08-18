@@ -3,7 +3,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseConversion;
 import com.jfoenix.controls.JFXCheckBox;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Coding.BaseConversion.Coding_BaseConversion;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -28,12 +27,12 @@ public class BaseConversionController extends ViewController {
         super.ONClickConfirm();
         try {
             if(JCB_SignBit.isSelected()&&JTA_src.getText().split("")[0].equals("1")){
-                JTA_dst.setText("-"+Coding_BaseConversion.conversion((JTA_src.getText().subSequence(1,JTA_src.getText().length())).toString(),
+                JTA_dst.setText("-"+ BaseConversionImpl.conversion((JTA_src.getText().subSequence(1,JTA_src.getText().length())).toString(),
                         Integer.parseInt(JCB_srcBase.getValue().toString()),
                         Integer.parseInt(JCB_dstBase.getValue().toString()),
                         ViewUtils.getSplit(JTF_split)));
             }else{
-                JTA_dst.setText(Coding_BaseConversion.conversion(JTA_src.getText(),
+                JTA_dst.setText(BaseConversionImpl.conversion(JTA_src.getText(),
                         Integer.parseInt(JCB_srcBase.getValue().toString()),
                         Integer.parseInt(JCB_dstBase.getValue().toString()),
                         ViewUtils.getSplit(JTF_split)));

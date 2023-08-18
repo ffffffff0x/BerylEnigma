@@ -3,7 +3,6 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Classical.Vigenere;
 
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import ffffffff0x.beryenigma.App.Implement.Encryption.Classical.Vigenere.Classical_Vigenere;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
@@ -22,7 +21,7 @@ public class VigenereController extends ViewController {
     public void ONClickEncode() {
         super.ONClickEncode();
         try {
-            JTA_dst.setText(Classical_Vigenere.encrypt(JTA_src.getText(),JTA_vigenereKey.getText()));
+            JTA_dst.setText(VigenereImpl.encrypt(JTA_src.getText(),JTA_vigenereKey.getText()));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }
@@ -32,7 +31,7 @@ public class VigenereController extends ViewController {
     public void ONClickDecode() {
         super.ONClickDecode();
         try {
-            JTA_dst.setText(Classical_Vigenere.decrypt(JTA_src.getText(),JTA_vigenereKey.getText()));
+            JTA_dst.setText(VigenereImpl.decrypt(JTA_src.getText(),JTA_vigenereKey.getText()));
         }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }
