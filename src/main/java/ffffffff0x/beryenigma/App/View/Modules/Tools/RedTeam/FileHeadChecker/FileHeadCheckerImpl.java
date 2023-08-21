@@ -127,10 +127,10 @@ public class FileHeadCheckerImpl {
         return resultBean;
     }
 
-    public static ArrayList<FileHeadCheckerResultBean> getFileTypes(List<File> files, HashMap<String,FileHeaderBean> fileTypes) {
-        ArrayList<FileHeadCheckerResultBean> resultBean = new ArrayList<>();
+    public static ObservableList<FileHeadCheckerController.BeanWrapper> getFileTypes(List<File> files, HashMap<String,FileHeaderBean> fileTypes) {
+        ObservableList<FileHeadCheckerController.BeanWrapper> resultBean = FXCollections.observableArrayList();
         for (File file : files) {
-            resultBean.add(getFileTypera(file, fileTypes));
+            resultBean.add(new FileHeadCheckerController.BeanWrapper(getFileTypera(file, fileTypes)));
         }
         return resultBean;
     }
@@ -162,8 +162,8 @@ public class FileHeadCheckerImpl {
         test.add(new File("C:/Users/RyuZU/Desktop/3.0/privilege_escalation.rules"));
         test.add(new File("C:/Users/RyuZU/Desktop/3.0/privilege_escalation_http.rules"));
         test.add(new File("C:/Users/RyuZU/Desktop/3.0/reverse_shell.rules"));
-        for (FileHeadCheckerResultBean file : getFileTypes(test, fileTypes)) {
-            System.out.println(file.getFileHeaderHEX() +  " : " + file.fileName);
+        for (FileHeadCheckerController.BeanWrapper file : getFileTypes(test, fileTypes)) {
+            System.out.println(file.getFileHeaderHEXProperty() +  " : " + file.fileNamePropertyProperty());
         }
     }
 }

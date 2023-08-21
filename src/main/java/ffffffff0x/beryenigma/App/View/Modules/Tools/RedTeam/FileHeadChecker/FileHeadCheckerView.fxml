@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.FileHeadCheckerController">
+<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.FileHeadCheckerController">
    <children>
       <Label fx:id="JLB_title" alignment="CENTER" layoutX="24.0" layoutY="28.0" prefHeight="70.0" prefWidth="610.0" text="File Head Checker" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
@@ -67,7 +67,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="80.0" prefWidth="150.0">
                            <children>
-                              <JFXButton fx:id="JBT_Check" buttonType="RAISED" layoutX="30.0" layoutY="15.0" prefHeight="50.0" prefWidth="90.0" text="%Confirm" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
+                              <JFXButton fx:id="JBT_Check" buttonType="RAISED" layoutX="30.0" layoutY="15.0" onAction="#ONClickCheck" prefHeight="50.0" prefWidth="90.0" text="%Confirm" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
                            </children>
                         </AnchorPane>
                      </children></HBox>

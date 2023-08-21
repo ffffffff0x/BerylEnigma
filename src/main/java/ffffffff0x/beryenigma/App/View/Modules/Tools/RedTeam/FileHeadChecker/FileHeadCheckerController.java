@@ -6,26 +6,27 @@ import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeadCheckerResultBean;
 import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeaderBean;
-import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerator.ReverseShellGeneratorController;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
+import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.ImageListInit;
+import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.util.Callback;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.BufferedReader;
@@ -67,7 +68,7 @@ public class FileHeadCheckerController extends ViewController {
     JFXTextArea JTA_FileList;
 
     // 加载要检测文件头的文件列表
-    ArrayList<File> files;
+    List<File> files;
 
     // 缓存文件头信息-文件头信息
     HashMap<String, FileHeaderBean> fileTypes;
@@ -104,6 +105,19 @@ public class FileHeadCheckerController extends ViewController {
         fileLoadButtonLoadSImage(JBT_LoadFiles);
         JBT_LoadFiles.setOpacity(0.8);
         LoadFilePaths();
+    }
+
+    @FXML
+    public void ONClickCheck() {
+        Stage stage = new Stage();
+
+        stage.setMinHeight(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinheight)));
+        stage.setMinWidth(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinwidth)));
+
+        Scene scene = new Scene(initResultPane());
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void LoadFilePaths() {
@@ -168,19 +182,35 @@ public class FileHeadCheckerController extends ViewController {
 
     AnchorPane initResultPane() {
         AnchorPane resultBlackground = new AnchorPane();
+        resultBlackground.setPrefSize(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinwidth)), Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinheight)));
 
-        HBox hBox = new HBox();
+        ViewUtils.setAnchor(resultBlackground, 0.0, 0.0, 0.0, 0.0);
 
-//        hBox.getChildren().add();
+        VBox vBox = new VBox();
+
+        ViewUtils.setAnchor(vBox, 0.0, 0.0, 0.0, 0.0);
+
+        AnchorPane tableviewAnchorPane = new AnchorPane();
+
+        ViewUtils.setAnchor(tableviewAnchorPane, 0.0, 0.0, 0.0, 0.0);
+
+        vBox.getChildren().add(tableviewAnchorPane);
+
+        JFXTreeTableView<BeanWrapper> beanWrapperJFXTreeTableView = initResultTableView(files,fileTypes);
+
+        ViewUtils.setAnchor(beanWrapperJFXTreeTableView, 0.0, 0.0, 0.0, 0.0);
+
+        tableviewAnchorPane.getChildren().add(beanWrapperJFXTreeTableView);
+
+        resultBlackground.getChildren().add(vBox);
 
         return resultBlackground;
     }
 
-    JFXTreeTableView<BeanWrapper> initResultTableView() {
-        final TreeItem<BeanWrapper> root = new RecursiveTreeItem<>(
-                FXCollections.observableArrayList(FileHeadCheckerImpl.getFileTypes(files, fileTypes)),
+    JFXTreeTableView<BeanWrapper> initResultTableView(List<File> files, HashMap<String, FileHeaderBean> fileTypes) {
+        TreeItem<BeanWrapper> root = new RecursiveTreeItem<>(FileHeadCheckerImpl.getFileTypes(files, fileTypes),
                 RecursiveTreeObject::getChildren);
-        JFXTreeTableView<BeanWrapper> resultTreeTableView = new JFXTreeTableView<>();
+        JFXTreeTableView<BeanWrapper> resultTreeTableView = new JFXTreeTableView<>(root);
         resultTreeTableView.setShowRoot(false);
 
         JFXTreeTableColumn<BeanWrapper, String> fileName = new JFXTreeTableColumn<>("fileName");
@@ -189,7 +219,7 @@ public class FileHeadCheckerController extends ViewController {
         JFXTreeTableColumn<BeanWrapper, String> fileHeaderHEX = new JFXTreeTableColumn<>("fileHeaderHEX");
         JFXTreeTableColumn<BeanWrapper, String> fileDescription = new JFXTreeTableColumn<>("fileDescription");
 
-        resultTreeTableView.getColumns().setAll(fileName, filePath, extName, fileHeaderHEX, fileDescription);
+        resultTreeTableView.getColumns().setAll(fileName, extName, fileHeaderHEX, fileDescription, filePath);
 
 
         fileName.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
@@ -236,7 +266,7 @@ public class FileHeadCheckerController extends ViewController {
     }
 
     // 最终结果显示用bean类
-    class BeanWrapper extends RecursiveTreeObject<BeanWrapper> {
+    static class BeanWrapper extends RecursiveTreeObject<BeanWrapper> {
         private final SimpleStringProperty filePathProperty = new SimpleStringProperty();
         private final SimpleStringProperty fileNameProperty = new SimpleStringProperty();
         private final SimpleStringProperty extensionNameProperty = new SimpleStringProperty();
