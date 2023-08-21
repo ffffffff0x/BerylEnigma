@@ -6,6 +6,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeadCheckerResultBean;
 import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeaderBean;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerator.ReverseShellGeneratorController;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
@@ -14,21 +15,24 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.util.Callback;
 import javafx.util.Duration;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -63,7 +67,7 @@ public class FileHeadCheckerController extends ViewController {
     JFXTextArea JTA_FileList;
 
     // 加载要检测文件头的文件列表
-    List<File> files;
+    ArrayList<File> files;
 
     // 缓存文件头信息-文件头信息
     HashMap<String, FileHeaderBean> fileTypes;
@@ -77,9 +81,6 @@ public class FileHeadCheckerController extends ViewController {
     // 加载文件按钮的图片
     final ImageView IMG_FileAdd = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_FILEADD));
     final ImageView IMG_FileAdd_M = new ImageView(ViewUtils.getImage(ImageListInit.ICON_MJBT_FILEADD));
-
-    JFXTreeTableView<BeanWrapper> resultTreeTableView = new JFXTreeTableView<>();
-
 
     @Override
     protected void initialize() {
@@ -161,8 +162,77 @@ public class FileHeadCheckerController extends ViewController {
         });
     }
 
-    void initResultTableView() {
+    void setResultTableView() {
 
+    }
+
+    AnchorPane initResultPane() {
+        AnchorPane resultBlackground = new AnchorPane();
+
+        HBox hBox = new HBox();
+
+//        hBox.getChildren().add();
+
+        return resultBlackground;
+    }
+
+    JFXTreeTableView<BeanWrapper> initResultTableView() {
+        final TreeItem<BeanWrapper> root = new RecursiveTreeItem<>(
+                FXCollections.observableArrayList(FileHeadCheckerImpl.getFileTypes(files, fileTypes)),
+                RecursiveTreeObject::getChildren);
+        JFXTreeTableView<BeanWrapper> resultTreeTableView = new JFXTreeTableView<>();
+        resultTreeTableView.setShowRoot(false);
+
+        JFXTreeTableColumn<BeanWrapper, String> fileName = new JFXTreeTableColumn<>("fileName");
+        JFXTreeTableColumn<BeanWrapper, String> filePath = new JFXTreeTableColumn<>("filePath");
+        JFXTreeTableColumn<BeanWrapper, String> extName = new JFXTreeTableColumn<>("extName");
+        JFXTreeTableColumn<BeanWrapper, String> fileHeaderHEX = new JFXTreeTableColumn<>("fileHeaderHEX");
+        JFXTreeTableColumn<BeanWrapper, String> fileDescription = new JFXTreeTableColumn<>("fileDescription");
+
+        resultTreeTableView.getColumns().setAll(fileName, filePath, extName, fileHeaderHEX, fileDescription);
+
+
+        fileName.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
+            if (fileName.validateValue(param)) {
+                return param.getValue().getValue().fileNameProperty;
+            } else {
+                return fileName.getComputedValue(param);
+            }
+        });
+
+        filePath.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
+            if (filePath.validateValue(param)) {
+                return param.getValue().getValue().filePathProperty;
+            } else {
+                return filePath.getComputedValue(param);
+            }
+        });
+
+        extName.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
+            if (extName.validateValue(param)) {
+                return param.getValue().getValue().extensionNameProperty;
+            } else {
+                return extName.getComputedValue(param);
+            }
+        });
+
+        fileHeaderHEX.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
+            if (fileHeaderHEX.validateValue(param)) {
+                return param.getValue().getValue().fileHeaderHEXProperty;
+            } else {
+                return fileHeaderHEX.getComputedValue(param);
+            }
+        });
+
+        fileDescription.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
+            if (fileDescription.validateValue(param)) {
+                return param.getValue().getValue().fileDescriptionProperty;
+            } else {
+                return fileDescription.getComputedValue(param);
+            }
+        });
+
+        return resultTreeTableView;
     }
 
     // 最终结果显示用bean类

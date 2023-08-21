@@ -16,6 +16,10 @@ public class FileHeadCheckerResultBean extends FileHeaderBean {
         this.fileName = fileName;
     }
 
+    public FileHeadCheckerResultBean(FileHeaderBean fileHeaderBean) {
+        super(fileHeaderBean.ExtensionName, fileHeaderBean.FileHeaderHEX, fileHeaderBean.FileDescription);
+    }
+
     public String getFilePath() {
         return filePath;
     }

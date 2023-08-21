@@ -1,10 +1,20 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeadCheckerResultBean;
 import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeaderBean;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerator.ReverseShellGeneratorController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @program: BerylEnigma
@@ -94,5 +104,66 @@ public class FileHeadCheckerImpl {
         return builder.toString();
     }
 
+    // 获取文件类型,返回 FileHeadCheckerResultBean 全部信息
+    public static FileHeadCheckerResultBean getFileTypera(File file, HashMap<String,FileHeaderBean> fileTypes) {
+        String fileHeader = getFileHeader(file.getPath());
+        FileHeaderBean fileHeaderBean = fileTypes.get(fileHeader);
+        if (fileHeaderBean != null ) {
+            FileHeadCheckerResultBean fileHeadCheckerResultBean = new FileHeadCheckerResultBean(fileHeaderBean);
+            fileHeadCheckerResultBean.setFileName(file.getName());
+            fileHeadCheckerResultBean.setFilePath(file.getPath());
+            return fileHeadCheckerResultBean;
+        }else {
+            return new FileHeadCheckerResultBean("UNKNOWN",fileHeader,"NULL", file.getPath(), file.getName());
+        }
+    }
 
+    // 获取多个文件类型
+    public static ArrayList<FileHeaderBean> getFileTypes(String[] filePaths, HashMap<String,FileHeaderBean> fileTypes) {
+        ArrayList<FileHeaderBean> resultBean = new ArrayList<>();
+        for (String filePath : filePaths) {
+            resultBean.add(getFileType(filePath, fileTypes));
+        }
+        return resultBean;
+    }
+
+    public static ArrayList<FileHeadCheckerResultBean> getFileTypes(List<File> files, HashMap<String,FileHeaderBean> fileTypes) {
+        ArrayList<FileHeadCheckerResultBean> resultBean = new ArrayList<>();
+        for (File file : files) {
+            resultBean.add(getFileTypera(file, fileTypes));
+        }
+        return resultBean;
+    }
+
+    public static void main(String[] args) {
+        // 初始化本地文件头信息
+        String jsonData = new BufferedReader(new InputStreamReader(Objects.requireNonNull(FileHeadCheckerController.class.getResourceAsStream("/json/redTeam/FileHead.json"))))
+                .lines().collect(Collectors.joining(System.lineSeparator()));
+
+        // 保留类型信息使用的TypeToken
+        Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
+        Gson gson = new Gson();
+        HashMap<String, FileHeaderBean> fileTypes = gson.fromJson(jsonData, type);
+        ArrayList<File> test = new ArrayList<>();
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/cmd_executed.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/cmd_executed_request.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/common_information_disclose.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/commonlogin.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/commonwebshell.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/component.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/danger_behavior.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/danger_behavior_http.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/hacktool.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/information_disclose.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/login.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/malware.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/ml_webshell.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/oscmd.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/privilege_escalation.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/privilege_escalation_http.rules"));
+        test.add(new File("C:/Users/RyuZU/Desktop/3.0/reverse_shell.rules"));
+        for (FileHeadCheckerResultBean file : getFileTypes(test, fileTypes)) {
+            System.out.println(file.getFileHeaderHEX() +  " : " + file.fileName);
+        }
+    }
 }
