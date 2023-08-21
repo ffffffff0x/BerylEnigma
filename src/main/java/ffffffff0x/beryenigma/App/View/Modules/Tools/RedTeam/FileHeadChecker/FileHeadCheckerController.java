@@ -2,10 +2,10 @@ package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
+import com.jfoenix.controls.*;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeadCheckerResultBean;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeaderBean;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
@@ -13,8 +13,10 @@ import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -64,7 +66,7 @@ public class FileHeadCheckerController extends ViewController {
     List<File> files;
 
     // 缓存文件头信息-文件头信息
-    HashMap<String,FileHeaderBean> fileTypes;
+    HashMap<String, FileHeaderBean> fileTypes;
 
     // 默认使用的头文件对照表路径
     final String DefaultFileTypeJsonPath = "/json/redTeam/FileHead.json";
@@ -75,6 +77,9 @@ public class FileHeadCheckerController extends ViewController {
     // 加载文件按钮的图片
     final ImageView IMG_FileAdd = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_FILEADD));
     final ImageView IMG_FileAdd_M = new ImageView(ViewUtils.getImage(ImageListInit.ICON_MJBT_FILEADD));
+
+    JFXTreeTableView<BeanWrapper> resultTreeTableView = new JFXTreeTableView<>();
+
 
     @Override
     protected void initialize() {
@@ -156,5 +161,64 @@ public class FileHeadCheckerController extends ViewController {
         });
     }
 
+    void initResultTableView() {
 
+    }
+
+    // 最终结果显示用bean类
+    class BeanWrapper extends RecursiveTreeObject<BeanWrapper> {
+        private final SimpleStringProperty filePathProperty = new SimpleStringProperty();
+        private final SimpleStringProperty fileNameProperty = new SimpleStringProperty();
+        private final SimpleStringProperty extensionNameProperty = new SimpleStringProperty();
+        private final SimpleStringProperty fileHeaderHEXProperty = new SimpleStringProperty();
+        private final SimpleStringProperty fileDescriptionProperty = new SimpleStringProperty();
+
+        public BeanWrapper(FileHeadCheckerResultBean fileHeadCheckerResultBean) {
+            filePathProperty.set(fileHeadCheckerResultBean.getFilePath());
+            fileNameProperty.set(fileHeadCheckerResultBean.getFileName());
+            extensionNameProperty.set(fileHeadCheckerResultBean.getExtensionName());
+            fileHeaderHEXProperty.set(fileHeadCheckerResultBean.getFileHeaderHEX());
+            fileDescriptionProperty.set(fileHeadCheckerResultBean.getFileDescription());
+        }
+
+        public String getFilePathProperty() {
+            return filePathProperty.get();
+        }
+
+        public SimpleStringProperty filePathPropertyProperty() {
+            return filePathProperty;
+        }
+
+        public String getFileNameProperty() {
+            return fileNameProperty.get();
+        }
+
+        public SimpleStringProperty fileNamePropertyProperty() {
+            return fileNameProperty;
+        }
+
+        public String getExtensionNameProperty() {
+            return extensionNameProperty.get();
+        }
+
+        public SimpleStringProperty extensionNamePropertyProperty() {
+            return extensionNameProperty;
+        }
+
+        public String getFileHeaderHEXProperty() {
+            return fileHeaderHEXProperty.get();
+        }
+
+        public SimpleStringProperty fileHeaderHEXPropertyProperty() {
+            return fileHeaderHEXProperty;
+        }
+
+        public String getFileDescriptionProperty() {
+            return fileDescriptionProperty.get();
+        }
+
+        public SimpleStringProperty fileDescriptionPropertyProperty() {
+            return fileDescriptionProperty;
+        }
+    }
 }

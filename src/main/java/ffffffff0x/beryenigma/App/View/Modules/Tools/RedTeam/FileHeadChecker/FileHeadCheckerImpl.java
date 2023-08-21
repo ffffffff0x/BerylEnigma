@@ -1,15 +1,10 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeaderBean;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.stream.Collectors;
 
 /**
  * @program: BerylEnigma
@@ -19,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class FileHeadCheckerImpl {
     // 获取文件类型
-    public static FileHeaderBean getFileType(String filePath,HashMap<String,FileHeaderBean> fileTypes) {
+    public static FileHeaderBean getFileType(String filePath, HashMap<String,FileHeaderBean> fileTypes) {
         FileHeaderBean fileHeaderBean = fileTypes.get(getFileHeader(filePath));
         if (fileHeaderBean != null) {
             return fileHeaderBean;

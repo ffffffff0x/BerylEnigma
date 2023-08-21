@@ -1,4 +1,4 @@
-package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker;
+package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans;
 
 /**
  * @program: BerylEnigma
