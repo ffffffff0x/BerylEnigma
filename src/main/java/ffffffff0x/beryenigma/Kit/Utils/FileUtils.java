@@ -262,7 +262,7 @@ public class FileUtils {
      *
      * @param filePath 文件路径
      */
-    public static void OpenFile(String filePath) {
+    public static void openFile(String filePath) {
         // 创建文件对象
         File fileToOpen = new File(filePath);
 
@@ -275,7 +275,7 @@ public class FileUtils {
      *
      * @param fileToOpen 文件对象
      */
-    public static void OpenFile(File fileToOpen) {
+    public static void openFile(File fileToOpen) {
         // 检查平台是否支持 Desktop 类
         OpenFileWithDefaultProgram(fileToOpen);
     }

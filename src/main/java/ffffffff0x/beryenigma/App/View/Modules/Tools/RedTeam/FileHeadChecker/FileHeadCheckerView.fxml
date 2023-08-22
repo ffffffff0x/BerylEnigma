@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.FileHeadCheckerController">
+<AnchorPane fx:id="ACP_backgroundAnchorPane" prefHeight="600.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.FileHeadCheckerController">
    <children>
       <Label fx:id="JLB_title" alignment="CENTER" layoutX="24.0" layoutY="28.0" prefHeight="70.0" prefWidth="610.0" text="File Head Checker" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
@@ -19,14 +19,14 @@
                <children>
                   <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <JFXToggleButton fx:id="JTB_ModeSwitch" onAction="#ONClickModeSelect" prefHeight="50.0" prefWidth="160.0" size="9.0" text="DefaultMode">
+                        <JFXToggleButton fx:id="JTB_ModeSwitch" onAction="#ONClickModeSelect" prefHeight="50.0" prefWidth="160.0" size="9.0" text="%DefaultMode">
                            <HBox.margin>
                               <Insets left="-10.0" />
                            </HBox.margin>
                         </JFXToggleButton>
                         <AnchorPane prefHeight="53.0" prefWidth="230.0">
                            <children>
-                              <Label fx:id="JLB_JSONName" alignment="CENTER" layoutX="30.0" layoutY="19.0" prefHeight="15.0" prefWidth="153.0" text="UseDefaultHeaderJSON" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="16.0">
+                              <Label fx:id="JLB_JSONName" alignment="CENTER" layoutX="30.0" layoutY="19.0" prefHeight="15.0" prefWidth="153.0" text="%UseDefaultHeaderJSON" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="16.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -35,7 +35,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="53.0" prefWidth="150.0">
                            <children>
-                              <Label fx:id="JLB_JSONNum" alignment="CENTER" text="Num: 99999" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="16.0">
+                              <Label fx:id="JLB_JSONNum" alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -53,7 +53,7 @@
                      <children>
                         <AnchorPane prefHeight="80.0" prefWidth="160.0">
                            <children>
-                              <Label fx:id="JLB_FileNum" alignment="CENTER" layoutX="14.0" layoutY="32.0" text="FileNum: 0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="32.0">
+                              <Label fx:id="JLB_FileNum" alignment="CENTER" layoutX="14.0" layoutY="32.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="32.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -68,7 +68,7 @@
                         <AnchorPane prefHeight="80.0" prefWidth="150.0">
                            <children>
                               <JFXSpinner fx:id="JSP_CheckFile" prefHeight="50.0" prefWidth="90.0" radius="15.0" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
-                              <JFXButton fx:id="JBT_Check" buttonType="RAISED" layoutX="30.0" layoutY="15.0" onAction="#ONClickCheck" prefHeight="50.0" prefWidth="90.0" text="Check" viewOrder="1.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
+                              <JFXButton fx:id="JBT_Check" buttonType="RAISED" layoutX="30.0" layoutY="15.0" onAction="#ONClickCheck" prefHeight="50.0" prefWidth="90.0" text="%Check" viewOrder="1.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
                            </children>
                         </AnchorPane>
                      </children></HBox>

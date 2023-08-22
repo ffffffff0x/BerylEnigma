@@ -31,7 +31,7 @@ public class MockView extends Application {
     public void initRootLayout(String FXMLPath) {
         try {
 //             英文版本测试
-//             englishMode();
+             englishMode();
 
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
