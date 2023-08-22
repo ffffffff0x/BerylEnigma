@@ -65,16 +65,20 @@ public class FileUtils {
     public static String getFileString(File file){
         StringBuilder result = new StringBuilder();
         try {
-            FileInputStream inputStream = new FileInputStream(file);
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            if (file != null) {
+                FileInputStream inputStream = new FileInputStream(file);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-            String str;
-            while((str = bufferedReader.readLine()) != null)
-            {
-                result.append(str);
+                String str;
+                while((str = bufferedReader.readLine()) != null)
+                {
+                    result.append(str);
+                }
+                inputStream.close();
+                bufferedReader.close();
+            }else {
+                return null;
             }
-            inputStream.close();
-            bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -251,5 +255,62 @@ public class FileUtils {
         } else {
             return true;
         }
+    }
+
+    /**
+     * 使用默认程序打开特定类型的文件
+     *
+     * @param filePath 文件路径
+     */
+    public static void OpenFile(String filePath) {
+        // 创建文件对象
+        File fileToOpen = new File(filePath);
+
+        // 检查平台是否支持 Desktop 类
+        OpenFileWithDefaultProgram(fileToOpen);
+    }
+
+    /**
+     * 使用默认程序打开特定类型的文件
+     *
+     * @param fileToOpen 文件对象
+     */
+    public static void OpenFile(File fileToOpen) {
+        // 检查平台是否支持 Desktop 类
+        OpenFileWithDefaultProgram(fileToOpen);
+    }
+
+    private static void OpenFileWithDefaultProgram(File fileToOpen) {
+        if (Desktop.isDesktopSupported()) {
+            Desktop desktop = Desktop.getDesktop();
+
+            // 判断文件是否存在
+            if (fileToOpen.exists()) {
+                try {
+                    // 打开文件
+                    desktop.open(fileToOpen);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("File does not exist.");
+            }
+        } else {
+            System.out.println("Desktop is not supported on this platform.");
+        }
+    }
+
+    /**
+     * 重命名文件
+     *
+     * @param oldFilePath 旧文件路径
+     * @param newFileName 新文件名称
+     * @return boolean
+     */
+    public static boolean renameFile(String oldFilePath, String newFileName) {
+        File oldFile = new File(oldFilePath);
+        File newFile = new File(oldFile.getParent(), newFileName);
+
+        return oldFile.renameTo(newFile);
     }
 }

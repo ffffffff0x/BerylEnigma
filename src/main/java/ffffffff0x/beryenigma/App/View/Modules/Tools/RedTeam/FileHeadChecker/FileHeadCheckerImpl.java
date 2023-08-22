@@ -24,22 +24,22 @@ import java.util.stream.Collectors;
 
 public class FileHeadCheckerImpl {
     // 获取文件类型
-    public static FileHeaderBean getFileType(String filePath, HashMap<String,FileHeaderBean> fileTypes) {
-        FileHeaderBean fileHeaderBean = fileTypes.get(getFileHeader(filePath));
+    public static FileHeaderBean getFileType(String filePath, HashMap<String,FileHeaderBean> fileTypes,Integer hexnum) {
+        FileHeaderBean fileHeaderBean = fileTypes.get(getFileHeader(filePath, hexnum));
         if (fileHeaderBean != null) {
             return fileHeaderBean;
         }else {
-            return new FileHeaderBean("UNKNOWN",getFileHeader(filePath),"NULL");
+            return new FileHeaderBean("UNKNOWN",getFileHeader(filePath, hexnum),"NULL");
         }
     }
 
     // 根据文件路径获取文件头信息
-    public static String getFileHeader(String filePath) {
+    public static String getFileHeader(String filePath,Integer hexnum) {
         FileInputStream is = null;
         String value = null;
         try {
             is = new FileInputStream(filePath);
-            byte[] b = new byte[4];
+            byte[] b = new byte[hexnum];
             /*
              * int read() 从此输入流中读取一个数据字节。int read(byte[] b) 从此输入流中将最多 b.length
              * 个字节的数据读入一个 byte 数组中。 int read(byte[] b, int off, int len)
@@ -105,8 +105,8 @@ public class FileHeadCheckerImpl {
     }
 
     // 获取文件类型,返回 FileHeadCheckerResultBean 全部信息
-    public static FileHeadCheckerResultBean getFileTypera(File file, HashMap<String,FileHeaderBean> fileTypes) {
-        String fileHeader = getFileHeader(file.getPath());
+    public static FileHeadCheckerResultBean getFileTypera(File file, HashMap<String,FileHeaderBean> fileTypes,Integer hexnum) {
+        String fileHeader = getFileHeader(file.getPath(), hexnum);
         FileHeaderBean fileHeaderBean = fileTypes.get(fileHeader);
         if (fileHeaderBean != null ) {
             FileHeadCheckerResultBean fileHeadCheckerResultBean = new FileHeadCheckerResultBean(fileHeaderBean);
@@ -122,48 +122,16 @@ public class FileHeadCheckerImpl {
     public static ArrayList<FileHeaderBean> getFileTypes(String[] filePaths, HashMap<String,FileHeaderBean> fileTypes) {
         ArrayList<FileHeaderBean> resultBean = new ArrayList<>();
         for (String filePath : filePaths) {
-            resultBean.add(getFileType(filePath, fileTypes));
+            resultBean.add(getFileType(filePath, fileTypes, 4));
         }
         return resultBean;
     }
 
-    public static ObservableList<FileHeadCheckerController.BeanWrapper> getFileTypes(List<File> files, HashMap<String,FileHeaderBean> fileTypes) {
+    public static ObservableList<FileHeadCheckerController.BeanWrapper> getFileTypes(List<File> files, HashMap<String,FileHeaderBean> fileTypes, Integer hexnum) {
         ObservableList<FileHeadCheckerController.BeanWrapper> resultBean = FXCollections.observableArrayList();
         for (File file : files) {
-            resultBean.add(new FileHeadCheckerController.BeanWrapper(getFileTypera(file, fileTypes)));
+            resultBean.add(new FileHeadCheckerController.BeanWrapper(getFileTypera(file, fileTypes, hexnum)));
         }
         return resultBean;
-    }
-
-    public static void main(String[] args) {
-        // 初始化本地文件头信息
-        String jsonData = new BufferedReader(new InputStreamReader(Objects.requireNonNull(FileHeadCheckerController.class.getResourceAsStream("/json/redTeam/FileHead.json"))))
-                .lines().collect(Collectors.joining(System.lineSeparator()));
-
-        // 保留类型信息使用的TypeToken
-        Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
-        Gson gson = new Gson();
-        HashMap<String, FileHeaderBean> fileTypes = gson.fromJson(jsonData, type);
-        ArrayList<File> test = new ArrayList<>();
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/cmd_executed.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/cmd_executed_request.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/common_information_disclose.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/commonlogin.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/commonwebshell.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/component.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/danger_behavior.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/danger_behavior_http.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/hacktool.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/information_disclose.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/login.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/malware.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/ml_webshell.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/oscmd.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/privilege_escalation.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/privilege_escalation_http.rules"));
-        test.add(new File("C:/Users/RyuZU/Desktop/3.0/reverse_shell.rules"));
-        for (FileHeadCheckerController.BeanWrapper file : getFileTypes(test, fileTypes)) {
-            System.out.println(file.getFileHeaderHEXProperty() +  " : " + file.fileNamePropertyProperty());
-        }
     }
 }

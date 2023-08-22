@@ -45,7 +45,7 @@ public class MockView extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
-            scene.getStylesheets().add(Objects.requireNonNull(MockView.class.getResource("/css/MainCSS_light.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(MockView.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

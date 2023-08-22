@@ -193,10 +193,18 @@ public class ViewUtils {
      * @param BottomAnchor 下
      */
     public static void setAnchor(Node node, Double TopAnchor, Double LeftAnchor, Double RightAnchor, Double BottomAnchor){
-        AnchorPane.setTopAnchor(node,TopAnchor);
-        AnchorPane.setRightAnchor(node,RightAnchor);
-        AnchorPane.setLeftAnchor(node,LeftAnchor);
-        AnchorPane.setBottomAnchor(node,BottomAnchor);
+        if (TopAnchor != null) {
+            AnchorPane.setTopAnchor(node,TopAnchor);
+        }
+        if (LeftAnchor != null) {
+            AnchorPane.setRightAnchor(node,RightAnchor);
+        }
+        if (RightAnchor != null) {
+            AnchorPane.setLeftAnchor(node,LeftAnchor);
+        }
+        if (BottomAnchor != null) {
+            AnchorPane.setBottomAnchor(node,BottomAnchor);
+        }
     }
 
     /**

@@ -10,28 +10,31 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
+import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.TextFormatter.IntegerFilter;
 import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.util.converter.IntegerStringConverter;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -48,10 +51,10 @@ public class FileHeadCheckerController extends ViewController {
     // 显示已经加载的文件头信息JSON的名称 默认为 UseDefaultHeaderJSON
     @FXML
     Label JLB_JSONName;
-    // 显示JSON中文件头信息的数量
+    // 显示加载的JSON文件的名称
     @FXML
     Label JLB_JSONNum;
-    // 显示已经加载的问价的数量
+    // 显示已经加载JSON内条目数量
     @FXML
     Label JLB_FileNum;
     // 检测文件头十六进制数的数量 默认为4
@@ -66,6 +69,9 @@ public class FileHeadCheckerController extends ViewController {
     // 显示所有已经加载文件的全路径
     @FXML
     JFXTextArea JTA_FileList;
+    // 检查进度条
+    @FXML
+    JFXSpinner JSP_CheckFile;
 
     // 加载要检测文件头的文件列表
     List<File> files;
@@ -83,10 +89,18 @@ public class FileHeadCheckerController extends ViewController {
     final ImageView IMG_FileAdd = new ImageView(ViewUtils.getImage(ImageListInit.ICON_JBT_FILEADD));
     final ImageView IMG_FileAdd_M = new ImageView(ViewUtils.getImage(ImageListInit.ICON_MJBT_FILEADD));
 
+    // 默认的检测文件头HEX数量
+    Integer hexnum = 4;
+
+    // 用来弹出结果窗口的stage
+    Stage resultStage = new Stage();
+
     @Override
     protected void initialize() {
         // 初始化本地文件头信息
-        String jsonData = new BufferedReader(new InputStreamReader(Objects.requireNonNull(FileHeadCheckerController.class.getResourceAsStream(DefaultFileTypeJsonPath))))
+        String jsonData = new BufferedReader(
+                new InputStreamReader(
+                        Objects.requireNonNull(FileHeadCheckerController.class.getResourceAsStream(DefaultFileTypeJsonPath))))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
 
         // 保留类型信息使用的TypeToken
@@ -96,30 +110,93 @@ public class FileHeadCheckerController extends ViewController {
         // 显示默认文件头JSON文件中 文件头信息的数量
         JLB_JSONNum.setText("Num: " + fileTypes.size());
 
+        // HexNum输入加载仅数字的过滤器
+        JTF_CheckHexNum.setTextFormatter(new TextFormatter<>(
+                new IntegerStringConverter(), // Standard converter form JavaFX
+                null,
+                new IntegerFilter()));
+
+        // 加载全尺寸的按钮图片
         fileLoadButtonLoadImage(JBT_LoadFiles);
+
+        // 设置图标
+        resultStage.getIcons().add(ViewUtils.getImage(ImageListInit.ICON));
+
+        resultStage.setMinHeight(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinheight)));
+        resultStage.setMinWidth(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinwidth)));
+
     }
 
     @FXML
     public void ONClickLoadFiles() {
+        // 缩小按钮为小尺寸
         zoomButton(JBT_LoadFiles);
+        // 加载小尺寸的按钮图片
         fileLoadButtonLoadSImage(JBT_LoadFiles);
+        // 设置按钮不透明度
         JBT_LoadFiles.setOpacity(0.8);
+        // 加载文件与展示加载到的文件路径
         LoadFilePaths();
     }
 
     @FXML
     public void ONClickCheck() {
-        Stage stage = new Stage();
+        if (files != null) {
+            JSP_CheckFile.setVisible(true);
+            new Thread(() -> {
+                if (JTF_CheckHexNum.getText().length() != 0) {
+                    hexnum = Integer.parseInt(JTF_CheckHexNum.getText());
+                }
 
-        stage.setMinHeight(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinheight)));
-        stage.setMinWidth(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinwidth)));
+                Scene scene = new Scene(initResultPane(initResultTableView(files, fileTypes, hexnum)));
+                // 设置CSS样式
+                ViewUtils.setCSSStyle(scene);
 
-        Scene scene = new Scene(initResultPane());
-
-        stage.setScene(scene);
-        stage.show();
+                Platform.runLater(() -> {
+                    resultStage.setScene(scene);
+                    resultStage.show();
+                    JSP_CheckFile.setVisible(false);
+                });
+            }).start();
+        }
     }
 
+    @FXML
+    public void ONClickModeSelect() {
+        if (JTB_ModeSwitch.isSelected()) {
+            JTB_ModeSwitch.setText("CustomMode");
+            File file = ViewUtils.getFile(new FileChooser.ExtensionFilter("JSON files (*.json)", "*.json"));
+            String json = FileUtils.getFileString(file);
+
+            if (json != null && json.length() > 0) {
+                // 保留类型信息使用的TypeToken
+                Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
+                fileTypes = gson.fromJson(json, type);
+                JLB_JSONName.setText(file.getName());
+                JLB_JSONNum.setText("Num: " + fileTypes.size());
+            } else {
+                JTB_ModeSwitch.selectedProperty().setValue(false);
+                JTB_ModeSwitch.setText("DeafultMode");
+            }
+        }else {
+            // 初始化本地文件头信息
+            String jsonData = new BufferedReader(
+                    new InputStreamReader(
+                            Objects.requireNonNull(FileHeadCheckerController.class.getResourceAsStream(DefaultFileTypeJsonPath))))
+                    .lines().collect(Collectors.joining(System.lineSeparator()));
+
+            // 保留类型信息使用的TypeToken
+            Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
+            fileTypes = gson.fromJson(jsonData, type);
+            JTB_ModeSwitch.setText("DeafultMode");
+            JLB_JSONName.setText("UseDefaultHeaderJSON");
+            JLB_JSONNum.setText("Num: " + fileTypes.size());
+        }
+    }
+
+    /**
+     * 加载文件与文件路径
+     */
     public void LoadFilePaths() {
         files = ViewUtils.getFiles();
         StringJoiner stringJoiner = new StringJoiner("\n");
@@ -132,6 +209,11 @@ public class FileHeadCheckerController extends ViewController {
         }
     }
 
+    /**
+     * 缩小按钮
+     *
+     * @param jfxButton jfxButton
+     */
     public void zoomButton(JFXButton jfxButton) {
         if (AnchorPane.getBottomAnchor(jfxButton) == 5.0) {
 //            ViewUtils.setAnchor(jfxButton, 0.0, 0.0, 0.0, 0.0);
@@ -145,6 +227,11 @@ public class FileHeadCheckerController extends ViewController {
         }
     }
 
+    /**
+     * 加载文件按钮的图片 （大号
+     *
+     * @param jfxButton jfxButton
+     */
     public void fileLoadButtonLoadImage(JFXButton jfxButton) {
         IMG_FileAdd.setFitHeight(290);
         IMG_FileAdd.setFitWidth(220);
@@ -152,6 +239,11 @@ public class FileHeadCheckerController extends ViewController {
         jfxButton.setGraphic(IMG_FileAdd);
     }
 
+    /**
+     * 加载文件按钮的图片 （小号
+     *
+     * @param jfxButton jfxButton
+     */
     public void fileLoadButtonLoadSImage(JFXButton jfxButton) {
         IMG_FileAdd_M.setFitHeight(32);
         IMG_FileAdd_M.setFitWidth(32);
@@ -176,52 +268,89 @@ public class FileHeadCheckerController extends ViewController {
         });
     }
 
-    void setResultTableView() {
-
-    }
-
-    AnchorPane initResultPane() {
+    /**
+     * 初始化一个用来显示结果与操作控件的AnchorPane
+     *
+     * @param beanWrapperJFXTreeTableView 检查结果列表
+     * @return AnchorPane
+     */
+    AnchorPane initResultPane(JFXTreeTableView<BeanWrapper> beanWrapperJFXTreeTableView) {
         AnchorPane resultBlackground = new AnchorPane();
+        HBox hBox = new HBox();
+        JFXButton buttonExport = new JFXButton("Export");
+        JFXButton buttonRenameAll = new JFXButton("RenameAll");
+
+        resultBlackground.setId("ACP_backgroundAnchorPane");
         resultBlackground.setPrefSize(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinwidth)), Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinheight)));
 
         ViewUtils.setAnchor(resultBlackground, 0.0, 0.0, 0.0, 0.0);
+        ViewUtils.setAnchor(beanWrapperJFXTreeTableView, 5.0, 10.0, 10.0, 80.0);
+        ViewUtils.setAnchor(hBox,null,20.0,20.0,0.0);
 
-        VBox vBox = new VBox();
+        buttonExport.setPrefSize(101,50);
+        buttonRenameAll.setPrefSize(101,50);
 
-        ViewUtils.setAnchor(vBox, 0.0, 0.0, 0.0, 0.0);
+        buttonExport.setOnAction(actionEvent -> {
+            String filePath = ViewUtils.fileChooser(new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv")).getPath();
+            new Thread(() -> {
+                try {
+                    exportToCSV(beanWrapperJFXTreeTableView, filePath);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Platform.runLater(() -> {
+                    ViewUtils.alertPane(resultStage,"INFO" ,"Export Complete");
+                });
+            }).start();
+        });
 
-        AnchorPane tableviewAnchorPane = new AnchorPane();
+        buttonRenameAll.setOnAction(actionEvent -> {
+            new Thread(() -> {
+                renameAll(beanWrapperJFXTreeTableView);
+                Platform.runLater(() -> {
+                    ViewUtils.alertPane(resultStage,"INFO" ,"Rename Complete");
+                });
+            }).start();
+        });
 
-        ViewUtils.setAnchor(tableviewAnchorPane, 0.0, 0.0, 0.0, 0.0);
+        resultBlackground.getChildren().add(beanWrapperJFXTreeTableView);
+        resultBlackground.getChildren().add(hBox);
 
-        vBox.getChildren().add(tableviewAnchorPane);
-
-        JFXTreeTableView<BeanWrapper> beanWrapperJFXTreeTableView = initResultTableView(files,fileTypes);
-
-        ViewUtils.setAnchor(beanWrapperJFXTreeTableView, 0.0, 0.0, 0.0, 0.0);
-
-        tableviewAnchorPane.getChildren().add(beanWrapperJFXTreeTableView);
-
-        resultBlackground.getChildren().add(vBox);
+        hBox.setPrefHeight(80.0);
+        hBox.setSpacing(20.0);
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.getChildren().addAll(buttonExport,buttonRenameAll);
 
         return resultBlackground;
     }
 
-    JFXTreeTableView<BeanWrapper> initResultTableView(List<File> files, HashMap<String, FileHeaderBean> fileTypes) {
-        TreeItem<BeanWrapper> root = new RecursiveTreeItem<>(FileHeadCheckerImpl.getFileTypes(files, fileTypes),
+    /**
+     * 初始化一个用来显示检查结果的列表控件
+     *
+     * @param files 选择中的文件
+     * @param fileTypes 加载的文件头对照JSON
+     * @return JFXTreeTableView<BeanWrapper>
+     */
+    JFXTreeTableView<BeanWrapper> initResultTableView(List<File> files, HashMap<String, FileHeaderBean> fileTypes, Integer hexnum) {
+        // 创建根节点，使用 RecursiveTreeItem 封装数据列表，通过 RecursiveTreeObject::getChildren 设置子项提供器
+        TreeItem<BeanWrapper> root = new RecursiveTreeItem<>(FileHeadCheckerImpl.getFileTypes(files, fileTypes, hexnum),
                 RecursiveTreeObject::getChildren);
+
+        // 创建 JFXTreeTableView，并将根节点设置为树状表格的根，通过 setShowRoot(false) 隐藏根节点的显示
         JFXTreeTableView<BeanWrapper> resultTreeTableView = new JFXTreeTableView<>(root);
         resultTreeTableView.setShowRoot(false);
 
+        // 初始化列
         JFXTreeTableColumn<BeanWrapper, String> fileName = new JFXTreeTableColumn<>("fileName");
         JFXTreeTableColumn<BeanWrapper, String> filePath = new JFXTreeTableColumn<>("filePath");
         JFXTreeTableColumn<BeanWrapper, String> extName = new JFXTreeTableColumn<>("extName");
         JFXTreeTableColumn<BeanWrapper, String> fileHeaderHEX = new JFXTreeTableColumn<>("fileHeaderHEX");
         JFXTreeTableColumn<BeanWrapper, String> fileDescription = new JFXTreeTableColumn<>("fileDescription");
 
+        // 将列添加到树状表格的列列表中
         resultTreeTableView.getColumns().setAll(fileName, extName, fileHeaderHEX, fileDescription, filePath);
 
-
+        // 为 fileName 列设置数据源
         fileName.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
             if (fileName.validateValue(param)) {
                 return param.getValue().getValue().fileNameProperty;
@@ -230,6 +359,7 @@ public class FileHeadCheckerController extends ViewController {
             }
         });
 
+        // 为 filePath 列设置数据源
         filePath.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
             if (filePath.validateValue(param)) {
                 return param.getValue().getValue().filePathProperty;
@@ -238,6 +368,7 @@ public class FileHeadCheckerController extends ViewController {
             }
         });
 
+        // 为 extName 列设置数据源
         extName.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
             if (extName.validateValue(param)) {
                 return param.getValue().getValue().extensionNameProperty;
@@ -246,6 +377,7 @@ public class FileHeadCheckerController extends ViewController {
             }
         });
 
+        // 为 fileHeaderHEX 列设置数据源
         fileHeaderHEX.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
             if (fileHeaderHEX.validateValue(param)) {
                 return param.getValue().getValue().fileHeaderHEXProperty;
@@ -254,6 +386,7 @@ public class FileHeadCheckerController extends ViewController {
             }
         });
 
+        // 为 fileDescription 列设置数据源
         fileDescription.setCellValueFactory((TreeTableColumn.CellDataFeatures<FileHeadCheckerController.BeanWrapper, String> param) -> {
             if (fileDescription.validateValue(param)) {
                 return param.getValue().getValue().fileDescriptionProperty;
@@ -262,7 +395,56 @@ public class FileHeadCheckerController extends ViewController {
             }
         });
 
+        // 返回构建完成的列表
         return resultTreeTableView;
+    }
+
+    /**
+     * 导出列表为CSV文件
+     *
+     * @param treeTableView JFXTreeTableView<BeanWrapper>
+     * @param filename 保存路径
+     */
+    private void exportToCSV(JFXTreeTableView<BeanWrapper> treeTableView, String filename) throws IOException {
+        FileWriter fileWriter = new FileWriter(filename);
+        JFXTreeTableColumn<BeanWrapper, ?>[] columns = treeTableView.getColumns().toArray(new JFXTreeTableColumn[0]);
+
+        // Write header
+        for (int i = 0; i < columns.length; i++) {
+            fileWriter.append(columns[i].getText());
+            if (i < columns.length - 1) {
+                fileWriter.append(",");
+            } else {
+                fileWriter.append("\n");
+            }
+        }
+
+        // Write data
+        for (TreeItem<BeanWrapper> item : treeTableView.getRoot().getChildren()) {
+            fileWriter.append(item.getValue().getFileNameProperty()); // Modify this to match the appropriate property
+            fileWriter.append(",");
+            fileWriter.append(item.getValue().getFilePathProperty()); // Modify this to match the appropriate property
+            fileWriter.append(",");
+            fileWriter.append(item.getValue().getExtensionNameProperty()); // Modify this to match the appropriate property
+            fileWriter.append(",");
+            fileWriter.append(item.getValue().getFileHeaderHEXProperty()); // Modify this to match the appropriate property
+            fileWriter.append(",");
+            fileWriter.append(item.getValue().getFileDescriptionProperty()); // Modify this to match the appropriate property
+            fileWriter.append("\n");
+        }
+
+        fileWriter.flush();
+        fileWriter.close();
+    }
+
+    private void renameAll(JFXTreeTableView<BeanWrapper> treeTableView) {
+        for (TreeItem<BeanWrapper> item : treeTableView.getRoot().getChildren()) {
+            if (!item.getValue().getExtensionNameProperty().equals("UNKNOWN")) {
+                FileUtils.renameFile(item.getValue().getFilePathProperty(),
+                        item.getValue().getFileNameProperty()
+                                + "." + item.getValue().getExtensionNameProperty());
+            }
+        }
     }
 
     // 最终结果显示用bean类
