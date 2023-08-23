@@ -1,20 +1,14 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeadCheckerResultBean;
 import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker.Beans.FileHeaderBean;
-import ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.ReverseShellGenerator.ReverseShellGeneratorController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 /**
  * @program: BerylEnigma
@@ -93,7 +87,7 @@ public class FileHeadCheckerImpl {
         }
         String hv;
         for (int i = 0; i < src.length; i++) {
-            // 以十六进制（基数 16）无符号整数形式返回一个整数参数的字符串表示形式，并转换为大写
+            // 以十六进制无符号整数形式返回一个整数参数的字符串表示形式，并转换为大写
             hv = Integer.toHexString(src[i] & 0xFF).toUpperCase();
             if (hv.length() < 2) {
                 builder.append(0);

@@ -221,10 +221,7 @@ public class FileUtils {
     public static boolean isImage(String filePath) throws IOException {
         BufferedImage image;
         image = ImageIO.read(new File(filePath));
-        if (image == null || image.getWidth() <= 0 || image.getHeight() <= 0) {
-            return false;
-        }
-        return true;
+        return image != null && image.getWidth() > 0 && image.getHeight() > 0;
     }
 
     /**
@@ -235,11 +232,7 @@ public class FileUtils {
      */
     public static boolean checkFileExist(String filePath) {
         File file = new File(filePath);
-        if (!file.exists()) {
-            return false;
-        } else {
-            return true;
-        }
+        return file.exists();
     }
 
     /**
@@ -312,5 +305,30 @@ public class FileUtils {
         File newFile = new File(oldFile.getParent(), newFileName);
 
         return oldFile.renameTo(newFile);
+    }
+
+    /**
+     * 保存 InputStream 置文件系统
+     *
+     * @param inputStream InputStream
+     * @param targetPath 保存目标路径
+     * @throws IOException IOException
+     */
+    public static void saveInputStream(InputStream inputStream, String targetPath) throws IOException {
+        File targetFile = new File(targetPath);
+
+        // 检查目标文件所在的目录是否存在，如果不存在则创建
+        if (!targetFile.getParentFile().exists()) {
+            targetFile.getParentFile().mkdirs();
+        }
+
+        // 将 InputStream 写入目标文件
+        try (FileOutputStream outputStream = new FileOutputStream(targetFile)) {
+            byte[] buffer = new byte[4096];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+            }
+        }
     }
 }

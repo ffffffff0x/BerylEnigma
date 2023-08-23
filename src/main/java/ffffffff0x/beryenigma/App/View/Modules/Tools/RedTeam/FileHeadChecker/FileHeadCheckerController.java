@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.App.View.Modules.Tools.RedTeam.FileHeadChecker;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -10,15 +11,14 @@ import ffffffff0x.beryenigma.App.View.Viewobj.ViewController;
 import ffffffff0x.beryenigma.Init.ConfigListInit;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
-import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.*;
 import ffffffff0x.beryenigma.Kit.Utils.TextFormatter.IntegerFilter;
-import ffffffff0x.beryenigma.Kit.Utils.ViewNode;
-import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -27,6 +27,7 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
@@ -36,6 +37,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.net.URISyntaxException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -82,6 +84,9 @@ public class FileHeadCheckerController extends ViewController {
     // 默认使用的头文件对照表路径
     final String DefaultFileTypeJsonPath = "/json/redTeam/FileHead.json";
 
+    // 默认加载的自定义文件名称
+    final String DefaultFileTypeJsonFileName = "FileHeadChecker_FileHead.json";
+
     // JSON序列化工具
     Gson gson = new Gson();
 
@@ -95,21 +100,15 @@ public class FileHeadCheckerController extends ViewController {
     // 用来弹出结果窗口的stage
     Stage resultStage = new Stage();
 
+    //
+    String FileHeadJSONFilePath;
+
     @Override
     protected void initialize() {
-        // 初始化本地文件头信息
-        String jsonData = new BufferedReader(
-                new InputStreamReader(
-                        Objects.requireNonNull(FileHeadCheckerController.class.getResourceAsStream(DefaultFileTypeJsonPath))))
-                .lines().collect(Collectors.joining(System.lineSeparator()));
-
-        // 保留类型信息使用的TypeToken
-        Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
-        fileTypes = gson.fromJson(jsonData, type);
-
-        // 显示默认文件头JSON文件中 文件头信息的数量
-        JLB_JSONNum.setText(Init.getLanguage("JSONHeaderNum") + ": " + fileTypes.size());
-
+        // 检查默认路径下有无默认的 FileHeadJson 文件，如果没有就保存程序内置的文件到路径下
+        saveInternalFileHeadJsonFile();
+        // 加载默认的 FileHeadJson 文件
+        initDefaultFileHeadJsonFile();
         // HexNum输入加载仅数字的过滤器
         JTF_CheckHexNum.setTextFormatter(new TextFormatter<>(
                 new IntegerStringConverter(), // Standard converter form JavaFX
@@ -126,9 +125,13 @@ public class FileHeadCheckerController extends ViewController {
         resultStage.setMinHeight(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinheight)));
         resultStage.setMinWidth(Double.parseDouble(Init.getConfig(ConfigListInit.AppSizeMinwidth)));
 
-        JLB_JSONNum.setText(Init.getLanguage("JSONHeaderNum") + " : " + fileTypes.size());
+        // 显示初始加载文件数量
         JLB_FileNum.setText(Init.getLanguage("FileNum") + " : 0");
+        // 显示HEX数量输入框提示语句
         JTF_CheckHexNum.setPromptText(Init.getLanguage("Check_Hex_Num_Default"));
+
+        // 文件名称的点击事件
+        JLB_JSONName.setOnMouseClicked(mouseEvent -> FileUtils.openFile(FileHeadJSONFilePath));
     }
 
     @FXML
@@ -150,6 +153,8 @@ public class FileHeadCheckerController extends ViewController {
             new Thread(() -> {
                 if (JTF_CheckHexNum.getText().length() != 0) {
                     hexnum = Integer.parseInt(JTF_CheckHexNum.getText());
+                } else {
+                    hexnum = 4;
                 }
 
                 Scene scene = new Scene(initResultPane(initResultTableView(files, fileTypes, hexnum)));
@@ -175,33 +180,89 @@ public class FileHeadCheckerController extends ViewController {
             if (json != null && json.length() > 0) {
                 // 保留类型信息使用的TypeToken
                 Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
-                fileTypes = gson.fromJson(json, type);
-                JLB_JSONName.setText(file.getName());
-                JLB_JSONNum.setText(Init.getLanguage("JSONHeaderNum") + " : " + fileTypes.size());
+                try {
+                    fileTypes = gson.fromJson(json, type);
+                    FileHeadJSONFilePath = file.getPath();
+                    JLB_JSONName.setText(file.getName());
+                    JLB_JSONNum.setText(Init.getLanguage("JSONHeaderNum") + " : " + fileTypes.size());
+                } catch (JsonSyntaxException ignored) {
+                    ViewUtils.alertPane((Stage)ACP_backgroundAnchorPane.getScene().getWindow(),
+                            Init.getLanguage("Warning"),
+                            Init.getLanguage("JSON_Structure_Not_As_Expected"));
+                    JTB_ModeSwitch.selectedProperty().setValue(false);
+                    JTB_ModeSwitch.setText(Init.getLanguage("DefaultMode"));
+                }
             } else {
                 JTB_ModeSwitch.selectedProperty().setValue(false);
-                JTB_ModeSwitch.setText(Init.getLanguage("DeafultMode"));
+                JTB_ModeSwitch.setText(Init.getLanguage("DefaultMode"));
             }
         }else {
-            // 初始化本地文件头信息
-            String jsonData = new BufferedReader(
-                    new InputStreamReader(
-                            Objects.requireNonNull(FileHeadCheckerController.class.getResourceAsStream(DefaultFileTypeJsonPath))))
-                    .lines().collect(Collectors.joining(System.lineSeparator()));
-
-            // 保留类型信息使用的TypeToken
-            Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
-            fileTypes = gson.fromJson(jsonData, type);
-            JTB_ModeSwitch.setText(Init.getLanguage("DeafultMode"));
+            initDefaultFileHeadJsonFile();
+            JTB_ModeSwitch.setText(Init.getLanguage("DefaultMode"));
             JLB_JSONName.setText(Init.getLanguage("UseDefaultHeaderJSON"));
             JLB_JSONNum.setText(Init.getLanguage("JSONHeaderNum") + " : " + fileTypes.size());
         }
     }
 
     /**
+     * 加载默认的 FileHeadJson 文件
+     */
+    private void initDefaultFileHeadJsonFile() {
+        File jsonfile = new File(ConfigUtils.getConfigPath(Objects.requireNonNull(OSUtils.getOS())) + "/" + DefaultFileTypeJsonFileName);
+        if (FileUtils.checkFileExist(jsonfile.getPath())) {
+            String json = FileUtils.getFileString(jsonfile);
+            Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
+            try {
+                fileTypes = gson.fromJson(json, type);
+                FileHeadJSONFilePath = jsonfile.getPath();
+                JLB_JSONNum.setText(Init.getLanguage("JSONHeaderNum") + " : " + fileTypes.size());
+            } catch (JsonSyntaxException ignored) {
+                initInternalFileHeadJsonFile();
+//                ViewUtils.alertPane((Stage)ACP_backgroundAnchorPane.getScene().getWindow(),
+//                        Init.getLanguage("Warning"),
+//                        Init.getLanguage("JSON_Structure_Not_As_Expected"));
+            }
+        } else {
+            initInternalFileHeadJsonFile();
+        }
+    }
+
+    /**
+     * 加载包内内置的本地文件头信息
+     */
+    private void initInternalFileHeadJsonFile() {
+        // 初始化内置本地文件头信息
+        String jsonData = new BufferedReader(
+                new InputStreamReader(
+                        Objects.requireNonNull(FileHeadCheckerController.class.getResourceAsStream(DefaultFileTypeJsonPath))))
+                .lines().collect(Collectors.joining(System.lineSeparator()));
+
+        FileHeadJSONFilePath = Objects.requireNonNull(FileHeadCheckerController.class.getResource(DefaultFileTypeJsonPath)).getPath();
+        // 保留类型信息使用的TypeToken
+        Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();
+        fileTypes = gson.fromJson(jsonData, type);
+        // 显示默认文件头JSON文件中 文件头信息的数量
+        JLB_JSONNum.setText(Init.getLanguage("JSONHeaderNum") + " : " + fileTypes.size());
+    }
+
+    /**
+     * 检查默认路径下有无默认的 FileHeadJson 文件，如果没有就保存程序内置的文件到路径下
+     */
+    private void saveInternalFileHeadJsonFile() {
+        if (!FileUtils.checkFileExist(ConfigUtils.getConfigPath(Objects.requireNonNull(OSUtils.getOS())) + "/" + DefaultFileTypeJsonFileName)) {
+            try {
+                FileUtils.saveInputStream(FileHeadCheckerController.class.getResourceAsStream(DefaultFileTypeJsonPath),
+                        ConfigUtils.getConfigPath(Objects.requireNonNull(OSUtils.getOS())) + "/" + DefaultFileTypeJsonFileName);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
      * 加载文件与文件路径
      */
-    public void LoadFilePaths() {
+    private void LoadFilePaths() {
         files = ViewUtils.getFiles();
         StringJoiner stringJoiner = new StringJoiner("\n");
         if (files != null) {
@@ -218,7 +279,7 @@ public class FileHeadCheckerController extends ViewController {
      *
      * @param jfxButton jfxButton
      */
-    public void zoomButton(JFXButton jfxButton) {
+    private void zoomButton(JFXButton jfxButton) {
         if (AnchorPane.getBottomAnchor(jfxButton) == 5.0) {
 //            ViewUtils.setAnchor(jfxButton, 0.0, 0.0, 0.0, 0.0);
         } else {
@@ -236,7 +297,7 @@ public class FileHeadCheckerController extends ViewController {
      *
      * @param jfxButton jfxButton
      */
-    public void fileLoadButtonLoadImage(JFXButton jfxButton) {
+    private void fileLoadButtonLoadImage(JFXButton jfxButton) {
         IMG_FileAdd.setFitHeight(290);
         IMG_FileAdd.setFitWidth(220);
         IMG_FileAdd.setPreserveRatio(true);
@@ -248,14 +309,14 @@ public class FileHeadCheckerController extends ViewController {
      *
      * @param jfxButton jfxButton
      */
-    public void fileLoadButtonLoadSImage(JFXButton jfxButton) {
+    private void fileLoadButtonLoadSImage(JFXButton jfxButton) {
         IMG_FileAdd_M.setFitHeight(32);
         IMG_FileAdd_M.setFitWidth(32);
         IMG_FileAdd_M.setPreserveRatio(true);
         jfxButton.setGraphic(IMG_FileAdd_M);
     }
 
-    public void buttonAnimate() {
+    private void buttonAnimate() {
         JBT_LoadFiles.setOnAction(actionEvent -> {
             // Create KeyValues for scaleX and scaleY properties
             KeyValue scaleXValue = new KeyValue(JBT_LoadFiles.scaleXProperty(), 0.3);
@@ -284,7 +345,7 @@ public class FileHeadCheckerController extends ViewController {
         // 存放操作按钮的控件
         HBox hBox = new HBox();
         // 导出按钮
-        JFXButton buttonExport = new JFXButton(Init.getLanguage("Export"));
+        JFXButton buttonExport = new JFXButton(Init.getLanguage("ExportList"));
         // 重命名按钮
         JFXButton buttonRenameAll = new JFXButton(Init.getLanguage("RenameAll"));
 
