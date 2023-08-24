@@ -18,7 +18,6 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -27,7 +26,6 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
@@ -37,7 +35,6 @@ import javafx.util.converter.IntegerStringConverter;
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.net.URISyntaxException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -82,7 +79,7 @@ public class FileHeadCheckerController extends ViewController {
     HashMap<String, FileHeaderBean> fileTypes;
 
     // 默认使用的头文件对照表路径
-    final String DefaultFileTypeJsonPath = "/json/redTeam/FileHead.json";
+    final String DefaultFileTypeJsonPath = "/json/redTeam/FileHeadChecker_FileHead.json";
 
     // 默认加载的自定义文件名称
     final String DefaultFileTypeJsonFileName = "FileHeadChecker_FileHead.json";
@@ -95,7 +92,7 @@ public class FileHeadCheckerController extends ViewController {
     final ImageView IMG_FileAdd_M = new ImageView(ViewUtils.getImage(ImageListInit.ICON_MJBT_FILEADD));
 
     // 默认的检测文件头HEX数量
-    Integer hexnum = 4;
+    Integer hexnum = 3;
 
     // 用来弹出结果窗口的stage
     Stage resultStage = new Stage();
@@ -154,7 +151,7 @@ public class FileHeadCheckerController extends ViewController {
                 if (JTF_CheckHexNum.getText().length() != 0) {
                     hexnum = Integer.parseInt(JTF_CheckHexNum.getText());
                 } else {
-                    hexnum = 4;
+                    hexnum = 3;
                 }
 
                 Scene scene = new Scene(initResultPane(initResultTableView(files, fileTypes, hexnum)));
@@ -167,6 +164,10 @@ public class FileHeadCheckerController extends ViewController {
                     JSP_CheckFile.setVisible(false);
                 });
             }).start();
+        } else {
+            ViewUtils.alertPane((Stage)ACP_backgroundAnchorPane.getScene().getWindow(),
+                    Init.getLanguage("Warning"),
+                    Init.getLanguage("ErrorMessage_notNull"));
         }
     }
 
@@ -535,9 +536,15 @@ public class FileHeadCheckerController extends ViewController {
     private void renameAll(JFXTreeTableView<BeanWrapper> treeTableView) {
         for (TreeItem<BeanWrapper> item : treeTableView.getRoot().getChildren()) {
             if (!item.getValue().getExtensionNameProperty().equals("UNKNOWN")) {
-                FileUtils.renameFile(item.getValue().getFilePathProperty(),
-                        item.getValue().getFileNameProperty()
-                                + "." + item.getValue().getExtensionNameProperty());
+                if (item.getValue().getExtensionNameProperty().contains(";")) {
+                    FileUtils.renameFile(item.getValue().getFilePathProperty(),
+                            item.getValue().getFileNameProperty()
+                                    + "." + item.getValue().getExtensionNameProperty().split(";")[0]);
+                }else {
+                    FileUtils.renameFile(item.getValue().getFilePathProperty(),
+                            item.getValue().getFileNameProperty()
+                                    + "." + item.getValue().getExtensionNameProperty());
+                }
             }
         }
     }

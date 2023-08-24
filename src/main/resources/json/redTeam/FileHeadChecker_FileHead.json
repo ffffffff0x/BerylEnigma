@@ -1,0 +1,1672 @@
+{
+  "00001A00051004": {
+    "ExtensionName": "123",
+    "FileHeaderHEX": "00001A00051004",
+    "FileDescription": "Lotus1-2-3spreadsheet(v9)file"
+  },
+  "000000nn66747970336770": {
+    "ExtensionName": "3GG;3GP;3G2",
+    "FileHeaderHEX": "000000nn66747970336770",
+    "FileDescription": "3rdGenerationPartnershipProject3GPP(nn=0x14)and3GPP2(nn=0x20)multimediafiles"
+  },
+  "377ABCAF271C": {
+    "ExtensionName": "7Z",
+    "FileHeaderHEX": "377ABCAF271C",
+    "FileDescription": "7-ZIPcompressedfile"
+  },
+  "00014241": {
+    "ExtensionName": "ABA",
+    "FileHeaderHEX": "00014241",
+    "FileDescription": "PalmAddressBookArchivefile"
+  },
+  "414F4C494E444558": {
+    "ExtensionName": "ABI",
+    "FileHeaderHEX": "414F4C494E444558",
+    "FileDescription": "AOLaddressbookindexfile"
+  },
+  "414F4C4442": {
+    "ExtensionName": "ABY;IDX",
+    "FileHeaderHEX": "414F4C4442",
+    "FileDescription": "AOLdatabasefiles:addressbook(ABY)anduserconfigurationdata(MAIN.IDX)"
+  },
+  "000100005374616E6461726420414345204442": {
+    "ExtensionName": "ACCDB",
+    "FileHeaderHEX": "000100005374616E6461726420414345204442",
+    "FileDescription": "MicrosoftAccess2007file"
+  },
+  "4D5A": {
+    "ExtensionName": "VXD,386",
+    "FileHeaderHEX": "4D5A",
+    "FileDescription": "Windowsvirtualdevicedrivers"
+  },
+  "444F53": {
+    "ExtensionName": "ADF",
+    "FileHeaderHEX": "444F53",
+    "FileDescription": "Amigadiskfile"
+  },
+  "0300000041505052": {
+    "ExtensionName": "ADX",
+    "FileHeaderHEX": "0300000041505052",
+    "FileDescription": "LotusApproachADXfile"
+  },
+  "464F524D00": {
+    "ExtensionName": "AIFF",
+    "FileHeaderHEX": "464F524D00",
+    "FileDescription": "AudioInterchangeFile"
+  },
+  "2112": {
+    "ExtensionName": "AIN",
+    "FileHeaderHEX": "2112",
+    "FileDescription": "AINCompressedArchiveFile"
+  },
+  "5B7665725D": {
+    "ExtensionName": "AMI",
+    "FileHeaderHEX": "5B7665725D",
+    "FileDescription": "LotusAmiPro"
+  },
+  "2321414D52": {
+    "ExtensionName": "AMR",
+    "FileHeaderHEX": "2321414D52",
+    "FileDescription": "AdaptiveMulti-RateACELP(AlgebraicCodeExcitedLinearPrediction)Codec,commonlyaudioformatwithGSMcellphones"
+  },
+  "52494646": {
+    "ExtensionName": "ANI",
+    "FileHeaderHEX": "52494646",
+    "FileDescription": ""
+  },
+  "4D5A900003000000": {
+    "ExtensionName": "FLT",
+    "FileHeaderHEX": "4D5A900003000000",
+    "FileDescription": "Auditiongraphicfilterfile(Adobe)"
+  },
+  "1A0x": {
+    "ExtensionName": "ARC",
+    "FileHeaderHEX": "1A0x",
+    "FileDescription": "LHarchivefile,oldversion(wherex=0x2,0x3,0x4,0x8or0x9fortypes1-5,respectively)"
+  },
+  "41724301": {
+    "ExtensionName": "ARC",
+    "FileHeaderHEX": "41724301",
+    "FileDescription": "FreeArccompressedfile"
+  },
+  "60EA": {
+    "ExtensionName": "ARJ",
+    "FileHeaderHEX": "60EA",
+    "FileDescription": "ARJCompressedArchive"
+  },
+  "60EA27": {
+    "ExtensionName": "ARJ",
+    "FileHeaderHEX": "60EA27",
+    "FileDescription": ""
+  },
+  "4A47030E000000": {
+    "ExtensionName": "ART",
+    "FileHeaderHEX": "4A47030E000000",
+    "FileDescription": "AOLARTfile"
+  },
+  "4A47040E000000": {
+    "ExtensionName": "ART",
+    "FileHeaderHEX": "4A47040E000000",
+    "FileDescription": "AOLARTfile"
+  },
+  "3026B2758E66CF11": {
+    "ExtensionName": "ASF",
+    "FileHeaderHEX": "3026B2758E66CF11",
+    "FileDescription": "WindowsMedia"
+  },
+  "3026B2758E66CF11A6D900AA0062CE6C": {
+    "ExtensionName": "ASF;WMA;WMV",
+    "FileHeaderHEX": "3026B2758E66CF11A6D900AA0062CE6C",
+    "FileDescription": "MicrosoftWindowsMediaAudio/VideoFile(AdvancedStreamingFormat)"
+  },
+  "3C": {
+    "ExtensionName": "XDR",
+    "FileHeaderHEX": "3C",
+    "FileDescription": "BizTalkXML-DataReducedSchemafile"
+  },
+  "2E736E64": {
+    "ExtensionName": "AU",
+    "FileHeaderHEX": "2E736E64",
+    "FileDescription": "SoundMachineAudioFile"
+  },
+  "41564920": {
+    "ExtensionName": "AVI",
+    "FileHeaderHEX": "41564920",
+    "FileDescription": "AudioVideoInterleave(AVI)"
+  },
+  "414F4C2046656564626167": {
+    "ExtensionName": "BAG",
+    "FileHeaderHEX": "414F4C2046656564626167",
+    "FileDescription": "AOLandAIMbuddylistfile"
+  },
+  "202020": {
+    "ExtensionName": "BAS",
+    "FileHeaderHEX": "202020",
+    "FileDescription": ""
+  },
+  "424C4932323351": {
+    "ExtensionName": "BIN",
+    "FileHeaderHEX": "424C4932323351",
+    "FileDescription": "ThomsonSpeedtouchseriesWLANrouterfirmware"
+  },
+  "424D": {
+    "ExtensionName": "DIB",
+    "FileHeaderHEX": "424D",
+    "FileDescription": "device-independentbitmapimage"
+  },
+  "424D3E": {
+    "ExtensionName": "BMP",
+    "FileHeaderHEX": "424D3E",
+    "FileDescription": "Bitmap Image"
+  },
+  "425A68": {
+    "ExtensionName": "BZ2;TAR.BZ2;TBZ2;TB2",
+    "FileHeaderHEX": "425A68",
+    "FileDescription": "bzip2compressedarchive"
+  },
+  "495363": {
+    "ExtensionName": "CAB",
+    "FileHeaderHEX": "495363",
+    "FileDescription": ""
+  },
+  "49536328": {
+    "ExtensionName": "CAB;HDR",
+    "FileHeaderHEX": "49536328",
+    "FileDescription": "InstallShieldv5.xor6.xcompressedfile"
+  },
+  "4D534346": {
+    "ExtensionName": "SNP",
+    "FileHeaderHEX": "4D534346",
+    "FileDescription": "MicrosoftAccessSnapshotViewerfile"
+  },
+  "30": {
+    "ExtensionName": "CAT",
+    "FileHeaderHEX": 30,
+    "FileDescription": "Microsoftsecuritycatalogfile"
+  },
+  "434246494C45": {
+    "ExtensionName": "CBD",
+    "FileHeaderHEX": "434246494C45",
+    "FileDescription": "WordPerfectdictionaryfile(unconfirmed)"
+  },
+  "5B436C": {
+    "ExtensionName": "CCD",
+    "FileHeaderHEX": "5B436C",
+    "FileDescription": ""
+  },
+  "CDR": {
+    "ExtensionName": "CDR",
+    "FileHeaderHEX": "CDR",
+    "FileDescription": "CorelDraw"
+  },
+  "454C49544520436F6D6D616E64657220": {
+    "ExtensionName": "CDR",
+    "FileHeaderHEX": "454C49544520436F6D6D616E64657220",
+    "FileDescription": "ElitePlusCommandersavedgamefile"
+  },
+  "4D535F564F494345": {
+    "ExtensionName": "MSV",
+    "FileHeaderHEX": "4D535F564F494345",
+    "FileDescription": "SonyMemoryStickCompressedVoicefile"
+  },
+  "49545346": {
+    "ExtensionName": "CHI;CHM",
+    "FileHeaderHEX": "49545346",
+    "FileDescription": "MicrosoftCompiledHTMLHelpFile"
+  },
+  "495453": {
+    "ExtensionName": "CHM",
+    "FileHeaderHEX": "495453",
+    "FileDescription": ""
+  },
+  "434D5831": {
+    "ExtensionName": "CLB",
+    "FileHeaderHEX": "434D5831",
+    "FileDescription": "CorelBinarymetafile"
+  },
+  "434F4D2B": {
+    "ExtensionName": "CLB",
+    "FileHeaderHEX": "434F4D2B",
+    "FileDescription": "COM+Catalogfile"
+  },
+  "3A42617365": {
+    "ExtensionName": "CNT",
+    "FileHeaderHEX": "3A42617365",
+    "FileDescription": ""
+  },
+  "4D5AEE": {
+    "ExtensionName": "COM",
+    "FileHeaderHEX": "4D5AEE",
+    "FileDescription": ""
+  },
+  "E93B03": {
+    "ExtensionName": "COM",
+    "FileHeaderHEX": "E93B03",
+    "FileDescription": ""
+  },
+  "464158434F5645522D564552": {
+    "ExtensionName": "CPE",
+    "FileHeaderHEX": "464158434F5645522D564552",
+    "FileDescription": "MicrosoftFaxCoverSheet"
+  },
+  "4350543746494C45": {
+    "ExtensionName": "CPT",
+    "FileHeaderHEX": "4350543746494C45",
+    "FileDescription": "CorelPhotopaintfile"
+  },
+  "43505446494C45": {
+    "ExtensionName": "CPT",
+    "FileHeaderHEX": "43505446494C45",
+    "FileDescription": "CorelPhotopaintfile"
+  },
+  "5B5769": {
+    "ExtensionName": "CPX",
+    "FileHeaderHEX": "5B5769",
+    "FileDescription": ""
+  },
+  "4352555348": {
+    "ExtensionName": "CRU;CRUSH",
+    "FileHeaderHEX": "4352555348",
+    "FileDescription": "CRUSHArchiveFile"
+  },
+  "43525553482076": {
+    "ExtensionName": "CRU",
+    "FileHeaderHEX": "43525553482076",
+    "FileDescription": "Crushcompressedarchive"
+  },
+  "49491A00000048454150434344520200": {
+    "ExtensionName": "CRW",
+    "FileHeaderHEX": "49491A00000048454150434344520200",
+    "FileDescription": "CanondigitalcameraRAWfile"
+  },
+  "436174616C6F6720332E303000": {
+    "ExtensionName": "CTF",
+    "FileHeaderHEX": "436174616C6F6720332E303000",
+    "FileDescription": "WhereIsItCatalogfile"
+  },
+  "0000020001002020": {
+    "ExtensionName": "CUR",
+    "FileHeaderHEX": "0000020001002020",
+    "FileDescription": "Windowscursorfile"
+  },
+  "3": {
+    "ExtensionName": "DB3",
+    "FileHeaderHEX": 3,
+    "FileDescription": "dBASEIIIfile"
+  },
+  "1A52545320434F4D5052455353454420494D4147452056312E301A": {
+    "ExtensionName": "DAT",
+    "FileHeaderHEX": "1A52545320434F4D5052455353454420494D4147452056312E301A",
+    "FileDescription": "RuntimeSoftwarediskimage"
+  },
+  "415647365F496E746567726974795F4461746162617365": {
+    "ExtensionName": "DAT",
+    "FileHeaderHEX": "415647365F496E746567726974795F4461746162617365",
+    "FileDescription": "AVG6Integritydatabasefile"
+  },
+  "43524547": {
+    "ExtensionName": "DAT",
+    "FileHeaderHEX": "43524547",
+    "FileDescription": "Windows9xregistryhive"
+  },
+  "436C69656E742055726C4361636865204D4D462056657220": {
+    "ExtensionName": "DAT",
+    "FileHeaderHEX": "436C69656E742055726C4361636865204D4D462056657220",
+    "FileDescription": "IEHistoryDATfile"
+  },
+  "45524653534156454441544146494C45": {
+    "ExtensionName": "DAT",
+    "FileHeaderHEX": "45524653534156454441544146494C45",
+    "FileDescription": "KrollEasyRecoverySavedRecoveryStatefile"
+  },
+  "496E6E6F20536574757020556E696E7374616C6C204C6F6720286229": {
+    "ExtensionName": "DAT",
+    "FileHeaderHEX": "496E6E6F20536574757020556E696E7374616C6C204C6F6720286229",
+    "FileDescription": "InnoSetupUninstallLogfile"
+  },
+  "0006156100000002000004D200001000": {
+    "ExtensionName": "DB",
+    "FileHeaderHEX": "0006156100000002000004D200001000",
+    "FileDescription": "NetscapeNavigator(v4)databasefile"
+  },
+  "44424648": {
+    "ExtensionName": "DB",
+    "FileHeaderHEX": "44424648",
+    "FileDescription": "PalmZirephotodatabase"
+  },
+  "8": {
+    "ExtensionName": "DB",
+    "FileHeaderHEX": 8,
+    "FileDescription": "dBASEIVordBFastconfigurationfile"
+  },
+  "4": {
+    "ExtensionName": "DB4",
+    "FileHeaderHEX": 4,
+    "FileDescription": "dBASEIVdatafile"
+  },
+  "00014244": {
+    "ExtensionName": "DBA",
+    "FileHeaderHEX": "00014244",
+    "FileDescription": "PalmDateBookArchivefile"
+  },
+  "CFAD12FE": {
+    "ExtensionName": "DBX",
+    "FileHeaderHEX": "CFAD12FE",
+    "FileDescription": ""
+  },
+  "CFAD12FEC5FD746F": {
+    "ExtensionName": "DBX",
+    "FileHeaderHEX": "CFAD12FEC5FD746F",
+    "FileDescription": "OutlookExpress"
+  },
+  "3C21646F63747970": {
+    "ExtensionName": "DCI",
+    "FileHeaderHEX": "3C21646F63747970",
+    "FileDescription": "AOLHTMLmailfile"
+  },
+  "3ADE68B1": {
+    "ExtensionName": "DCX",
+    "FileHeaderHEX": "3ADE68B1",
+    "FileDescription": "DCXGraphicFile"
+  },
+  "000100": {
+    "ExtensionName": "TTF",
+    "FileHeaderHEX": "000100",
+    "FileDescription": ""
+  },
+  "4D5A90": {
+    "ExtensionName": "DLL;OLB;OCX;IMM;IME",
+    "FileHeaderHEX": "4D5A90",
+    "FileDescription": ""
+  },
+  "4D444D5093A7": {
+    "ExtensionName": "HDMP",
+    "FileHeaderHEX": "4D444D5093A7",
+    "FileDescription": "Windowsheapdumpfile"
+  },
+  "444D5321": {
+    "ExtensionName": "DMS",
+    "FileHeaderHEX": "444D5321",
+    "FileDescription": "AmigaDiskMashercompressedarchive"
+  },
+  "0D444F43": {
+    "ExtensionName": "DOC",
+    "FileHeaderHEX": "0D444F43",
+    "FileDescription": "DeskMateDocumentfile"
+  },
+  "1234567890FF": {
+    "ExtensionName": "DOC",
+    "FileHeaderHEX": "1234567890FF",
+    "FileDescription": "MSWord6.0"
+  },
+  "31BE000000AB0000": {
+    "ExtensionName": "DOC",
+    "FileHeaderHEX": "31BE000000AB0000",
+    "FileDescription": "MSWordforDOS6.0"
+  },
+  "7FFE340A": {
+    "ExtensionName": "DOC",
+    "FileHeaderHEX": "7FFE340A",
+    "FileDescription": "MSWord"
+  },
+  "D0CF11E0": {
+    "ExtensionName": "XLS",
+    "FileHeaderHEX": "D0CF11E0",
+    "FileDescription": "MSExcel"
+  },
+  "D0CF11E0A1B11AE1": {
+    "ExtensionName": "DOC;DOT;XLS;XLT;XLA;PPT;APR;PPA;PPS;POT;MSI;SDW;DB",
+    "FileHeaderHEX": "D0CF11E0A1B11AE1",
+    "FileDescription": "MSCompoundDocumentv1orLotusApproachAPRfile"
+  },
+  "4D5A50": {
+    "ExtensionName": "DPL",
+    "FileHeaderHEX": "4D5A50",
+    "FileDescription": ""
+  },
+  "4D5A16": {
+    "ExtensionName": "DRV",
+    "FileHeaderHEX": "4D5A16",
+    "FileDescription": ""
+  },
+  "7": {
+    "ExtensionName": "DRW",
+    "FileHeaderHEX": 7,
+    "FileDescription": "Acommonsignatureandfileextensionformanydrawingprograms."
+  },
+  "01FF02040302": {
+    "ExtensionName": "DRW",
+    "FileHeaderHEX": "01FF02040302",
+    "FileDescription": "Micrografxvectorgraphicfile"
+  },
+  "4D47582069747064": {
+    "ExtensionName": "DS4",
+    "FileHeaderHEX": "4D47582069747064",
+    "FileDescription": "MicrografixDesigner4"
+  },
+  "4D56": {
+    "ExtensionName": "DSN",
+    "FileHeaderHEX": "4D56",
+    "FileDescription": "CDStomperProlabelfile"
+  },
+  "23204D6963726F736F667420446576656C6F7065722053747564696F": {
+    "ExtensionName": "DSP",
+    "FileHeaderHEX": "23204D6963726F736F667420446576656C6F7065722053747564696F",
+    "FileDescription": "MicrosoftDeveloperStudioprojectfile"
+  },
+  "02647373": {
+    "ExtensionName": "DSS",
+    "FileHeaderHEX": "02647373",
+    "FileDescription": "DigitalSpeechStandard(Olympus,Grundig,&Phillips)"
+  },
+  "0764743264647464": {
+    "ExtensionName": "DTD",
+    "FileHeaderHEX": "0764743264647464",
+    "FileDescription": "DesignTools2DDesignfile"
+  },
+  "3C21454E54495459": {
+    "ExtensionName": "DTD",
+    "FileHeaderHEX": "3C21454E54495459",
+    "FileDescription": "XMLDTD"
+  },
+  "445644": {
+    "ExtensionName": "IFO",
+    "FileHeaderHEX": "445644",
+    "FileDescription": "DVDinfofile"
+  },
+  "414331": {
+    "ExtensionName": "DWG",
+    "FileHeaderHEX": "414331",
+    "FileDescription": "CAD Drawing"
+  },
+  "41433130": {
+    "ExtensionName": "",
+    "FileHeaderHEX": "41433130",
+    "FileDescription": "GenericAutoCADdrawing"
+  },
+  "455646": {
+    "ExtensionName": "ENN(WHERENNARENUMBERS)",
+    "FileHeaderHEX": "455646",
+    "FileDescription": "EnCaseevidencefile"
+  },
+  "2A5052": {
+    "ExtensionName": "ECO",
+    "FileHeaderHEX": "2A5052",
+    "FileDescription": ""
+  },
+  "7F454C4601010100": {
+    "ExtensionName": "ELF",
+    "FileHeaderHEX": "7F454C4601010100",
+    "FileDescription": "ELFExecutable"
+  },
+  "0100000058000000": {
+    "ExtensionName": "EMF",
+    "FileHeaderHEX": "0100000058000000",
+    "FileDescription": "Extended(Enhanced)WindowsMetafileFormat,printerspoolfile"
+  },
+  "44656C69766572792D646174653A": {
+    "ExtensionName": "EML",
+    "FileHeaderHEX": "44656C69766572792D646174653A",
+    "FileDescription": "Email"
+  },
+  "46726F6D202020": {
+    "ExtensionName": "EML",
+    "FileHeaderHEX": "46726F6D202020",
+    "FileDescription": "Acommmonfileextensionfore-mailfiles.SignaturesshownhereareforNetscape,Eudora,andagenericsignature,respectively.EMLisalsousedbyOutlookExpressandQuickMail."
+  },
+  "46726F6D203F3F3F": {
+    "ExtensionName": "EML",
+    "FileHeaderHEX": "46726F6D203F3F3F",
+    "FileDescription": "Acommmonfileextensionfore-mailfiles.SignaturesshownhereareforNetscape,Eudora,andagenericsignature,respectively.EMLisalsousedbyOutlookExpressandQuickMail."
+  },
+  "46726F6D3A20": {
+    "ExtensionName": "EML",
+    "FileHeaderHEX": "46726F6D3A20",
+    "FileDescription": "Acommmonfileextensionfore-mailfiles.SignaturesshownhereareforNetscape,Eudora,andagenericsignature,respectively.EMLisalsousedbyOutlookExpressandQuickMail."
+  },
+  "526563": {
+    "ExtensionName": "PPC",
+    "FileHeaderHEX": "526563",
+    "FileDescription": ""
+  },
+  "005C41B1FF": {
+    "ExtensionName": "ENC",
+    "FileHeaderHEX": "005C41B1FF",
+    "FileDescription": "MujahideenSecrets2encryptedfile"
+  },
+  "25215053": {
+    "ExtensionName": "EPS",
+    "FileHeaderHEX": "25215053",
+    "FileDescription": "AdobeEPSFile"
+  },
+  "252150532D41646F6265": {
+    "ExtensionName": "PS",
+    "FileHeaderHEX": "252150532D41646F6265",
+    "FileDescription": "Postscript"
+  },
+  "252150532D41646F62652D332E3020455053462D332030": {
+    "ExtensionName": "EPS",
+    "FileHeaderHEX": "252150532D41646F62652D332E3020455053462D332030",
+    "FileDescription": "AdobeencapsulatedPostScriptfile(Ifthissignatureisnotattheimmediatebeginningofthefile,itwilloccurearlyinthefile,commonlyatbyteoffset30)"
+  },
+  "C5D0D3": {
+    "ExtensionName": "EPS",
+    "FileHeaderHEX": "C5D0D3",
+    "FileDescription": ""
+  },
+  "1A350100": {
+    "ExtensionName": "ETH",
+    "FileHeaderHEX": "1A350100",
+    "FileDescription": "GNNettestWinPharoahcapturefile"
+  },
+  "300000004C664C65": {
+    "ExtensionName": "EVT",
+    "FileHeaderHEX": "300000004C664C65",
+    "FileDescription": "WindowsEventViewerfile"
+  },
+  "03000000C466C456": {
+    "ExtensionName": "EVT",
+    "FileHeaderHEX": "03000000C466C456",
+    "FileDescription": ""
+  },
+  "456C6646696C6500": {
+    "ExtensionName": "EVTX",
+    "FileHeaderHEX": "456C6646696C6500",
+    "FileDescription": "WindowsVistaeventlogfile"
+  },
+  "0011AF": {
+    "ExtensionName": "FLI",
+    "FileHeaderHEX": "0011AF",
+    "FileDescription": "FLICAnimationfile"
+  },
+  "000101": {
+    "ExtensionName": "FLT",
+    "FileHeaderHEX": "000101",
+    "FileDescription": "OpenFlight3Dfile"
+  },
+  "464C5601": {
+    "ExtensionName": "FLV",
+    "FileHeaderHEX": "464C5601",
+    "FileDescription": "Flashvideofile"
+  },
+  "3C4D616B657246696C6520": {
+    "ExtensionName": "FM",
+    "FileHeaderHEX": "3C4D616B657246696C6520",
+    "FileDescription": "AdobeFrameMakerfile"
+  },
+  "00001A0007800100": {
+    "ExtensionName": "FM3",
+    "FileHeaderHEX": "00001A0007800100",
+    "FileDescription": "Lotus123v3FMTfile"
+  },
+  "20006800200": {
+    "ExtensionName": "FMT",
+    "FileHeaderHEX": "20006800200",
+    "FileDescription": "Lotus123v4FMTfile"
+  },
+  "434841": {
+    "ExtensionName": "FNT",
+    "FileHeaderHEX": "434841",
+    "FileDescription": ""
+  },
+  "87F53E": {
+    "ExtensionName": "GBC",
+    "FileHeaderHEX": "87F53E",
+    "FileDescription": ""
+  },
+  "3F5F0300": {
+    "ExtensionName": "LHP",
+    "FileHeaderHEX": "3F5F0300",
+    "FileDescription": "WindowsHelpFile"
+  },
+  "4C4E0200": {
+    "ExtensionName": "HLP",
+    "FileHeaderHEX": "4C4E0200",
+    "FileDescription": "WindowsHelpfile"
+  },
+  "47494638": {
+    "ExtensionName": "GIF",
+    "FileHeaderHEX": "47494638",
+    "FileDescription": "Graphics interchange format file (GIF87A)"
+  },
+  "474946383761": {
+    "ExtensionName": "GIF",
+    "FileHeaderHEX": "474946383761",
+    "FileDescription": "Graphicsinterchangeformatfile(GIF87A)"
+  },
+  "474946383961": {
+    "ExtensionName": "GIF",
+    "FileHeaderHEX": "474946383961",
+    "FileDescription": "Graphicsinterchangeformatfile(GIF89A)"
+  },
+  "7B5072": {
+    "ExtensionName": "GTD",
+    "FileHeaderHEX": "7B5072",
+    "FileDescription": ""
+  },
+  "475832": {
+    "ExtensionName": "GX2",
+    "FileHeaderHEX": "475832",
+    "FileDescription": "ShowPartnergraphicsfile(notconfirmed)"
+  },
+  "1F8B": {
+    "ExtensionName": "GZ;TAR;TGZ",
+    "FileHeaderHEX": "1F8B",
+    "FileDescription": "GzipArchiveFile"
+  },
+  "1F8B08": {
+    "ExtensionName": "GZ;TGZ",
+    "FileHeaderHEX": "1F8B08",
+    "FileDescription": "GZCompressedFile"
+  },
+  "91334846": {
+    "ExtensionName": "HAP",
+    "FileHeaderHEX": "91334846",
+    "FileDescription": "HAPArchiveFile"
+  },
+  "233F52414449414E43450A": {
+    "ExtensionName": "HDR",
+    "FileHeaderHEX": "233F52414449414E43450A",
+    "FileDescription": "adianceHighDynamicRangeimagefile"
+  },
+  "3F5F03": {
+    "ExtensionName": "LHP",
+    "FileHeaderHEX": "3F5F03",
+    "FileDescription": ""
+  },
+  "28546869732066696C65": {
+    "ExtensionName": "HQX",
+    "FileHeaderHEX": "28546869732066696C65",
+    "FileDescription": "MacintoshBinHex4CompressedArchive"
+  },
+  "28546869732066696C65206D75737420626520636F6E76657274656420776974682042696E48657820": {
+    "ExtensionName": "HQX",
+    "FileHeaderHEX": "28546869732066696C65206D75737420626520636F6E76657274656420776974682042696E48657820",
+    "FileDescription": "MacintoshBinHex4CompressedArchive"
+  },
+  "3C2144": {
+    "ExtensionName": "HTM",
+    "FileHeaderHEX": "3C2144",
+    "FileDescription": ""
+  },
+  "3C21444F4354": {
+    "ExtensionName": "HTM;HTML",
+    "FileHeaderHEX": "3C21444F4354",
+    "FileDescription": "HyperTextMarkupLanguage3"
+  },
+  "3C48544D4C3E": {
+    "ExtensionName": "HTM;HTML",
+    "FileHeaderHEX": "3C48544D4C3E",
+    "FileDescription": "HyperTextMarkupLanguage2"
+  },
+  "3C68746D6C3E": {
+    "ExtensionName": "HTM;HTML",
+    "FileHeaderHEX": "3C68746D6C3E",
+    "FileDescription": "HyperTextMarkupLanguage1"
+  },
+  "68746D6C3E": {
+    "ExtensionName": "HTML",
+    "FileHeaderHEX": "68746D6C3E",
+    "FileDescription": "HTML"
+  },
+  "0000010000": {
+    "ExtensionName": "ICO",
+    "FileHeaderHEX": "0000010000",
+    "FileDescription": "IconFile"
+  },
+  "0000010001002020": {
+    "ExtensionName": "ICO",
+    "FileHeaderHEX": "0000010001002020",
+    "FileDescription": "IconFile"
+  },
+  "464F524D": {
+    "ExtensionName": "IFF",
+    "FileHeaderHEX": "464F524D",
+    "FileDescription": ""
+  },
+  "000100080001000101": {
+    "ExtensionName": "IMG",
+    "FileHeaderHEX": "000100080001000101",
+    "FileDescription": "VenturaPublisher/GEMVDIImageFormatBitmapfile"
+  },
+  "00FFFF": {
+    "ExtensionName": "SMD",
+    "FileHeaderHEX": "00FFFF",
+    "FileDescription": ""
+  },
+  "414F4C494458": {
+    "ExtensionName": "IND",
+    "FileHeaderHEX": "414F4C494458",
+    "FileDescription": "AOLclientpreferences/settingsfile(MAIN.IND)"
+  },
+  "4344303031": {
+    "ExtensionName": "ISO",
+    "FileHeaderHEX": "4344303031",
+    "FileDescription": "ISO-9660CDDiscImage(Thissignatureusuallyoccursatbyte8001,8801,or9001.)"
+  },
+  "2E524543": {
+    "ExtensionName": "IVR",
+    "FileHeaderHEX": "2E524543",
+    "FileDescription": "RealPlayervideofile(V11andlater)"
+  },
+  "4A4152435300": {
+    "ExtensionName": "JAR",
+    "FileHeaderHEX": "4A4152435300",
+    "FileDescription": "JARCScompressedarchive"
+  },
+  "5F27A889": {
+    "ExtensionName": "JAR",
+    "FileHeaderHEX": "5F27A889",
+    "FileDescription": "JARArchiveFile"
+  },
+  "FFD8FF": {
+    "ExtensionName": "JPG;JPEG",
+    "FileHeaderHEX": "FFD8FF",
+    "FileDescription": "JPGGraphicFile"
+  },
+  "FFD8FFE000": {
+    "ExtensionName": "JPG;JPE;JPEG",
+    "FileHeaderHEX": "FFD8FFE000",
+    "FileDescription": "JPGGraphicFile"
+  },
+  "FFD8FFFE00": {
+    "ExtensionName": "JPG;JPE;JPEG",
+    "FileHeaderHEX": "FFD8FFFE00",
+    "FileDescription": "JPGGraphicFile"
+  },
+  "4B47425F61726368202D": {
+    "ExtensionName": "KGB",
+    "FileHeaderHEX": "4B47425F61726368202D",
+    "FileDescription": "KGBarchive"
+  },
+  "49443303000000": {
+    "ExtensionName": "KOZ",
+    "FileHeaderHEX": "49443303000000",
+    "FileDescription": "SprintMusicStoreaudiofile(formobiledevices)"
+  },
+  "42494C": {
+    "ExtensionName": "LDB",
+    "FileHeaderHEX": "42494C",
+    "FileDescription": ""
+  },
+  "2D6C68352D": {
+    "ExtensionName": "LHA",
+    "FileHeaderHEX": "2D6C68352D",
+    "FileDescription": "LHACompressed"
+  },
+  "213C617263683E0A": {
+    "ExtensionName": "LIB",
+    "FileHeaderHEX": "213C617263683E0A",
+    "FileDescription": "Unixarchiver(ar)filesandMicrosoftProgramLibraryCommonObjectFileFormat(COFF)"
+  },
+  "2A2420": {
+    "ExtensionName": "LIB",
+    "FileHeaderHEX": "2A2420",
+    "FileDescription": ""
+  },
+  "49544F4C49544C53": {
+    "ExtensionName": "LIT",
+    "FileHeaderHEX": "49544F4C49544C53",
+    "FileDescription": "MicrosoftReadereBookfile"
+  },
+  "4C0000": {
+    "ExtensionName": "LNK",
+    "FileHeaderHEX": "4C0000",
+    "FileDescription": ""
+  },
+  "4C000000": {
+    "ExtensionName": "LNK",
+    "FileHeaderHEX": "4C000000",
+    "FileDescription": "WindowsShortcut(LinkFile)"
+  },
+  "4C000000011402": {
+    "ExtensionName": "LNK",
+    "FileHeaderHEX": "4C000000011402",
+    "FileDescription": "WindowsLinkFile"
+  },
+  "4C00000001140200": {
+    "ExtensionName": "LNK",
+    "FileHeaderHEX": "4C00000001140200",
+    "FileDescription": "Windowsshortcutfile"
+  },
+  "2A2A2A2020496E7374616C6C6174696F6E205374617274656420": {
+    "ExtensionName": "LOG",
+    "FileHeaderHEX": "2A2A2A2020496E7374616C6C6174696F6E205374617274656420",
+    "FileDescription": "SymantecWiseInstallerlogfile"
+  },
+  "lh": {
+    "ExtensionName": "LZH",
+    "FileHeaderHEX": "lh",
+    "FileDescription": "Lzcompressionfile"
+  },
+  "576F726450726F": {
+    "ExtensionName": "LWP",
+    "FileHeaderHEX": "576F726450726F",
+    "FileDescription": "LotusWordProv9"
+  },
+  "234558": {
+    "ExtensionName": "M3U",
+    "FileHeaderHEX": "234558",
+    "FileDescription": ""
+  },
+  "00000020667479704D34412000000000": {
+    "ExtensionName": "M4A;M4V",
+    "FileHeaderHEX": "00000020667479704D34412000000000",
+    "FileDescription": "QuickTimeM4A/M4Vfile"
+  },
+  "3C3F786D6C2076657273696F6E3D": {
+    "ExtensionName": "MANIFEST",
+    "FileHeaderHEX": "3C3F786D6C2076657273696F6E3D",
+    "FileDescription": "WindowsVisualStylesheetXMLfile"
+  },
+  "4D41523100": {
+    "ExtensionName": "MAR",
+    "FileHeaderHEX": "4D41523100",
+    "FileDescription": "Mozillaarchive"
+  },
+  "4D415243": {
+    "ExtensionName": "MAR",
+    "FileHeaderHEX": "4D415243",
+    "FileDescription": "Microsoft/MSNMARCarchive"
+  },
+  "4D41723000": {
+    "ExtensionName": "MAR",
+    "FileHeaderHEX": "4D41723000",
+    "FileDescription": "MArcompressedarchive"
+  },
+  "D0CF11": {
+    "ExtensionName": "XLS;PPT",
+    "FileHeaderHEX": "D0CF11",
+    "FileDescription": ""
+  },
+  "000100005374616E64617264204A6574204442": {
+    "ExtensionName": "MDB",
+    "FileHeaderHEX": "000100005374616E64617264204A6574204442",
+    "FileDescription": "MicrosoftAccessfile"
+  },
+  "5374616E64617264204A": {
+    "ExtensionName": "MDB;MDA;MDE;MDT",
+    "FileHeaderHEX": "5374616E64617264204A",
+    "FileDescription": "MSAccess"
+  },
+  "00FFFFFFFFFFFFFFFFFFFF0000020001": {
+    "ExtensionName": "MDF",
+    "FileHeaderHEX": "00FFFFFFFFFFFFFFFFFFFF0000020001",
+    "FileDescription": "Alcohol120%CDimage"
+  },
+  "010F0000": {
+    "ExtensionName": "MDF",
+    "FileHeaderHEX": "010F0000",
+    "FileDescription": "MicrosoftSQLServer2000database"
+  },
+  "4550": {
+    "ExtensionName": "MDI",
+    "FileHeaderHEX": "4550",
+    "FileDescription": "MicrosoftDocumentImagingfile"
+  },
+  "4D4544": {
+    "ExtensionName": "MDS",
+    "FileHeaderHEX": "4D4544",
+    "FileDescription": ""
+  },
+  "4D546864": {
+    "ExtensionName": "MID;MIDI",
+    "FileHeaderHEX": "4D546864",
+    "FileDescription": "MusicalInstrumentDigitalInterface(MIDI)soundfile"
+  },
+  "1A45DFA3934282886D6174726F736B61": {
+    "ExtensionName": "MKV",
+    "FileHeaderHEX": "1A45DFA3934282886D6174726F736B61",
+    "FileDescription": "Matroskastreamfile"
+  },
+  "4D494C4553": {
+    "ExtensionName": "MLS",
+    "FileHeaderHEX": "4D494C4553",
+    "FileDescription": "Milestonesv1.0projectmanagementandschedulingsoftware(Alsosee\"MV2C\"and\"MV214\"signatures)"
+  },
+  "4D4C5357": {
+    "ExtensionName": "MLS",
+    "FileHeaderHEX": "4D4C5357",
+    "FileDescription": "Skypelocalizationdatafile"
+  },
+  "4D56323134": {
+    "ExtensionName": "MLS",
+    "FileHeaderHEX": "4D56323134",
+    "FileDescription": "Milestonesv2.1bprojectmanagementandschedulingsoftware(Alsosee\"MILES\"and\"MV2C\"signatures)"
+  },
+  "4D563243": {
+    "ExtensionName": "MLS",
+    "FileHeaderHEX": "4D563243",
+    "FileDescription": "Milestonesv2.1aprojectmanagementandschedulingsoftware(Alsosee\"MILES\"and\"MV214\"signatures)"
+  },
+  "4D4D4D440000": {
+    "ExtensionName": "MMF",
+    "FileHeaderHEX": "4D4D4D440000",
+    "FileDescription": "YamahaCorp.SyntheticmusicMobileApplicationFormat(SMAF)formultimediafilesthatcanbeplayedonhand-helddevices."
+  },
+  "000100004D534953414D204461746162617365": {
+    "ExtensionName": "MNY",
+    "FileHeaderHEX": "000100004D534953414D204461746162617365",
+    "FileDescription": "MicrosoftMoneyfile"
+  },
+  "00000F": {
+    "ExtensionName": "MOV",
+    "FileHeaderHEX": "00000F",
+    "FileDescription": ""
+  },
+  "000077": {
+    "ExtensionName": "MOV",
+    "FileHeaderHEX": "000077",
+    "FileDescription": ""
+  },
+  "6D6F6F76": {
+    "ExtensionName": "MOV",
+    "FileHeaderHEX": "6D6F6F76",
+    "FileDescription": "Quicktime"
+  },
+  "6D646174": {
+    "ExtensionName": "QT",
+    "FileHeaderHEX": "6D646174",
+    "FileDescription": "QuicktimeMovieFile"
+  },
+  "0CED": {
+    "ExtensionName": "MP",
+    "FileHeaderHEX": "0CED",
+    "FileDescription": "MonochromePictureTIFFbitmapfile(unconfirmed)"
+  },
+  "494433": {
+    "ExtensionName": "MP3",
+    "FileHeaderHEX": "494433",
+    "FileDescription": "MPEG-1AudioLayer3(MP3)audiofile"
+  },
+  "FFFB50": {
+    "ExtensionName": "MP3",
+    "FileHeaderHEX": "FFFB50",
+    "FileDescription": ""
+  },
+  "000000186674797033677035": {
+    "ExtensionName": "MP4",
+    "FileHeaderHEX": "000000186674797033677035",
+    "FileDescription": "MPEG-4videofiles"
+  },
+  "000001": {
+    "ExtensionName": "MPA",
+    "FileHeaderHEX": "000001",
+    "FileDescription": ""
+  },
+  "000001B3": {
+    "ExtensionName": "MPG;MPEG",
+    "FileHeaderHEX": "000001B3",
+    "FileDescription": "MPEGMovie"
+  },
+  "000001BA": {
+    "ExtensionName": "VOB",
+    "FileHeaderHEX": "000001BA",
+    "FileDescription": "DVDVideoMovieFile(video/dvd,video/mpeg)"
+  },
+  "3C3F78": {
+    "ExtensionName": "XML",
+    "FileHeaderHEX": "3C3F78",
+    "FileDescription": ""
+  },
+  "3C3F786D6C2076657273696F6E3D22312E30223F3E0D0A3C4D4D435F436F6E736F6C6546696C6520436F6E736F6C6556657273696F6E3D22": {
+    "ExtensionName": "MSC",
+    "FileHeaderHEX": "3C3F786D6C2076657273696F6E3D22312E30223F3E0D0A3C4D4D435F436F6E736F6C6546696C6520436F6E736F6C6556657273696F6E3D22",
+    "FileDescription": "MicrosoftManagementConsoleSnap-inControlfile"
+  },
+  "2320": {
+    "ExtensionName": "MSI",
+    "FileHeaderHEX": "2320",
+    "FileDescription": "Cerius2file"
+  },
+  "4E4553": {
+    "ExtensionName": "NES",
+    "FileHeaderHEX": "4E4553",
+    "FileDescription": ""
+  },
+  "C22020": {
+    "ExtensionName": "NLS",
+    "FileHeaderHEX": "C22020",
+    "FileDescription": ""
+  },
+  "0E4E65726F49534F": {
+    "ExtensionName": "NRI",
+    "FileHeaderHEX": "0E4E65726F49534F",
+    "FileDescription": "NeroCDCompilation"
+  },
+  "1A0000": {
+    "ExtensionName": "NTF",
+    "FileHeaderHEX": "1A0000",
+    "FileDescription": "LotusNotesdatabasetemplate"
+  },
+  "1A0000030000": {
+    "ExtensionName": "NSF;NTF",
+    "FileHeaderHEX": "1A0000030000",
+    "FileDescription": "LotusNotesDatabase/Template"
+  },
+  "1A00000300001100": {
+    "ExtensionName": "NSF",
+    "FileHeaderHEX": "1A00000300001100",
+    "FileDescription": "NotesDatabase"
+  },
+  "1A0000040000": {
+    "ExtensionName": "NSF",
+    "FileHeaderHEX": "1A0000040000",
+    "FileDescription": "LotusNotesdatabase"
+  },
+  "30314F52444E414E43452053555256455920202020202020": {
+    "ExtensionName": "NTF",
+    "FileHeaderHEX": "30314F52444E414E43452053555256455920202020202020",
+    "FileDescription": "NationalTransferFormatMapFile"
+  },
+  "4C01": {
+    "ExtensionName": "OBJ",
+    "FileHeaderHEX": "4C01",
+    "FileDescription": "MicrosoftCommonObjectFileFormat(COFF)relocatableobjectcodefileforanIntel386orlater/compatibleprocessors"
+  },
+  "414F4C564D313030": {
+    "ExtensionName": "ORG;PFC",
+    "FileHeaderHEX": "414F4C564D313030",
+    "FileDescription": "AOLpersonalfilecabinet(PFC)file"
+  },
+  "1A0B": {
+    "ExtensionName": "PAK",
+    "FileHeaderHEX": "1A0B",
+    "FileDescription": "Compressedarchivefile"
+  },
+  "4746315041544348": {
+    "ExtensionName": "PAT",
+    "FileHeaderHEX": "4746315041544348",
+    "FileDescription": "AdvancedGravisUltrasoundpatchfile"
+  },
+  "47504154": {
+    "ExtensionName": "PAT",
+    "FileHeaderHEX": "47504154",
+    "FileDescription": "GIMP(GNUImageManipulationProgram)patternfile"
+  },
+  "5B4144": {
+    "ExtensionName": "PBK",
+    "FileHeaderHEX": "5B4144",
+    "FileDescription": ""
+  },
+  "17A150": {
+    "ExtensionName": "PCB",
+    "FileHeaderHEX": "17A150",
+    "FileDescription": ""
+  },
+  "0A0501": {
+    "ExtensionName": "PCS",
+    "FileHeaderHEX": "0A0501",
+    "FileDescription": ""
+  },
+  "0Ann0101": {
+    "ExtensionName": "PCX",
+    "FileHeaderHEX": "0Ann0101",
+    "FileDescription": "ZSOFTPaintbrushfile(wherenn=0x02,0x03,or0x05)"
+  },
+  "0A050108": {
+    "ExtensionName": "PCX",
+    "FileHeaderHEX": "0A050108",
+    "FileDescription": "PCPaintbrush(oftenassociatedwithQuakeEnginegames)"
+  },
+  "255044": {
+    "ExtensionName": "PDF",
+    "FileHeaderHEX": "255044",
+    "FileDescription": "PDF Document"
+  },
+  "25504446": {
+    "ExtensionName": "PDF;FDF",
+    "FileHeaderHEX": "25504446",
+    "FileDescription": "AdobePortableDocumentFormatandFormsDocumentfile"
+  },
+  "255044462D312E": {
+    "ExtensionName": "PDF",
+    "FileHeaderHEX": "255044462D312E",
+    "FileDescription": "AdobeAcrobat"
+  },
+  "484802": {
+    "ExtensionName": "PDG",
+    "FileHeaderHEX": "484802",
+    "FileDescription": ""
+  },
+  "1100000053434341": {
+    "ExtensionName": "PF",
+    "FileHeaderHEX": "1100000053434341",
+    "FileDescription": "Windowsprefetchfile"
+  },
+  "0100000001": {
+    "ExtensionName": "PIC",
+    "FileHeaderHEX": "0100000001",
+    "FileDescription": "Unknowntypepicturefile"
+  },
+  "000007": {
+    "ExtensionName": "PJT",
+    "FileHeaderHEX": "000007",
+    "FileDescription": ""
+  },
+  "24536F": {
+    "ExtensionName": "PLL",
+    "FileHeaderHEX": "24536F",
+    "FileDescription": ""
+  },
+  "89504E": {
+    "ExtensionName": "PNG",
+    "FileHeaderHEX": "89504E",
+    "FileDescription": ""
+  },
+  "89504E47": {
+    "ExtensionName": "PNG",
+    "FileHeaderHEX": "89504E47",
+    "FileDescription": ""
+  },
+  "89504E470D0A": {
+    "ExtensionName": "PNG",
+    "FileHeaderHEX": "89504E470D0A",
+    "FileDescription": "PNGImageFile"
+  },
+  "89504E470D0A1A0A": {
+    "ExtensionName": "PNG",
+    "FileHeaderHEX": "89504E470D0A1A0A",
+    "FileDescription": "PNGImageFile"
+  },
+  "424F4F4B4D4F4249": {
+    "ExtensionName": "PRC",
+    "FileHeaderHEX": "424F4F4B4D4F4249",
+    "FileDescription": "Palmpilotresourcefile"
+  },
+  "234445": {
+    "ExtensionName": "PRG",
+    "FileHeaderHEX": "234445",
+    "FileDescription": ""
+  },
+  "384250": {
+    "ExtensionName": "PSD",
+    "FileHeaderHEX": "384250",
+    "FileDescription": "Photoshop Document"
+  },
+  "38425053": {
+    "ExtensionName": "PSD",
+    "FileHeaderHEX": "38425053",
+    "FileDescription": "AdobePhotoshopimagefile"
+  },
+  "7E424B00": {
+    "ExtensionName": "PSP",
+    "FileHeaderHEX": "7E424B00",
+    "FileDescription": "PaintShopProImageFile"
+  },
+  "2142444E": {
+    "ExtensionName": "PST",
+    "FileHeaderHEX": "2142444E",
+    "FileDescription": "MicrosoftOutlookPersonalFolderfile"
+  },
+  "E3828596": {
+    "ExtensionName": "PWL",
+    "FileHeaderHEX": "E3828596",
+    "FileDescription": "WindowsPassword"
+  },
+  "458600000600": {
+    "ExtensionName": "QBB",
+    "FileHeaderHEX": "458600000600",
+    "FileDescription": "IntuitQuickBooksBackupfile"
+  },
+  "AC9EBD8F": {
+    "ExtensionName": "QDF",
+    "FileHeaderHEX": "AC9EBD8F",
+    "FileDescription": "Quicken"
+  },
+  "03000000": {
+    "ExtensionName": "QPH",
+    "FileHeaderHEX": "03000000",
+    "FileDescription": "Quickenpricehistoryfile"
+  },
+  "00004949585052": {
+    "ExtensionName": "QXD",
+    "FileHeaderHEX": "00004949585052",
+    "FileDescription": "QuarkExpressdocument(Intel&Motorola,respectively)"
+  },
+  "00004D4D585052": {
+    "ExtensionName": "QXD",
+    "FileHeaderHEX": "00004D4D585052",
+    "FileDescription": ""
+  },
+  "2E524D460000001200": {
+    "ExtensionName": "RA",
+    "FileHeaderHEX": "2E524D460000001200",
+    "FileDescription": "RealAudiofile"
+  },
+  "2E7261FD": {
+    "ExtensionName": "RA;RAM",
+    "FileHeaderHEX": "2E7261FD",
+    "FileDescription": "RealAudioFile"
+  },
+  "2E7261FD00": {
+    "ExtensionName": "RA",
+    "FileHeaderHEX": "2E7261FD00",
+    "FileDescription": "RealAudiostreamingmediafile"
+  },
+  "526172": {
+    "ExtensionName": "RAR",
+    "FileHeaderHEX": "526172",
+    "FileDescription": "RAR Archiv"
+  },
+  "52617221": {
+    "ExtensionName": "RAR",
+    "FileHeaderHEX": "52617221",
+    "FileDescription": "RARArchiveFile"
+  },
+  "060500": {
+    "ExtensionName": "RAW",
+    "FileHeaderHEX": "060500",
+    "FileDescription": ""
+  },
+  "5245474544495434": {
+    "ExtensionName": "REG",
+    "FileHeaderHEX": "5245474544495434",
+    "FileDescription": ""
+  },
+  "01DA01010003": {
+    "ExtensionName": "RGB",
+    "FileHeaderHEX": "01DA01010003",
+    "FileDescription": "SiliconGraphicsRGBBitmap"
+  },
+  "2E524D": {
+    "ExtensionName": "RM",
+    "FileHeaderHEX": "2E524D",
+    "FileDescription": "RealMedia Video File"
+  },
+  "2E524D46": {
+    "ExtensionName": "RM;RMVB",
+    "FileHeaderHEX": "2E524D46",
+    "FileDescription": "RealMediastreamingmediafile"
+  },
+  "EDABEEDB": {
+    "ExtensionName": "RPM",
+    "FileHeaderHEX": "EDABEEDB",
+    "FileDescription": "RPMArchiveFile"
+  },
+  "43232B44A4434DA5486472": {
+    "ExtensionName": "RTD",
+    "FileHeaderHEX": "43232B44A4434DA5486472",
+    "FileDescription": "RagTimedocumentfile"
+  },
+  "7B5C72": {
+    "ExtensionName": "RTF",
+    "FileHeaderHEX": "7B5C72",
+    "FileDescription": "Rich Text Format"
+  },
+  "7B5C727466": {
+    "ExtensionName": "RTF",
+    "FileHeaderHEX": "7B5C727466",
+    "FileDescription": "RichTextFormatFile"
+  },
+  "24464C3240282329205350535320444154412046494C45": {
+    "ExtensionName": "SAV",
+    "FileHeaderHEX": "24464C3240282329205350535320444154412046494C45",
+    "FileDescription": "SPSSDatafile"
+  },
+  "46454446": {
+    "ExtensionName": "SBV",
+    "FileHeaderHEX": "46454446",
+    "FileDescription": "(Unknownfiletype)"
+  },
+  "2A7665": {
+    "ExtensionName": "SCH",
+    "FileHeaderHEX": "2A7665",
+    "FileDescription": ""
+  },
+  "805343": {
+    "ExtensionName": "SCM",
+    "FileHeaderHEX": "805343",
+    "FileDescription": ""
+  },
+  "4848474231": {
+    "ExtensionName": "SH3",
+    "FileHeaderHEX": "4848474231",
+    "FileDescription": "HarvardGraphicspresentationfile"
+  },
+  "4B490000": {
+    "ExtensionName": "SHD",
+    "FileHeaderHEX": "4B490000",
+    "FileDescription": "Windows9xprinterspoolfile"
+  },
+  "53495421": {
+    "ExtensionName": "SIT",
+    "FileHeaderHEX": "53495421",
+    "FileDescription": "Stuffitv1ArchiveFile"
+  },
+  "53747566664974": {
+    "ExtensionName": "SIT",
+    "FileHeaderHEX": "53747566664974",
+    "FileDescription": "Stuffitv5ArchiveFile"
+  },
+  "3A56455253494F4E": {
+    "ExtensionName": "SLE",
+    "FileHeaderHEX": "3A56455253494F4E",
+    "FileDescription": "Surfplankiteprojectfile"
+  },
+  "414376": {
+    "ExtensionName": "SLE",
+    "FileHeaderHEX": "414376",
+    "FileDescription": "teganosSecuritySuitevirtualsecuredrive"
+  },
+  "53520100": {
+    "ExtensionName": "SLY;SRT;SLT",
+    "FileHeaderHEX": "53520100",
+    "FileDescription": "Sagesly.or.srt.or.slt"
+  },
+  "001E849000000000": {
+    "ExtensionName": "SNM",
+    "FileHeaderHEX": "001E849000000000",
+    "FileDescription": "NetscapeCommunicator(v4)mailfolder"
+  },
+  "00BF": {
+    "ExtensionName": "SOL",
+    "FileHeaderHEX": "00BF",
+    "FileDescription": "AdobeFlashsharedobjectfile(e.g.,Flashcookies)"
+  },
+  "00000100": {
+    "ExtensionName": "SPL",
+    "FileHeaderHEX": "00000100",
+    "FileDescription": "WindowsNT/2000/XPprinterspoolfile"
+  },
+  "FFFFFF": {
+    "ExtensionName": "SUB",
+    "FileHeaderHEX": "FFFFFF",
+    "FileDescription": ""
+  },
+  "435753": {
+    "ExtensionName": "SWF",
+    "FileHeaderHEX": "435753",
+    "FileDescription": "ShockwaveFlashfile(v5+)"
+  },
+  "465753": {
+    "ExtensionName": "SWF",
+    "FileHeaderHEX": "465753",
+    "FileDescription": "MacromediaShockwaveFlashplayerfile"
+  },
+  "calc": {
+    "ExtensionName": "SXC",
+    "FileHeaderHEX": "calc",
+    "FileDescription": "OpenOfficeCalc"
+  },
+  "draw": {
+    "ExtensionName": "SXD",
+    "FileHeaderHEX": "draw",
+    "FileDescription": "OpenOfficeDraw"
+  },
+  "impress": {
+    "ExtensionName": "SXI",
+    "FileHeaderHEX": "impress",
+    "FileDescription": "OpenOfficeImpress"
+  },
+  "math": {
+    "ExtensionName": "SXM",
+    "FileHeaderHEX": "math",
+    "FileDescription": "OpenOfficeMath"
+  },
+  "writer": {
+    "ExtensionName": "SXW",
+    "FileHeaderHEX": "writer",
+    "FileDescription": "OpenOfficeWriter"
+  },
+  "414D594F": {
+    "ExtensionName": "SYW",
+    "FileHeaderHEX": "414D594F",
+    "FileDescription": "HarvardGraphicssymbolgraphic"
+  },
+  "000002": {
+    "ExtensionName": "TGA",
+    "FileHeaderHEX": "000002",
+    "FileDescription": ""
+  },
+  "303730373037": {
+    "ExtensionName": "TAR;CPIO",
+    "FileHeaderHEX": "303730373037",
+    "FileDescription": "CPIOArchiveFile"
+  },
+  "1F9D90": {
+    "ExtensionName": "TAR.Z",
+    "FileHeaderHEX": "1F9D90",
+    "FileDescription": "Compressedtapearchivefile"
+  },
+  "0000100000": {
+    "ExtensionName": "TGA",
+    "FileHeaderHEX": "0000100000",
+    "FileDescription": "RLE压缩的前5字节"
+  },
+  "0000020000": {
+    "ExtensionName": "TGA",
+    "FileHeaderHEX": "0000020000",
+    "FileDescription": "未压缩的前5字节"
+  },
+  "492049": {
+    "ExtensionName": "TIF;TIFF",
+    "FileHeaderHEX": "492049",
+    "FileDescription": "TaggedImageFileFormatfile"
+  },
+  "49492A": {
+    "ExtensionName": "TIF;TIFF",
+    "FileHeaderHEX": "49492A",
+    "FileDescription": "TIFF(Intel)"
+  },
+  "49492A00": {
+    "ExtensionName": "TIF;TIFF",
+    "FileHeaderHEX": "49492A00",
+    "FileDescription": "TaggedImageFileFormatfile(littleendian,i.e.,LSBfirstinthebyte;Intel)"
+  },
+  "4D4D002A": {
+    "ExtensionName": "TIF;TIFF",
+    "FileHeaderHEX": "4D4D002A",
+    "FileDescription": "TaggedImageFileFormatfile(bigendian,i.e.,LSBlastinthebyte;Motorola)"
+  },
+  "4D4D2A": {
+    "ExtensionName": "TIF;TIFF",
+    "FileHeaderHEX": "4D4D2A",
+    "FileDescription": "TIFF(Motorola)"
+  },
+  "4D4D002B": {
+    "ExtensionName": "TIF;TIFF",
+    "FileHeaderHEX": "4D4D002B",
+    "FileDescription": "BigTIFFfiles;TaggedImageFileFormatfiles>4GB"
+  },
+  "4D53465402000100": {
+    "ExtensionName": "TLB",
+    "FileHeaderHEX": "4D53465402000100",
+    "FileDescription": "OLE,SPSS,orVisualC++typelibraryfile"
+  },
+  "0110": {
+    "ExtensionName": "TR1",
+    "FileHeaderHEX": "0110",
+    "FileDescription": "NovellLANalyzercapturefile"
+  },
+  "554641": {
+    "ExtensionName": "UFA",
+    "FileHeaderHEX": "554641",
+    "FileDescription": "UFAArchiveFile"
+  },
+  "454E5452595643440200000102001858": {
+    "ExtensionName": "VCD",
+    "FileHeaderHEX": "454E5452595643440200000102001858",
+    "FileDescription": "VideoVCD(GNUVCDImager)file"
+  },
+  "424547494E3A56434152440D0A": {
+    "ExtensionName": "VCF",
+    "FileHeaderHEX": "424547494E3A56434152440D0A",
+    "FileDescription": "vCardfile"
+  },
+  "524946": {
+    "ExtensionName": "WAV",
+    "FileHeaderHEX": "524946",
+    "FileDescription": "WAV Audio File"
+  },
+  "57415645": {
+    "ExtensionName": "WAV",
+    "FileHeaderHEX": "57415645",
+    "FileDescription": "Wave"
+  },
+  "57415645666D74": {
+    "ExtensionName": "WAV",
+    "FileHeaderHEX": "57415645666D74",
+    "FileDescription": "WaveFiles"
+  },
+  "00000200": {
+    "ExtensionName": "WB2",
+    "FileHeaderHEX": "00000200",
+    "FileDescription": "QuattroProforWindowsSpreadsheetfile"
+  },
+  "2000604060": {
+    "ExtensionName": "WK1;WKS",
+    "FileHeaderHEX": "2000604060",
+    "FileDescription": "Lotus123v1Worksheet"
+  },
+  "0000020006040600080000000000": {
+    "ExtensionName": "WK1",
+    "FileHeaderHEX": "0000020006040600080000000000",
+    "FileDescription": "Lotus1-2-3spreadsheet(v1)file"
+  },
+  "00001A0000100400": {
+    "ExtensionName": "WK3",
+    "FileHeaderHEX": "00001A0000100400",
+    "FileDescription": "Lotus123spreadsheet(v3)file"
+  },
+  "00001A0002100400": {
+    "ExtensionName": "WK4;WK5",
+    "FileHeaderHEX": "00001A0002100400",
+    "FileDescription": "Lotus1-2-3spreadsheet(v4,v5)file"
+  },
+  "0E574B53": {
+    "ExtensionName": "WKS",
+    "FileHeaderHEX": "0E574B53",
+    "FileDescription": "DeskMateWorksheet"
+  },
+  "3026B2": {
+    "ExtensionName": "WMV",
+    "FileHeaderHEX": "3026B2",
+    "FileDescription": ""
+  },
+  "01000900": {
+    "ExtensionName": "WMF",
+    "FileHeaderHEX": "01000900",
+    "FileDescription": "GraphicsMetafile"
+  },
+  "010009000003": {
+    "ExtensionName": "WMF",
+    "FileHeaderHEX": "010009000003",
+    "FileDescription": "WindowsMetadatafile(Win3.xformat)"
+  },
+  "02000900": {
+    "ExtensionName": "WMF",
+    "FileHeaderHEX": "02000900",
+    "FileDescription": "GraphicsMetafile"
+  },
+  "D7CDC69A": {
+    "ExtensionName": "WMF",
+    "FileHeaderHEX": "D7CDC69A",
+    "FileDescription": "WindowsMetaFile"
+  },
+  "FF575043": {
+    "ExtensionName": "WPD",
+    "FileHeaderHEX": "FF575043",
+    "FileDescription": "WordPerfect"
+  },
+  "FF575047": {
+    "ExtensionName": "WPG",
+    "FileHeaderHEX": "FF575047",
+    "FileDescription": "WordPerfectGraphics"
+  },
+  "31BE": {
+    "ExtensionName": "WRI",
+    "FileHeaderHEX": "31BE",
+    "FileDescription": "MicrosoftWritefile"
+  },
+  "31BE00": {
+    "ExtensionName": "WRI",
+    "FileHeaderHEX": "31BE00",
+    "FileDescription": ""
+  },
+  "32BE": {
+    "ExtensionName": "WRI",
+    "FileHeaderHEX": "32BE",
+    "FileDescription": "MicrosoftWritefile"
+  },
+  "1D7D": {
+    "ExtensionName": "WS",
+    "FileHeaderHEX": "1D7D",
+    "FileDescription": "WordStarVersion5.0/6.0document"
+  },
+  "584245": {
+    "ExtensionName": "XBE",
+    "FileHeaderHEX": "584245",
+    "FileDescription": ""
+  },
+  "0902060000001000B9045C00": {
+    "ExtensionName": "XLS",
+    "FileHeaderHEX": "0902060000001000B9045C00",
+    "FileDescription": "MSExcelv2"
+  },
+  "0904060000001000F6055C00": {
+    "ExtensionName": "XLS",
+    "FileHeaderHEX": "0904060000001000F6055C00",
+    "FileDescription": "MSExcelv4"
+  },
+  "3C3F786D6C": {
+    "ExtensionName": "XML",
+    "FileHeaderHEX": "3C3F786D6C",
+    "FileDescription": "XMLDocument"
+  },
+  "FFFE3C0052004F004F0054005300540055004200": {
+    "ExtensionName": "XML",
+    "FileHeaderHEX": "FFFE3C0052004F004F0054005300540055004200",
+    "FileDescription": "XMLDocument(ROOTSTUB)"
+  },
+  "005001": {
+    "ExtensionName": "XMV",
+    "FileHeaderHEX": "005001",
+    "FileDescription": ""
+  },
+  "FFFE3C": {
+    "ExtensionName": "XSL",
+    "FileHeaderHEX": "FFFE3C",
+    "FileDescription": ""
+  },
+  "7273696F6E3D22313C3F786D6C2076652E30223F3E": {
+    "ExtensionName": "XUL",
+    "FileHeaderHEX": "7273696F6E3D22313C3F786D6C2076652E30223F3E",
+    "FileDescription": "XMLUserInterfaceLanguagefile"
+  },
+  "1F9D": {
+    "ExtensionName": "Z",
+    "FileHeaderHEX": "1F9D",
+    "FileDescription": "TARCompressedArchiveFile"
+  },
+  "1F9D8C": {
+    "ExtensionName": "Z",
+    "FileHeaderHEX": "1F9D8C",
+    "FileDescription": ""
+  },
+  "504B03": {
+    "ExtensionName": "ZIP",
+    "FileHeaderHEX": "504B03",
+    "FileDescription": ""
+  },
+  "504B0304": {
+    "ExtensionName": "ZIP;JAR;ZIPX",
+    "FileHeaderHEX": "504B0304",
+    "FileDescription": "ZIPArchive"
+  },
+  "504B3030": {
+    "ExtensionName": "ZIP",
+    "FileHeaderHEX": "504B3030",
+    "FileDescription": "ZIPArchive(outdated)"
+  },
+  "504B3030504B0304": {
+    "ExtensionName": "ZIP",
+    "FileHeaderHEX": "504B3030504B0304",
+    "FileDescription": "WINZIPCompressed"
+  },
+  "5A4F4F20": {
+    "ExtensionName": "ZOO",
+    "FileHeaderHEX": "5A4F4F20",
+    "FileDescription": "ZOOArchiveFile"
+  }
+}

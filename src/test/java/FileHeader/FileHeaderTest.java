@@ -105,7 +105,7 @@ public class FileHeaderTest {
 
     public static void main(String[] args) throws Exception {
         // 初始化本地文件头信息
-        String jsonData = new BufferedReader(new InputStreamReader(FileHeaderTest.class.getResourceAsStream("/json/redTeam/FileHead.json")))
+        String jsonData = new BufferedReader(new InputStreamReader(FileHeaderTest.class.getResourceAsStream("/json/redTeam/FileHeadChecker_FileHead.json")))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
 
         Type type = new TypeToken<HashMap<String, FileHeaderBean>>(){}.getType();

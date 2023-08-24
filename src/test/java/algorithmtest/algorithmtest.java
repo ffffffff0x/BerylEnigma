@@ -19,6 +19,9 @@ public class algorithmtest {
                 System.out.println(s);
             }
         }
+
 //        messageDigest.forEach(System.out::println);
+// \u000d System.out.println("123");
+
     }
 }
