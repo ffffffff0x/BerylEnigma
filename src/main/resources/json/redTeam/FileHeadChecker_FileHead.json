@@ -4,11 +4,6 @@
     "FileHeaderHEX": "00001A00051004",
     "FileDescription": "Lotus1-2-3spreadsheet(v9)file"
   },
-  "000000nn66747970336770": {
-    "ExtensionName": "3GG;3GP;3G2",
-    "FileHeaderHEX": "000000nn66747970336770",
-    "FileDescription": "3rdGenerationPartnershipProject3GPP(nn=0x14)and3GPP2(nn=0x20)multimediafiles"
-  },
   "377ABCAF271C": {
     "ExtensionName": "7Z",
     "FileHeaderHEX": "377ABCAF271C",
@@ -72,7 +67,7 @@
   "52494646": {
     "ExtensionName": "ANI",
     "FileHeaderHEX": "52494646",
-    "FileDescription": ""
+    "FileDescription": "Windows Animated Cursor"
   },
   "4D5A900003000000": {
     "ExtensionName": "FLT",
@@ -97,7 +92,7 @@
   "60EA27": {
     "ExtensionName": "ARJ",
     "FileHeaderHEX": "60EA27",
-    "FileDescription": ""
+    "FileDescription": "ARJ Archive"
   },
   "4A47030E000000": {
     "ExtensionName": "ART",
@@ -142,7 +137,7 @@
   "202020": {
     "ExtensionName": "BAS",
     "FileHeaderHEX": "202020",
-    "FileDescription": ""
+    "FileDescription": "Basic Source Code"
   },
   "424C4932323351": {
     "ExtensionName": "BIN",
@@ -877,7 +872,7 @@
   "D0CF11": {
     "ExtensionName": "XLS;PPT",
     "FileHeaderHEX": "D0CF11",
-    "FileDescription": ""
+    "FileDescription": "Microsoft Excel or PowerPoint Document"
   },
   "000100005374616E64617264204A6574204442": {
     "ExtensionName": "MDB",
@@ -982,7 +977,7 @@
   "FFFB50": {
     "ExtensionName": "MP3",
     "FileHeaderHEX": "FFFB50",
-    "FileDescription": ""
+    "FileDescription": "MPEG-1AudioLayer3(MP3)audiofile"
   },
   "000000186674797033677035": {
     "ExtensionName": "MP4",
@@ -992,7 +987,7 @@
   "000001": {
     "ExtensionName": "MPA",
     "FileHeaderHEX": "000001",
-    "FileDescription": ""
+    "FileDescription": "MPEG Audio File"
   },
   "000001B3": {
     "ExtensionName": "MPG;MPEG",
@@ -1152,22 +1147,22 @@
   "89504E": {
     "ExtensionName": "PNG",
     "FileHeaderHEX": "89504E",
-    "FileDescription": ""
+    "FileDescription": "PNG Image File"
   },
   "89504E47": {
     "ExtensionName": "PNG",
     "FileHeaderHEX": "89504E47",
-    "FileDescription": ""
+    "FileDescription": "PNG Image File"
   },
   "89504E470D0A": {
     "ExtensionName": "PNG",
     "FileHeaderHEX": "89504E470D0A",
-    "FileDescription": "PNGImageFile"
+    "FileDescription": "PNG Image File"
   },
   "89504E470D0A1A0A": {
     "ExtensionName": "PNG",
     "FileHeaderHEX": "89504E470D0A1A0A",
-    "FileDescription": "PNGImageFile"
+    "FileDescription": "PNG Image File"
   },
   "424F4F4B4D4F4249": {
     "ExtensionName": "PRC",
@@ -1257,7 +1252,7 @@
   "060500": {
     "ExtensionName": "RAW",
     "FileHeaderHEX": "060500",
-    "FileDescription": ""
+    "FileDescription": "Raw Image Data"
   },
   "5245474544495434": {
     "ExtensionName": "REG",
@@ -1542,7 +1537,7 @@
   "3026B2": {
     "ExtensionName": "WMV",
     "FileHeaderHEX": "3026B2",
-    "FileDescription": ""
+    "FileDescription": "Windows Media Video File"
   },
   "01000900": {
     "ExtensionName": "WMF",
@@ -1627,7 +1622,7 @@
   "FFFE3C": {
     "ExtensionName": "XSL",
     "FileHeaderHEX": "FFFE3C",
-    "FileDescription": ""
+    "FileDescription": "Extensible Stylesheet Language"
   },
   "7273696F6E3D22313C3F786D6C2076652E30223F3E": {
     "ExtensionName": "XUL",
@@ -1642,12 +1637,12 @@
   "1F9D8C": {
     "ExtensionName": "Z",
     "FileHeaderHEX": "1F9D8C",
-    "FileDescription": ""
+    "FileDescription": "Unix Compressed File"
   },
   "504B03": {
     "ExtensionName": "ZIP",
     "FileHeaderHEX": "504B03",
-    "FileDescription": ""
+    "FileDescription": "ZIP Archive"
   },
   "504B0304": {
     "ExtensionName": "ZIP;JAR;ZIPX",
