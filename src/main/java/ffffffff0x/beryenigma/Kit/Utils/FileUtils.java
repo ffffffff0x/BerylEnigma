@@ -236,6 +236,16 @@ public class FileUtils {
     }
 
     /**
+     * 检查文件是否存在
+     *
+     * @param file 文件对象
+     * @return boolean
+     */
+    public static boolean checkFileExist(File file) {
+        return file.exists();
+    }
+
+    /**
      * 检查文件夹是否存在，如果不存在就创建文件夹
      *
      * @param folderPath 文件夹路径
