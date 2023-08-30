@@ -8,7 +8,7 @@ package ffffffff0x.beryenigma.App.Beans;
  **/
 public class HistoryInfo {
     // 时间戳
-    String timestamp;
+    Long timestamp;
     // 输入
     String input;
     // 输出
@@ -20,7 +20,7 @@ public class HistoryInfo {
     // 功能模块配置
     String config;
 
-    public HistoryInfo(String timestamp, String input, String output, String module, String action, String config) {
+    public HistoryInfo(Long timestamp, String input, String output, String module, String action, String config) {
         this.timestamp = timestamp;
         this.input = input;
         this.output = output;
@@ -29,12 +29,36 @@ public class HistoryInfo {
         this.config = config;
     }
 
-    public HistoryInfo(String timestamp, String input, String output, String module, String action) {
+    public HistoryInfo(Long timestamp, String input, String output, String module, String action) {
         this.timestamp = timestamp;
         this.input = input;
         this.output = output;
         this.module = module;
         this.action = action;
+    }
+
+    public HistoryInfo(String input, String output, String module, String action, String config) {
+        this.timestamp = System.currentTimeMillis();
+        this.input = input;
+        this.output = output;
+        this.module = module;
+        this.action = action;
+        this.config = config;
+    }
+
+    public HistoryInfo(String input, String output, String module, String action) {
+        this.timestamp = System.currentTimeMillis();
+        this.input = input;
+        this.output = output;
+        this.module = module;
+        this.action = action;
+    }
+
+    public HistoryInfo(String input, String output, String module) {
+        this.timestamp = System.currentTimeMillis();
+        this.input = input;
+        this.output = output;
+        this.module = module;
     }
 
     @Override
@@ -49,11 +73,11 @@ public class HistoryInfo {
                 '}';
     }
 
-    public String getTimestamp() {
+    public Long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
 
