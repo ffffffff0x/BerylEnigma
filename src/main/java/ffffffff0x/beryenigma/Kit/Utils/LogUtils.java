@@ -41,14 +41,20 @@ public class LogUtils {
         saveLogsToDisk(gson.toJson(historyInfo));
     }
 
-    public static void addLog(String input, String output, String className, String actionName) {
-        HistoryInfo historyInfo = new HistoryInfo(input, output, className, actionName);
+    public static void addLog(String input, String output, String moduleName, String actionName,String config) {
+        HistoryInfo historyInfo = new HistoryInfo(input, output, moduleName, actionName, config);
         logArrayList.add(historyInfo);
         saveLogsToDisk(gson.toJson(historyInfo));
     }
 
-    public static void addLog(String input, String output, String className) {
-        HistoryInfo historyInfo = new HistoryInfo(input, output, className);
+    public static void addLog(String input, String output, String moduleName, String actionName) {
+        HistoryInfo historyInfo = new HistoryInfo(input, output, moduleName, actionName);
+        logArrayList.add(historyInfo);
+        saveLogsToDisk(gson.toJson(historyInfo));
+    }
+
+    public static void addLog(String input, String output, String moduleName) {
+        HistoryInfo historyInfo = new HistoryInfo(input, output, moduleName);
         logArrayList.add(historyInfo);
         saveLogsToDisk(gson.toJson(historyInfo));
     }
