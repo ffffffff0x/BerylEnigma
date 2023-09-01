@@ -1,12 +1,17 @@
 package ffffffff0x.beryenigma.App.View.Viewobj;
 
+import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
 import ffffffff0x.beryenigma.Init.ViewInit;
+import ffffffff0x.beryenigma.Kit.Utils.LogUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+
+import java.util.StringJoiner;
 
 /**
  * @author: RyuZUSUNC
@@ -107,6 +112,54 @@ public abstract class ViewController {
      * 输出框右键菜单
      */
     protected void JTADSTContextMenu() {
-        ViewInit.textAreaContextMenu(JTA_dst,JTA_src);
+        ViewInit.textAreaContextMenu(JTA_dst, JTA_src);
+    }
+
+    /**
+     * 构造LOG信息
+     * 使用运行此方法时的JTA_SRC与JTA_DST的内容，模组名称为JLB_TITLE内容
+     *
+     * @return HistoryInfo
+     */
+    protected HistoryInfo buildLogMessage() {
+        return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText());
+    }
+
+    /**
+     * 将log写入存储与内存
+     */
+    protected void actionLog() {
+        LogUtils.addLog(buildLogMessage());
+    }
+
+    /**
+     * 检查输出框内是否存在值，若有则返回，返回值使用" ; " 分隔数据
+     *
+     * @return 使用" ; " 分隔的string
+     */
+    protected String checkDstJTAText() {
+        // 字符串拼接器
+        StringJoiner stringJoiner = new StringJoiner(" ; ");
+
+        checkTextAreaText(stringJoiner, JTA_dst);
+        checkTextAreaText(stringJoiner, JTA_dst1);
+        checkTextAreaText(stringJoiner, JTA_dst2);
+        checkTextAreaText(stringJoiner, JTA_dst3);
+        checkTextAreaText(stringJoiner, JTA_dst4);
+        checkTextAreaText(stringJoiner, JTA_dst5);
+
+        return stringJoiner.toString();
+    }
+
+    /**
+     * 检查传入的textarea是否非空，如果有值则添加至传入的stringjoiner中
+     *
+     * @param stringJoiner 文本拼接器
+     * @param textArea 需要检测的textarea控件
+     */
+    protected void checkTextAreaText(StringJoiner stringJoiner, TextArea textArea) {
+        if (textArea != null && !textArea.getText().equals("")) {
+            stringJoiner.add(textArea.getText());
+        }
     }
 }

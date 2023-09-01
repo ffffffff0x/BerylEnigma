@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXToggleButton;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
+import ffffffff0x.beryenigma.Kit.Utils.LogUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.fxml.FXML;
 import javafx.scene.input.Dragboard;
@@ -124,4 +125,5 @@ public abstract class ViewControllerFileMode extends ViewController {
     protected void JTADSTContextMenu() {
         ViewInit.textAreaContextMenu(JTA_dst,JTA_src,JTB_modeSelect);
     }
+
 }

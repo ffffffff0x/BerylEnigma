@@ -42,20 +42,23 @@ public class HMACController extends ViewControllerFileMode {
         super.ONClickConfirm();
         ViewUtils.setTextAreaTextRed(false, JTA_dst, JTA_dst1);
         try{
-            String[] dst = new String[0];
+            String[] dst;
             if(JTB_modeSelect.getText().equals(Init.getLanguage("TextMode"))){
                 try {
                     dst = hmac(JTA_src.getText().getBytes(JCB_charset.getValue().toString()),
                             JTA_HMACKey.getText().getBytes(JCB_charset.getValue().toString()));
+                    JTA_dst1.setText(dst[0]);
+                    JTA_dst.setText(dst[1]);
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
             }else{
                 dst = hmac(byteFile, JTA_HMACKey.getText().getBytes(JCB_charset.getValue().toString()));
+                JTA_dst1.setText(dst[0]);
+                JTA_dst.setText(dst[1]);
+                actionLog();
                 fileEncodeEnd();
             }
-            JTA_dst1.setText(dst[0]);
-            JTA_dst.setText(dst[1]);
         }catch (Exception e){
             ViewUtils.setTextAreaTextRed(true, JTA_dst, JTA_dst1);
             JTA_dst.setText(e.getMessage());
