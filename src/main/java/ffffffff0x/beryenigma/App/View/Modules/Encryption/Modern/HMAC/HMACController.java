@@ -2,6 +2,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.HMAC;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingNode;
 import ffffffff0x.beryenigma.App.View.Viewobj.ViewControllerFileMode;
@@ -19,6 +20,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 @ViewNode(name = "HMAC",folderPath = "Root/Encryption/Modern/",fxmlName = "HMACView.fxml")
 public class HMACController extends ViewControllerFileMode {
@@ -154,5 +156,15 @@ public class HMACController extends ViewControllerFileMode {
 
         //弹出式控件框中添加初始化的控件
         popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("Charset"),JCB_charset,true));
+    }
+
+    @Override
+    protected HistoryInfo buildLogMessage() {
+        StringJoiner configMessage = new StringJoiner(" ; ");
+        configMessage.add(JCB_charset.getValue().toString());
+        configMessage.add(JCB_HMACMode.getValue());
+        configMessage.add( JTA_HMACKey.getText());
+
+        return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText(), JLB_title.getText(), configMessage.toString());
     }
 }
