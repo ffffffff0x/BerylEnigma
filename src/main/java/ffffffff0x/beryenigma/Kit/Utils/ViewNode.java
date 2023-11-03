@@ -11,4 +11,5 @@ public @interface ViewNode {
     String name() default "";
     String folderPath() default "Root/PlugIn/";
     String fxmlName() default "";
+    boolean isVisible() default true;
 }
