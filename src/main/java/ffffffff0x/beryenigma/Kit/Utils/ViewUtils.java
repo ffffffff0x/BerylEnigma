@@ -26,6 +26,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -91,7 +92,7 @@ public class ViewUtils {
      * 保存文件时的文件选择器
      * @return 保存文件时的文件选择器
      */
-    public static File fileChooser(){
+    public static File fileChooser() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png"));
@@ -125,7 +126,7 @@ public class ViewUtils {
      * 保存文件时的文件目录选择器
      * @return 保存文件时的文件目录选择器
      */
-    public static File directoryChooser(){
+    public static File directoryChooser() {
         DirectoryChooser directorychooser = new DirectoryChooser();
         FileSystemView fsv = FileSystemView.getFileSystemView();
         directorychooser.setInitialDirectory(fsv.getHomeDirectory());
@@ -133,10 +134,24 @@ public class ViewUtils {
     }
 
     /**
+     * 文件夹选择器，遍历并返回文件夹下的所有文件
+     * @return List<File>
+     */
+    public static List<File> directoryChooserIterateFile() {
+        DirectoryChooser directorychooser = new DirectoryChooser();
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        directorychooser.setInitialDirectory(fsv.getHomeDirectory());
+        File dir = directorychooser.showDialog(new Stage());
+        List<File> files = new ArrayList<>();
+        FileUtils.iterateDirFile(files, dir);
+        return files;
+    }
+
+    /**
      * 保存文件时的文件选择器
      * @return 保存文件时的文件选择器
      */
-    public static File fileChooser(String filename){
+    public static File fileChooser(String filename) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
         FileSystemView fsv = FileSystemView.getFileSystemView();
@@ -151,7 +166,7 @@ public class ViewUtils {
      * @param heading 标题
      * @param body 正文
      */
-    public static void alertPane(Stage stage, String heading, String body){
+    public static void alertPane(Stage stage, String heading, String body) {
         JFXAlert alert = new JFXAlert(stage);
         alert.initModality(Modality.NONE);
         alert.setOverlayClose(false);
@@ -171,7 +186,7 @@ public class ViewUtils {
      * 清空文本域控件的文字并显示过滤器报错
      * @param jta 目标文本域node
      */
-    public static void textAreaValidate(JFXTextArea jta){
+    public static void textAreaValidate(JFXTextArea jta) {
         jta.setText("");
         jta.validate();
     }
@@ -192,7 +207,7 @@ public class ViewUtils {
      * @param RightAnchor 右
      * @param BottomAnchor 下
      */
-    public static void setAnchor(Node node, Double TopAnchor, Double LeftAnchor, Double RightAnchor, Double BottomAnchor){
+    public static void setAnchor(Node node, Double TopAnchor, Double LeftAnchor, Double RightAnchor, Double BottomAnchor) {
         if (TopAnchor != null) {
             AnchorPane.setTopAnchor(node,TopAnchor);
         }

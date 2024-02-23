@@ -264,7 +264,8 @@ public class FileHeadCheckerController extends ViewController {
      * 加载文件与文件路径
      */
     private void LoadFilePaths() {
-        files = ViewUtils.getFiles();
+//        files = ViewUtils.getFiles();
+        files = ViewUtils.directoryChooserIterateFile();
         StringJoiner stringJoiner = new StringJoiner("\n");
         if (files != null) {
             for (File file : files) {

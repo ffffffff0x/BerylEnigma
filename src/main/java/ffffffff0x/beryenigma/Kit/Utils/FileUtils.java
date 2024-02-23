@@ -12,6 +12,7 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class FileUtils {
@@ -339,6 +340,23 @@ public class FileUtils {
             while ((bytesRead = inputStream.read(buffer)) != -1) {
                 outputStream.write(buffer, 0, bytesRead);
             }
+        }
+    }
+
+    public static void iterateDirFile(List<File> output,File dir) {
+        if (dir != null && dir.isDirectory()) {
+            File[] files = dir.listFiles();
+            for (File file1 : files) {
+                if (file1.isDirectory()) {
+                    iterateDirFile(output,file1);
+                }
+                if (file1.isFile()) {
+                    output.add(file1);
+//                System.out.println(file1);
+                }
+            }
+        } else {
+            output.add(dir);
         }
     }
 }
