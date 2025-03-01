@@ -56,13 +56,16 @@ public class AutoRootTreeNode {
             for (Class<?> aClass : set) {
                 // 获取注解
                 ViewNode annotation = aClass.getAnnotation(ViewNode.class);
-                // 获取注解信息构建节点对象
-                viewNodeContainer.put(annotation.name(), new ViewNodeInfo(annotation.name(),
-                        annotation.folderPath(),
-                        ("/" + aClass.getPackageName().replace(".","/") + "/" + annotation.fxmlName())));
-//                System.out.println(aClass.getPackageName());
-                // 获取注解信息中的目录路径
-                folderPaths.add(annotation.folderPath());
+                // 节点可显示参数为true时
+                if (annotation.isVisible()) {
+                    // 获取注解信息构建节点对象
+                    viewNodeContainer.put(annotation.name(), new ViewNodeInfo(annotation.name(),
+                            annotation.folderPath(),
+                            ("/" + aClass.getPackageName().replace(".","/") + "/" + annotation.fxmlName())));
+                    // System.out.println(aClass.getPackageName());
+                    // 获取注解信息中的目录路径
+                    folderPaths.add(annotation.folderPath());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

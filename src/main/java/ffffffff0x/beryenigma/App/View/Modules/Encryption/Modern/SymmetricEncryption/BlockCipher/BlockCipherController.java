@@ -3,6 +3,7 @@ package ffffffff0x.beryenigma.App.View.Modules.Encryption.Modern.SymmetricEncryp
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.BaseEncoding.Base64.Base64Impl;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.HEXCoder.HEXCoderImpl;
 import ffffffff0x.beryenigma.App.View.Viewobj.PopupSettingDoubleColumnView;
@@ -289,5 +290,10 @@ public class BlockCipherController extends ViewControllerFileMode {
             }
         }
         return null;
+    }
+
+    @Override
+    protected HistoryInfo buildLogMessage() {
+        return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText(), JLB_title.getText(), getBlockCipherParameters().toString());
     }
 }
