@@ -24,7 +24,7 @@ public class MockView extends Application {
         primaryStage.setTitle("BEMock");
 //        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/CaesarCipher/CaesarCipherView.fxml");
 //        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/TimestampView.fxml");
-        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/RedTeam/FileHeadChecker/FileHeadCheckerView.fxml");
+        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/SymmetricEncryption/BlockCipher/BlockCipherView.fxml");
 //        initRootLayout("/ffffffff0x/beryenigma/Kit/Mock/TestView.fxml");
     }
 

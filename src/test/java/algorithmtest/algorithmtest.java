@@ -13,15 +13,15 @@ import java.util.Set;
 public class algorithmtest {
     public static void main(String[] args) {
         Security.addProvider(new BouncyCastleProvider());
-        Set<String> messageDigest = Security.getAlgorithms("Mac");
+        Set<String> messageDigest = Security.getAlgorithms("Cipher");
         for (String s : messageDigest) {
             if (s.contains("AES")) {
                 System.out.println(s);
             }
         }
 
-//        messageDigest.forEach(System.out::println);
-// \u000d System.out.println("123");
+        messageDigest.forEach(System.out::println);
+//        System.out.println("123");
 
     }
 }
