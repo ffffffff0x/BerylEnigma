@@ -21,6 +21,7 @@ public class Init {
     /* 程序初始化 */
     static {
         OS_NOW = OSUtils.getOS();
+        languageResourceBundle = getLanguageResourceBundle();
         if (OS_NOW != null) {
             CONFIGPATH_NOW = ConfigUtils.getConfigPath(OS_NOW);
             CONFIGFILEPATH_NOW = CONFIGPATH_NOW + "/" + CONFIG_FILENAME;

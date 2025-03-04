@@ -1,41 +1,55 @@
-/* ListTree */
-.tree-cell .tree-disclosure-node .arrow {
-    -fx-scale-shape: false;
-    -fx-background-color: transparent;
-    -fx-shape: "M 0 4 L 0 -4 L 5 0 z";
-    -fx-border-color: grey;
-    -fx-border-width: 0.083333em;
-}
-
-.tree-cell:expanded .tree-disclosure-node .arrow {
-    -fx-scale-shape: false;
-
-    -fx-background-color: -fx-mark-color;
-    -fx-rotate: 0;
-    -fx-shape: "M 0 3 L 6 -3 L 6 3 z";
-    -fx-border-width: 0.083333em;
-}
-
-.tree-cell:filled:hover .tree-disclosure-node .arrow {
-    -fx-background-color: transparent;
-    -fx-border-color: #9eecff;
-}
-
-.tree-cell:filled:selected .tree-disclosure-node .arrow {
-    -fx-border-color: #9eecff;
-}
-
-.tree-cell:filled:selected:hover .tree-disclosure-node .arrow {
-    -fx-border-color: #9eecff;
-}
-
+/* ListTree - 现代风格 */
 .tree-cell {
     -fx-background-color: #2b2b2b;
     -fx-text-fill: lightgray;
+    -fx-font-family: "Segoe UI";   /* 现代字体 */
+    -fx-font-size: 14px;
+    -fx-padding: 5px 4px;         /* 增加内边距 */
 }
 
+/* 箭头图标 - 现代扁平化设计 */
+.tree-cell .tree-disclosure-node .arrow {
+    -fx-shape: "M 0 0 L 4 4 L 0 8 Z";  /* 简约三角形 */
+    -fx-background-color: #808080;     /* 中性灰色 */
+    -fx-scale-shape: true;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.1), 2, 0, 1, 1);
+    -fx-transition: all 0.2s;          /* 添加过渡动画 */
+}
+
+/* 展开状态 */
+.tree-cell:expanded .tree-disclosure-node .arrow {
+    -fx-rotate: 90;                   /* 通过旋转实现状态变化 */
+    -fx-background-color: #9eecff;     /* 现代绿色 */
+}
+
+/* 悬停效果 */
+.tree-cell:filled:hover {
+    -fx-background-color: #424242;     /* 悬浮背景色 */
+    -fx-cursor: hand;
+}
+
+.tree-cell:filled:hover .tree-disclosure-node .arrow {
+    -fx-background-color: #9E9E9E;      /* 悬停时变亮 */
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+/* 选中状态 */
+.tree-cell:filled:selected {
+    -fx-background-color: #2196F3;      /* Material Blue */
+    -fx-text-fill: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4px;
+}
+
+/* 树形视图整体样式 */
 .tree-view {
-    -fx-background-insets: 1;
+    -fx-background-color: #2D2D2D;
+    -fx-border-color: #404040;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 0px;
 }
 
 /* 滚动条部分 */

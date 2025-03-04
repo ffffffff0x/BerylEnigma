@@ -63,7 +63,7 @@ public class RootViewController {
             //如果选中节点是叶子节点才进行pane切换
             if ((RootTree.getSelectionModel().getSelectedItem()) != null && (RootTree.getSelectionModel().getSelectedItem()).isLeaf()) {
                 if(!"".equals(autoRootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()))){
-                    ////显示选择的页面
+                    //显示选择的页面
                     //FXML布局加载器
                     FXMLLoader loader = new FXMLLoader();
                     //根据路径加载布局

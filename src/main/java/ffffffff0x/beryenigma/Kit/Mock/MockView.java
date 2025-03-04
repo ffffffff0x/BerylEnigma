@@ -1,12 +1,12 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
+import ffffffff0x.beryenigma.App.View.Root.RootView;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -22,16 +22,15 @@ public class MockView extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BEMock");
-//        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Classical/CaesarCipher/CaesarCipherView.fxml");
-//        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Tools/Practical/Timestamp/TimestampView.fxml");
-        initRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/SymmetricEncryption/BlockCipher/BlockCipherView.fxml");
-//        initRootLayout("/ffffffff0x/beryenigma/Kit/Mock/TestView.fxml");
+//        initFXMLRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/SymmetricEncryption/BlockCipher/BlockCipherView.fxml");
+
+        initRootLayout(new RootView());
     }
 
-    public void initRootLayout(String FXMLPath) {
+    public void initFXMLRootLayout(String FXMLPath) {
         try {
 //             英文版本测试
-             englishMode();
+//             englishMode();
 
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
@@ -51,6 +50,22 @@ public class MockView extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void initRootLayout(AnchorPane anchorPane) {
+//       英文版本测试
+//       englishMode();
+
+        rootLayout = anchorPane;
+
+        primaryStage.getIcons().add(ViewUtils.getImage(ImageListInit.ICON));
+        primaryStage.setOnCloseRequest(event -> System.exit(0));
+
+        // Show the scene containing the root layout.
+        Scene scene = new Scene(rootLayout);
+        scene.getStylesheets().add(Objects.requireNonNull(MockView.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     private void englishMode(){
