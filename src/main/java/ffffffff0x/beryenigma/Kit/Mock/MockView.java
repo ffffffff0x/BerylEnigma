@@ -29,7 +29,7 @@ public class MockView extends Application {
         Init.initFont();
 
         // 英文版本测试
-        englishMode();
+//        englishMode();
 
         // 重新加载语言包
         Init.getLanguageResourceBundle();

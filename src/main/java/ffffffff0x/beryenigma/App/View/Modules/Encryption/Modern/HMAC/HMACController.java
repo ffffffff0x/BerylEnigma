@@ -157,14 +157,4 @@ public class HMACController extends ViewControllerFileMode {
         //弹出式控件框中添加初始化的控件
         popupSettingView.setSetting(new PopupSettingNode(Init.getLanguage("Charset"),JCB_charset,true));
     }
-
-    @Override
-    protected HistoryInfo buildLogMessage() {
-        StringJoiner configMessage = new StringJoiner(" ; ");
-        configMessage.add(JCB_charset.getValue().toString());
-        configMessage.add(JCB_HMACMode.getValue());
-        configMessage.add( JTA_HMACKey.getText());
-
-        return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText(), JLB_title.getText(), configMessage.toString());
-    }
 }

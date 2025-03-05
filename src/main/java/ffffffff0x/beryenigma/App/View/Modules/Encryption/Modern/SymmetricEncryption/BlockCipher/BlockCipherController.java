@@ -291,9 +291,4 @@ public class BlockCipherController extends ViewControllerFileMode {
         }
         return null;
     }
-
-    @Override
-    protected HistoryInfo buildLogMessage() {
-        return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText(), JLB_title.getText(), getBlockCipherParameters().toString());
-    }
 }

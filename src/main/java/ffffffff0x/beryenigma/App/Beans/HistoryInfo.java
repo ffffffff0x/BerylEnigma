@@ -18,9 +18,9 @@ public class HistoryInfo {
     // 功能模块操作
     String action;
     // 功能模块配置
-    String config;
+    String[] config;
 
-    public HistoryInfo(Long timestamp, String input, String output, String module, String action, String config) {
+    public HistoryInfo(Long timestamp, String input, String output, String module, String action, String[] config) {
         this.timestamp = timestamp;
         this.input = input;
         this.output = output;
@@ -37,7 +37,7 @@ public class HistoryInfo {
         this.action = action;
     }
 
-    public HistoryInfo(String input, String output, String module, String action, String config) {
+    public HistoryInfo(String input, String output, String module, String action, String[] config) {
         this.timestamp = System.currentTimeMillis();
         this.input = input;
         this.output = output;
@@ -113,11 +113,11 @@ public class HistoryInfo {
         this.action = action;
     }
 
-    public String getConfig() {
+    public String[] getConfig() {
         return config;
     }
 
-    public void setConfig(String config) {
+    public void setConfig(String[] config) {
         this.config = config;
     }
 }

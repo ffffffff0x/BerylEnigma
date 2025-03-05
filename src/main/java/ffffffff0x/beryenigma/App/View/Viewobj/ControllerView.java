@@ -177,12 +177,22 @@ public abstract class ControllerView extends AnchorPane {
         return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText());
     }
 
+    protected HistoryInfo buildLogMessage(String action, String[] config) {
+        // 返回包含源文本、目标文本和标题的日志信息
+        return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText(), action, config);
+    }
+
     /**
      * 将log写入存储与内存
      */
     protected void actionLog() {
         // 添加日志信息
         LogUtils.addLog(buildLogMessage());
+    }
+
+    protected void actionLog(String action, String... config) {
+        // 添加日志信息
+        LogUtils.addLog(buildLogMessage(action, config));
     }
 
     /**

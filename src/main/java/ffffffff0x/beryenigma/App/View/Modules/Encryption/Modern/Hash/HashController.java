@@ -109,14 +109,4 @@ public class HashController extends ViewControllerFileMode {
         super.JTADSTContextMenu();
         ViewInit.textAreaContextMenu(JTA_dst1,JTA_src);
     }
-
-    @Override
-    protected HistoryInfo buildLogMessage() {
-        StringJoiner configMessage = new StringJoiner(" ; ");
-        configMessage.add(JCB_charset.getValue().toString());
-        configMessage.add(JCB_hashMode.getValue());
-        configMessage.add(JCB_hashBit.getValue());
-
-        return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText(), JLB_title.getText(), configMessage.toString());
-    }
 }

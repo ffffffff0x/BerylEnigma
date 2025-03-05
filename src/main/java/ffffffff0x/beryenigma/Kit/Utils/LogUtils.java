@@ -19,11 +19,11 @@ public class LogUtils {
     private static Gson gson = new GsonBuilder().serializeNulls().create();
 
     // windows LOG存储目录
-    private static final String LOGPATH_WIN = System.getProperty("user.dir") +"\\app\\log";
+    private static final String LOGPATH_WIN = System.getProperty("user.dir") +"\\app\\log\\";
     // mac LOG存储目录
-    private static final String LOGPATH_MAC = System.getProperty("user.home") + "/Library/BeryEnigma/log";
+    private static final String LOGPATH_MAC = System.getProperty("user.home") + "/Library/BeryEnigma/log/";
     // linux LOG存储目录
-    private static final String LOGPATH_LINUX = System.getProperty("user.dir") + "/log";
+    private static final String LOGPATH_LINUX = System.getProperty("user.dir") + "/log/";
 
     private static LinkedList<HistoryInfo> logArrayList = new LinkedList<>();
 
@@ -41,7 +41,7 @@ public class LogUtils {
         saveLogsToDisk(gson.toJson(historyInfo));
     }
 
-    public static void addLog(String input, String output, String moduleName, String actionName,String config) {
+    public static void addLog(String input, String output, String moduleName, String actionName,String... config) {
         HistoryInfo historyInfo = new HistoryInfo(input, output, moduleName, actionName, config);
         logArrayList.add(historyInfo);
         saveLogsToDisk(gson.toJson(historyInfo));
@@ -97,13 +97,23 @@ public class LogUtils {
             logFile = new File(LOGPATH_MAC + LOGFILENAME);
         }
 
+        // 检查日志文件的目录是否存在，如果不存在就创建
+        File logDir = logFile.getParentFile();
+        if (!logDir.exists()) {
+            if (logDir.mkdirs()) {
+                System.out.println("Log Directory created successfully.");
+            } else {
+                System.out.println("Log Directory creation failed.");
+            }
+        }
+
         // 如果没有对应的文件就创建
         if (!FileUtils.checkFileExist(logFile)) {
             try {
                 if (logFile.createNewFile()) {
-                    System.out.println("File created successfully.");
+                    System.out.println("Log File created successfully.");
                 } else {
-                    System.out.println("File already exists or creation failed.");
+                    System.out.println("Log File already exists or creation failed.");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
