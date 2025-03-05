@@ -2,7 +2,7 @@
 .tree-cell {
     -fx-background-color: #ffffff;
     -fx-text-fill: black;
-    -fx-font-family: "Segoe UI";   /* 现代字体 */
+    -fx-font-family: SourceHanSansSC;   /* 现代字体 */
     -fx-font-size: 14px;
     -fx-padding: 5px 4px;         /* 增加内边距 */
 }
@@ -154,8 +154,8 @@
 }
 
 #JLB_title {
-    -fx-font-family: Jokerman;
-    /*-fx-font-family: 'Hylia Serif Beta';*/
+    /*-fx-font-family: Jokerman;*/
+    -fx-font-family: 'Hylia Serif Beta';
     -fx-font-size: 45px;
     -fx-text-fill: black;
 }
@@ -170,6 +170,11 @@
 @font-face {
     font-family: Jokerman;
     src: url("/fonts/JOKERMAN.TTF");
+}
+
+@font-face {
+    font-family: SourceHanSansSC;
+    src: url("/fonts/SourceHanSansSC-VF.otf");
 }
 
 .menu-item .label {

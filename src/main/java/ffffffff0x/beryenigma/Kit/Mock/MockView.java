@@ -4,10 +4,12 @@ import ffffffff0x.beryenigma.App.View.Root.RootView;
 import ffffffff0x.beryenigma.Init.ImageListInit;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
+import ffffffff0x.beryenigma.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +24,15 @@ public class MockView extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("BEMock");
+        // 加载字体
+        Init.initFont();
+
+        // 英文版本测试
+        englishMode();
+
+        // 重新加载语言包
+        Init.getLanguageResourceBundle();
+
 //        initFXMLRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/SymmetricEncryption/BlockCipher/BlockCipherView.fxml");
 
         initRootLayout(new RootView());
@@ -29,9 +40,6 @@ public class MockView extends Application {
 
     public void initFXMLRootLayout(String FXMLPath) {
         try {
-//             英文版本测试
-//             englishMode();
-
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             System.out.println(MockView.class.getResource(FXMLPath));
@@ -53,9 +61,6 @@ public class MockView extends Application {
     }
 
     public void initRootLayout(AnchorPane anchorPane) {
-//       英文版本测试
-//       englishMode();
-
         rootLayout = anchorPane;
 
         primaryStage.getIcons().add(ViewUtils.getImage(ImageListInit.ICON));

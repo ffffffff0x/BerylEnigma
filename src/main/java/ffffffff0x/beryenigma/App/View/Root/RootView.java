@@ -11,6 +11,7 @@ import ffffffff0x.beryenigma.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -61,7 +62,7 @@ public class RootView extends AnchorPane {
         treePane.setPrefHeight(600.0);
         treePane.setPrefWidth(270.0);
         RootTree = new JFXTreeView<>();
-        RootTree.setOnMousePressed(e -> checkView());
+        RootTree.setOnMousePressed(e -> changeView());
         AnchorPane.setBottomAnchor(RootTree, 0.0);
         AnchorPane.setLeftAnchor(RootTree, 0.0);
         AnchorPane.setRightAnchor(RootTree, 0.0);
@@ -157,23 +158,34 @@ public class RootView extends AnchorPane {
         changeStyle();
     }
 
-    private void checkView() {
+// 检查视图
+    private void changeView() {
         try {
+            // 如果根树的选择项不为空且选择项的值为"Root"
             if ((RootTree.getSelectionModel().getSelectedItem()) != null && RootTree.getSelectionModel().getSelectedItem().getValue().equals(Init.getLanguage("Root"))) {
+                // 将中心面板设置为indexpane
                 borderPane.setCenter(indexpane);
             }
+            // 如果根树的选择项不为空且选择项是叶子节点
             if ((RootTree.getSelectionModel().getSelectedItem()) != null && (RootTree.getSelectionModel().getSelectedItem()).isLeaf()) {
+                // 如果autoRootTreeNode的nodeMap中存在选择项的值
                 if(!"".equals(autoRootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem()))) {
+                    // 创建一个FXMLLoader对象
                     FXMLLoader loader = new FXMLLoader();
+                    // 设置加载的路径
                     loader.setLocation(RootViewController.class.getResource(autoRootTreeNode.nodeMap.get(RootTree.getSelectionModel().getSelectedItem())));
+                    // 设置资源
                     loader.setResources(Init.getLanguageResourceBundle());
                     try {
+                        // 加载FXML文件
                         selectedAnchorPane = loader.load();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    // 将中心面板设置为加载的FXML文件
                     borderPane.setCenter(selectedAnchorPane);
                     try {
+                        // 选择选择项的父节点
                         RootTree.getSelectionModel().select(RootTree.getSelectionModel().getSelectedItem().getParent());
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -210,17 +222,23 @@ public class RootView extends AnchorPane {
         }
     }
 
+// 改变样式
     private void changeStyle() {
+        // 如果配置文件中的AppStyle为dark，则将styleMode设置为2
         if (Init.getConfig(ConfigListInit.AppStyle).equals("dark")) {
             styleMode = 2;
         } else {
+            // 否则将styleMode设置为3
             styleMode = 3;
         }
         
+        // 设置JBT_StyleChange按钮的点击事件
         JBT_StyleChange.setOnAction((ActionEvent actionEvent) -> {
+            // 如果styleMode为100，则将styleMode设置为2
             if (styleMode == 100) {
                 styleMode = 2;
             }
+            // 如果styleMode为偶数，则将样式设置为浅色
             if (styleMode % 2 == 0) {
                 borderPane.getScene().getStylesheets().clear();
                 borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_light.css")).toExternalForm());
@@ -231,14 +249,17 @@ public class RootView extends AnchorPane {
                 RootTree.setRoot(autoRootTreeNode.rootItem);
                 styleMode++;
             } else {
+                // 否则将样式设置为深色
                 borderPane.getScene().getStylesheets().clear();
                 borderPane.getScene().getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/css/MainCSS_dark.css")).toExternalForm());
                 ConfigUtils.editConfigFile(ConfigListInit.AppStyle, "dark");
+                // 如果styleMode为11的倍数，则将logo和github图标设置为红色眼睛
                 if (styleMode % 11 == 0) {
                     IV_Logo.setImage(ViewUtils.getImage(ImageListInit.LOGO_REDEYE));
                     IV_Github.setImage(ViewUtils.getImage(ImageListInit.ICON_GITHUB));
                     JBT_StyleChange.setText("???Mode");
                 } else {
+                    // 否则将logo和github图标设置为正常
                     setImage();
                     JBT_StyleChange.setText(Init.getLanguage("DarkMode"));
                 }

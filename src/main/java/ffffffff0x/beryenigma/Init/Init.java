@@ -3,9 +3,12 @@ package ffffffff0x.beryenigma.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ConfigUtils;
 import ffffffff0x.beryenigma.Kit.Utils.FileUtils;
 import ffffffff0x.beryenigma.Kit.Utils.OSUtils;
+import ffffffff0x.beryenigma.Main;
+import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.util.MissingResourceException;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -83,5 +86,11 @@ public class Init {
     public static ResourceBundle getLanguageResourceBundle() {
         languageResourceBundle = ResourceBundle.getBundle("Language");
         return languageResourceBundle;
+    }
+
+    public static void initFont() {
+        Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/JOKERMAN.TTF")).toExternalForm(), 10);
+        Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/HyliaSerif.otf")).toExternalForm(), 10);
+        Font.loadFont(Objects.requireNonNull(Main.class.getResource("/fonts/SourceHanSansSC-VF.otf")).toExternalForm(), 10);
     }
 }
