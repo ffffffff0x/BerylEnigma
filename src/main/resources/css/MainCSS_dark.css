@@ -20,7 +20,7 @@
 /* 展开状态 */
 .tree-cell:expanded .tree-disclosure-node .arrow {
     -fx-rotate: 90;                   /* 通过旋转实现状态变化 */
-    -fx-background-color: #9eecff;     /* 现代绿色 */
+    -fx-background-color: #9eecff;
 }
 
 /* 悬停效果 */
