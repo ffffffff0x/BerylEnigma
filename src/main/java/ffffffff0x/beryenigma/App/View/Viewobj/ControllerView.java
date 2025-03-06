@@ -2,18 +2,15 @@ package ffffffff0x.beryenigma.App.View.Viewobj;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
 import ffffffff0x.beryenigma.App.Beans.HistoryConfig;
 import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.LogUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
-import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 
 import java.util.StringJoiner;

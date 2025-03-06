@@ -1,6 +1,5 @@
 package ffffffff0x.beryenigma.App.Beans;
 
-import com.google.gson.Gson;
 import ffffffff0x.beryenigma.Kit.Utils.LogUtils;
 
 /**
