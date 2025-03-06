@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import ffffffff0x.beryenigma.App.Beans.HistoryConfig;
-import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
 import ffffffff0x.beryenigma.App.View.Viewobj.ControllerView;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.OperationTypeEnum;
@@ -96,7 +95,7 @@ public class ASCIIView extends ControllerView {
             ViewUtils.textAreaValidate(JTA_dst);
         }
         actionLog(OperationTypeEnum.ENCODE.getName(),
-                new HistoryConfig(JTF_split.getPromptText(), JTF_split.getText()).toString()); // 记录日志
+                new HistoryConfig(JTF_split.getPromptText(), JTF_split.getText())); // 记录日志
     }
 
     @Override
@@ -110,7 +109,7 @@ public class ASCIIView extends ControllerView {
             ViewUtils.textAreaValidate(JTA_dst);
         }
         actionLog(OperationTypeEnum.DECODE.getName(),
-                new HistoryConfig(JTF_split.getPromptText(), JTF_split.getText()).toString()); // 记录日志
+                new HistoryConfig(JTF_split.getPromptText(), JTF_split.getText())); // 记录日志
     }
 
     private String ASCIIEnCode(){

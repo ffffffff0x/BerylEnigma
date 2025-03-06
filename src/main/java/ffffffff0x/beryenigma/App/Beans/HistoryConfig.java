@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.App.Beans;
 
 import com.google.gson.Gson;
+import ffffffff0x.beryenigma.Kit.Utils.LogUtils;
 
 /**
  * @author: RyuZUSUNC
@@ -34,7 +35,6 @@ public class HistoryConfig {
     @Override
 // 重写Object类的toString方法，用于返回对象的字符串表示
     public String toString() {
-        Gson gson = new Gson();
-        return gson.toJson(this);
+        return LogUtils.gson.toJson(this);
     }
 }

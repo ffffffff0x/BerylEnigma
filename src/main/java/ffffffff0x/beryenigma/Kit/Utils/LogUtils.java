@@ -2,6 +2,7 @@ package ffffffff0x.beryenigma.Kit.Utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import ffffffff0x.beryenigma.App.Beans.HistoryConfig;
 import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
 
 import java.io.BufferedWriter;
@@ -16,8 +17,7 @@ import java.util.Objects;
  * @create: 2023/6/24 12:36
  **/
 public class LogUtils {
-    private static Gson gson = new GsonBuilder().serializeNulls().create();
-
+    public static final Gson gson = new GsonBuilder().serializeNulls().create();
     // windows LOG存储目录
     private static final String LOGPATH_WIN = System.getProperty("user.dir") +"\\app\\log\\";
     // mac LOG存储目录
@@ -41,7 +41,7 @@ public class LogUtils {
         saveLogsToDisk(gson.toJson(historyInfo));
     }
 
-    public static void addLog(String input, String output, String moduleName, String actionName,String... config) {
+    public static void addLog(String input, String output, String moduleName, String actionName, HistoryConfig... config) {
         HistoryInfo historyInfo = new HistoryInfo(input, output, moduleName, actionName, config);
         logArrayList.add(historyInfo);
         saveLogsToDisk(gson.toJson(historyInfo));

@@ -3,6 +3,7 @@ package ffffffff0x.beryenigma.App.View.Viewobj;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import ffffffff0x.beryenigma.App.Beans.HistoryConfig;
 import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.LogUtils;
@@ -177,7 +178,7 @@ public abstract class ControllerView extends AnchorPane {
         return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText());
     }
 
-    protected HistoryInfo buildLogMessage(String action, String[] config) {
+    protected HistoryInfo buildLogMessage(String action, HistoryConfig[] config) {
         // 返回包含源文本、目标文本和标题的日志信息
         return new HistoryInfo(JTA_src.getText(), checkDstJTAText(), JLB_title.getText(), action, config);
     }
@@ -190,7 +191,7 @@ public abstract class ControllerView extends AnchorPane {
         LogUtils.addLog(buildLogMessage());
     }
 
-    protected void actionLog(String action, String... config) {
+    protected void actionLog(String action, HistoryConfig... config) {
         // 添加日志信息
         LogUtils.addLog(buildLogMessage(action, config));
     }
