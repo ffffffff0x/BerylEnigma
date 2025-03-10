@@ -16,16 +16,16 @@ public class ViewInit {
      */
     public static void comboBoxCharset(JFXComboBox JCB_temp) {
         JCB_temp.getItems().addAll(
-                StandardCharsets.UTF_8,
+                StandardCharsets.UTF_8.name(),
                 "GBK",
                 "BIG5",
-                StandardCharsets.UTF_16,
-                StandardCharsets.UTF_16LE,
-                StandardCharsets.UTF_16BE,
-                StandardCharsets.ISO_8859_1,
-                StandardCharsets.US_ASCII
+                StandardCharsets.UTF_16.name(),
+                StandardCharsets.UTF_16LE.name(),
+                StandardCharsets.UTF_16BE.name(),
+                StandardCharsets.ISO_8859_1.name(),
+                StandardCharsets.US_ASCII.name()
         );
-        JCB_temp.setValue(StandardCharsets.UTF_8);
+        JCB_temp.setValue(StandardCharsets.UTF_8.name());
         JCB_temp.setVisibleRowCount(6);
     }
 
