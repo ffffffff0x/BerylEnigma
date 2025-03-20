@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.ASCII.ASCIIView;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.URL.URLView;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.XOR.XORView;
 import ffffffff0x.beryenigma.App.View.Root.RootView;
 import ffffffff0x.beryenigma.Init.ImageListInit;

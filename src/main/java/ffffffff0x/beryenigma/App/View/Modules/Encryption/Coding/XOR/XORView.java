@@ -55,6 +55,7 @@ public class XORView extends ControllerViewFileMode {
         AnchorPane.setLeftAnchor(JTA_dst, 40.0);
         AnchorPane.setRightAnchor(JTA_dst, 40.0);
         AnchorPane.setTopAnchor(JTA_dst, 315.0);
+        AnchorPane.setBottomAnchor(JTA_dst, 37.0);
 
         JCB_charset = new JFXComboBox<>();
         JCB_charset.setPrefSize(100, 30);
@@ -65,6 +66,7 @@ public class XORView extends ControllerViewFileMode {
 
         JBT_confirm = new JFXButton(Init.getLanguage("EnCode"));
         JBT_confirm.setPrefSize(101, 50);
+        JBT_confirm.setButtonType(JFXButton.ButtonType.RAISED);
         JBT_confirm.setOnAction(event -> ONClickConfirm());
 
         ACP_controllerAnchorPane.getChildren().addAll(JTA_src, JTA_dst, JCB_charset, JTF_key, JBT_confirm);

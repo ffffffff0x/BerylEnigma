@@ -49,9 +49,11 @@ public class URLView extends ControllerView {
         AnchorPane.setBottomAnchor(JTA_dst, 37.0);
 
         JBT_enCode = new JFXButton(Init.getLanguage("EnCode"));
+        JBT_enCode.setButtonType(JFXButton.ButtonType.RAISED);
         JBT_enCode.setPrefSize(101,50);
 
         JBT_deCode = new JFXButton(Init.getLanguage("DeCode"));
+        JBT_deCode.setButtonType(JFXButton.ButtonType.RAISED);
         JBT_deCode.setPrefSize(101,50);
 
         JCB_charset = new JFXComboBox<>();
