@@ -1,32 +1,30 @@
-package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.Unicode;
+package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.MorseCoder;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import ffffffff0x.beryenigma.App.View.Viewobj.ControllerView;
 import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
 import javafx.geometry.Pos;
-import javafx.scene.layout.HBox;
-import com.jfoenix.controls.JFXButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 /**
  * @program: BerylEnigma
  * @author: RyuZU
- * @create: 2025-03-20 15:04
+ * @create: 2025-03-25 16:50
  **/
 
-public class UnicodeView extends ControllerView {
-    private HBox hBox;
-
-    public UnicodeView() {
-        super();
-    }
+public class MorseCoderView extends ControllerView {
+    JFXTextField JTF_split;
+    HBox hBox;
 
     @Override
     protected void initializeUI() {
         super.initializeUI();
 
-        JLB_title.setText("Unicode");
+        JLB_title.setText("MorseCoder");
 
         JTA_src = new JFXTextArea();
         JTA_src.setPrefSize(530,165);
@@ -51,38 +49,48 @@ public class UnicodeView extends ControllerView {
         JBT_enCode.setOnAction(event -> ONClickEncode());
         JBT_deCode.setOnAction(event -> ONClickDecode());
 
-        hBox = new HBox();
-        hBox.setSpacing(140);
-        hBox.setPrefHeight(70);
+        JTF_split = new JFXTextField();
+        JTF_split.setPromptText(Init.getLanguage("Delimiter"));
+        JTF_split.setAlignment(Pos.CENTER);
+        JTF_split.setPrefSize(110, 30);
+
+        hBox = new HBox(JBT_enCode, JTF_split, JBT_deCode);
         hBox.setAlignment(Pos.CENTER);
+        hBox.setPrefHeight(70);
+        hBox.setSpacing(50);
+        hBox.setLayoutX(40);
+        hBox.setLayoutY(220);
         AnchorPane.setLeftAnchor(hBox, 40.0);
         AnchorPane.setRightAnchor(hBox, 40.0);
-        AnchorPane.setTopAnchor(hBox, 220.0);
 
-        hBox.getChildren().addAll(JBT_enCode, JBT_deCode);
-
-        ACP_controllerAnchorPane.getChildren().addAll(JTA_src, JTA_dst);
-
-        ACP_controllerAnchorPane.getChildren().add(hBox);
-
+        ACP_controllerAnchorPane.getChildren().addAll(JTA_src, hBox, JTA_dst);
     }
 
     @Override
     public void ONClickEncode() {
+        super.ONClickEncode();
         try {
-            JTA_dst.setText(UnicodeImpl.encode(JTA_src.getText()));
-        } catch (Exception e) {
+            if(JTF_split.getText().isEmpty()){
+                JTA_dst.setText(MorseCoderImpl.encode(JTA_src.getText()," "));
+            }else{
+                JTA_dst.setText(MorseCoderImpl.encode(JTA_src.getText(),JTF_split.getText()));
+            }
+        }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }
     }
 
     @Override
     public void ONClickDecode() {
+        super.ONClickDecode();
         try {
-            JTA_dst.setText(UnicodeImpl.decode(JTA_src.getText()));
-        } catch (Exception e) {
+            if(JTF_split.getText().isEmpty()){
+                JTA_dst.setText(MorseCoderImpl.decode(JTA_src.getText()," "));
+            }else{
+                JTA_dst.setText(MorseCoderImpl.decode(JTA_src.getText(),JTF_split.getText()));
+            }
+        }catch (Exception e){
             ViewUtils.textAreaValidate(JTA_dst);
         }
     }
-
 }

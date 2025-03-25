@@ -1,6 +1,7 @@
 package ffffffff0x.beryenigma.Kit.Mock;
 
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.ASCII.ASCIIView;
+import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.MorseCoder.MorseCoderView;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.URL.URLView;
 import ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.XOR.XORView;
 import ffffffff0x.beryenigma.App.View.Root.RootView;
@@ -38,7 +39,7 @@ public class MockView extends Application {
 
 //        initFXMLRootLayout("/ffffffff0x/beryenigma/App/View/Modules/Encryption/Modern/SymmetricEncryption/BlockCipher/BlockCipherView.fxml");
 
-        initRootLayout(new XORView());
+        initRootLayout(new MorseCoderView());
     }
 
     public void initFXMLRootLayout(String FXMLPath) {
