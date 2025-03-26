@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import ffffffff0x.beryenigma.App.Beans.HistoryConfig;
 import ffffffff0x.beryenigma.App.Beans.HistoryInfo;
+import ffffffff0x.beryenigma.Init.Init;
 import ffffffff0x.beryenigma.Init.ViewInit;
 import ffffffff0x.beryenigma.Kit.Utils.LogUtils;
 import ffffffff0x.beryenigma.Kit.Utils.ViewUtils;
@@ -11,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 
 import java.util.StringJoiner;
@@ -47,6 +49,8 @@ public abstract class ControllerView extends AnchorPane {
     public JFXTextArea JTA_dst3;
     public JFXTextArea JTA_dst4;
     public JFXTextArea JTA_dst5;
+    // 按钮面板
+    public HBox HBox_Button;
 
     // 构造函数，初始化界面
     public ControllerView() {
@@ -69,7 +73,7 @@ public abstract class ControllerView extends AnchorPane {
 
     /**
      * 初始化UI组件
- * 该方法用于初始化用户界面中的各个组件
+     * 该方法用于初始化用户界面中的各个组件
      */
     protected void initializeUI() {
     // 初始化标题组件
@@ -224,5 +228,54 @@ public abstract class ControllerView extends AnchorPane {
         if (textArea != null && !textArea.getText().isEmpty()) {
             stringJoiner.add(textArea.getText());
         }
+    }
+
+    protected void setLabelTitle(String title) {
+        JLB_title.setText(title);
+    }
+
+    protected void setSrcTextArea() {
+        JTA_src = new JFXTextArea();
+        JTA_src.setPrefSize(530, 165);
+        AnchorPane.setLeftAnchor(JTA_src, 40.0);
+        AnchorPane.setRightAnchor(JTA_src, 40.0);
+        AnchorPane.setTopAnchor(JTA_src, 30.0);
+    }
+
+    protected void setDstTextArea() {
+        JTA_dst = new JFXTextArea();
+        JTA_dst.setPrefSize(530, 165);
+        JTA_dst.setEditable(false);
+        AnchorPane.setLeftAnchor(JTA_dst, 40.0);
+        AnchorPane.setRightAnchor(JTA_dst, 40.0);
+        AnchorPane.setTopAnchor(JTA_dst, 315.0);
+        AnchorPane.setBottomAnchor(JTA_dst, 37.0);
+    }
+
+    protected void setEnCodeButton() {
+        JBT_enCode = new JFXButton(Init.getLanguage("EnCode"));
+        JBT_enCode.setButtonType(JFXButton.ButtonType.RAISED);
+        JBT_enCode.setPrefSize(101,50);
+        JBT_enCode.setOnAction(e -> ONClickEncode());
+    }
+
+    protected void setDeCodeButton() {
+        JBT_deCode = new JFXButton(Init.getLanguage("DeCode"));
+        JBT_deCode.setButtonType(JFXButton.ButtonType.RAISED);
+        JBT_deCode.setPrefSize(101,50);
+        JBT_deCode.setOnAction(e -> ONClickDecode());
+    }
+
+    protected void setButtonHbox() {
+        HBox_Button = new HBox(110, JBT_enCode, JBT_deCode);
+        HBox_Button.setAlignment(Pos.CENTER);
+        HBox_Button.setPrefHeight(70);
+        AnchorPane.setTopAnchor(HBox_Button, 220.0);
+        AnchorPane.setLeftAnchor(HBox_Button, 40.0);
+        AnchorPane.setRightAnchor(HBox_Button, 40.0);
+    }
+
+    protected void setControllerAnchorPane() {
+        ACP_controllerAnchorPane.getChildren().addAll(JTA_src, HBox_Button, JTA_dst);
     }
 }
