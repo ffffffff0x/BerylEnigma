@@ -1,7 +1,5 @@
 package ffffffff0x.beryenigma.App.View.Modules.Encryption.Coding.MorseCoder;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import ffffffff0x.beryenigma.App.View.Viewobj.ControllerView;
 import ffffffff0x.beryenigma.Init.Init;
